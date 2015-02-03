@@ -1,0 +1,493 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		005DCA861A805A3900E55C0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DCA851A805A3900E55C0D /* AppDelegate.swift */; };
+		005DCA891A805A3900E55C0D /* PinchPad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 005DCA871A805A3900E55C0D /* PinchPad.xcdatamodeld */; };
+		005DCA8B1A805A3900E55C0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DCA8A1A805A3900E55C0D /* ViewController.swift */; };
+		005DCA8E1A805A3900E55C0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 005DCA8C1A805A3900E55C0D /* Main.storyboard */; };
+		005DCA901A805A3900E55C0D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 005DCA8F1A805A3900E55C0D /* Images.xcassets */; };
+		005DCA931A805A3900E55C0D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 005DCA911A805A3900E55C0D /* LaunchScreen.xib */; };
+		005DCA9F1A805A3A00E55C0D /* PinchPadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DCA9E1A805A3A00E55C0D /* PinchPadTests.swift */; };
+		005DCAAC1A805A9D00E55C0D /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005DCAA91A805A9D00E55C0D /* TwitterKit.framework */; };
+		005DCAAD1A805A9D00E55C0D /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 005DCAAA1A805A9D00E55C0D /* TwitterKitResources.bundle */; };
+		005DCAAE1A805A9D00E55C0D /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005DCAAB1A805A9D00E55C0D /* Fabric.framework */; };
+		005DCAB11A805B5800E55C0D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005DCAB01A805B5800E55C0D /* Crashlytics.framework */; };
+		005DCAB41A805C8F00E55C0D /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 005DCAB31A805C8F00E55C0D /* Configuration.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		005DCA991A805A3A00E55C0D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 005DCA781A805A3900E55C0D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 005DCA7F1A805A3900E55C0D;
+			remoteInfo = PinchPad;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		005DCA801A805A3900E55C0D /* PinchPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinchPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		005DCA841A805A3900E55C0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		005DCA851A805A3900E55C0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		005DCA881A805A3900E55C0D /* PinchPad.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PinchPad.xcdatamodel; sourceTree = "<group>"; };
+		005DCA8A1A805A3900E55C0D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		005DCA8D1A805A3900E55C0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		005DCA8F1A805A3900E55C0D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		005DCA921A805A3900E55C0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		005DCA981A805A3A00E55C0D /* PinchPadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinchPadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		005DCA9D1A805A3A00E55C0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		005DCA9E1A805A3A00E55C0D /* PinchPadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinchPadTests.swift; sourceTree = "<group>"; };
+		005DCAA91A805A9D00E55C0D /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = SOURCE_ROOT; };
+		005DCAAA1A805A9D00E55C0D /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = SOURCE_ROOT; };
+		005DCAAB1A805A9D00E55C0D /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
+		005DCAB01A805B5800E55C0D /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
+		005DCAB31A805C8F00E55C0D /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		005DCA7D1A805A3900E55C0D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				005DCAAC1A805A9D00E55C0D /* TwitterKit.framework in Frameworks */,
+				005DCAB11A805B5800E55C0D /* Crashlytics.framework in Frameworks */,
+				005DCAAE1A805A9D00E55C0D /* Fabric.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		005DCA951A805A3A00E55C0D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		005DCA771A805A3900E55C0D = {
+			isa = PBXGroup;
+			children = (
+				005DCA821A805A3900E55C0D /* PinchPad */,
+				005DCA9B1A805A3A00E55C0D /* PinchPadTests */,
+				005DCA811A805A3900E55C0D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		005DCA811A805A3900E55C0D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				005DCA801A805A3900E55C0D /* PinchPad.app */,
+				005DCA981A805A3A00E55C0D /* PinchPadTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		005DCA821A805A3900E55C0D /* PinchPad */ = {
+			isa = PBXGroup;
+			children = (
+				005DCAB21A805B6F00E55C0D /* Dependencies */,
+				005DCA851A805A3900E55C0D /* AppDelegate.swift */,
+				005DCA8A1A805A3900E55C0D /* ViewController.swift */,
+				005DCA8C1A805A3900E55C0D /* Main.storyboard */,
+				005DCA8F1A805A3900E55C0D /* Images.xcassets */,
+				005DCA911A805A3900E55C0D /* LaunchScreen.xib */,
+				005DCA871A805A3900E55C0D /* PinchPad.xcdatamodeld */,
+				005DCA831A805A3900E55C0D /* Supporting Files */,
+			);
+			path = PinchPad;
+			sourceTree = "<group>";
+		};
+		005DCA831A805A3900E55C0D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				005DCA841A805A3900E55C0D /* Info.plist */,
+				005DCAB31A805C8F00E55C0D /* Configuration.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		005DCA9B1A805A3A00E55C0D /* PinchPadTests */ = {
+			isa = PBXGroup;
+			children = (
+				005DCA9E1A805A3A00E55C0D /* PinchPadTests.swift */,
+				005DCA9C1A805A3A00E55C0D /* Supporting Files */,
+			);
+			path = PinchPadTests;
+			sourceTree = "<group>";
+		};
+		005DCA9C1A805A3A00E55C0D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				005DCA9D1A805A3A00E55C0D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		005DCAB21A805B6F00E55C0D /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				005DCAB01A805B5800E55C0D /* Crashlytics.framework */,
+				005DCAA91A805A9D00E55C0D /* TwitterKit.framework */,
+				005DCAAA1A805A9D00E55C0D /* TwitterKitResources.bundle */,
+				005DCAAB1A805A9D00E55C0D /* Fabric.framework */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		005DCA7F1A805A3900E55C0D /* PinchPad */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 005DCAA21A805A3A00E55C0D /* Build configuration list for PBXNativeTarget "PinchPad" */;
+			buildPhases = (
+				005DCA7C1A805A3900E55C0D /* Sources */,
+				005DCA7D1A805A3900E55C0D /* Frameworks */,
+				005DCA7E1A805A3900E55C0D /* Resources */,
+				005DCAA81A805A8E00E55C0D /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PinchPad;
+			productName = PinchPad;
+			productReference = 005DCA801A805A3900E55C0D /* PinchPad.app */;
+			productType = "com.apple.product-type.application";
+		};
+		005DCA971A805A3A00E55C0D /* PinchPadTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 005DCAA51A805A3A00E55C0D /* Build configuration list for PBXNativeTarget "PinchPadTests" */;
+			buildPhases = (
+				005DCA941A805A3A00E55C0D /* Sources */,
+				005DCA951A805A3A00E55C0D /* Frameworks */,
+				005DCA961A805A3A00E55C0D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				005DCA9A1A805A3A00E55C0D /* PBXTargetDependency */,
+			);
+			name = PinchPadTests;
+			productName = PinchPadTests;
+			productReference = 005DCA981A805A3A00E55C0D /* PinchPadTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		005DCA781A805A3900E55C0D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				TargetAttributes = {
+					005DCA7F1A805A3900E55C0D = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					005DCA971A805A3A00E55C0D = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 005DCA7F1A805A3900E55C0D;
+					};
+				};
+			};
+			buildConfigurationList = 005DCA7B1A805A3900E55C0D /* Build configuration list for PBXProject "PinchPad" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 005DCA771A805A3900E55C0D;
+			productRefGroup = 005DCA811A805A3900E55C0D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				005DCA7F1A805A3900E55C0D /* PinchPad */,
+				005DCA971A805A3A00E55C0D /* PinchPadTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		005DCA7E1A805A3900E55C0D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				005DCAAD1A805A9D00E55C0D /* TwitterKitResources.bundle in Resources */,
+				005DCAB41A805C8F00E55C0D /* Configuration.plist in Resources */,
+				005DCA8E1A805A3900E55C0D /* Main.storyboard in Resources */,
+				005DCA931A805A3900E55C0D /* LaunchScreen.xib in Resources */,
+				005DCA901A805A3900E55C0D /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		005DCA961A805A3A00E55C0D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		005DCAA81A805A8E00E55C0D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 5471874bd816bcc9bb379c6869cfcf9ebf36b54b f073d4b928a743d390fcb5bf5972f113c4fd47fd343eeda567936ecf56bebeda";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		005DCA7C1A805A3900E55C0D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				005DCA8B1A805A3900E55C0D /* ViewController.swift in Sources */,
+				005DCA891A805A3900E55C0D /* PinchPad.xcdatamodeld in Sources */,
+				005DCA861A805A3900E55C0D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		005DCA941A805A3A00E55C0D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				005DCA9F1A805A3A00E55C0D /* PinchPadTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		005DCA9A1A805A3A00E55C0D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 005DCA7F1A805A3900E55C0D /* PinchPad */;
+			targetProxy = 005DCA991A805A3A00E55C0D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		005DCA8C1A805A3900E55C0D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				005DCA8D1A805A3900E55C0D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		005DCA911A805A3900E55C0D /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				005DCA921A805A3900E55C0D /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		005DCAA01A805A3A00E55C0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		005DCAA11A805A3A00E55C0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		005DCAA31A805A3A00E55C0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = PinchPad/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		005DCAA41A805A3A00E55C0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = PinchPad/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		005DCAA61A805A3A00E55C0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PinchPadTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PinchPad.app/PinchPad";
+			};
+			name = Debug;
+		};
+		005DCAA71A805A3A00E55C0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PinchPadTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PinchPad.app/PinchPad";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		005DCA7B1A805A3900E55C0D /* Build configuration list for PBXProject "PinchPad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				005DCAA01A805A3A00E55C0D /* Debug */,
+				005DCAA11A805A3A00E55C0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		005DCAA21A805A3A00E55C0D /* Build configuration list for PBXNativeTarget "PinchPad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				005DCAA31A805A3A00E55C0D /* Debug */,
+				005DCAA41A805A3A00E55C0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		005DCAA51A805A3A00E55C0D /* Build configuration list for PBXNativeTarget "PinchPadTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				005DCAA61A805A3A00E55C0D /* Debug */,
+				005DCAA71A805A3A00E55C0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		005DCA871A805A3900E55C0D /* PinchPad.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				005DCA881A805A3900E55C0D /* PinchPad.xcdatamodel */,
+			);
+			currentVersion = 005DCA881A805A3900E55C0D /* PinchPad.xcdatamodel */;
+			path = PinchPad.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 005DCA781A805A3900E55C0D /* Project object */;
+}
