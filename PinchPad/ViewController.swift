@@ -8,6 +8,7 @@
 
 import UIKit
 import TwitterKit
+import CoreData
 
 class ViewController: UIViewController {
 
