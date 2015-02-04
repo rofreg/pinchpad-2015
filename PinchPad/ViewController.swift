@@ -14,21 +14,37 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        let logInButton = TWTRLogInButton(logInCompletion: {
-            (session: TWTRSession!, error: NSError!) in
-            // play with Twitter session
-        })
-        logInButton.center = self.view.center
-        self.view.addSubview(logInButton)
-
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        // Check that the user is logged in
+        if Twitter.sharedInstance().session() == nil {
+            logIn()
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    func logIn(){
+        // Present Twitter login modal
+        Twitter.sharedInstance().logInWithCompletion{(session: TWTRSession!, error: NSError!) -> Void in
+            if session != nil {
+                // We logged in successfully
+                println(session.userName)
+            }
+        }
+        
+        // Note: if the user cancels Twitter login, they will be returned to the main screen
+        // That in turn will trigger viewDidAppear, and the Twitter login screen will re-open in an infinite loop
+        // This is intentional – the user MUST log in with Twitter before they can do anything else
+    }
+    
+    @IBAction func logOut(sender: UIButton) {
+        Twitter.sharedInstance().logOut()
+        logIn()
+    }
 }
 
