@@ -19,6 +19,7 @@
 		005DCAAE1A805A9D00E55C0D /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005DCAAB1A805A9D00E55C0D /* Fabric.framework */; };
 		005DCAB11A805B5800E55C0D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005DCAB01A805B5800E55C0D /* Crashlytics.framework */; };
 		005DCAB41A805C8F00E55C0D /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 005DCAB31A805C8F00E55C0D /* Configuration.plist */; };
+		549C1A9046DAFD69D865E42D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C99AF48C4CDD31EAF506DC8D /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,9 @@
 		005DCAAB1A805A9D00E55C0D /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		005DCAB01A805B5800E55C0D /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		005DCAB31A805C8F00E55C0D /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
+		073EBFF2AEE1F8B7C4577933 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		C99AF48C4CDD31EAF506DC8D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE6E373A2F0576890450A69C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 				005DCAAC1A805A9D00E55C0D /* TwitterKit.framework in Frameworks */,
 				005DCAB11A805B5800E55C0D /* Crashlytics.framework in Frameworks */,
 				005DCAAE1A805A9D00E55C0D /* Fabric.framework in Frameworks */,
+				549C1A9046DAFD69D865E42D /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +82,8 @@
 				005DCA821A805A3900E55C0D /* PinchPad */,
 				005DCA9B1A805A3A00E55C0D /* PinchPadTests */,
 				005DCA811A805A3900E55C0D /* Products */,
+				7751E7D957A3925FFFC1A65C /* Pods */,
+				3BE3E580DFEC8E60254E97A7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -141,6 +148,23 @@
 			name = Dependencies;
 			sourceTree = "<group>";
 		};
+		3BE3E580DFEC8E60254E97A7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C99AF48C4CDD31EAF506DC8D /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7751E7D957A3925FFFC1A65C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				073EBFF2AEE1F8B7C4577933 /* Pods.debug.xcconfig */,
+				DE6E373A2F0576890450A69C /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -148,10 +172,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 005DCAA21A805A3A00E55C0D /* Build configuration list for PBXNativeTarget "PinchPad" */;
 			buildPhases = (
+				EC0652EB5C98DD373B654D6E /* Check Pods Manifest.lock */,
 				005DCA7C1A805A3900E55C0D /* Sources */,
 				005DCA7D1A805A3900E55C0D /* Frameworks */,
 				005DCA7E1A805A3900E55C0D /* Resources */,
 				005DCAA81A805A8E00E55C0D /* ShellScript */,
+				4E344F8F7998CFE2BF6F4C14 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -251,6 +277,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run 5471874bd816bcc9bb379c6869cfcf9ebf36b54b f073d4b928a743d390fcb5bf5972f113c4fd47fd343eeda567936ecf56bebeda";
+		};
+		4E344F8F7998CFE2BF6F4C14 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC0652EB5C98DD373B654D6E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -384,6 +440,7 @@
 		};
 		005DCAA31A805A3A00E55C0D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 073EBFF2AEE1F8B7C4577933 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -391,6 +448,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = PinchPad/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -398,6 +456,7 @@
 		};
 		005DCAA41A805A3A00E55C0D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE6E373A2F0576890450A69C /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -405,6 +464,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = PinchPad/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
