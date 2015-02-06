@@ -11,7 +11,7 @@ import TwitterKit
 import CoreData
 
 class ViewController: UIViewController {
-    @IBOutlet var canvas: PPCanvas!
+    @IBOutlet var canvas: PPInfiniteScrollView!
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

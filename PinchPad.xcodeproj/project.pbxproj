@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		003ABDF21A84653200F51534 /* PPCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003ABDF11A84653200F51534 /* PPCanvas.swift */; };
+		00062D761A854A9F008CD159 /* PPCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00062D751A854A9F008CD159 /* PPCanvas.swift */; };
+		003ABDF21A84653200F51534 /* PPInfiniteScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003ABDF11A84653200F51534 /* PPInfiniteScrollView.swift */; };
+		003ABDF41A852CE600F51534 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 003ABDF31A852CE600F51534 /* background.png */; };
 		005DCA861A805A3900E55C0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DCA851A805A3900E55C0D /* AppDelegate.swift */; };
 		005DCA891A805A3900E55C0D /* PinchPad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 005DCA871A805A3900E55C0D /* PinchPad.xcdatamodeld */; };
 		005DCA8B1A805A3900E55C0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DCA8A1A805A3900E55C0D /* ViewController.swift */; };
@@ -34,7 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		003ABDF11A84653200F51534 /* PPCanvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPCanvas.swift; sourceTree = "<group>"; };
+		00062D751A854A9F008CD159 /* PPCanvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPCanvas.swift; sourceTree = "<group>"; };
+		003ABDF11A84653200F51534 /* PPInfiniteScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPInfiniteScrollView.swift; sourceTree = "<group>"; };
+		003ABDF31A852CE600F51534 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		005DCA801A805A3900E55C0D /* PinchPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinchPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		005DCA841A805A3900E55C0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		005DCA851A805A3900E55C0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -102,10 +106,12 @@
 		005DCA821A805A3900E55C0D /* PinchPad */ = {
 			isa = PBXGroup;
 			children = (
+				003ABDF31A852CE600F51534 /* background.png */,
 				005DCAB21A805B6F00E55C0D /* Dependencies */,
 				005DCA851A805A3900E55C0D /* AppDelegate.swift */,
 				005DCA8A1A805A3900E55C0D /* ViewController.swift */,
-				003ABDF11A84653200F51534 /* PPCanvas.swift */,
+				003ABDF11A84653200F51534 /* PPInfiniteScrollView.swift */,
+				00062D751A854A9F008CD159 /* PPCanvas.swift */,
 				005DCA8C1A805A3900E55C0D /* Main.storyboard */,
 				005DCA8F1A805A3900E55C0D /* Images.xcassets */,
 				005DCA911A805A3900E55C0D /* LaunchScreen.xib */,
@@ -221,6 +227,7 @@
 				TargetAttributes = {
 					005DCA7F1A805A3900E55C0D = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = PNVC5FHCQS;
 					};
 					005DCA971A805A3A00E55C0D = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -253,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				005DCAAD1A805A9D00E55C0D /* TwitterKitResources.bundle in Resources */,
+				003ABDF41A852CE600F51534 /* background.png in Resources */,
 				005DCAB41A805C8F00E55C0D /* Configuration.plist in Resources */,
 				005DCA8E1A805A3900E55C0D /* Main.storyboard in Resources */,
 				005DCA931A805A3900E55C0D /* LaunchScreen.xib in Resources */,
@@ -321,7 +329,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				005DCA8B1A805A3900E55C0D /* ViewController.swift in Sources */,
-				003ABDF21A84653200F51534 /* PPCanvas.swift in Sources */,
+				00062D761A854A9F008CD159 /* PPCanvas.swift in Sources */,
+				003ABDF21A84653200F51534 /* PPInfiniteScrollView.swift in Sources */,
 				005DCA891A805A3900E55C0D /* PinchPad.xcdatamodeld in Sources */,
 				005DCA861A805A3900E55C0D /* AppDelegate.swift in Sources */,
 			);
@@ -450,6 +459,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -469,6 +479,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
