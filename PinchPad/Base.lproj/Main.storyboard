@@ -33,14 +33,24 @@
                                     <barButtonItem title="Post" id="8fm-qO-pVW"/>
                                 </items>
                             </toolbar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceHorizontal="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lC9-ky-yMA" customClass="PPCanvas" customModule="PinchPad" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="lC9-ky-yMA" secondAttribute="trailing" id="0pt-tR-riw"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lC9-ky-yMA" secondAttribute="bottom" id="3jJ-s2-dTT"/>
                             <constraint firstItem="S3K-nm-vNd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="85Z-zS-pas"/>
                             <constraint firstItem="S3K-nm-vNd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Jpm-h3-3pm"/>
                             <constraint firstAttribute="trailing" secondItem="S3K-nm-vNd" secondAttribute="trailing" id="gL6-EU-44s"/>
+                            <constraint firstItem="lC9-ky-yMA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="uVq-wm-uxi"/>
+                            <constraint firstItem="lC9-ky-yMA" firstAttribute="top" secondItem="S3K-nm-vNd" secondAttribute="bottom" id="ysE-Iy-uUH"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="canvas" destination="lC9-ky-yMA" id="ovU-9g-uOh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

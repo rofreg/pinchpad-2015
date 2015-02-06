@@ -11,6 +11,7 @@ import TwitterKit
 import CoreData
 
 class ViewController: UIViewController {
+    @IBOutlet var canvas: PPCanvas!
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		003ABDF21A84653200F51534 /* PPCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003ABDF11A84653200F51534 /* PPCanvas.swift */; };
 		005DCA861A805A3900E55C0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DCA851A805A3900E55C0D /* AppDelegate.swift */; };
 		005DCA891A805A3900E55C0D /* PinchPad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 005DCA871A805A3900E55C0D /* PinchPad.xcdatamodeld */; };
 		005DCA8B1A805A3900E55C0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DCA8A1A805A3900E55C0D /* ViewController.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		003ABDF11A84653200F51534 /* PPCanvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPCanvas.swift; sourceTree = "<group>"; };
 		005DCA801A805A3900E55C0D /* PinchPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinchPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		005DCA841A805A3900E55C0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		005DCA851A805A3900E55C0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				005DCAB21A805B6F00E55C0D /* Dependencies */,
 				005DCA851A805A3900E55C0D /* AppDelegate.swift */,
 				005DCA8A1A805A3900E55C0D /* ViewController.swift */,
+				003ABDF11A84653200F51534 /* PPCanvas.swift */,
 				005DCA8C1A805A3900E55C0D /* Main.storyboard */,
 				005DCA8F1A805A3900E55C0D /* Images.xcassets */,
 				005DCA911A805A3900E55C0D /* LaunchScreen.xib */,
@@ -318,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				005DCA8B1A805A3900E55C0D /* ViewController.swift in Sources */,
+				003ABDF21A84653200F51534 /* PPCanvas.swift in Sources */,
 				005DCA891A805A3900E55C0D /* PinchPad.xcdatamodeld in Sources */,
 				005DCA861A805A3900E55C0D /* AppDelegate.swift in Sources */,
 			);
