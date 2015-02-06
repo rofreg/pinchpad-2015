@@ -20,11 +20,33 @@ PODS:
   - AFNetworking/UIKit (2.5.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - JXHTTP (1.0.4)
+  - Spectacles (1.0.1)
+  - TMTumblrSDK (2.0.2):
+    - TMTumblrSDK/Activity (= 2.0.2)
+    - TMTumblrSDK/APIClient (= 2.0.2)
+    - TMTumblrSDK/AppClient (= 2.0.2)
+    - TMTumblrSDK/Core (= 2.0.2)
+  - TMTumblrSDK/Activity (2.0.2)
+  - TMTumblrSDK/APIClient (2.0.2):
+    - JXHTTP (~> 1.0)
+    - TMTumblrSDK/APIClient/Authentication (= 2.0.2)
+  - TMTumblrSDK/APIClient/Authentication (2.0.2):
+    - JXHTTP (~> 1.0)
+    - TMTumblrSDK/Core
+  - TMTumblrSDK/AppClient (2.0.2):
+    - TMTumblrSDK/Core
+  - TMTumblrSDK/Core (2.0.2):
+    - Spectacles (~> 1.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - TMTumblrSDK
 
 SPEC CHECKSUMS:
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
+  JXHTTP: 528be324dcd08afdd63bc0ac1b80c4df2cb2b5f0
+  Spectacles: 25ef87ffc5764fcbc4511edf3983583ad24bf97d
+  TMTumblrSDK: 1e88ee210471f5eaf2811926f5512101c0b4b32e
 
 COCOAPODS: 0.35.0

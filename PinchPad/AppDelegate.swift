@@ -19,12 +19,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Load Twitter API key info from Configuration.plist
+        // Load Twitter and Tumblr API keys info from Configuration.plist
         if let config = NSDictionary(contentsOfFile: NSBundle.mainBundle().pathForResource("Configuration", ofType:"plist")!){
             if let twitter = (config["TwitterAPI"] as? NSDictionary){
                 var consumerKey = twitter["ConsumerKey"]! as String
                 var consumerSecret = twitter["ConsumerSecret"]! as String
                 Twitter.sharedInstance().startWithConsumerKey(consumerKey, consumerSecret:consumerSecret)
+            }
+            if let tumblr = (config["TumblrAPI"] as? NSDictionary){
+                var consumerKey = tumblr["ConsumerKey"]! as String
+                var consumerSecret = tumblr["ConsumerSecret"]! as String
+                TMAPIClient.sharedInstance().OAuthConsumerKey = consumerKey
+                TMAPIClient.sharedInstance().OAuthConsumerSecret = consumerSecret
             }
         }
     

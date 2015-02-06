@@ -12,39 +12,63 @@ import CoreData
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        // Check that the user is logged in
-        if Twitter.sharedInstance().session() == nil {
-            logIn()
-        }
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func logIn(){
+    func logInToTwitter(){
         // Present Twitter login modal
         Twitter.sharedInstance().logInWithCompletion{(session: TWTRSession!, error: NSError!) -> Void in
             if session != nil {
                 // We logged in successfully
                 println(session.userName)
+                println(session)
             }
         }
-        
-        // Note: if the user cancels Twitter login, they will be returned to the main screen
-        // That in turn will trigger viewDidAppear, and the Twitter login screen will re-open in an infinite loop
-        // This is intentional – the user MUST log in with Twitter before they can do anything else
     }
     
-    @IBAction func logOut(sender: UIButton) {
+    @IBAction func logOutOfTwitter() {
         Twitter.sharedInstance().logOut()
-        logIn()
+    }
+    
+    @IBAction func showActionSheet(sender: AnyObject) {
+        let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        
+        let twitterLoggedIn = (Twitter.sharedInstance().session() != nil)
+        let tumblrLoggedIn = (false)
+        
+        // Set up buttons
+        let twitterAction = UIAlertAction(title: (twitterLoggedIn ? "Auto-post to Twitter: ON" : "Auto-post to Twitter: OFF"), style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            if (Twitter.sharedInstance().session() == nil){
+                self.logInToTwitter()
+            } else {
+                self.logOutOfTwitter()
+            }
+            println("Twitter status changed")
+        })
+        let tumblrAction = UIAlertAction(title: (tumblrLoggedIn ? "Auto-post to Tumblr: ON" : "Auto-post to Tumblr: OFF"), style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            println("Tumblr status changed")
+        })
+        let clearAction = UIAlertAction(title: "Clear canvas", style: .Destructive, handler: {
+            (alert: UIAlertAction!) -> Void in
+            println("Clear canvas")
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+            println("Cancelled")
+        })
+        
+        // Add buttons
+        optionMenu.addAction(twitterAction)
+        optionMenu.addAction(tumblrAction)
+        optionMenu.addAction(clearAction)
+        optionMenu.addAction(cancelAction)
+        
+        // Show menu
+        self.presentViewController(optionMenu, animated: true, completion: nil)
     }
 }
 
