@@ -25,8 +25,16 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="D5H-99-6fa"/>
-                                    <barButtonItem systemItem="rewind" id="10x-ut-eWD"/>
-                                    <barButtonItem systemItem="fastForward" id="ZmW-W3-c7r"/>
+                                    <barButtonItem systemItem="rewind" id="10x-ut-eWD">
+                                        <connections>
+                                            <action selector="undo" destination="BYZ-38-t0r" id="mYh-iL-fYP"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="fastForward" id="ZmW-W3-c7r">
+                                        <connections>
+                                            <action selector="redo" destination="BYZ-38-t0r" id="iZl-He-Dbm"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem systemItem="compose" id="ngJ-Vx-VNj"/>
                                     <barButtonItem systemItem="stop" id="ehw-du-WEn"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="WAJ-eE-RfF"/>

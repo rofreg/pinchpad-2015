@@ -29,8 +29,16 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func logOutOfTwitter() {
+    func logOutOfTwitter() {
         Twitter.sharedInstance().logOut()
+    }
+    
+    @IBAction func undo(){
+        self.canvas.undo()
+    }
+    
+    @IBAction func redo(){
+        self.canvas.redo()
     }
     
     @IBAction func showActionSheet(sender: AnyObject) {
@@ -56,6 +64,7 @@ class ViewController: UIViewController {
         let clearAction = UIAlertAction(title: "Clear canvas", style: .Destructive, handler: {
             (alert: UIAlertAction!) -> Void in
             println("Clear canvas")
+            self.canvas.clear()
         })
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
             (alert: UIAlertAction!) -> Void in

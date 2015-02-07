@@ -9,7 +9,8 @@
 import UIKit
 
 class PPInfiniteScrollView: UIScrollView, UIScrollViewDelegate{
-    var contentView: UIView!
+    var contentView: PPCanvas!
+    var diagnosticsView: UILabel!
     
     required init(coder: NSCoder) {
         super.init(coder: coder)
@@ -21,6 +22,14 @@ class PPInfiniteScrollView: UIScrollView, UIScrollViewDelegate{
         self.contentView = PPCanvas(frame: self.bounds)
         addSubview(self.contentView)
         
+        // Initialize a view for showing diagnostics
+        self.diagnosticsView = UILabel(frame: CGRectMake(10, 10, 100, 100))
+        self.diagnosticsView.textAlignment = NSTextAlignment.Left
+        self.diagnosticsView.numberOfLines = 0
+        self.diagnosticsView.text = "Testing"
+        addSubview(self.diagnosticsView)
+        NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "updateDiagnostics", userInfo: nil, repeats: true)
+        
         // Only scroll with two fingers, plz
         if let recognizers = self.gestureRecognizers{
             for recognizer in recognizers{
@@ -29,6 +38,11 @@ class PPInfiniteScrollView: UIScrollView, UIScrollViewDelegate{
                 }
             }
         }
+    }
+    
+    func updateDiagnostics(){
+        self.diagnosticsView.text = "\(self.contentView.touchEvents)"
+        self.contentView.touchEvents = 0
     }
     
     override func layoutSubviews() {
@@ -60,5 +74,17 @@ class PPInfiniteScrollView: UIScrollView, UIScrollViewDelegate{
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
         return nil
 //        return self.contentView
+    }
+    
+    func clear(){
+        self.contentView.clear()
+    }
+    
+    func undo(){
+        self.contentView.undo()
+    }
+    
+    func redo(){
+        self.contentView.redo()
     }
 }
