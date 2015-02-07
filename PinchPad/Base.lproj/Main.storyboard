@@ -41,7 +41,7 @@
                                     <barButtonItem title="Post" id="8fm-qO-pVW"/>
                                 </items>
                             </toolbar>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" delaysContentTouches="NO" minimumZoomScale="0.0" maximumZoomScale="4" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="lC9-ky-yMA" customClass="PPInfiniteScrollView" customModule="PinchPad" customModuleProvider="target">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" delaysContentTouches="NO" maximumZoomScale="4" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="lC9-ky-yMA" customClass="PPInfiniteScrollView" customModule="PinchPad" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                             </scrollView>
                         </subviews>

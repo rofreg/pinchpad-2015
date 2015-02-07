@@ -28,7 +28,7 @@ class PPInfiniteScrollView: UIScrollView, UIScrollViewDelegate{
         self.diagnosticsView.numberOfLines = 0
         self.diagnosticsView.text = "Testing"
         addSubview(self.diagnosticsView)
-        NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "updateDiagnostics", userInfo: nil, repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(0.2, target: self, selector: "updateDiagnostics", userInfo: nil, repeats: true)
         
         // Only scroll with two fingers, plz
         if let recognizers = self.gestureRecognizers{
@@ -41,13 +41,13 @@ class PPInfiniteScrollView: UIScrollView, UIScrollViewDelegate{
     }
     
     func updateDiagnostics(){
-        self.diagnosticsView.text = "\(self.contentView.touchEvents)"
+        self.diagnosticsView.text = "\(self.contentView.touchEvents * 5)"
         self.contentView.touchEvents = 0
     }
     
     override func layoutSubviews() {
         // Set content size to 2x screen width, 1x screen height
-        self.contentSize = CGSize(width:CGRectGetWidth(frame) * 2, height: CGRectGetHeight(frame) * 2)
+        self.contentSize = CGSize(width:CGRectGetWidth(frame) * 2, height: CGRectGetHeight(frame))
         self.contentView.frame.size = self.contentSize;
 //        self.contentView.frame.size.width -= 50
 //        self.contentView.frame.size.height -= 50
