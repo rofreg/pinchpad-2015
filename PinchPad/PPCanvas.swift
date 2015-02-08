@@ -12,13 +12,12 @@ class PPCanvas: UIView{
     var strokes = [PPStroke]()
     var redoStrokes = [PPStroke]()
     var activeStroke: PPStroke?
+    var activeStrokeSegmentsDrawn = 0
     var canvasThusFar: UIImage?
     var touchEvents = 0
-//    var diagnosticsLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
         self.backgroundColor = UIColor.clearColor()
     }
 
@@ -26,21 +25,23 @@ class PPCanvas: UIView{
         super.init(coder: coder)
     }
     
+    
+    // MARK: Touch handling
+    
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         self.touchEvents++
         self.activeStroke = PPStroke(color: UIColor.blackColor(), width: 5.0)
         self.activeStroke!.addPoint(touches.anyObject() as UITouch, inView:self)
+        self.activeStrokeSegmentsDrawn = 0
     }
     
     override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
         self.touchEvents++
         self.activeStroke!.addPoint(touches.anyObject() as UITouch, inView:self)
         
-        if (self.activeStroke!.points.count % 3 == 0){
-            UIGraphicsBeginImageContext(self.frame.size)
-            drawStroke(self.activeStroke!, quickly: true)
+        // Only redraw the active stroke once every .05s or so
+        if (!self.activeStroke!.isDot()){
             self.setNeedsDisplay()
-            UIGraphicsEndImageContext()
         }
     }
     
@@ -52,52 +53,8 @@ class PPCanvas: UIView{
         self.setNeedsDisplay()
     }
     
-    func drawStroke(stroke: PPStroke, quickly:Bool){
-        if CGColorGetAlpha(stroke.color.CGColor) == 0 {
-            // Eraser mode
-            CGContextSetBlendMode(UIGraphicsGetCurrentContext(), kCGBlendModeClear)
-        } else {
-            // Pencil mode
-            CGContextSetBlendMode(UIGraphicsGetCurrentContext() ,kCGBlendModeNormal)
-        }
-        
-        stroke.color.setFill()
-        for path in stroke.asBezierPaths(){
-            path.fill()
-        }
-    }
     
-    override func drawRect(rect: CGRect) {
-        if let sublayers = self.layer.sublayers{
-            println("test")
-            for layer in self.layer.sublayers{
-                if let l = layer as? CALayer{
-                    l.removeFromSuperlayer()
-                }
-            }
-        }
-        
-        if let stroke = activeStroke{
-            // Only draw the most recent line
-            if let cachedImage = canvasThusFar {
-                cachedImage.drawInRect(rect)
-            }
-            drawStroke(stroke, quickly:true)
-        } else {
-            // Draw everything to a cached UIImage
-            UIGraphicsBeginImageContextWithOptions(self.bounds.size, true, 0.0)
-            UIColor.whiteColor().setFill()
-            UIBezierPath(rect: self.bounds).fill()
-            for stroke in self.strokes{
-                drawStroke(stroke, quickly: false)
-            }
-            canvasThusFar = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
-            
-            // Draw result to screen
-            canvasThusFar!.drawInRect(rect)
-        }
-    }
+    // MARK: Toolbar actions
     
     func clear(){
         self.canvasThusFar = nil
@@ -118,7 +75,79 @@ class PPCanvas: UIView{
             self.setNeedsDisplay()
         }
     }
+    
+    
+    // MARK: Rendering
+    
+    func drawStroke(stroke: PPStroke, quickly:Bool){
+        if CGColorGetAlpha(stroke.color.CGColor) == 0 {
+            // Eraser mode
+            CGContextSetBlendMode(UIGraphicsGetCurrentContext(), kCGBlendModeClear)
+        } else {
+            // Pencil mode
+            CGContextSetBlendMode(UIGraphicsGetCurrentContext(), kCGBlendModeNormal)
+        }
+        
+        stroke.color.setFill()
+        if (quickly && false){
+            var paths = stroke.asBezierPaths()
+            for var i = self.activeStrokeSegmentsDrawn; i < paths.count; i++ {
+                paths[i].fill()
+            }
+            self.activeStrokeSegmentsDrawn = paths.count - 1
+//            
+//            var paths = stroke.asBezierPaths()
+//            for var i = max(0, activeStrokeSegmentsDrawn); i < paths.count; i++ {
+//                paths[i].fill()
+////                println("printing segment \(i)")
+////                println(paths[i].description)
+//            }
+//            
+//            self.activeStrokeSegmentsDrawn = paths.count
+            
+        } else {
+            for path in stroke.asBezierPaths(){
+                path.fill()
+            }
+        }
+    }
+    
+    override func drawRect(rect: CGRect) {
+        // We're gonna save everything to a cached UIImage
+        UIGraphicsBeginImageContextWithOptions(self.bounds.size, true, 0.0)
+        
+        if let stroke = activeStroke{
+            // Draw just the latest line segment
+            if let cachedImage = canvasThusFar {
+                cachedImage.drawInRect(rect)
+            } else {
+                UIColor.whiteColor().setFill()
+                UIBezierPath(rect: self.bounds).fill()
+            }
+            
+            drawStroke(stroke, quickly: true)
+        } else {
+            // Redraw everything from scratch
+            UIColor.whiteColor().setFill()
+            UIBezierPath(rect: self.bounds).fill()
+            for stroke in strokes{
+                drawStroke(stroke, quickly: false)
+            }
+        }
+        
+        // Save results to a cached image
+        canvasThusFar = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        // Draw result to screen
+        canvasThusFar!.drawInRect(rect)
+    }
 }
+
+
+
+
+
 
 // MARK: Data structures for storing sketch data
 
@@ -126,6 +155,8 @@ class PPStroke{
     let color: UIColor
     let width: CGFloat
     var points = [PPPoint]()
+    var cachedBezierPaths = [UIBezierPath]()
+    var cachedPointsCount = 0
     
     init(color: UIColor!, width: CGFloat!){
         self.color = color
@@ -137,11 +168,11 @@ class PPStroke{
         
         var p: CGFloat
         if points.count == 0{
-            p = 0
+            p = 0.4
         } else {
             var lastPoint = points[points.count-1]
-            var diff = sqrt(pow(location.x - lastPoint.location.x,2) + pow(location.y - lastPoint.location.y,2))
-            p = max(0.4, min(1.0, diff / 50.0))
+            var diff = (location - lastPoint.location).length()
+            p = max(0.4, min(1.0, CGFloat(diff) / 30.0))
         }
 
         self.points.append(PPPoint(location: location, pressure: p))
@@ -151,20 +182,31 @@ class PPStroke{
         if points.count <= 2{
             return true
         } else if points.count <= 3 && (points.first!.location - points.last!.location).length() < 25{
+            // Count very quick taps as dots
             return true
         } else {
             return false
         }
     }
     
+    // TODO: cache repeated calls to this function, so that only the latest Bezier paths need to be recalculated
     func asBezierPaths() -> [UIBezierPath]{
-        var paths = [UIBezierPath]()
-        
-        if self.isDot(){
+        if cachedPointsCount == self.points.count {
+            // This stroke hasn't changed since the last time we rendered it
+            println("using cache")
+            return cachedBezierPaths
+        } else if self.isDot(){
+            // This is just a dot
             var dot = UIBezierPath()
             dot.addArcWithCenter(points.first!.location, radius: width*0.5, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
-            paths.append(dot)
+            self.cachedBezierPaths = [dot]
         } else {
+            // Let's calculate a fancy stroke!
+            if (self.cachedBezierPaths.count > 0){
+                // Remove the last segment of the cached path, as it should be recalculated
+                self.cachedBezierPaths.removeLast()
+            }
+        
             // Use Catmull-Rom interpolation to draw
             // Vary thickness based on pressure
             // With credit to https://github.com/andrelind/swift-catmullrom/
@@ -173,25 +215,33 @@ class PPStroke{
             // Generate two bounding paths to create stroke thickness
             var boundingPoints = [[points.first!.location, points.first!.location]]
             for var i = 0; i < points.count - 2; i++ {
-                var startPoint = points[i]
-                var endPoint = points[i+1]
-                var smoothedPressure = (startPoint.pressure + endPoint.pressure)/2;
-                var newPoints = pointsOnLineSegmentPerpendicularTo([startPoint.location, endPoint.location], length: smoothedPressure * self.width)
-                boundingPoints.append(newPoints)
+                // Don't calculate data for already-cached segments
+                if i >= max(0, self.cachedPointsCount - 5){
+                    var startPoint = points[i]
+                    var endPoint = points[i+1]
+                    var nextPoint = points[i+2]
+                    var smoothedPressure = (startPoint.pressure + endPoint.pressure + nextPoint.pressure)/3;
+                    var newPoints = pointsOnLineSegmentPerpendicularTo([startPoint.location, endPoint.location], length: smoothedPressure * self.width)
+                    boundingPoints.append(newPoints)
+                } else {
+                    boundingPoints.append([])
+                }
             }
             boundingPoints.append([points.last!.location, points.last!.location])
             
-            // Make an initial path from the opening point
-            var path = UIBezierPath()
-            path.moveToPoint(boundingPoints[0][0])
-            path.addLineToPoint(boundingPoints[1][0])
-            path.addLineToPoint(boundingPoints[1][1])
-            path.closePath()
-            paths.append(path)
+            // Make an initial path from the opening point, if we haven't already)
+            if (self.cachedBezierPaths.count == 0){
+                var path = UIBezierPath()
+                path.moveToPoint(boundingPoints[0][0])
+                path.addLineToPoint(boundingPoints[1][0])
+                path.addLineToPoint(boundingPoints[1][1])
+                path.closePath()
+                self.cachedBezierPaths.append(path)
+            }
             
-            // Generate the lines with Catmull-Rom interpolation and connect them
-            var alpha = 0.5
-            for var i = 1; i < boundingPoints.count - 2; ++i {
+            // Generate any new segments with Catmull-Rom interpolation and connect them
+            // (If we have cached segments, also make sure to re-draw the last cached segment
+            for var i = max(1, self.cachedPointsCount - 2); i < boundingPoints.count - 2; i++ {
                 var path = UIBezierPath()
                 
                 var controlPoints = controlPointsForCatmullRomCurve(
@@ -214,19 +264,20 @@ class PPStroke{
                 path.addLineToPoint(controlPoints[3])
                 path.addCurveToPoint(controlPoints[0], controlPoint1: controlPoints[2], controlPoint2: controlPoints[1])
                 path.closePath()
-                paths.append(path)
+                self.cachedBezierPaths.append(path)
             }
             
             // Make a final path to the closing point
-            path = UIBezierPath()
+            var path = UIBezierPath()
             path.moveToPoint(boundingPoints[boundingPoints.count - 2][0])
             path.addLineToPoint(boundingPoints[boundingPoints.count - 1][0])
             path.addLineToPoint(boundingPoints[boundingPoints.count - 2][1])
             path.closePath()
-            paths.append(path)
+            self.cachedBezierPaths.append(path)
         }
         
-        return paths
+        self.cachedPointsCount = self.points.count
+        return self.cachedBezierPaths
     }
     
     func pointsOnLineSegmentPerpendicularTo(lineSegment:[CGPoint], length: CGFloat) -> [CGPoint]{
