@@ -89,12 +89,12 @@ class PPCanvas: UIView{
         }
         
         stroke.color.setFill()
-        if (quickly && false){
+        if (quickly){
             var paths = stroke.asBezierPaths()
-            for var i = self.activeStrokeSegmentsDrawn; i < paths.count; i++ {
+            for var i = max(0, self.activeStrokeSegmentsDrawn - 1); i < paths.count; i++ {
                 paths[i].fill()
             }
-            self.activeStrokeSegmentsDrawn = paths.count - 1
+            self.activeStrokeSegmentsDrawn = paths.count
 //            
 //            var paths = stroke.asBezierPaths()
 //            for var i = max(0, activeStrokeSegmentsDrawn); i < paths.count; i++ {
@@ -163,6 +163,7 @@ class PPStroke{
         self.width = width
     }
     
+    // TODO: thin out number of points around slow tight curves?
     func addPoint(touch: UITouch, inView: UIView){
         var location = touch.locationInView(inView)
         
@@ -189,7 +190,6 @@ class PPStroke{
         }
     }
     
-    // TODO: cache repeated calls to this function, so that only the latest Bezier paths need to be recalculated
     func asBezierPaths() -> [UIBezierPath]{
         if cachedPointsCount == self.points.count {
             // This stroke hasn't changed since the last time we rendered it
@@ -213,10 +213,15 @@ class PPStroke{
             // and http://code.tutsplus.com/tutorials/ios-sdk-advanced-freehand-drawing-techniques--mobile-15602
             
             // Generate two bounding paths to create stroke thickness
-            var boundingPoints = [[points.first!.location, points.first!.location]]
+            // First point needs a bit of special handling
+            var smoothedPressure = (points[0].pressure + points[1].pressure + 0)/3
+            var startPoints = pointsOnLineSegmentPerpendicularTo([points[1].location, points[0].location], length: smoothedPressure * self.width)
+            var boundingPoints = [[startPoints[1], startPoints[0]]]
+            
+            // Now calculate all points in the middle of the path
             for var i = 0; i < points.count - 2; i++ {
                 // Don't calculate data for already-cached segments
-                if i >= max(0, self.cachedPointsCount - 5){
+                if i >= max(0, self.cachedPointsCount - 4){
                     var startPoint = points[i]
                     var endPoint = points[i+1]
                     var nextPoint = points[i+2]
@@ -227,14 +232,28 @@ class PPStroke{
                     boundingPoints.append([])
                 }
             }
+            
+            // TODO: wide-tipped end of path
+            // Now calculate our end points
+            smoothedPressure = (points[points.count - 2].pressure + points[points.count - 1].pressure + 0)/3
+            var endPoints = pointsOnLineSegmentPerpendicularTo([points[points.count - 2].location, points[points.count - 1].location], length: smoothedPressure * self.width)
+            boundingPoints.append([endPoints[0], endPoints[1]])
+            
+            
             boundingPoints.append([points.last!.location, points.last!.location])
             
             // Make an initial path from the opening point, if we haven't already)
             if (self.cachedBezierPaths.count == 0){
+                // TODO: draw a dot at the starting location, to round the starting point off
+//                var path = UIBezierPath()
+//                path.addArcWithCenter(points.first!.location, radius: width*0.5, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
+//                self.cachedBezierPaths.append(path)
+                
                 var path = UIBezierPath()
                 path.moveToPoint(boundingPoints[0][0])
                 path.addLineToPoint(boundingPoints[1][0])
                 path.addLineToPoint(boundingPoints[1][1])
+                path.addLineToPoint(boundingPoints[0][1])
                 path.closePath()
                 self.cachedBezierPaths.append(path)
             }
@@ -271,9 +290,12 @@ class PPStroke{
             var path = UIBezierPath()
             path.moveToPoint(boundingPoints[boundingPoints.count - 2][0])
             path.addLineToPoint(boundingPoints[boundingPoints.count - 1][0])
+            path.addLineToPoint(boundingPoints[boundingPoints.count - 1][1])
             path.addLineToPoint(boundingPoints[boundingPoints.count - 2][1])
             path.closePath()
             self.cachedBezierPaths.append(path)
+            
+            // TODO: draw a dot at the ending location, to round the ending point off
         }
         
         self.cachedPointsCount = self.points.count
