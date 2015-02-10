@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,6 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w3f-7v-rno" userLabel="Toolbar border">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="45"/>
+                                <color key="backgroundColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" delaysContentTouches="NO" maximumZoomScale="4" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="lC9-ky-yMA" customClass="PPInfiniteScrollView" customModule="PinchPad" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="45" width="600" height="555"/>
+                            </scrollView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S3K-nm-vNd">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <items>
@@ -40,20 +48,22 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="WAJ-eE-RfF"/>
                                     <barButtonItem title="Post" id="8fm-qO-pVW"/>
                                 </items>
+                                <color key="barTintColor" white="0.95999999999999996" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" delaysContentTouches="NO" maximumZoomScale="4" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="lC9-ky-yMA" customClass="PPInfiniteScrollView" customModule="PinchPad" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
-                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="lC9-ky-yMA" secondAttribute="trailing" id="0pt-tR-riw"/>
+                            <constraint firstAttribute="trailing" secondItem="w3f-7v-rno" secondAttribute="trailing" id="1AN-ps-MQv"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lC9-ky-yMA" secondAttribute="bottom" id="3jJ-s2-dTT"/>
                             <constraint firstItem="S3K-nm-vNd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="85Z-zS-pas"/>
                             <constraint firstItem="S3K-nm-vNd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Jpm-h3-3pm"/>
+                            <constraint firstItem="w3f-7v-rno" firstAttribute="height" secondItem="S3K-nm-vNd" secondAttribute="height" constant="1" id="NP5-w9-bkq"/>
+                            <constraint firstItem="w3f-7v-rno" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Qav-Lq-8OE"/>
+                            <constraint firstItem="w3f-7v-rno" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ceg-LW-Yuf"/>
                             <constraint firstAttribute="trailing" secondItem="S3K-nm-vNd" secondAttribute="trailing" id="gL6-EU-44s"/>
                             <constraint firstItem="lC9-ky-yMA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="uVq-wm-uxi"/>
-                            <constraint firstItem="lC9-ky-yMA" firstAttribute="top" secondItem="S3K-nm-vNd" secondAttribute="bottom" id="ysE-Iy-uUH"/>
+                            <constraint firstItem="lC9-ky-yMA" firstAttribute="top" secondItem="S3K-nm-vNd" secondAttribute="bottom" constant="1" id="ysE-Iy-uUH"/>
                         </constraints>
                     </view>
                     <connections>
@@ -62,6 +72,62 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="jdr-ca-aEC">
+            <objects>
+                <viewController id="Vg3-3g-X3i" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="w9S-lH-LrN"/>
+                        <viewControllerLayoutGuide type="bottom" id="dCF-yy-nmo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4Dg-93-pmR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="uNm-Mr-x7R" userLabel="Tool selector">
+                                <rect key="frame" x="16" y="20" width="568" height="29"/>
+                                <segments>
+                                    <segment title="Brush"/>
+                                    <segment title="Marker"/>
+                                    <segment title="Eraser"/>
+                                </segments>
+                                <color key="tintColor" white="0.95999999999999996" alpha="1" colorSpace="calibratedWhite"/>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" restorationIdentifier="ToolPreview" translatesAutoresizingMaskIntoConstraints="NO" id="DDR-KM-SD0" userLabel="Preview">
+                                <rect key="frame" x="16" y="68" width="100" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="MNa-Ng-yZY"/>
+                                    <constraint firstAttribute="width" constant="100" id="e1H-T7-hgi"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="8" minValue="1" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="OOq-on-alv">
+                                <rect key="frame" x="134" y="68" width="452" height="31"/>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" white="0.29999999999999999" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="OOq-on-alv" secondAttribute="trailing" id="68A-M4-s5c"/>
+                            <constraint firstItem="DDR-KM-SD0" firstAttribute="top" secondItem="uNm-Mr-x7R" secondAttribute="bottom" constant="20" id="NbI-8j-GEQ"/>
+                            <constraint firstItem="OOq-on-alv" firstAttribute="top" secondItem="uNm-Mr-x7R" secondAttribute="bottom" constant="20" id="OM0-D6-XFD"/>
+                            <constraint firstItem="OOq-on-alv" firstAttribute="leading" secondItem="DDR-KM-SD0" secondAttribute="trailing" constant="20" id="OWI-CH-VnG"/>
+                            <constraint firstItem="DDR-KM-SD0" firstAttribute="leading" secondItem="4Dg-93-pmR" secondAttribute="leadingMargin" id="P63-2W-mDe"/>
+                            <constraint firstItem="uNm-Mr-x7R" firstAttribute="top" secondItem="w9S-lH-LrN" secondAttribute="bottom" id="Tte-bY-ikz"/>
+                            <constraint firstItem="uNm-Mr-x7R" firstAttribute="leading" secondItem="4Dg-93-pmR" secondAttribute="leadingMargin" id="Utm-Qs-XWl"/>
+                            <constraint firstItem="uNm-Mr-x7R" firstAttribute="trailing" secondItem="4Dg-93-pmR" secondAttribute="trailingMargin" id="jnX-OK-EWs"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="agP-69-Tts" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="989" y="270"/>
         </scene>
     </scenes>
 </document>
