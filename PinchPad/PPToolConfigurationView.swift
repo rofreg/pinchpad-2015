@@ -8,7 +8,9 @@
 
 import UIKit
 
-class PPToolConfigurationView: UIView{
+class PPToolConfigurationViewController: UIViewController{
+    var delegate: AnyObject?
+    
     @IBAction func changeWidth(){
         
     }

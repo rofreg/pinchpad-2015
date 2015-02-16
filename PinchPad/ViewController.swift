@@ -12,7 +12,8 @@ import CoreData
 
 class ViewController: UIViewController {
     @IBOutlet var canvas: PPInfiniteScrollView!
-
+    var toolConfigurationViewController: PPToolConfigurationViewController!
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -31,6 +32,25 @@ class ViewController: UIViewController {
     
     func logOutOfTwitter() {
         Twitter.sharedInstance().logOut()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ToolConfigurationView"{
+            toolConfigurationViewController = segue.destinationViewController as PPToolConfigurationViewController
+            toolConfigurationViewController.delegate = canvas
+        }
+    }
+    
+    
+    @IBAction func toolChanged(){
+        println("tool change")
+        
+    }
+    
+    
+    @IBAction func pencil(){
+        println("WOO")
+        
     }
     
     @IBAction func undo(){
@@ -57,23 +77,20 @@ class ViewController: UIViewController {
             }
             println("Twitter status changed")
         })
-        let tumblrAction = UIAlertAction(title: (tumblrLoggedIn ? "Auto-post to Tumblr: ON" : "Auto-post to Tumblr: OFF"), style: .Default, handler: {
-            (alert: UIAlertAction!) -> Void in
-            println("Tumblr status changed")
-        })
+//        let tumblrAction = UIAlertAction(title: (tumblrLoggedIn ? "Auto-post to Tumblr: ON" : "Auto-post to Tumblr: OFF"), style: .Default, handler: {
+//            (alert: UIAlertAction!) -> Void in
+//            println("Tumblr status changed")
+//        })
         let clearAction = UIAlertAction(title: "Clear canvas", style: .Destructive, handler: {
             (alert: UIAlertAction!) -> Void in
             println("Clear canvas")
             self.canvas.clear()
         })
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
-            (alert: UIAlertAction!) -> Void in
-            println("Cancelled")
-        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
         
         // Add buttons
         optionMenu.addAction(twitterAction)
-        optionMenu.addAction(tumblrAction)
+//        optionMenu.addAction(tumblrAction)
         optionMenu.addAction(clearAction)
         optionMenu.addAction(cancelAction)
         
