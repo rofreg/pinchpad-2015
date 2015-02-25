@@ -33,9 +33,9 @@ class PPStroke{
             p = max(0.4, min(1.0, CGFloat(diff) / 30.0))
         }
         
-        // Do not add this point if it's exactly the same
+        // Do not add this point if it's too close to the last point
         if let lastPoint = self.points.last{
-            if lastPoint.location == location{
+            if (lastPoint.location - location).length() < 4 {
                 // TODO: handle pressure changes (i.e. I stayed still, but pressed down harder)
                 return;
             }

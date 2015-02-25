@@ -8,9 +8,10 @@
 
 import UIKit
 
-class PPCanvas: UIView{
+class PPCanvas: UIView, PPToolConfigurationViewControllerDelegate{
     var strokes = [PPStroke]()
     var redoStrokes = [PPStroke]()
+    var toolConfig = ["width": 5.0 as Float]
     var activeStroke: PPStroke?
     var activeStrokeSegmentsDrawn = 0
     var canvasThusFar: UIImage?
@@ -30,7 +31,7 @@ class PPCanvas: UIView{
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         self.touchEvents++
-        self.activeStroke = PPStroke(color: UIColor.blackColor(), width: 5.0)
+        self.activeStroke = PPStroke(color: UIColor.blackColor(), width: CGFloat(self.toolConfig["width"]!))
         self.activeStroke!.addPoint(touches.anyObject() as UITouch, inView:self)
         self.activeStrokeSegmentsDrawn = 0
     }
@@ -74,6 +75,10 @@ class PPCanvas: UIView{
             self.strokes.append(self.redoStrokes.removeLast())
             self.setNeedsDisplay()
         }
+    }
+    
+    func widthChanged(newWidth: Float){
+        self.toolConfig["width"] = newWidth
     }
     
     

@@ -35,14 +35,19 @@ class ViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "ToolConfigurationView"{
+        if segue.identifier == "ToolConfigurationSegue"{
             toolConfigurationViewController = segue.destinationViewController as PPToolConfigurationViewController
-            toolConfigurationViewController.delegate = canvas
+            toolConfigurationViewController.delegate = canvas.contentView
         }
     }
     
     
     @IBAction func toolChanged(){
+        println("tool change")
+        
+    }
+    
+    func widthChanged(newWidth: Float){
         println("tool change")
         
     }

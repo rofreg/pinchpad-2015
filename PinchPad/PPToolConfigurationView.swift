@@ -9,9 +9,16 @@
 import UIKit
 
 class PPToolConfigurationViewController: UIViewController{
-    var delegate: AnyObject?
+    var delegate: PPToolConfigurationViewControllerDelegate?
     
-    @IBAction func changeWidth(){
-        
+    @IBAction func widthChanged(sender: UISlider){
+        if let d = delegate{
+            d.widthChanged(sender.value)
+        }
     }
+}
+
+
+protocol PPToolConfigurationViewControllerDelegate {
+    func widthChanged(value: Float)
 }
