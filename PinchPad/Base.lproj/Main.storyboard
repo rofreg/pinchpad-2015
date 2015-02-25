@@ -111,7 +111,7 @@
                                 </segments>
                                 <color key="tintColor" white="0.95999999999999996" alpha="1" colorSpace="calibratedWhite"/>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" restorationIdentifier="ToolPreview" translatesAutoresizingMaskIntoConstraints="NO" id="DDR-KM-SD0" userLabel="Preview">
+                            <view contentMode="scaleToFill" restorationIdentifier="ToolPreview" translatesAutoresizingMaskIntoConstraints="NO" id="DDR-KM-SD0" userLabel="Preview" customClass="PPCanvas" customModule="PinchPad" customModuleProvider="target">
                                 <rect key="frame" x="16" y="63" width="60" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -144,6 +144,10 @@
                             <constraint firstItem="uNm-Mr-x7R" firstAttribute="trailing" secondItem="4Dg-93-pmR" secondAttribute="trailingMargin" id="jnX-OK-EWs"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="previewWindow" destination="DDR-KM-SD0" id="GJr-wS-Oiz"/>
+                        <outlet property="slider" destination="OOq-on-alv" id="SBg-Os-In9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="agP-69-Tts" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

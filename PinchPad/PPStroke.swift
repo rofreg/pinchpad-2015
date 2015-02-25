@@ -23,7 +23,10 @@ class PPStroke{
     // TODO: thin out number of points around slow tight curves?
     func addPoint(touch: UITouch, inView: UIView){
         var location = touch.locationInView(inView)
-        
+        self.addPoint(location, inView: inView)
+    }
+    
+    func addPoint(location: CGPoint, inView: UIView){
         var p: CGFloat
         if points.count == 0{
             p = 0.4
