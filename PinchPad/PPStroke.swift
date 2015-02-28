@@ -94,6 +94,19 @@ class PPStroke{
                     var nextPoint = points[i+2]
                     var smoothedPressure = (startPoint.pressure + endPoint.pressure + nextPoint.pressure)/3;
                     var newPoints = pointsOnLineSegmentPerpendicularTo([startPoint.location, endPoint.location], length: smoothedPressure * self.width)
+                    
+                    // If the line segments cross each other, as happens when we reverse direction,
+                    // then we need to swap the two points to maintain a solid line
+                    if let lastPoint = boundingPoints.last{
+                        if lastPoint.count > 0{
+                            if lineSegmentsIntersect(lastPoint[0], L1P2: newPoints[0], L2P1: lastPoint[1], L2P2: newPoints[1]){
+                                var temp = newPoints[0]
+                                newPoints[0] = newPoints[1]
+                                newPoints[1] = temp
+                            }
+                        }
+                    }
+                    
                     boundingPoints.append(newPoints)
                 } else {
                     boundingPoints.append([])
@@ -163,6 +176,7 @@ class PPStroke{
             self.cachedBezierPaths.append(path)
             
             // TODO: draw a dot at the ending location, to round the ending point off
+            // TODO: also stroke center set of lines with minimum width?
         }
         
         self.cachedPointsCount = self.points.count
@@ -175,6 +189,40 @@ class PPStroke{
         adjustment = adjustment * (Double(length) / adjustment.length())
         
         return [lineSegment.last! + adjustment, lineSegment.last! + (adjustment*(-1))]
+    }
+    
+    // http://stackoverflow.com/questions/13394422/bezier-path-see-if-it-crosses
+    func lineSegmentsIntersect(L1P1: CGPoint, L1P2: CGPoint, L2P1: CGPoint, L2P2: CGPoint) -> Bool
+    {
+        var x1 = L1P1.x, x2 = L1P2.x, x3 = L2P1.x, x4 = L2P2.x
+        var y1 = L1P1.y, y2 = L1P2.y, y3 = L2P1.y, y4 = L2P2.y
+        
+        var bx = x2 - x1
+        var by = y2 - y1
+        var dx = x4 - x3
+        var dy = y4 - y3
+        
+        var b_dot_d_perp = bx * dy - by * dx;
+        
+        if (b_dot_d_perp == 0) {
+            return false
+        }
+        
+        var cx = x3 - x1;
+        var cy = y3 - y1;
+        var t = (cx * dy - cy * dx) / b_dot_d_perp;
+        
+        if (t < 0 || t > 1) {
+            return false
+        }
+        
+        var u = (cx * by - cy * bx) / b_dot_d_perp;
+        
+        if (u < 0 || u > 1) {
+            return false
+        }
+        
+        return true
     }
     
     func controlPointsForCatmullRomCurve(p0: CGPoint, p1: CGPoint, p2: CGPoint, p3:CGPoint) -> [CGPoint]{
