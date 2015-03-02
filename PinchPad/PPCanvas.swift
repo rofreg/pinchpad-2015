@@ -11,7 +11,7 @@ import UIKit
 class PPCanvas: UIView, PPToolConfigurationViewControllerDelegate{
     var strokes = [PPStroke]()
     var redoStrokes = [PPStroke]()
-    var toolConfig = ["width": 5.0, "tool": "brush"]
+    var toolConfig = ["width": 5.0, "tool": "brush", "color": UIColor.blackColor()]
     var activeStroke: PPStroke?
     var activeStrokeSegmentsDrawn = 0
     var canvasThusFar: UIImage?
@@ -31,7 +31,7 @@ class PPCanvas: UIView, PPToolConfigurationViewControllerDelegate{
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         self.touchEvents++
-        self.activeStroke = PPStroke(color: UIColor.blackColor(), width: CGFloat(self.toolConfig["width"] as Float))
+        self.activeStroke = PPStroke(color: self.toolConfig["color"] as UIColor, width: CGFloat(self.toolConfig["width"] as Float))
         self.activeStroke!.addPoint(touches.anyObject() as UITouch, inView:self)
         self.activeStrokeSegmentsDrawn = 0
     }

@@ -24,7 +24,8 @@
 		005DCAB41A805C8F00E55C0D /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 005DCAB31A805C8F00E55C0D /* Configuration.plist */; };
 		006BC1551A8839FD003AA87D /* PPStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BC1541A8839FD003AA87D /* PPStroke.swift */; };
 		006BC1571A884177003AA87D /* PPToolConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BC1561A884177003AA87D /* PPToolConfigurationView.swift */; };
-		549C1A9046DAFD69D865E42D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C99AF48C4CDD31EAF506DC8D /* libPods.a */; };
+		00E53C781AA3DC4F008E441E /* TWTRComposer+ProgrammaticPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E53C771AA3DC4F008E441E /* TWTRComposer+ProgrammaticPost.swift */; };
+		E775F7C10F889E9C3D8C86AF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9150A2CAF4878A9739EBAC5F /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,8 +61,9 @@
 		006BC1541A8839FD003AA87D /* PPStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPStroke.swift; sourceTree = "<group>"; };
 		006BC1561A884177003AA87D /* PPToolConfigurationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPToolConfigurationView.swift; sourceTree = "<group>"; };
 		00AE91181A84506C00EAA84F /* PinchPad-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PinchPad-Bridging-Header.h"; sourceTree = "<group>"; };
+		00E53C771AA3DC4F008E441E /* TWTRComposer+ProgrammaticPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TWTRComposer+ProgrammaticPost.swift"; sourceTree = "<group>"; };
 		073EBFF2AEE1F8B7C4577933 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		C99AF48C4CDD31EAF506DC8D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9150A2CAF4878A9739EBAC5F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE6E373A2F0576890450A69C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,7 +75,7 @@
 				005DCAAC1A805A9D00E55C0D /* TwitterKit.framework in Frameworks */,
 				005DCAB11A805B5800E55C0D /* Crashlytics.framework in Frameworks */,
 				005DCAAE1A805A9D00E55C0D /* Fabric.framework in Frameworks */,
-				549C1A9046DAFD69D865E42D /* libPods.a in Frameworks */,
+				E775F7C10F889E9C3D8C86AF /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +116,7 @@
 				005DCAB21A805B6F00E55C0D /* Dependencies */,
 				005DCA851A805A3900E55C0D /* AppDelegate.swift */,
 				005DCA8A1A805A3900E55C0D /* ViewController.swift */,
+				00E53C771AA3DC4F008E441E /* TWTRComposer+ProgrammaticPost.swift */,
 				006BC1561A884177003AA87D /* PPToolConfigurationView.swift */,
 				003ABDF11A84653200F51534 /* PPInfiniteScrollView.swift */,
 				00062D751A854A9F008CD159 /* PPCanvas.swift */,
@@ -168,7 +171,7 @@
 		3BE3E580DFEC8E60254E97A7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C99AF48C4CDD31EAF506DC8D /* libPods.a */,
+				9150A2CAF4878A9739EBAC5F /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				003ABDF21A84653200F51534 /* PPInfiniteScrollView.swift in Sources */,
 				005DCA891A805A3900E55C0D /* PinchPad.xcdatamodeld in Sources */,
 				005DCA861A805A3900E55C0D /* AppDelegate.swift in Sources */,
+				00E53C781AA3DC4F008E441E /* TWTRComposer+ProgrammaticPost.swift in Sources */,
 				006BC1551A8839FD003AA87D /* PPStroke.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

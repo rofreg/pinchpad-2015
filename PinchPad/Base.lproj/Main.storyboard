@@ -50,7 +50,11 @@
                                     </barButtonItem>
                                     <barButtonItem systemItem="stop" id="ehw-du-WEn"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="WAJ-eE-RfF"/>
-                                    <barButtonItem title="Post" id="8fm-qO-pVW"/>
+                                    <barButtonItem title="Post" id="8fm-qO-pVW">
+                                        <connections>
+                                            <action selector="post" destination="BYZ-38-t0r" id="0Hl-RA-myI"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                                 <color key="barTintColor" white="0.95999999999999996" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>

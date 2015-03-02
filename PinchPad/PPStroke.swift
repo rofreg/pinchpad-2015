@@ -29,11 +29,11 @@ class PPStroke{
     func addPoint(location: CGPoint, inView: UIView){
         var p: CGFloat
         if points.count == 0{
-            p = 0.4
+            p = 0.55
         } else {
             var lastPoint = points[points.count-1]
             var diff = (location - lastPoint.location).length()
-            p = max(0.4, min(1.0, CGFloat(diff) / 30.0))
+            p = max(0.55, min(1.0, CGFloat(diff) / 20.0))
         }
         
         // Do not add this point if it's too close to the last point

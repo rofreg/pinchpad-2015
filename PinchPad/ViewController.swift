@@ -66,11 +66,21 @@ class ViewController: UIViewController {
         self.canvas.redo()
     }
     
+    @IBAction func post(){
+        // Some code based on https://twittercommunity.com/t/upload-images-with-swift/28410/7
+        let image = self.canvas.contentView.asImage()
+        let composer = TWTRComposer()
+        composer.postStatus("This is a test post from my Pinch Pad app. Whee!", image:image){
+            (success: Bool) in
+            println("how'd it go? \(success)")        // print whether we succeeded
+        }
+    }
+    
     @IBAction func showActionSheet(sender: AnyObject) {
         let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         
         let twitterLoggedIn = (Twitter.sharedInstance().session() != nil)
-        let tumblrLoggedIn = (false)
+        let tumblrLoggedIn = (rand() % 2 == 0)
         
         // Set up buttons
         let twitterAction = UIAlertAction(title: (twitterLoggedIn ? "Auto-post to Twitter: ON" : "Auto-post to Twitter: OFF"), style: .Default, handler: {
@@ -82,10 +92,10 @@ class ViewController: UIViewController {
             }
             println("Twitter status changed")
         })
-//        let tumblrAction = UIAlertAction(title: (tumblrLoggedIn ? "Auto-post to Tumblr: ON" : "Auto-post to Tumblr: OFF"), style: .Default, handler: {
-//            (alert: UIAlertAction!) -> Void in
-//            println("Tumblr status changed")
-//        })
+        let tumblrAction = UIAlertAction(title: (tumblrLoggedIn ? "Auto-post to Tumblr: ON" : "Auto-post to Tumblr: OFF"), style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            println("Tumblr status changed")
+        })
         let clearAction = UIAlertAction(title: "Clear canvas", style: .Destructive, handler: {
             (alert: UIAlertAction!) -> Void in
             println("Clear canvas")
@@ -95,7 +105,7 @@ class ViewController: UIViewController {
         
         // Add buttons
         optionMenu.addAction(twitterAction)
-//        optionMenu.addAction(tumblrAction)
+        optionMenu.addAction(tumblrAction)
         optionMenu.addAction(clearAction)
         optionMenu.addAction(cancelAction)
         
