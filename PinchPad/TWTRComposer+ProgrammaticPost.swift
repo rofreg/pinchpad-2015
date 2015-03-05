@@ -23,7 +23,6 @@ extension TWTRComposer {
         var imageData : NSData = UIImagePNGRepresentation(image)
         parameters["media"] = imageData.base64EncodedStringWithOptions(nil)
         
-        
         // TODO: GIF handling
         // let path = NSBundle.mainBundle().pathForResource("SampleAnim", ofType: "GIF")
         // var animData : NSData = NSData(contentsOfFile: path!)!
