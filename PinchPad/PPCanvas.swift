@@ -30,6 +30,16 @@ class PPCanvas: UIView, PPToolConfigurationViewControllerDelegate{
     // MARK: Touch handling
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        println("touch happened")
+        
+        // TODO: NOTE TO SELF: must hold finger down for fineline support
+        // http://www.adonit.net/blog/archives/2015/01/05/ipad-air-2/
+        TouchManager.GetTouchManager().addTouches(touches, knownTouches: event.touchesForView(self), view: self)
+        
+        if let t = TouchManager.GetTouchManager().getTouches(){
+            println(t.count)
+        }
+        
         self.touchEvents++
         self.activeStroke = PPStroke(color: self.toolConfig["color"] as UIColor, width: CGFloat(self.toolConfig["width"] as Float))
         self.activeStroke!.addPoint(touches.anyObject() as UITouch, inView:self)
@@ -37,6 +47,8 @@ class PPCanvas: UIView, PPToolConfigurationViewControllerDelegate{
     }
     
     override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
+        TouchManager.GetTouchManager().moveTouches(touches, knownTouches: event.touchesForView(self), view: self)
+        
         self.touchEvents++
         self.activeStroke!.addPoint(touches.anyObject() as UITouch, inView:self)
         
@@ -47,11 +59,17 @@ class PPCanvas: UIView, PPToolConfigurationViewControllerDelegate{
     }
     
     override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+        TouchManager.GetTouchManager().moveTouches(touches, knownTouches: event.touchesForView(self), view: self)
         self.touchEvents++
         self.activeStroke!.addPoint(touches.anyObject() as UITouch, inView:self)
         strokes.append(self.activeStroke!)
         self.activeStroke = nil
         self.setNeedsDisplay()
+        TouchManager.GetTouchManager().removeTouches(touches, knownTouches: event.touchesForView(self), view: self)
+    }
+    
+    override func touchesCancelled(touches: NSSet!, withEvent event: UIEvent!) {
+        TouchManager.GetTouchManager().removeTouches(touches, knownTouches: event.touchesForView(self), view: self)
     }
     
     

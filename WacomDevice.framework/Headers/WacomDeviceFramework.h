@@ -27,7 +27,7 @@
 #pragma mark "Stylus Event"
 #pragma mark -
 
-typedef enum {
+typedef NS_ENUM(NSUInteger, WacomStylusEventType) {
 	eStylusEventType_PressureChange,
 	eStylusEventType_ButtonPressed = 1,
 	eStylusEventType_ButtonReleased = 2,
@@ -37,7 +37,7 @@ typedef enum {
 	eStylusEventType_ManufacturerUpdated = 6,
 	eStylusEventType_FirmwareVersionUpdated = 7,
 	eStylusEventType_SoftwareVersionUpdated = 8
-} WacomStylusEventType;
+};
 
 extern NSString *kAlarmServiceEnteredBackgroundNotification;
 extern NSString *kAlarmServiceEnteredForegroundNotification;

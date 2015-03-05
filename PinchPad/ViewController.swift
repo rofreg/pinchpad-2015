@@ -10,10 +10,21 @@ import UIKit
 import TwitterKit
 import CoreData
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEventCallback {
     @IBOutlet var canvas: PPInfiniteScrollView!
     var toolConfigurationViewController: PPToolConfigurationViewController!
    
+    override func viewDidLoad() {
+        WacomManager.getManager().registerForNotifications(self)
+        WacomManager.getManager().startDeviceDiscovery()
+        TouchManager.GetTouchManager().touchRejectionEnabled = true
+        TouchManager.GetTouchManager().timingOffset = 100000
+    }
+    
+    deinit {
+        WacomManager.getManager().stopDeviceDiscovery()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -111,6 +122,44 @@ class ViewController: UIViewController {
         
         // Show menu
         self.presentViewController(optionMenu, animated: true, completion: nil)
+    }
+    
+    
+    // MARK: Wacom device discovery
+    
+    func deviceDiscovered(device: WacomDevice!) {
+        println("Wacom device discovered!")
+        if (WacomManager.getManager().isDiscoveryInProgress &&
+            !WacomManager.getManager().isADeviceSelected() &&
+            !device.isCurrentlyConnected()){
+                WacomManager.getManager().selectDevice(device)
+        }
+    }
+    
+    func discoveryStatePoweredOff(){
+        println("Welp, looks like Bluetooth is off")
+        
+        // Bluetooth is disabled
+        // TODO: show an alert, or modify the UI
+    }
+    
+    
+    // MARK: Wacom device actions
+    
+    func stylusEvent(stylusEvent: WacomStylusEvent!) {
+        let type = stylusEvent.getType()
+        
+        if (type == WacomStylusEventType.StylusEventType_PressureChange){
+//            println("Pressure: \(stylusEvent.getPressure())")
+        } else if (type == WacomStylusEventType.StylusEventType_ButtonPressed) {
+            println("Button down: \(stylusEvent.getButton())")
+        } else if (type == WacomStylusEventType.StylusEventType_ButtonReleased) {
+            println("Button up: \(stylusEvent.getButton())")
+        } else if (type == WacomStylusEventType.StylusEventType_BatteryLevelChanged) {
+//            println("Battery level: \(stylusEvent.getBatteryLevel())")
+        } else {
+            println("Unknown event: \(stylusEvent.getType())")
+        }
     }
 }
 
