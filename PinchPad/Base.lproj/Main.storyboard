@@ -58,7 +58,7 @@
                                 </items>
                                 <color key="barTintColor" white="0.95999999999999996" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8TJ-Zg-3CZ">
+                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8TJ-Zg-3CZ">
                                 <rect key="frame" x="0.0" y="44" width="600" height="140"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="140" id="mla-Dx-d1q"/>
@@ -88,6 +88,7 @@
                     </view>
                     <connections>
                         <outlet property="canvas" destination="lC9-ky-yMA" id="ovU-9g-uOh"/>
+                        <outlet property="toolConfigurationViewContainer" destination="8TJ-Zg-3CZ" id="zSm-91-qhR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

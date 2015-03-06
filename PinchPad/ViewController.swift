@@ -12,7 +12,7 @@ import CoreData
 
 class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEventCallback {
     @IBOutlet var canvas: PPInfiniteScrollView!
-    var toolConfigurationViewController: PPToolConfigurationViewController!
+    @IBOutlet var toolConfigurationViewContainer: UIView!
    
     override func viewDidLoad() {
         WacomManager.getManager().registerForNotifications(self)
@@ -47,8 +47,7 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
     // MARK: tool handling
     
     @IBAction func pencil(){
-        println("WOO")
-        
+        toolConfigurationViewContainer.hidden = !toolConfigurationViewContainer.hidden
     }
     
     @IBAction func undo(){
