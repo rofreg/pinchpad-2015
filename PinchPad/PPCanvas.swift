@@ -8,10 +8,9 @@
 
 import UIKit
 
-class PPCanvas: UIView, PPToolConfigurationViewControllerDelegate{
+class PPCanvas: UIView{
     var strokes = [PPStroke]()
     var redoStrokes = [PPStroke]()
-    var toolConfig = ["width": 5.0, "tool": "brush", "color": UIColor.blackColor()]
     var activeStroke: PPStroke?
     var activeStrokeSegmentsDrawn = 0
     var canvasThusFar: UIImage?
@@ -30,85 +29,80 @@ class PPCanvas: UIView, PPToolConfigurationViewControllerDelegate{
     // MARK: Touch handling
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        println("touch happened")
-        
-        // TODO: NOTE TO SELF: must hold finger down for fineline support
+        // TODO: NOTE TO SELF: may need to hold finger down for fineline support
         // http://www.adonit.net/blog/archives/2015/01/05/ipad-air-2/
+        
         TouchManager.GetTouchManager().addTouches(touches, knownTouches: event.touchesForView(self), view: self)
-        
-        var touch = touches.anyObject() as UITouch
-        if (WacomManager.getManager().isADeviceSelected()){
-            var stylusTouches = TouchManager.GetTouchManager().getTouches()
-            if (stylusTouches == nil || stylusTouches.first == nil){
-                // no stylus touches; nothing to draw
-                return
-            } else {
-                touch = stylusTouches.first! as UITouch
-            }
+        if let touch = getActiveTouch(touches){
+            addPointToActiveStroke(touch)
         }
-        
-        self.touchEvents++
-        self.activeStroke = PPStroke(color: self.toolConfig["color"] as UIColor, width: CGFloat(self.toolConfig["width"] as Float))
-        self.activeStroke!.addPoint(touch, inView:self)
-        self.activeStrokeSegmentsDrawn = 0
     }
     
     override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
         TouchManager.GetTouchManager().moveTouches(touches, knownTouches: event.touchesForView(self), view: self)
-        
-        var touch = touches.anyObject() as UITouch
-        if (WacomManager.getManager().isADeviceSelected()){
-            var stylusTouches = TouchManager.GetTouchManager().getTouches()
-            if (stylusTouches == nil || stylusTouches.first == nil){
-                // no stylus touches; nothing to draw
-                return
-            } else {
-                touch = stylusTouches.first! as UITouch
+        if let touch = getActiveTouch(touches){
+            self.touchEvents++
+            addPointToActiveStroke(touch)
+            
+            // Only redraw the active stroke once every .05s or so
+            if (!self.activeStroke!.isDot()){
+                self.setNeedsDisplay()
             }
-        }
-        
-        self.touchEvents++
-        
-        if (self.activeStroke == nil){
-            self.activeStroke = PPStroke(color: self.toolConfig["color"] as UIColor, width: CGFloat(self.toolConfig["width"] as Float))
-            self.activeStrokeSegmentsDrawn = 0
-        }
-        
-        self.activeStroke!.addPoint(touch, inView:self)
-        
-        // Only redraw the active stroke once every .05s or so
-        if (!self.activeStroke!.isDot()){
-            self.setNeedsDisplay()
         }
     }
     
     override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
         TouchManager.GetTouchManager().moveTouches(touches, knownTouches: event.touchesForView(self), view: self)
         
-        var touch = touches.anyObject() as UITouch
-        if (WacomManager.getManager().isADeviceSelected()){
-            var stylusTouches = TouchManager.GetTouchManager().getTouches()
-            if (stylusTouches == nil || stylusTouches.first == nil){
-                // no stylus touches; nothing to draw
-                TouchManager.GetTouchManager().removeTouches(touches, knownTouches: event.touchesForView(self), view: self)
-                return
-            } else {
-                touch = stylusTouches.first! as UITouch
-            }
+        if let touch = getActiveTouch(touches){
+            addPointToActiveStroke(touch)
+            strokes.append(self.activeStroke!)
+            self.activeStroke = nil
+            self.setNeedsDisplay()
         }
-        
-        self.touchEvents++
-        self.activeStroke!.addPoint(touch, inView:self)
-        strokes.append(self.activeStroke!)
-        self.activeStroke = nil
-        self.setNeedsDisplay()
+            
         TouchManager.GetTouchManager().removeTouches(touches, knownTouches: event.touchesForView(self), view: self)
     }
     
     override func touchesCancelled(touches: NSSet!, withEvent event: UIEvent!) {
         TouchManager.GetTouchManager().removeTouches(touches, knownTouches: event.touchesForView(self), view: self)
     }
+
     
+    // MARK: Touch tracking helper functions
+
+    // Get the active drawing point, with handling for whether a stylus is connected or not
+    func getActiveTouch(touches: NSSet) -> UITouch?{
+        var touch = touches.anyObject() as UITouch
+        if (WacomManager.getManager().isADeviceSelected()){
+            var stylusTouches = TouchManager.GetTouchManager().getTouches()
+            if (stylusTouches == nil || stylusTouches.first == nil){
+                // no stylus touches; nothing to draw
+                return nil
+            } else {
+                touch = stylusTouches.first! as UITouch
+            }
+        }
+        return touch
+    }
+    
+    // Initialize the active stroke if needed, then add another point to the stroke
+    // Includes handling for stylus pressure
+    func addPointToActiveStroke(touch: UITouch){
+        // Start a stroke if there's not an ongoing stroke already
+        if (self.activeStroke == nil){
+            self.activeStroke = PPStroke(color: PPToolConfiguration.sharedInstance.color, width: PPToolConfiguration.sharedInstance.width)
+            self.activeStrokeSegmentsDrawn = 0
+        }
+        
+        // Report pressure if using a stylus
+        if let p = PPToolConfiguration.sharedInstance.pressure {
+            self.activeStroke!.addPoint(touch, withPressure: p, inView:self)
+        } else {
+            self.activeStroke!.addPoint(touch, inView:self)
+        }
+    }
+
     
     // MARK: Toolbar actions
     
@@ -130,10 +124,6 @@ class PPCanvas: UIView, PPToolConfigurationViewControllerDelegate{
             self.strokes.append(self.redoStrokes.removeLast())
             self.setNeedsDisplay()
         }
-    }
-    
-    func widthChanged(newWidth: Float){
-        self.toolConfig["width"] = newWidth
     }
     
     

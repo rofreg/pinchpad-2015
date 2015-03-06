@@ -114,6 +114,9 @@
                                     <segment title="Eraser"/>
                                 </segments>
                                 <color key="tintColor" white="0.95999999999999996" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="toolChanged:" destination="Vg3-3g-X3i" eventType="valueChanged" id="amU-et-dsc"/>
+                                </connections>
                             </segmentedControl>
                             <view contentMode="scaleToFill" restorationIdentifier="ToolPreview" translatesAutoresizingMaskIntoConstraints="NO" id="DDR-KM-SD0" userLabel="Preview" customClass="PPCanvas" customModule="PinchPad" customModuleProvider="target">
                                 <rect key="frame" x="16" y="63" width="60" height="60"/>
@@ -150,7 +153,7 @@
                     </view>
                     <connections>
                         <outlet property="previewWindow" destination="DDR-KM-SD0" id="GJr-wS-Oiz"/>
-                        <outlet property="slider" destination="OOq-on-alv" id="SBg-Os-In9"/>
+                        <outlet property="slider" destination="OOq-on-alv" id="lbl-sd-1ke"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="agP-69-Tts" userLabel="First Responder" sceneMemberID="firstResponder"/>

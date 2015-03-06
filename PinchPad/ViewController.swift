@@ -18,17 +18,15 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
         WacomManager.getManager().registerForNotifications(self)
         WacomManager.getManager().startDeviceDiscovery()
         TouchManager.GetTouchManager().touchRejectionEnabled = true
-        TouchManager.GetTouchManager().timingOffset = 100000
+        TouchManager.GetTouchManager().timingOffset = 200000
     }
     
     deinit {
         WacomManager.getManager().stopDeviceDiscovery()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
+    // MARK: Twitter session handling
     
     func logInToTwitter(){
         // Present Twitter login modal
@@ -45,24 +43,8 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
         Twitter.sharedInstance().logOut()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "ToolConfigurationSegue"{
-            toolConfigurationViewController = segue.destinationViewController as PPToolConfigurationViewController
-            toolConfigurationViewController.delegate = canvas.contentView
-        }
-    }
     
-    
-    @IBAction func toolChanged(){
-        println("tool change")
-        
-    }
-    
-    func widthChanged(newWidth: Float){
-        println("tool change")
-        
-    }
-    
+    // MARK: tool handling
     
     @IBAction func pencil(){
         println("WOO")
@@ -86,6 +68,9 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
             println("how'd it go? \(success)")        // print whether we succeeded
         }
     }
+    
+    
+    // MARK: Settings menu
     
     @IBAction func showActionSheet(sender: AnyObject) {
         let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
@@ -150,15 +135,17 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
         let type = stylusEvent.getType()
         
         if (type == WacomStylusEventType.StylusEventType_PressureChange){
-//            println("Pressure: \(stylusEvent.getPressure())")
+            PPToolConfiguration.sharedInstance.pressure =
+                stylusEvent.getPressure() / CGFloat(WacomManager.getManager().getSelectedDevice().getMaximumPressure())
         } else if (type == WacomStylusEventType.StylusEventType_ButtonPressed) {
+            PPToolConfiguration.sharedInstance.tool = PPToolType.Eraser
             println("Button down: \(stylusEvent.getButton())")
         } else if (type == WacomStylusEventType.StylusEventType_ButtonReleased) {
+            PPToolConfiguration.sharedInstance.tool = PPToolType.Brush
             println("Button up: \(stylusEvent.getButton())")
         } else if (type == WacomStylusEventType.StylusEventType_BatteryLevelChanged) {
-//            println("Battery level: \(stylusEvent.getBatteryLevel())")
-        } else {
-            println("Unknown event: \(stylusEvent.getType())")
+            // TODO: battery warning
+            // println("Battery level: \(stylusEvent.getBatteryLevel())")
         }
     }
 }

@@ -21,12 +21,18 @@ class PPStroke{
     }
     
     // TODO: thin out number of points around slow tight curves?
-    func addPoint(touch: UITouch, inView: UIView){
+    func addPoint(touch: UITouch, withPressure pressure: CGFloat, inView: UIView){
         var location = touch.locationInView(inView)
-        self.addPoint(location, inView: inView)
+        self.addPoint(location, withPressure: pressure)
     }
     
-    func addPoint(location: CGPoint, inView: UIView){
+    func addPoint(touch: UITouch, inView: UIView){
+        var location = touch.locationInView(inView)
+        self.addPoint(location)
+    }
+    
+    func addPoint(location: CGPoint){
+        // Fake pressure
         var p: CGFloat
         if points.count == 0{
             p = 0.55
@@ -36,6 +42,11 @@ class PPStroke{
             p = max(0.55, min(1.0, CGFloat(diff) / 20.0))
         }
         
+        self.addPoint(location, withPressure: p)
+    }
+    
+    // TODO: thin out number of points around slow tight curves?
+    func addPoint(location: CGPoint, withPressure pressure: CGFloat){
         // Do not add this point if it's too close to the last point
         if let lastPoint = self.points.last{
             if (lastPoint.location - location).length() < 4 {
@@ -44,7 +55,7 @@ class PPStroke{
             }
         }
         
-        self.points.append(PPPoint(location: location, pressure: p))
+        self.points.append(PPPoint(location: location, pressure: pressure))
     }
     
     func isDot() -> Bool{
