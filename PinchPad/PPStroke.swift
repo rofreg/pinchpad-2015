@@ -11,16 +11,21 @@ import UIKit
 class PPStroke{
     let color: UIColor
     let width: CGFloat
+    let tool: PPToolType
     var points = [PPPoint]()
     var cachedBezierPaths = [UIBezierPath]()
     var cachedPointsCount = 0
+    var strokeSegmentsDrawn = 0
     
-    init(color: UIColor!, width: CGFloat!){
-        self.color = color
+    init(tool: PPToolType!, width: CGFloat!, color: UIColor!){
+        self.tool = tool
         self.width = width
+        self.color = color
     }
     
-    // TODO: thin out number of points around slow tight curves?
+    
+    // MARK: Point management logic
+    
     func addPoint(touch: UITouch, withPressure pressure: CGFloat, inView: UIView){
         var location = touch.locationInView(inView)
         self.addPoint(location, withPressure: pressure)
@@ -32,7 +37,7 @@ class PPStroke{
     }
     
     func addPoint(location: CGPoint){
-        // Fake pressure
+        // Fake pressure, simulated from velocity between points
         var p: CGFloat
         if points.count == 0{
             p = 0.55
@@ -58,6 +63,39 @@ class PPStroke{
         self.points.append(PPPoint(location: location, pressure: pressure))
     }
     
+    
+    // MARK: Rendering logic
+    
+    func drawInView(view: UIView, quickly: Bool){
+        self.color.setFill()
+        self.color.setStroke()
+        
+        if (self.tool == PPToolType.Brush){
+            // We need to do special handling for performance for the brush
+            if (quickly){
+                var paths = self.asBezierPaths()
+                // Draw all but the very last segment (which is a dot, and might change later
+                for var i = max(0, self.strokeSegmentsDrawn - 1); i < max(0, paths.count - 1); i++ {
+                    paths[i].fill()
+                }
+                self.strokeSegmentsDrawn = paths.count - 1
+            } else {
+                for path in self.asBezierPaths(){
+                    path.fill()
+                }
+                self.asBezierPath().stroke()
+            }
+        } else if (self.tool == PPToolType.Marker) {
+            // For the marker, just draw the line
+            self.asBezierPath(quickly: quickly).stroke()
+        } else if (self.tool == PPToolType.Eraser) {
+            // For the eraser, just draw the line
+            UIColor.whiteColor().setStroke()
+            self.asBezierPath(quickly: quickly).stroke()
+        }
+    }
+    
+    // Is this stroke just a dot?
     func isDot() -> Bool{
         if points.count <= 2{
             return true
@@ -69,6 +107,46 @@ class PPStroke{
         }
     }
     
+    // This returns a SINGLE BEZIER PATH connecting all points
+    func asBezierPath(quickly: Bool = false) -> UIBezierPath{
+        var path = UIBezierPath()
+        path.lineWidth = self.width
+        path.lineCapStyle = kCGLineCapRound
+        path.lineJoinStyle = kCGLineJoinRound
+        
+        // Handle empty case
+        if (self.points.count < 2){
+            return path;
+        }
+        
+        path.moveToPoint(self.points[0].location)
+        path.addLineToPoint(self.points[1].location)
+        
+        // Generate any new segments with Catmull-Rom interpolation and connect them
+        for var i = 1; i < self.points.count - 2; i++ {
+            var controlPoints = controlPointsForCatmullRomCurve(
+                self.points[i-1].location,
+                p1: self.points[i].location,
+                p2: self.points[i+1].location,
+                p3: self.points[i+2].location
+            )
+            
+            path.addCurveToPoint(controlPoints[3], controlPoint1: controlPoints[1], controlPoint2: controlPoints[2])
+        }
+        
+        if (!quickly){
+            path.addLineToPoint(self.points.last!.location)
+        }
+        
+        return path
+    }
+    
+    // TODO
+    // https://developer.apple.com/library/mac/documentation/graphicsimaging/Reference/CGPath/Reference/reference.html#//apple_ref/c/func/CGPathCreateCopyByStrokingPath
+    // http://stackoverflow.com/questions/16547572/generate-a-cgpath-from-another-paths-line-width-outline
+    // http://stackoverflow.com/questions/24463832/ios-how-to-draw-a-stroke-with-an-outline
+    
+    // This returns a series of POLYGONS that simulate pressure
     func asBezierPaths() -> [UIBezierPath]{
         if cachedPointsCount == self.points.count {
             // This stroke hasn't changed since the last time we rendered it
@@ -92,8 +170,7 @@ class PPStroke{
             
             // Generate two bounding paths to create stroke thickness
             // First point needs a bit of special handling
-            var smoothedPressure = (points[0].pressure + points[1].pressure + 0)/3
-            var startPoints = pointsOnLineSegmentPerpendicularTo([points[1].location, points[0].location], length: smoothedPressure * self.width)
+            var startPoints = pointsOnLineSegmentPerpendicularTo([points[1].location, points[0].location], length: self.width * 0.5)
             var boundingPoints = [[startPoints[1], startPoints[0]]]
             
             // Now calculate all points in the middle of the path
@@ -124,23 +201,19 @@ class PPStroke{
                 }
             }
             
-            // TODO: wide-tipped end of path
             // Now calculate our end points
-            smoothedPressure = (points[points.count - 2].pressure + points[points.count - 1].pressure + 0)/3
-            var endPoints = pointsOnLineSegmentPerpendicularTo([points[points.count - 2].location, points[points.count - 1].location], length: smoothedPressure * self.width)
+            var endPoints = pointsOnLineSegmentPerpendicularTo([points[points.count - 2].location, points[points.count - 1].location], length: self.width * 0.5)
             boundingPoints.append([endPoints[0], endPoints[1]])
-            
-            
-            boundingPoints.append([points.last!.location, points.last!.location])
             
             // Make an initial path from the opening point, if we haven't already)
             if (self.cachedBezierPaths.count == 0){
-                // TODO: draw a dot at the starting location, to round the starting point off
-                //                var path = UIBezierPath()
-                //                path.addArcWithCenter(points.first!.location, radius: width*0.5, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
-                //                self.cachedBezierPaths.append(path)
-                
+                // Draw a dot at the starting location, to round the starting point off
                 var path = UIBezierPath()
+                path.addArcWithCenter(points.first!.location, radius: width*0.5, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
+                self.cachedBezierPaths.append(path)
+                
+                // Add our first line segment
+                path = UIBezierPath()
                 path.moveToPoint(boundingPoints[0][0])
                 path.addLineToPoint(boundingPoints[1][0])
                 path.addLineToPoint(boundingPoints[1][1])
@@ -186,7 +259,11 @@ class PPStroke{
             path.closePath()
             self.cachedBezierPaths.append(path)
             
-            // TODO: draw a dot at the ending location, to round the ending point off
+            // Draw a dot at the ending location, to round the ending point off
+            path = UIBezierPath()
+            path.addArcWithCenter(points.last!.location, radius: width*0.5, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
+            self.cachedBezierPaths.append(path)
+            
             // TODO: also stroke center set of lines with minimum width?
         }
         

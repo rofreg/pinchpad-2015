@@ -18,7 +18,7 @@ class PPCanvas: UIView{
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.whiteColor()
     }
 
     required init(coder: NSCoder) {
@@ -91,7 +91,7 @@ class PPCanvas: UIView{
     func addPointToActiveStroke(touch: UITouch){
         // Start a stroke if there's not an ongoing stroke already
         if (self.activeStroke == nil){
-            self.activeStroke = PPStroke(color: PPToolConfiguration.sharedInstance.color, width: PPToolConfiguration.sharedInstance.width)
+            self.activeStroke = PPStroke(tool: PPToolConfiguration.sharedInstance.tool, width: PPToolConfiguration.sharedInstance.width, color: PPToolConfiguration.sharedInstance.color)
             self.activeStrokeSegmentsDrawn = 0
         }
         
@@ -130,26 +130,7 @@ class PPCanvas: UIView{
     // MARK: Rendering
     
     func drawStroke(stroke: PPStroke, quickly:Bool){
-        if CGColorGetAlpha(stroke.color.CGColor) == 0 {
-            // Eraser mode
-            CGContextSetBlendMode(UIGraphicsGetCurrentContext(), kCGBlendModeClear)
-        } else {
-            // Pencil mode
-            CGContextSetBlendMode(UIGraphicsGetCurrentContext(), kCGBlendModeNormal)
-        }
-        
-        stroke.color.setFill()
-        if (quickly){
-            var paths = stroke.asBezierPaths()
-            for var i = max(0, self.activeStrokeSegmentsDrawn - 1); i < paths.count; i++ {
-                paths[i].fill()
-            }
-            self.activeStrokeSegmentsDrawn = paths.count
-        } else {
-            for path in stroke.asBezierPaths(){
-                path.fill()
-            }
-        }
+        stroke.drawInView(self, quickly: quickly)
     }
     
     override func drawRect(rect: CGRect) {
