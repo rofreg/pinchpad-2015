@@ -93,7 +93,6 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
         })
         let clearAction = UIAlertAction(title: "Clear canvas", style: .Destructive, handler: {
             (alert: UIAlertAction!) -> Void in
-            println("Clear canvas")
             self.canvas.clear()
         })
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
@@ -133,16 +132,16 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
     func stylusEvent(stylusEvent: WacomStylusEvent!) {
         let type = stylusEvent.getType()
         
-        if (type == WacomStylusEventType.StylusEventType_PressureChange){
+        if (type == WacomStylusEventType.eStylusEventType_PressureChange){
             PPToolConfiguration.sharedInstance.pressure =
                 stylusEvent.getPressure() / CGFloat(WacomManager.getManager().getSelectedDevice().getMaximumPressure())
-        } else if (type == WacomStylusEventType.StylusEventType_ButtonPressed) {
+        } else if (type == WacomStylusEventType.eStylusEventType_ButtonPressed) {
             PPToolConfiguration.sharedInstance.tool = PPToolType.Eraser
             println("Button down: \(stylusEvent.getButton())")
-        } else if (type == WacomStylusEventType.StylusEventType_ButtonReleased) {
+        } else if (type == WacomStylusEventType.eStylusEventType_ButtonReleased) {
             PPToolConfiguration.sharedInstance.tool = PPToolType.Brush
             println("Button up: \(stylusEvent.getButton())")
-        } else if (type == WacomStylusEventType.StylusEventType_BatteryLevelChanged) {
+        } else if (type == WacomStylusEventType.eStylusEventType_BatteryLevelChanged) {
             // TODO: battery warning
             // println("Battery level: \(stylusEvent.getBatteryLevel())")
         }

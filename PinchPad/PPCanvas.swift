@@ -28,7 +28,7 @@ class PPCanvas: UIView{
     
     // MARK: Touch handling
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         // TODO: NOTE TO SELF: may need to hold finger down for fineline support
         // http://www.adonit.net/blog/archives/2015/01/05/ipad-air-2/
         
@@ -38,7 +38,7 @@ class PPCanvas: UIView{
         }
     }
     
-    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
         TouchManager.GetTouchManager().moveTouches(touches, knownTouches: event.touchesForView(self), view: self)
         if let touch = getActiveTouch(touches){
             self.touchEvents++
@@ -51,7 +51,7 @@ class PPCanvas: UIView{
         }
     }
     
-    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
         TouchManager.GetTouchManager().moveTouches(touches, knownTouches: event.touchesForView(self), view: self)
         
         if let touch = getActiveTouch(touches){
@@ -61,10 +61,10 @@ class PPCanvas: UIView{
             self.setNeedsDisplay()
         }
             
-        TouchManager.GetTouchManager().removeTouches(touches, knownTouches: event.touchesForView(self), view: self)
+        TouchManager.GetTouchManager().removeTouches(touches as Set<NSObject>, knownTouches: event.touchesForView(self), view: self)
     }
     
-    override func touchesCancelled(touches: NSSet!, withEvent event: UIEvent!) {
+    override func touchesCancelled(touches: Set<NSObject>, withEvent event: UIEvent!) {
         TouchManager.GetTouchManager().removeTouches(touches, knownTouches: event.touchesForView(self), view: self)
     }
 
@@ -73,14 +73,14 @@ class PPCanvas: UIView{
 
     // Get the active drawing point, with handling for whether a stylus is connected or not
     func getActiveTouch(touches: NSSet) -> UITouch?{
-        var touch = touches.anyObject() as UITouch
+        var touch = touches.anyObject() as! UITouch
         if (WacomManager.getManager().isADeviceSelected()){
             var stylusTouches = TouchManager.GetTouchManager().getTouches()
             if (stylusTouches == nil || stylusTouches.first == nil){
                 // no stylus touches; nothing to draw
                 return nil
             } else {
-                touch = stylusTouches.first! as UITouch
+                touch = stylusTouches.first as! UITouch
             }
         }
         return touch

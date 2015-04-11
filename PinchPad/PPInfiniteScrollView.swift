@@ -34,7 +34,7 @@ class PPInfiniteScrollView: UIScrollView, UIScrollViewDelegate{
         if let recognizers = self.gestureRecognizers{
             for recognizer in recognizers{
                 if (recognizer.isKindOfClass(UIPanGestureRecognizer)) {
-                    (recognizer as UIPanGestureRecognizer).minimumNumberOfTouches = 2
+                    (recognizer as! UIPanGestureRecognizer).minimumNumberOfTouches = 2
                 }
             }
         }

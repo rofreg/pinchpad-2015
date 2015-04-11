@@ -30,7 +30,7 @@ class PPToolConfiguration  {
     var color: UIColor = UIColor.blackColor() {
         didSet { NSNotificationCenter.defaultCenter().postNotificationName("PPToolConfigurationChanged", object: self) }
     }
-    var width: CGFloat = 5.0 {
+    var width: CGFloat = 3.0 {
         didSet { NSNotificationCenter.defaultCenter().postNotificationName("PPToolConfigurationChanged", object: self) }
     }
     var pressure: CGFloat? {
