@@ -12,7 +12,6 @@ class PPCanvas: UIView{
     var strokes = [PPStroke]()
     var redoStrokes = [PPStroke]()
     var activeStroke: PPStroke?
-    var activeStrokeSegmentsDrawn = 0
     var canvasThusFar: UIImage?
     var touchEvents = 0
     
@@ -65,7 +64,10 @@ class PPCanvas: UIView{
     }
     
     override func touchesCancelled(touches: Set<NSObject>, withEvent event: UIEvent!) {
+        // This commonly gets called when a two-finger scroll occurs
         TouchManager.GetTouchManager().removeTouches(touches, knownTouches: event.touchesForView(self), view: self)
+        self.activeStroke = nil
+        self.setNeedsDisplay()
     }
 
     
@@ -92,7 +94,6 @@ class PPCanvas: UIView{
         // Start a stroke if there's not an ongoing stroke already
         if (self.activeStroke == nil){
             self.activeStroke = PPStroke(tool: PPToolConfiguration.sharedInstance.tool, width: PPToolConfiguration.sharedInstance.width, color: PPToolConfiguration.sharedInstance.color)
-            self.activeStrokeSegmentsDrawn = 0
         }
         
         // Report pressure if using a stylus
@@ -129,10 +130,6 @@ class PPCanvas: UIView{
     
     // MARK: Rendering
     
-    func drawStroke(stroke: PPStroke, quickly:Bool){
-        stroke.drawInView(self, quickly: quickly)
-    }
-    
     override func drawRect(rect: CGRect) {
         // We're gonna save everything to a cached UIImage
         UIGraphicsBeginImageContextWithOptions(self.bounds.size, true, 0.0)
@@ -146,13 +143,13 @@ class PPCanvas: UIView{
                 UIBezierPath(rect: self.bounds).fill()
             }
             
-            drawStroke(stroke, quickly: true)
+            stroke.drawInView(self, quickly: true)
         } else {
             // Redraw everything from scratch
             UIColor.whiteColor().setFill()
             UIBezierPath(rect: self.bounds).fill()
             for stroke in strokes{
-                drawStroke(stroke, quickly: false)
+                stroke.drawInView(self, quickly: false)
             }
         }
         
@@ -161,6 +158,7 @@ class PPCanvas: UIView{
         UIGraphicsEndImageContext()
         
         // Draw result to screen
+        // TODO: this is slow. use a second view as an on-screen buffer?
         canvasThusFar!.drawInRect(rect)
     }
     

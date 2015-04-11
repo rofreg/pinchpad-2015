@@ -42,11 +42,11 @@ class PPStroke{
         var p: CGFloat
         var pointsCount = points.count
         if (pointsCount == 0){
-            p = 0.25
+            p = 0.35
         } else {
             var lastPoint = points[points.count-1]
             var diff = (location - lastPoint.location).length()
-            p = max(0.25, min(1.0, CGFloat(diff) / 10.0))
+            p = max(0.35, min(1.0, CGFloat(diff) / 8.0))
             
             // Smooth out pressure using previous points, to prevent abrupt pressure changes
             var previousPointsToSmoothAgainstCount = min(2, points.count)
@@ -169,6 +169,8 @@ class PPStroke{
             return self.points
         } else {
             var smoothedPoints = [PPPoint]()
+            var minSegmentsBetweenTwoPoints = (quickly ? 2 : 16)
+            smoothedPoints.reserveCapacity(points.count * minSegmentsBetweenTwoPoints)
             
             for (var i = 2; i < points.count; i++) {
                 var p1 = points[i-2]
@@ -180,7 +182,7 @@ class PPStroke{
                 
                 var distance = (p12Midpoint - p23Midpoint).length()
                 var segmentDistance = 10.0
-                var numberOfSegments = min(128, max(floor(distance / segmentDistance), (quickly ? 2 : 16)))
+                var numberOfSegments = min(128, max(floor(distance / segmentDistance), Double(minSegmentsBetweenTwoPoints)))
 //                println("distance: \(distance)")
 //                println("segments: \(numberOfSegments)")
                 
@@ -225,6 +227,7 @@ class PPStroke{
             // Let's calculate a fancy stroke!
             var finalPoints = self.finalPoints(quickly: quickly)
             self.cachedBezierPaths = []
+            self.cachedBezierPaths.reserveCapacity(finalPoints.count + 5)
     
             // Generate two bounding paths to create stroke thickness
             // First point needs a bit of special handling
