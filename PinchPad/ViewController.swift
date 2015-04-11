@@ -62,9 +62,20 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
         // Some code based on https://twittercommunity.com/t/upload-images-with-swift/28410/7
         let image = self.canvas.contentView.asImage()
         let composer = TWTRComposer()
-        composer.postStatus("This is a test post from my Pinch Pad app. Whee!", image:image){
+        
+        // Format the date
+        let date = NSDate()
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MMM d, yyyy"
+        let timeFormatter = NSDateFormatter()
+        timeFormatter.dateFormat = "h:mma"
+        
+        composer.postStatus("\(dateFormatter.stringFromDate(date)), \(timeFormatter.stringFromDate(date).lowercaseString) #pinchpad", image:image){
             (success: Bool) in
             println("how'd it go? \(success)")        // print whether we succeeded
+            if (success){
+                self.canvas.contentView.clear()
+            }
         }
     }
     
@@ -78,7 +89,7 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
         let tumblrLoggedIn = (rand() % 2 == 0)
         
         // Set up buttons
-        let twitterAction = UIAlertAction(title: (twitterLoggedIn ? "Auto-post to Twitter: ON" : "Auto-post to Twitter: OFF"), style: .Default, handler: {
+        let twitterAction = UIAlertAction(title: (twitterLoggedIn ? "Auto-post to Twitter: \(Twitter.sharedInstance().session().userName)" : "Auto-post to Twitter: OFF"), style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
             if (Twitter.sharedInstance().session() == nil){
                 self.logInToTwitter()

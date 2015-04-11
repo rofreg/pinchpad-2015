@@ -43,7 +43,6 @@ extension TWTRComposer {
                     if let json = parsedObject as? NSDictionary {
                         let media_id = json["media_id_string"] as! String
                         
-                        println("result = \(json)")
                         // We uploaded our image successfully! Now post a status with a link to the image.
                         parameters = Dictionary<String, String>()
                         parameters["status"] = statusText
@@ -54,7 +53,6 @@ extension TWTRComposer {
                                     println("Error posting status: \(e)")
                                     completion(success:false)
                                 } else {
-                                    println("response = \(statusResponse)")
                                     completion(success:true)
                                 }
                             } // completion
