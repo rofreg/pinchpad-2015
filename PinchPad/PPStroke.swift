@@ -181,7 +181,7 @@ class PPStroke{
                 var p23Midpoint = (p2.location + p3.location) * 0.5
                 
                 var distance = (p12Midpoint - p23Midpoint).length()
-                var segmentDistance = 10.0
+                var segmentDistance = (quickly ? 10.0 : 4.0)
                 var numberOfSegments = min(128, max(floor(distance / segmentDistance), Double(minSegmentsBetweenTwoPoints)))
 //                println("distance: \(distance)")
 //                println("segments: \(numberOfSegments)")
@@ -215,7 +215,7 @@ class PPStroke{
     
     // This returns a series of POLYGONS that simulate pressure
     func asBezierPaths(quickly: Bool = false) -> [UIBezierPath]{
-        if cachedPointsCount == points.count {
+        if (quickly && cachedPointsCount == points.count) {
             // This stroke hasn't changed since the last time we rendered it
             return cachedBezierPaths
         } else if self.isDot(){

@@ -13,6 +13,7 @@ class PPCanvas: UIView{
     var redoStrokes = [PPStroke]()
     var activeStroke: PPStroke?
     var canvasThusFar: UIImage?
+    var canvasAfterLastStroke: UIImage?
     var touchEvents = 0
     
     override init(frame: CGRect) {
@@ -109,6 +110,7 @@ class PPCanvas: UIView{
     
     func clear(){
         self.canvasThusFar = nil
+        self.canvasAfterLastStroke = nil
         self.strokes = [PPStroke]()
         self.setNeedsDisplay()
     }
@@ -116,6 +118,7 @@ class PPCanvas: UIView{
     func undo(){
         if self.strokes.count > 0{
             self.redoStrokes.append(self.strokes.removeLast())
+            canvasAfterLastStroke = nil     // Clear stored canvas
             self.setNeedsDisplay()
         }
     }
@@ -145,17 +148,32 @@ class PPCanvas: UIView{
             
             stroke.drawInView(self, quickly: true)
         } else {
-            // Redraw everything from scratch
+            // Redraw everything up to the last step
             UIColor.whiteColor().setFill()
             UIBezierPath(rect: self.bounds).fill()
-            for stroke in strokes{
-                stroke.drawInView(self, quickly: false)
+            if let cachedImage = canvasAfterLastStroke {
+                cachedImage.drawInRect(rect)
+                
+                // Draw the most recent stroke in full
+                if let stroke = strokes.last {
+                    stroke.drawInView(self, quickly: false)
+                }
+            } else {
+                // We have no cached image, so redraw all strokes from scratch
+                for stroke in strokes{
+                    stroke.drawInView(self, quickly: false)
+                }
             }
         }
         
         // Save results to a cached image
         canvasThusFar = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
+        
+        // If we're between strokes, save the canvas thus far
+        if (activeStroke == nil){
+            canvasAfterLastStroke = canvasThusFar
+        }
         
         // Draw result to screen
         // TODO: this is slow. use a second view as an on-screen buffer?
