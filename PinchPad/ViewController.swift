@@ -48,12 +48,17 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
     
     func logInToTumblr(){
         // Present Tumblr login modal
-        // TMAPIClient.sharedInstance().authenticate()
-        println("Not implemented")
+        TMAPIClient.sharedInstance().authenticate("pinchpad", callback: { (error: NSError!) -> Void in
+            println("Tumblr login error?: \(error)")
+            // TODO: persist OAuth tokens
+            println(TMAPIClient.sharedInstance().OAuthToken)
+            println(TMAPIClient.sharedInstance().OAuthTokenSecret)
+        })
     }
     
     func logOutOfTumblr() {
-        println("Not implemented")
+        TMAPIClient.sharedInstance().OAuthToken = ""
+        TMAPIClient.sharedInstance().OAuthTokenSecret = ""
     }
     
     
@@ -99,7 +104,7 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
         let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         
         let twitterLoggedIn = (Twitter.sharedInstance().session() != nil)
-        let tumblrLoggedIn = (rand() % 2 == 0)
+        let tumblrLoggedIn = (TMAPIClient.sharedInstance().OAuthToken != nil && TMAPIClient.sharedInstance().OAuthToken != "")
         
         // Set up buttons
         let twitterAction = UIAlertAction(title: (twitterLoggedIn ? "Auto-post to Twitter: \(Twitter.sharedInstance().session().userName)" : "Auto-post to Twitter: OFF"), style: .Default, handler: {
