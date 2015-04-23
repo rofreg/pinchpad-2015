@@ -27,6 +27,7 @@
 		00A3AB8E1AA7F9BB004CEA19 /* WacomDevice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A3AB8C1AA7F9BB004CEA19 /* WacomDevice.framework */; };
 		00A3AB8F1AA7F9BB004CEA19 /* WacomStylusFrameworkResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 00A3AB8D1AA7F9BB004CEA19 /* WacomStylusFrameworkResources.bundle */; };
 		00A3AB971AA93E98004CEA19 /* PPToolConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A3AB961AA93E98004CEA19 /* PPToolConfiguration.swift */; };
+		00C3E37D1AE9B4CB005D8375 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C3E37C1AE9B4CB005D8375 /* AuthManager.swift */; };
 		00E53C781AA3DC4F008E441E /* TWTRComposer+ProgrammaticPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E53C771AA3DC4F008E441E /* TWTRComposer+ProgrammaticPost.swift */; };
 		18240D6542BDDEAA38E1C3AD /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB8F4C387E296D6F76285AC /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
@@ -67,6 +68,7 @@
 		00A3AB8D1AA7F9BB004CEA19 /* WacomStylusFrameworkResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WacomStylusFrameworkResources.bundle; sourceTree = SOURCE_ROOT; };
 		00A3AB961AA93E98004CEA19 /* PPToolConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPToolConfiguration.swift; sourceTree = "<group>"; };
 		00AE91181A84506C00EAA84F /* PinchPad-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PinchPad-Bridging-Header.h"; sourceTree = "<group>"; };
+		00C3E37C1AE9B4CB005D8375 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		00E53C771AA3DC4F008E441E /* TWTRComposer+ProgrammaticPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TWTRComposer+ProgrammaticPost.swift"; sourceTree = "<group>"; };
 		073EBFF2AEE1F8B7C4577933 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		DCB8F4C387E296D6F76285AC /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +124,7 @@
 				003ABDF31A852CE600F51534 /* background.png */,
 				005DCAB21A805B6F00E55C0D /* Dependencies */,
 				005DCA851A805A3900E55C0D /* AppDelegate.swift */,
+				00C3E37C1AE9B4CB005D8375 /* AuthManager.swift */,
 				005DCA8A1A805A3900E55C0D /* ViewController.swift */,
 				00A3AB961AA93E98004CEA19 /* PPToolConfiguration.swift */,
 				006BC1561A884177003AA87D /* PPToolConfigurationView.swift */,
@@ -373,6 +376,7 @@
 				00E53C781AA3DC4F008E441E /* TWTRComposer+ProgrammaticPost.swift in Sources */,
 				006BC1551A8839FD003AA87D /* PPStroke.swift in Sources */,
 				00A3AB971AA93E98004CEA19 /* PPToolConfiguration.swift in Sources */,
+				00C3E37D1AE9B4CB005D8375 /* AuthManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

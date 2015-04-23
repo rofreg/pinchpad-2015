@@ -21,6 +21,7 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
         WacomManager.getManager().startDeviceDiscovery()
         TouchManager.GetTouchManager().touchRejectionEnabled = true
         TouchManager.GetTouchManager().timingOffset = 200000
+        super.viewDidLoad()
     }
     
     deinit {
@@ -32,13 +33,7 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
     
     func logInToTwitter(){
         // Present Twitter login modal
-        Twitter.sharedInstance().logInWithCompletion{(session: TWTRSession!, error: NSError!) -> Void in
-            if session != nil {
-                // We logged in successfully
-                println(session.userName)
-                println(session)
-            }
-        }
+        Twitter.sharedInstance().logInWithCompletion(nil)
     }
     
     func logOutOfTwitter() {
@@ -49,9 +44,8 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
     // MARK: Tumblr session handling
     
     func logInToTumblr(){
-        // Present Tumblr login modal
+        // Present Tumblr login by switching to Safari
         TMAPIClient.sharedInstance().authenticate("pinchpad", callback: { (error: NSError!) -> Void in
-            println("Tumblr login error?: \(error)")
             // If there was an error, print it and return
             if let error = error {
                 println(error)
@@ -65,16 +59,35 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
                 tumblrInfoToPersist["Token"] = TMAPIClient.sharedInstance().OAuthToken
                 tumblrInfoToPersist["Secret"] = TMAPIClient.sharedInstance().OAuthTokenSecret
                 
-                println(JSON(result)["user"]["blogs"])
+                // Which specific blog should we post to?
                 if let blogs = JSON(result)["user"]["blogs"].array {
-                    if blogs.count >= 1{
+                    if (blogs.count == 1){
                         // Automatically select the user's first blog
-                        tumblrInfoToPersist["Blog"] = blogs[0]["name"].string
+                        tumblrInfoToPersist["Blog"] = blogs[0]["name"].string!
+                        Locksmith.updateData(tumblrInfoToPersist, forUserAccount:"Tumblr")
+                    } else if (blogs.count > 1){
+                        // Have the user pick manually if they have 2+ blogs
+                        let blogChoiceMenu = UIAlertController(title: "Which blog do you want to post to?", message: nil, preferredStyle: .ActionSheet)
                         
-                        // TODO: have the user pick a blog manually if they have 2+ blogs
-                        tumblrInfoToPersist["Blog"] = "tibetanrockdogtranslations"
+                        // Add a button for each blog choice
+                        for blog in blogs{
+                            let button = UIAlertAction(title: blog["name"].string!, style: .Default, handler: {
+                                (alert: UIAlertAction!) -> Void in
+                                tumblrInfoToPersist["Blog"] = blog["name"].string!
+                                Locksmith.updateData(tumblrInfoToPersist, forUserAccount:"Tumblr")
+                            })
+                            blogChoiceMenu.addAction(button)
+                        }
                         
-                        Locksmith.saveData(tumblrInfoToPersist, forUserAccount:"Tumblr")
+                        // Add a cancel button
+                        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+                            (alert: UIAlertAction!) -> Void in
+                            Locksmith.deleteDataForUserAccount("Tumblr")
+                        })
+                        blogChoiceMenu.addAction(cancelAction)
+                        
+                        // Display the action sheet
+                        self.presentViewController(blogChoiceMenu, animated: true, completion: nil)
                     }
                 }
             })
@@ -105,7 +118,6 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
     @IBAction func post(){
         // Some code based on https://twittercommunity.com/t/upload-images-with-swift/28410/7
         let image = self.canvas.contentView.asImage()
-        let composer = TWTRComposer()
         
         // Format the date
         let date = NSDate()
@@ -115,18 +127,27 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
         timeFormatter.dateFormat = "h:mma"
         let caption = "\(dateFormatter.stringFromDate(date)), \(timeFormatter.stringFromDate(date).lowercaseString)"
         
-//        composer.postStatus("\(caption) #pinchpad", image:image){
-//            (success: Bool) in
-//            println("how'd it go? \(success)")        // print whether we succeeded
-//            if (success){
-//                self.canvas.contentView.clear()
-//            }
-//        }
-        
-        self.postToTumblr(caption: caption)
+        // Actually post
+        if (AuthManager.isLoggedIn(.Twitter)){
+            self.postToTwitter(image, withCaption: caption)
+        }
+        if (AuthManager.isLoggedIn(.Tumblr)){
+            self.postToTumblr(image, withCaption: caption)
+        }
     }
     
-    func postToTumblr(#caption: String){
+    func postToTwitter(image: UIImage, withCaption caption: String){
+        let composer = TWTRComposer()
+        composer.postStatus("\(caption) #pinchpad", image:image){
+            (success: Bool) in
+            println("how'd it go? \(success)")        // print whether we succeeded
+            if (success){
+                self.canvas.contentView.clear()
+            }
+        }
+    }
+    
+    func postToTumblr(image: UIImage, withCaption caption: String){
         let (dictionary, error) = Locksmith.loadDataForUserAccount("Tumblr")
         if let dict = dictionary, blogName = dict["Blog"] as? String where error == nil {
             var image = self.canvas.contentView.asImage()
@@ -147,21 +168,18 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
     @IBAction func showActionSheet(sender: AnyObject) {
         let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         
-        let twitterLoggedIn = (Twitter.sharedInstance().session() != nil)
-        let tumblrLoggedIn = (TMAPIClient.sharedInstance().OAuthToken != nil && TMAPIClient.sharedInstance().OAuthToken != "")
-        
         // Set up buttons
-        let twitterAction = UIAlertAction(title: (twitterLoggedIn ? "Auto-post to Twitter: \(Twitter.sharedInstance().session().userName)" : "Auto-post to Twitter: OFF"), style: .Default, handler: {
+        let twitterAction = UIAlertAction(title: (AuthManager.isLoggedIn(.Twitter) ? "Auto-post to Twitter: \(AuthManager.identifier(.Twitter)!)" : "Auto-post to Twitter: OFF"), style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
-            if (twitterLoggedIn){
+            if (AuthManager.isLoggedIn(.Twitter)){
                 self.logOutOfTwitter()
             } else {
                 self.logInToTwitter()
             }
         })
-        let tumblrAction = UIAlertAction(title: (tumblrLoggedIn ? "Auto-post to Tumblr: ON" : "Auto-post to Tumblr: OFF"), style: .Default, handler: {
+        let tumblrAction = UIAlertAction(title: (AuthManager.isLoggedIn(.Tumblr) ? "Auto-post to Tumblr: \(AuthManager.identifier(.Tumblr)!)" : "Auto-post to Tumblr: OFF"), style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
-            if (tumblrLoggedIn){
+            if (AuthManager.isLoggedIn(.Tumblr)){
                 self.logOutOfTumblr()
             } else {
                 self.logInToTumblr()
@@ -182,8 +200,12 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
         // Show menu
         self.presentViewController(optionMenu, animated: true, completion: nil)
     }
-    
-    
+}
+
+
+
+// MARK: Wacom extras
+extension ViewController: WacomDiscoveryCallback, WacomStylusEventCallback {
     // MARK: Wacom device discovery
     
     func deviceDiscovered(device: WacomDevice!) {
