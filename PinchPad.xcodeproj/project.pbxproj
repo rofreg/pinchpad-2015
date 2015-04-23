@@ -28,7 +28,7 @@
 		00A3AB8F1AA7F9BB004CEA19 /* WacomStylusFrameworkResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 00A3AB8D1AA7F9BB004CEA19 /* WacomStylusFrameworkResources.bundle */; };
 		00A3AB971AA93E98004CEA19 /* PPToolConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A3AB961AA93E98004CEA19 /* PPToolConfiguration.swift */; };
 		00E53C781AA3DC4F008E441E /* TWTRComposer+ProgrammaticPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E53C771AA3DC4F008E441E /* TWTRComposer+ProgrammaticPost.swift */; };
-		E775F7C10F889E9C3D8C86AF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9150A2CAF4878A9739EBAC5F /* libPods.a */; };
+		18240D6542BDDEAA38E1C3AD /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB8F4C387E296D6F76285AC /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +69,7 @@
 		00AE91181A84506C00EAA84F /* PinchPad-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PinchPad-Bridging-Header.h"; sourceTree = "<group>"; };
 		00E53C771AA3DC4F008E441E /* TWTRComposer+ProgrammaticPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TWTRComposer+ProgrammaticPost.swift"; sourceTree = "<group>"; };
 		073EBFF2AEE1F8B7C4577933 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		9150A2CAF4878A9739EBAC5F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCB8F4C387E296D6F76285AC /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE6E373A2F0576890450A69C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,7 +82,7 @@
 				005DCAAC1A805A9D00E55C0D /* TwitterKit.framework in Frameworks */,
 				005DCAB11A805B5800E55C0D /* Crashlytics.framework in Frameworks */,
 				005DCAAE1A805A9D00E55C0D /* Fabric.framework in Frameworks */,
-				E775F7C10F889E9C3D8C86AF /* libPods.a in Frameworks */,
+				18240D6542BDDEAA38E1C3AD /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,7 +181,7 @@
 		3BE3E580DFEC8E60254E97A7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9150A2CAF4878A9739EBAC5F /* libPods.a */,
+				DCB8F4C387E296D6F76285AC /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -208,6 +208,7 @@
 				005DCA7E1A805A3900E55C0D /* Resources */,
 				005DCAA81A805A8E00E55C0D /* ShellScript */,
 				4E344F8F7998CFE2BF6F4C14 /* Copy Pods Resources */,
+				1D148290B2B58DD1B0CE33F0 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -310,6 +311,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run 5471874bd816bcc9bb379c6869cfcf9ebf36b54b f073d4b928a743d390fcb5bf5972f113c4fd47fd343eeda567936ecf56bebeda";
+		};
+		1D148290B2B58DD1B0CE33F0 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		4E344F8F7998CFE2BF6F4C14 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;

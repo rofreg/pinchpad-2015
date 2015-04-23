@@ -8,7 +8,9 @@
 
 import UIKit
 import TwitterKit
-import CoreData
+import TMTumblrSDK
+import Locksmith
+import SwiftyJSON
 
 class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEventCallback {
     @IBOutlet var canvas: PPInfiniteScrollView!
@@ -44,21 +46,45 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
     }
     
     
-    // MARK: Twitter session handling
+    // MARK: Tumblr session handling
     
     func logInToTumblr(){
         // Present Tumblr login modal
         TMAPIClient.sharedInstance().authenticate("pinchpad", callback: { (error: NSError!) -> Void in
             println("Tumblr login error?: \(error)")
-            // TODO: persist OAuth tokens
-            println(TMAPIClient.sharedInstance().OAuthToken)
-            println(TMAPIClient.sharedInstance().OAuthTokenSecret)
+            // If there was an error, print it and return
+            if let error = error {
+                println(error)
+                return
+            }
+            
+            // Otherwise, we need to figure out which specific blog we're posting to
+            // To do this, we'll need to fetch user info for the current user
+            TMAPIClient.sharedInstance().userInfo({ (result:AnyObject!, error:NSError!) -> Void in
+                var tumblrInfoToPersist: [String: String] = [:]  // Init an empty dict
+                tumblrInfoToPersist["Token"] = TMAPIClient.sharedInstance().OAuthToken
+                tumblrInfoToPersist["Secret"] = TMAPIClient.sharedInstance().OAuthTokenSecret
+                
+                println(JSON(result)["user"]["blogs"])
+                if let blogs = JSON(result)["user"]["blogs"].array {
+                    if blogs.count >= 1{
+                        // Automatically select the user's first blog
+                        tumblrInfoToPersist["Blog"] = blogs[0]["name"].string
+                        
+                        // TODO: have the user pick a blog manually if they have 2+ blogs
+                        tumblrInfoToPersist["Blog"] = "tibetanrockdogtranslations"
+                        
+                        Locksmith.saveData(tumblrInfoToPersist, forUserAccount:"Tumblr")
+                    }
+                }
+            })
         })
     }
     
     func logOutOfTumblr() {
         TMAPIClient.sharedInstance().OAuthToken = ""
         TMAPIClient.sharedInstance().OAuthTokenSecret = ""
+        Locksmith.deleteDataForUserAccount("Tumblr")
     }
     
     
@@ -87,13 +113,31 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
         dateFormatter.dateFormat = "MMM d, yyyy"
         let timeFormatter = NSDateFormatter()
         timeFormatter.dateFormat = "h:mma"
+        let caption = "\(dateFormatter.stringFromDate(date)), \(timeFormatter.stringFromDate(date).lowercaseString)"
         
-        composer.postStatus("\(dateFormatter.stringFromDate(date)), \(timeFormatter.stringFromDate(date).lowercaseString) #pinchpad", image:image){
-            (success: Bool) in
-            println("how'd it go? \(success)")        // print whether we succeeded
-            if (success){
-                self.canvas.contentView.clear()
-            }
+//        composer.postStatus("\(caption) #pinchpad", image:image){
+//            (success: Bool) in
+//            println("how'd it go? \(success)")        // print whether we succeeded
+//            if (success){
+//                self.canvas.contentView.clear()
+//            }
+//        }
+        
+        self.postToTumblr(caption: caption)
+    }
+    
+    func postToTumblr(#caption: String){
+        let (dictionary, error) = Locksmith.loadDataForUserAccount("Tumblr")
+        if let dict = dictionary, blogName = dict["Blog"] as? String where error == nil {
+            var image = self.canvas.contentView.asImage()
+            var imageData = UIImagePNGRepresentation(image)
+            TMAPIClient.sharedInstance().photo(blogName, imageNSDataArray: [imageData], contentTypeArray: ["image/png"], fileNameArray: ["test.png"], parameters: ["caption":caption, "tags":"pinchpad", "link":"http://www.pinchpad.com"], callback: { (response: AnyObject!, error: NSError!) -> Void in
+                if let error = error{
+                    println(error)
+                } else {
+                    println(response)
+                }
+            })
         }
     }
     
@@ -109,17 +153,19 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
         // Set up buttons
         let twitterAction = UIAlertAction(title: (twitterLoggedIn ? "Auto-post to Twitter: \(Twitter.sharedInstance().session().userName)" : "Auto-post to Twitter: OFF"), style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
-            if (Twitter.sharedInstance().session() == nil){
-                self.logInToTwitter()
-            } else {
+            if (twitterLoggedIn){
                 self.logOutOfTwitter()
+            } else {
+                self.logInToTwitter()
             }
-            println("Twitter status changed")
         })
         let tumblrAction = UIAlertAction(title: (tumblrLoggedIn ? "Auto-post to Tumblr: ON" : "Auto-post to Tumblr: OFF"), style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
-            println("Tumblr status changed")
-            self.logInToTumblr()
+            if (tumblrLoggedIn){
+                self.logOutOfTumblr()
+            } else {
+                self.logInToTumblr()
+            }
         })
         let clearAction = UIAlertAction(title: "Clear canvas", style: .Destructive, handler: {
             (alert: UIAlertAction!) -> Void in

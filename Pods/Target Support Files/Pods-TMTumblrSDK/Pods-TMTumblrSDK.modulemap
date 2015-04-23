@@ -1,0 +1,6 @@
+framework module TMTumblrSDK {
+  umbrella header "Pods-TMTumblrSDK-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -9,8 +9,9 @@
 import UIKit
 import Fabric
 import TwitterKit
+import TMTumblrSDK
 import Crashlytics
-import CoreData
+import Locksmith
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,12 +24,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 var consumerKey = twitter["ConsumerKey"] as! String
                 var consumerSecret = twitter["ConsumerSecret"] as! String
                 Twitter.sharedInstance().startWithConsumerKey(consumerKey, consumerSecret:consumerSecret)
+                if (Twitter.sharedInstance().session() != nil){
+                    println("Logged in to Twitter as \(Twitter.sharedInstance().session().userName)")
+                }
             }
             if let tumblr = (config["TumblrAPI"] as? NSDictionary){
                 var consumerKey = tumblr["ConsumerKey"] as! String
                 var consumerSecret = tumblr["ConsumerSecret"] as! String
                 TMAPIClient.sharedInstance().OAuthConsumerKey = consumerKey
                 TMAPIClient.sharedInstance().OAuthConsumerSecret = consumerSecret
+                let (dictionary, error) = Locksmith.loadDataForUserAccount("Tumblr")
+                if let dict = dictionary where error == nil {
+                    // Load OAuth tokens from the keychain
+                    if let token = dict["Token"] as? String, secret = dict["Secret"] as? String, blog = dict["Blog"] as? String{
+                        TMAPIClient.sharedInstance().OAuthToken = token
+                        TMAPIClient.sharedInstance().OAuthTokenSecret = secret
+                        println("Logged in to Tumblr as \(blog)")
+                    }
+                }
             }
         }
     

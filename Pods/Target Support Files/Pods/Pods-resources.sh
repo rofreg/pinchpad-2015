@@ -47,22 +47,6 @@ install_resource()
       ;;
   esac
 }
-if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_resource "TMTumblrSDK/TMTumblrSDK/Activity/UIActivityTumblr.png"
-  install_resource "TMTumblrSDK/TMTumblrSDK/Activity/UIActivityTumblr@2x.png"
-  install_resource "TMTumblrSDK/TMTumblrSDK/Activity/UIActivityTumblr@2x~ipad.png"
-  install_resource "TMTumblrSDK/TMTumblrSDK/Activity/UIActivityTumblr~ipad.png"
-  install_resource "TMTumblrSDK/TMTumblrSDK/Activity/UIActivityTumblr~ipad@2x.png"
-  install_resource "TMTumblrSDK/TMTumblrSDK.podspec.json"
-fi
-if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_resource "TMTumblrSDK/TMTumblrSDK/Activity/UIActivityTumblr.png"
-  install_resource "TMTumblrSDK/TMTumblrSDK/Activity/UIActivityTumblr@2x.png"
-  install_resource "TMTumblrSDK/TMTumblrSDK/Activity/UIActivityTumblr@2x~ipad.png"
-  install_resource "TMTumblrSDK/TMTumblrSDK/Activity/UIActivityTumblr~ipad.png"
-  install_resource "TMTumblrSDK/TMTumblrSDK/Activity/UIActivityTumblr~ipad@2x.png"
-  install_resource "TMTumblrSDK/TMTumblrSDK.podspec.json"
-fi
 
 rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
 if [[ "${ACTION}" == "install" ]]; then
