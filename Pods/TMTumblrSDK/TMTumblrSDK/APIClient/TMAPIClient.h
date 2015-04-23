@@ -92,7 +92,7 @@ typedef void (^TMAPICallback)(id, NSError *error);
  */
 - (void)sendRequest:(JXHTTPOperation *)request queue:(NSOperationQueue *)queue callback:(TMAPICallback)callback;
 
-#ifdef __ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__
+// #ifdef __ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__
 
 /** @name Authentication */
 
@@ -120,7 +120,7 @@ typedef void (^TMAPICallback)(id, NSError *error);
  */
 - (BOOL)handleOpenURL:(NSURL *)url;
 
-#endif
+// #endif
 
 /**
  Authenticate via xAuth. Please note that xAuth access [must be specifically requested](http://www.tumblr.com/oauth/apps) 
