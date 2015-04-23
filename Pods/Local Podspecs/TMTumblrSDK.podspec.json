@@ -1,6 +1,6 @@
 {
   "name": "TMTumblrSDK",
-  "version": "1.0.5",
+  "version": "2.1.1",
   "summary": "An unopinionated and flexible library for easily integrating Tumblr data into your iOS or OS X application.",
   "authors": {
     "Bryan Irace": "bryan@tumblr.com"
@@ -12,7 +12,7 @@
   },
   "source": {
     "git": "https://github.com/tumblr/TMTumblrSDK.git",
-    "tag": "1.0.5"
+    "tag": "2.1.1"
   },
   "requires_arc": true,
   "platforms": {
@@ -29,7 +29,13 @@
   "subspecs": [
     {
       "name": "Core",
-      "source_files": "TMTumblrSDK/Core"
+      "source_files": "TMTumblrSDK/Core",
+      "dependencies": {
+        "Spectacles": [
+          "~> 1.0"
+        ]
+      },
+      "resources": "TMTumblrSDK.podspec.json"
     },
     {
       "name": "Activity",
@@ -44,7 +50,7 @@
       "source_files": "TMTumblrSDK/APIClient",
       "dependencies": {
         "JXHTTP": [
-          "1.0.0"
+          "~> 1.0"
         ]
       },
       "subspecs": [

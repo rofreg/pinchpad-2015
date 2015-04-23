@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Tumblr. All rights reserved.
 //
 
-#import "JXHTTP.h"
+#import <JXHTTP/JXHTTP.h>
 
 typedef void (^TMAPICallback)(id, NSError *error);
 
@@ -248,12 +248,24 @@ typedef void (^TMAPICallback)(id, NSError *error);
 - (void)photo:(NSString *)blogName filePathArray:(NSArray *)filePathArrayOrNil contentTypeArray:(NSArray *)contentTypeArrayOrNil
 fileNameArray:(NSArray *)fileNameArrayOrNil parameters:(NSDictionary *)parameters callback:(TMAPICallback)callback;
 
+
+- (JXHTTPOperation *)photoRequest:(NSString *)blogName imageNSDataArray:(NSArray *)nsdataArrayOrNil
+                 contentTypeArray:(NSArray *)contentTypeArrayOrNil fileNameArray:(NSArray *)fileNameArrayOrNil
+                       parameters:(NSDictionary *)parameters;
+
+- (void)photo:(NSString *)blogName imageNSDataArray:(NSArray *)nsdataArrayOrNil contentTypeArray:(NSArray *)contentTypeArrayOrNil
+fileNameArray:(NSArray *)fileNameArrayOrNil parameters:(NSDictionary *)parameters callback:(TMAPICallback)callback;
+
+
 /// Create a video post
 - (JXHTTPOperation *)videoRequest:(NSString *)blogName filePath:(NSString *)filePathOrNil
                       contentType:(NSString *)contentTypeOrNil fileName:(NSString *)fileNameOrNil
                        parameters:(NSDictionary *)parameters;
 - (void)video:(NSString *)blogName filePath:(NSString *)filePathOrNil contentType:(NSString *)contentTypeOrNil
      fileName:(NSString *)fileNameOrNil parameters:(NSDictionary *)parameters callback:(TMAPICallback)callback;
+
+/// Create a Video Post from URL or Embed HTML
+- (JXHTTPOperation *)webVideoRequest:(NSString *)blogName parameters:(NSDictionary *)parameters;
 
 /// Create an audio post
 - (JXHTTPOperation *)audioRequest:(NSString *)blogName filePath:(NSString *)filePathOrNil

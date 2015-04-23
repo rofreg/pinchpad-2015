@@ -44,6 +44,19 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
     }
     
     
+    // MARK: Twitter session handling
+    
+    func logInToTumblr(){
+        // Present Tumblr login modal
+        // TMAPIClient.sharedInstance().authenticate()
+        println("Not implemented")
+    }
+    
+    func logOutOfTumblr() {
+        println("Not implemented")
+    }
+    
+    
     // MARK: tool handling
     
     @IBAction func pencil(){
@@ -101,6 +114,7 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
         let tumblrAction = UIAlertAction(title: (tumblrLoggedIn ? "Auto-post to Tumblr: ON" : "Auto-post to Tumblr: OFF"), style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
             println("Tumblr status changed")
+            self.logInToTumblr()
         })
         let clearAction = UIAlertAction(title: "Clear canvas", style: .Destructive, handler: {
             (alert: UIAlertAction!) -> Void in
