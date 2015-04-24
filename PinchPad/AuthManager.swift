@@ -6,9 +6,11 @@
 //
 //
 
+import UIKit
 import TwitterKit
 import TMTumblrSDK
 import Locksmith
+import SwiftyJSON
 
 class AuthManager {
     // MARK: Initialization
@@ -54,6 +56,90 @@ class AuthManager {
     }
     
     
+    // MARK: Changing auth state
+    
+    class func logIn(service: AuthManagerService){
+        if (service == .Twitter){
+            // Present Twitter login modal
+            Twitter.sharedInstance().logInWithCompletion(nil)
+        } else if (service == .Tumblr){
+            // Present Tumblr login by switching to Safari
+            TMAPIClient.sharedInstance().authenticate("pinchpad", callback: { (error: NSError!) -> Void in
+                // If there was an error, print it and return
+                if let error = error {
+                    println(error)
+                    return
+                }
+                
+                // Otherwise, we need to figure out which specific blog we're posting to
+                // To do this, we'll need to fetch user info for the current user
+                TMAPIClient.sharedInstance().userInfo({ (result:AnyObject!, error:NSError!) -> Void in
+                    var tumblrInfoToPersist: [String: String] = [:]  // Init an empty dict
+                    tumblrInfoToPersist["Token"] = TMAPIClient.sharedInstance().OAuthToken
+                    tumblrInfoToPersist["Secret"] = TMAPIClient.sharedInstance().OAuthTokenSecret
+                    
+                    // Which specific blog should we post to?
+                    if let blogs = JSON(result)["user"]["blogs"].array {
+                        if (blogs.count == 1){
+                            // Automatically select the user's first blog
+                            tumblrInfoToPersist["Blog"] = blogs[0]["name"].string!
+                            Locksmith.updateData(tumblrInfoToPersist, forUserAccount:"Tumblr")
+                        } else if (blogs.count > 1){
+                            // Have the user pick manually if they have 2+ blogs
+                            let blogChoiceMenu = UIAlertController(title: "Which blog do you want to post to?", message: nil, preferredStyle: .ActionSheet)
+                            
+                            // Add a button for each blog choice
+                            for blog in blogs{
+                                let button = UIAlertAction(title: blog["name"].string!, style: .Default, handler: {
+                                    (alert: UIAlertAction!) -> Void in
+                                    tumblrInfoToPersist["Blog"] = blog["name"].string!
+                                    Locksmith.updateData(tumblrInfoToPersist, forUserAccount:"Tumblr")
+                                })
+                                blogChoiceMenu.addAction(button)
+                            }
+                            
+                            // Add a cancel button
+                            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+                                (alert: UIAlertAction!) -> Void in
+                                Locksmith.deleteDataForUserAccount("Tumblr")
+                            })
+                            blogChoiceMenu.addAction(cancelAction)
+                            
+                            // Display the action sheet
+                            var vc = UIApplication.sharedApplication().delegate!.window!!.rootViewController
+                            vc!.presentViewController(blogChoiceMenu, animated: true, completion: nil)
+                        }
+                    }
+                })
+            })
+        } else {
+            return
+        }
+    }
+    
+    class func logOut(service: AuthManagerService){
+        if (service == .Twitter){
+            Twitter.sharedInstance().logOut()
+        } else if (service == .Tumblr){
+            // Clear Tumblr SDK vars and keychain
+            TMAPIClient.sharedInstance().OAuthToken = ""
+            TMAPIClient.sharedInstance().OAuthTokenSecret = ""
+            Locksmith.deleteDataForUserAccount("Tumblr")
+        } else {
+            return
+        }
+    }
+    
+    class func changeAuth(service: AuthManagerService){
+        let loggingIn = !AuthManager.isLoggedIn(service)
+        if (loggingIn){
+            AuthManager.logIn(service)
+        } else {
+            AuthManager.logOut(service)
+        }
+    }
+    
+    
     // MARK: Checking auth state
     
     class func isLoggedIn(service: AuthManagerService) -> Bool{
@@ -71,6 +157,12 @@ class AuthManager {
         }
     }
     
+    class func loggedInServices() -> [AuthManagerService]{
+        return [AuthManagerService.Twitter, AuthManagerService.Tumblr].filter({
+            return AuthManager.isLoggedIn($0)
+        })
+    }
+    
     class func identifier(service: AuthManagerService) -> String?{
         if (!isLoggedIn(service)){
             return nil
@@ -85,6 +177,29 @@ class AuthManager {
             }
         } else {
             return nil
+        }
+    }
+    
+    
+    // MARK: Posting new content
+    
+    class func post(service: AuthManagerService, image: UIImage, caption: String){
+        // TODO: callback
+        if (service == .Twitter){
+            let composer = TWTRComposer()
+            composer.postStatus("\(caption) #pinchpad", image:image){
+                (success: Bool) in
+                println("how'd it go? \(success)")        // print whether we succeeded
+            }
+        } else if (service == .Tumblr) {
+            var imageData = UIImagePNGRepresentation(image)
+            TMAPIClient.sharedInstance().photo(AuthManager.identifier(.Tumblr), imageNSDataArray: [imageData], contentTypeArray: ["image/png"], fileNameArray: ["test.png"], parameters: ["caption":caption, "tags":"pinchpad", "link":"http://www.pinchpad.com"], callback: { (response: AnyObject!, error: NSError!) -> Void in
+                if let error = error{
+                    println(error)
+                } else {
+                    println(response)
+                }
+            })
         }
     }
 }

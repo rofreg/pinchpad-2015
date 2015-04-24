@@ -29,78 +29,6 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
     }
     
     
-    // MARK: Twitter session handling
-    
-    func logInToTwitter(){
-        // Present Twitter login modal
-        Twitter.sharedInstance().logInWithCompletion(nil)
-    }
-    
-    func logOutOfTwitter() {
-        Twitter.sharedInstance().logOut()
-    }
-    
-    
-    // MARK: Tumblr session handling
-    
-    func logInToTumblr(){
-        // Present Tumblr login by switching to Safari
-        TMAPIClient.sharedInstance().authenticate("pinchpad", callback: { (error: NSError!) -> Void in
-            // If there was an error, print it and return
-            if let error = error {
-                println(error)
-                return
-            }
-            
-            // Otherwise, we need to figure out which specific blog we're posting to
-            // To do this, we'll need to fetch user info for the current user
-            TMAPIClient.sharedInstance().userInfo({ (result:AnyObject!, error:NSError!) -> Void in
-                var tumblrInfoToPersist: [String: String] = [:]  // Init an empty dict
-                tumblrInfoToPersist["Token"] = TMAPIClient.sharedInstance().OAuthToken
-                tumblrInfoToPersist["Secret"] = TMAPIClient.sharedInstance().OAuthTokenSecret
-                
-                // Which specific blog should we post to?
-                if let blogs = JSON(result)["user"]["blogs"].array {
-                    if (blogs.count == 1){
-                        // Automatically select the user's first blog
-                        tumblrInfoToPersist["Blog"] = blogs[0]["name"].string!
-                        Locksmith.updateData(tumblrInfoToPersist, forUserAccount:"Tumblr")
-                    } else if (blogs.count > 1){
-                        // Have the user pick manually if they have 2+ blogs
-                        let blogChoiceMenu = UIAlertController(title: "Which blog do you want to post to?", message: nil, preferredStyle: .ActionSheet)
-                        
-                        // Add a button for each blog choice
-                        for blog in blogs{
-                            let button = UIAlertAction(title: blog["name"].string!, style: .Default, handler: {
-                                (alert: UIAlertAction!) -> Void in
-                                tumblrInfoToPersist["Blog"] = blog["name"].string!
-                                Locksmith.updateData(tumblrInfoToPersist, forUserAccount:"Tumblr")
-                            })
-                            blogChoiceMenu.addAction(button)
-                        }
-                        
-                        // Add a cancel button
-                        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
-                            (alert: UIAlertAction!) -> Void in
-                            Locksmith.deleteDataForUserAccount("Tumblr")
-                        })
-                        blogChoiceMenu.addAction(cancelAction)
-                        
-                        // Display the action sheet
-                        self.presentViewController(blogChoiceMenu, animated: true, completion: nil)
-                    }
-                }
-            })
-        })
-    }
-    
-    func logOutOfTumblr() {
-        TMAPIClient.sharedInstance().OAuthToken = ""
-        TMAPIClient.sharedInstance().OAuthTokenSecret = ""
-        Locksmith.deleteDataForUserAccount("Tumblr")
-    }
-    
-    
     // MARK: tool handling
     
     @IBAction func pencil(){
@@ -119,46 +47,21 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
         // Some code based on https://twittercommunity.com/t/upload-images-with-swift/28410/7
         let image = self.canvas.contentView.asImage()
         
+        // Don't post if we haven't drawn any strokes
+        if (self.canvas.contentView.strokes.count == 0){
+            return
+        }
+        
         // Format the date
-        let date = NSDate()
-        let dateFormatter = NSDateFormatter()
+        let date = NSDate(), dateFormatter = NSDateFormatter(), timeFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MMM d, yyyy"
-        let timeFormatter = NSDateFormatter()
         timeFormatter.dateFormat = "h:mma"
         let caption = "\(dateFormatter.stringFromDate(date)), \(timeFormatter.stringFromDate(date).lowercaseString)"
         
         // Actually post
-        if (AuthManager.isLoggedIn(.Twitter)){
-            self.postToTwitter(image, withCaption: caption)
-        }
-        if (AuthManager.isLoggedIn(.Tumblr)){
-            self.postToTumblr(image, withCaption: caption)
-        }
-    }
-    
-    func postToTwitter(image: UIImage, withCaption caption: String){
-        let composer = TWTRComposer()
-        composer.postStatus("\(caption) #pinchpad", image:image){
-            (success: Bool) in
-            println("how'd it go? \(success)")        // print whether we succeeded
-            if (success){
-                self.canvas.contentView.clear()
-            }
-        }
-    }
-    
-    func postToTumblr(image: UIImage, withCaption caption: String){
-        let (dictionary, error) = Locksmith.loadDataForUserAccount("Tumblr")
-        if let dict = dictionary, blogName = dict["Blog"] as? String where error == nil {
-            var image = self.canvas.contentView.asImage()
-            var imageData = UIImagePNGRepresentation(image)
-            TMAPIClient.sharedInstance().photo(blogName, imageNSDataArray: [imageData], contentTypeArray: ["image/png"], fileNameArray: ["test.png"], parameters: ["caption":caption, "tags":"pinchpad", "link":"http://www.pinchpad.com"], callback: { (response: AnyObject!, error: NSError!) -> Void in
-                if let error = error{
-                    println(error)
-                } else {
-                    println(response)
-                }
-            })
+        for service in AuthManager.loggedInServices(){
+            println("Posting to \(service)")
+            AuthManager.post(service, image: image, caption: caption)
         }
     }
     
@@ -171,19 +74,11 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
         // Set up buttons
         let twitterAction = UIAlertAction(title: (AuthManager.isLoggedIn(.Twitter) ? "Auto-post to Twitter: \(AuthManager.identifier(.Twitter)!)" : "Auto-post to Twitter: OFF"), style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
-            if (AuthManager.isLoggedIn(.Twitter)){
-                self.logOutOfTwitter()
-            } else {
-                self.logInToTwitter()
-            }
+            AuthManager.changeAuth(.Twitter)
         })
         let tumblrAction = UIAlertAction(title: (AuthManager.isLoggedIn(.Tumblr) ? "Auto-post to Tumblr: \(AuthManager.identifier(.Tumblr)!)" : "Auto-post to Tumblr: OFF"), style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
-            if (AuthManager.isLoggedIn(.Tumblr)){
-                self.logOutOfTumblr()
-            } else {
-                self.logInToTumblr()
-            }
+            AuthManager.changeAuth(.Tumblr)
         })
         let clearAction = UIAlertAction(title: "Clear canvas", style: .Destructive, handler: {
             (alert: UIAlertAction!) -> Void in
