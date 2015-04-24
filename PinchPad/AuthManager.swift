@@ -13,6 +13,12 @@ import Locksmith
 import SwiftyJSON
 
 class AuthManager {
+    class func managedContext() -> NSManagedObjectContext{
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        return appDelegate.managedObjectContext!
+    }
+    
+    
     // MARK: Initialization
     
     class func start(){
@@ -183,28 +189,81 @@ class AuthManager {
     
     // MARK: Posting new content
     
-    class func post(service: AuthManagerService, image: UIImage, caption: String){
-        // TODO: callback
+    class func enqueue(service: AuthManagerService, image: UIImage, caption: String){
+        // Save this new item-to-be-posted to CoreData
+        let newItem = NSEntityDescription.insertNewObjectForEntityForName("Sketch", inManagedObjectContext: AuthManager.managedContext()) as! Sketch
+        newItem.createdAt = NSDate()
+        newItem.rawService = service.rawValue
+        newItem.imageData = UIImagePNGRepresentation(image)
+        newItem.caption = caption
+        AuthManager.managedContext().save(nil)
+        
+        // Then attempt to sync the new item, along with any other older unsynced items
+        AuthManager.sync()
+        
+//        // TODO: callback
+//        if (service == .Twitter){
+//            let composer = TWTRComposer()
+//            composer.postStatus("\(caption) #pinchpad", image:image){
+//                (success: Bool) in
+//                println("how'd it go? \(success)")        // print whether we succeeded
+//            }
+//        } else if (service == .Tumblr) {
+//            var imageData = UIImagePNGRepresentation(image)
+//            TMAPIClient.sharedInstance().photo(AuthManager.identifier(.Tumblr), imageNSDataArray: [imageData], contentTypeArray: ["image/png"], fileNameArray: ["test.png"], parameters: ["caption":caption, "tags":"pinchpad", "link":"http://www.pinchpad.com"], callback: { (response: AnyObject!, error: NSError!) -> Void in
+//                if let error = error{
+//                    println(error)
+//                } else {
+//                    println(response)
+//                }
+//            })
+//        }
+    }
+    
+    class func sync(){
+        let fetchRequest = NSFetchRequest(entityName: "Sketch")
+        if let fetchResults = AuthManager.managedContext().executeFetchRequest(fetchRequest, error: nil) as? [Sketch] {
+            println("Syncing \(fetchResults.count) sketches")
+            for sketch in fetchResults{
+                AuthManager.post(sketch)
+            }
+        } else {
+            println("Nothing to sync!")
+        }
+        
+    }
+    
+    class func post(sketch: Sketch){
+        let service = AuthManagerService(rawValue: sketch.rawService)
+        let image = UIImage(data: sketch.imageData)
+        
         if (service == .Twitter){
             let composer = TWTRComposer()
-            composer.postStatus("\(caption) #pinchpad", image:image){
+            composer.postStatus("\(sketch.caption) #pinchpad", image:image){
                 (success: Bool) in
-                println("how'd it go? \(success)")        // print whether we succeeded
+                println("Posted to Twitter: \(success)")        // print whether we succeeded
+                if (success){
+                    // Delete successful post from local DB
+                    AuthManager.managedContext().deleteObject(sketch)
+                    AuthManager.managedContext().save(nil)
+                }
             }
         } else if (service == .Tumblr) {
-            var imageData = UIImagePNGRepresentation(image)
-            TMAPIClient.sharedInstance().photo(AuthManager.identifier(.Tumblr), imageNSDataArray: [imageData], contentTypeArray: ["image/png"], fileNameArray: ["test.png"], parameters: ["caption":caption, "tags":"pinchpad", "link":"http://www.pinchpad.com"], callback: { (response: AnyObject!, error: NSError!) -> Void in
-                if let error = error{
-                    println(error)
-                } else {
-                    println(response)
-                }
-            })
+//            TMAPIClient.sharedInstance().photo(AuthManager.identifier(.Tumblr), imageNSDataArray: [sketch.imageData], contentTypeArray: ["image/png"], fileNameArray: ["test.png"], parameters: ["caption":sketch.caption, "tags":"pinchpad", "link":"http://www.pinchpad.com"], callback: { (response: AnyObject!, error: NSError!) -> Void in
+//                let success = (error == nil)
+//                println("Posted to Tumblr: \(success)")        // print whether we succeeded
+//                
+//                if (success){
+//                    // Delete successful post from local DB
+//                    AuthManager.managedContext().deleteObject(sketch)
+//                    AuthManager.managedContext().save(nil)
+//                }
+//            })
         }
     }
 }
 
-enum AuthManagerService{
+enum AuthManagerService : Int16{
     case Twitter
     case Tumblr
 }

@@ -61,7 +61,7 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
         // Actually post
         for service in AuthManager.loggedInServices(){
             println("Posting to \(service)")
-            AuthManager.post(service, image: image, caption: caption)
+            AuthManager.enqueue(service, image: image, caption: caption)
         }
     }
     
