@@ -67,6 +67,9 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
             println("Posting to \(service)")
             AuthManager.enqueue(service, image: image, caption: caption)
         }
+        
+        // Clear the canvas
+        self.canvas.clear()
     }
     
     
