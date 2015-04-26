@@ -49,9 +49,6 @@ class AuthManager {
                 }
             }
         }
-        
-        // Sync anything that's unsynced
-        AuthManager.sync()
     }
     
     class func loadKeychainData(service: AuthManagerService){
@@ -246,7 +243,7 @@ class AuthManager {
             TMAPIClient.sharedInstance().photo(AuthManager.identifier(.Tumblr), imageNSDataArray: [sketch.imageData], contentTypeArray: ["image/png"], fileNameArray: ["test.png"], parameters: ["tags":"pinchpad", "link":"http://www.pinchpad.com"], callback: { (response: AnyObject!, error: NSError!) -> Void in
                 // Parse the JSON response to see if we saved correctly
                 var success: Bool
-                if let responseDict = response as? NSDictionary, responseId = response["id"] where error == nil {
+                if let responseDict = response as? NSDictionary, responseId: AnyObject? = response["id"] where error == nil {
                     success = true
                 } else {
                     success = false

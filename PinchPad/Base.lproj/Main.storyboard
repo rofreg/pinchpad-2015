@@ -66,6 +66,9 @@
                                         <state key="normal" title="Retry">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="retry" destination="BYZ-38-t0r" eventType="touchUpInside" id="auF-R7-qgJ"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 posts waiting to sync..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tt8-Pc-KAM">
                                         <rect key="frame" x="15" y="9" width="172" height="18"/>
@@ -74,7 +77,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.35000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="centerY" secondItem="hDz-7R-zuM" secondAttribute="centerY" id="0hF-aj-7A7"/>
                                     <constraint firstItem="Tt8-Pc-KAM" firstAttribute="leading" secondItem="2fQ-zV-t2o" secondAttribute="leading" constant="15" id="1GP-eR-yzR"/>
@@ -116,6 +119,9 @@
                     </view>
                     <connections>
                         <outlet property="canvas" destination="lC9-ky-yMA" id="ovU-9g-uOh"/>
+                        <outlet property="pendingPostsLabel" destination="Tt8-Pc-KAM" id="Otd-Uu-94M"/>
+                        <outlet property="pendingPostsRetryButton" destination="hDz-7R-zuM" id="Cfs-Hy-dRs"/>
+                        <outlet property="pendingPostsView" destination="2fQ-zV-t2o" id="NfT-Ql-2Ut"/>
                         <outlet property="toolConfigurationViewContainer" destination="8TJ-Zg-3CZ" id="zSm-91-qhR"/>
                     </connections>
                 </viewController>

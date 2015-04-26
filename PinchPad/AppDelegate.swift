@@ -12,6 +12,7 @@ import TwitterKit
 import TMTumblrSDK
 import Crashlytics
 import Locksmith
+import AFNetworking
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Load Twitter and Tumblr info
         AuthManager.start()
         Fabric.with([Twitter(), Crashlytics()])
+        
+        // Try syncing whenever the network status changes
+        AFNetworkReachabilityManager.sharedManager().startMonitoring()
+        AFNetworkReachabilityManager.sharedManager().setReachabilityStatusChangeBlock { (status: AFNetworkReachabilityStatus) -> Void in
+            println("Network status changed to \(AFStringFromNetworkReachabilityStatus(status))")
+            if (status != AFNetworkReachabilityStatus.NotReachable){
+                AuthManager.sync()
+            }
+        }
         
         return true
     }

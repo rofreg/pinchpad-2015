@@ -15,6 +15,9 @@ import SwiftyJSON
 class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEventCallback {
     @IBOutlet var canvas: PPInfiniteScrollView!
     @IBOutlet var toolConfigurationViewContainer: UIView!
+    @IBOutlet var pendingPostsView: UIView!
+    @IBOutlet var pendingPostsLabel: UILabel!
+    @IBOutlet var pendingPostsRetryButton: UIButton!
    
     override func viewDidLoad() {
         WacomManager.getManager().registerForNotifications(self)
@@ -23,6 +26,7 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
         TouchManager.GetTouchManager().timingOffset = 200000
         
         // When our data changes, update the display
+        self.updatePendingPostsDisplay()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("updatePendingPostsDisplay"), name: NSManagedObjectContextObjectsDidChangeNotification, object: nil)
         
         super.viewDidLoad()
@@ -105,11 +109,35 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
     
     
     // MARK: Pending post display handling
+    
     func updatePendingPostsDisplay(){
         let fetchRequest = NSFetchRequest(entityName: "Sketch")
-        if let fetchResults = AuthManager.managedContext().executeFetchRequest(fetchRequest, error: nil) as? [Sketch] {
-            println("Updated posts-to-sync count: \(fetchResults.count)")
+        fetchRequest.predicate = NSPredicate(format: "syncStarted == nil", NSDate().dateByAddingTimeInterval(-60))
+        let unsynced = AuthManager.managedContext().executeFetchRequest(fetchRequest, error: nil)
+        
+        fetchRequest.predicate = NSPredicate(format: "syncError == true")
+        let syncErrors = AuthManager.managedContext().executeFetchRequest(fetchRequest, error: nil)
+        
+        if let syncErrors = syncErrors where syncErrors.count > 0{
+            pendingPostsView.alpha = 1
+            pendingPostsRetryButton.hidden = false
+            var pluralPosts = (syncErrors.count == 1 ? "post" : "posts")
+            pendingPostsLabel.text = "\(syncErrors.count) \(pluralPosts) failed to sync"
+        } else if let unsynced = unsynced where unsynced.count > 0{
+            pendingPostsView.alpha = 1
+            pendingPostsRetryButton.hidden = true
+            pendingPostsLabel.text = "Posting..."
+        } else {
+            pendingPostsRetryButton.hidden = true
+            pendingPostsLabel.text = "Post submitted!"
+            UIView.animateWithDuration(0.5, delay: 2.0, options: nil, animations: { () -> Void in
+                self.pendingPostsView.alpha = 0
+            }, completion: nil)
         }
+    }
+    
+    @IBAction func retry(){
+        AuthManager.sync()
     }
 }
 
