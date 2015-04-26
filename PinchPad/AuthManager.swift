@@ -249,16 +249,23 @@ class AuthManager {
                 }
             }
         } else if (service == .Tumblr) {
-//            TMAPIClient.sharedInstance().photo(AuthManager.identifier(.Tumblr), imageNSDataArray: [sketch.imageData], contentTypeArray: ["image/png"], fileNameArray: ["test.png"], parameters: ["caption":sketch.caption, "tags":"pinchpad", "link":"http://www.pinchpad.com"], callback: { (response: AnyObject!, error: NSError!) -> Void in
-//                let success = (error == nil)
-//                println("Posted to Tumblr: \(success)")        // print whether we succeeded
-//                
-//                if (success){
-//                    // Delete successful post from local DB
-//                    AuthManager.managedContext().deleteObject(sketch)
-//                    AuthManager.managedContext().save(nil)
-//                }
-//            })
+            TMAPIClient.sharedInstance().photo(AuthManager.identifier(.Tumblr), imageNSDataArray: [sketch.imageData], contentTypeArray: ["image/png"], fileNameArray: ["test.png"], parameters: ["caption":sketch.caption, "tags":"pinchpad", "link":"http://www.pinchpad.com"], callback: { (response: AnyObject!, error: NSError!) -> Void in
+                // Parse the JSON response to see if we saved correctly
+                let jsonResponse = JSON(response as! String)
+                var success: Bool
+                if let responseId = jsonResponse["id"].string where error == nil{
+                    success = true
+                } else {
+                    success = false
+                }
+                
+                println("Posted to Tumblr: \(success)")        // print whether we succeeded
+                if (success){
+                    // Delete successful post from local DB
+                    AuthManager.managedContext().deleteObject(sketch)
+                    AuthManager.managedContext().save(nil)
+                }
+            })
         }
     }
 }
