@@ -21,6 +21,10 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
         WacomManager.getManager().startDeviceDiscovery()
         TouchManager.GetTouchManager().touchRejectionEnabled = true
         TouchManager.GetTouchManager().timingOffset = 200000
+        
+        // When our data changes, update the display
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("updatePendingPostsDisplay"), name: NSManagedObjectContextObjectsDidChangeNotification, object: nil)
+        
         super.viewDidLoad()
     }
     
@@ -94,6 +98,16 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
         
         // Show menu
         self.presentViewController(optionMenu, animated: true, completion: nil)
+    }
+    
+    
+    // MARK: Pending post display handling
+    func updatePendingPostsDisplay(){
+        println("Updating pending post count")
+        let fetchRequest = NSFetchRequest(entityName: "Sketch")
+        if let fetchResults = AuthManager.managedContext().executeFetchRequest(fetchRequest, error: nil) as? [Sketch] {
+            println("Posts to sync: \(fetchResults.count)")
+        }
     }
 }
 

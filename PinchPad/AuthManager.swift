@@ -230,7 +230,6 @@ class AuthManager {
         } else {
             println("Nothing to sync!")
         }
-        
     }
     
     class func post(sketch: Sketch){
@@ -251,9 +250,8 @@ class AuthManager {
         } else if (service == .Tumblr) {
             TMAPIClient.sharedInstance().photo(AuthManager.identifier(.Tumblr), imageNSDataArray: [sketch.imageData], contentTypeArray: ["image/png"], fileNameArray: ["test.png"], parameters: ["tags":"pinchpad", "link":"http://www.pinchpad.com"], callback: { (response: AnyObject!, error: NSError!) -> Void in
                 // Parse the JSON response to see if we saved correctly
-                let jsonResponse = JSON(response as! String)
                 var success: Bool
-                if let responseId = jsonResponse["id"].string where error == nil{
+                if let responseText = response as? String, responseId = JSON(response)["id"].string where error == nil {
                     success = true
                 } else {
                     success = false
