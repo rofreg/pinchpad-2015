@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -58,6 +58,31 @@
                                 </items>
                                 <color key="barTintColor" white="0.95999999999999996" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fQ-zV-t2o" userLabel="Status view">
+                                <rect key="frame" x="0.0" y="565" width="600" height="35"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDz-7R-zuM">
+                                        <rect key="frame" x="548" y="3" width="37" height="30"/>
+                                        <state key="normal" title="Retry">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 posts waiting to sync..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tt8-Pc-KAM">
+                                        <rect key="frame" x="15" y="9" width="172" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="hDz-7R-zuM" secondAttribute="centerY" id="0hF-aj-7A7"/>
+                                    <constraint firstItem="Tt8-Pc-KAM" firstAttribute="leading" secondItem="2fQ-zV-t2o" secondAttribute="leading" constant="15" id="1GP-eR-yzR"/>
+                                    <constraint firstAttribute="trailing" secondItem="hDz-7R-zuM" secondAttribute="trailing" constant="15" id="A37-Ug-Oza"/>
+                                    <constraint firstAttribute="centerY" secondItem="Tt8-Pc-KAM" secondAttribute="centerY" id="D5H-Na-iti"/>
+                                    <constraint firstAttribute="height" constant="35" id="EyJ-RU-cn4"/>
+                                </constraints>
+                            </view>
                             <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8TJ-Zg-3CZ">
                                 <rect key="frame" x="0.0" y="44" width="600" height="140"/>
                                 <constraints>
@@ -74,9 +99,12 @@
                             <constraint firstAttribute="trailing" secondItem="w3f-7v-rno" secondAttribute="trailing" id="1AN-ps-MQv"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lC9-ky-yMA" secondAttribute="bottom" id="3jJ-s2-dTT"/>
                             <constraint firstItem="S3K-nm-vNd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="85Z-zS-pas"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2fQ-zV-t2o" secondAttribute="bottom" id="IDU-rp-sW8"/>
                             <constraint firstItem="S3K-nm-vNd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Jpm-h3-3pm"/>
                             <constraint firstItem="w3f-7v-rno" firstAttribute="height" secondItem="S3K-nm-vNd" secondAttribute="height" constant="1" id="NP5-w9-bkq"/>
                             <constraint firstItem="w3f-7v-rno" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Qav-Lq-8OE"/>
+                            <constraint firstAttribute="trailing" secondItem="2fQ-zV-t2o" secondAttribute="trailing" id="aOe-Ac-hzR"/>
+                            <constraint firstItem="2fQ-zV-t2o" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bEl-fe-d4y"/>
                             <constraint firstItem="8TJ-Zg-3CZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="blN-U3-zVo"/>
                             <constraint firstItem="w3f-7v-rno" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ceg-LW-Yuf"/>
                             <constraint firstAttribute="trailing" secondItem="S3K-nm-vNd" secondAttribute="trailing" id="gL6-EU-44s"/>

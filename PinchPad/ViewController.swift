@@ -64,7 +64,7 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
         
         // Actually post
         for service in AuthManager.loggedInServices(){
-            println("Posting to \(service)")
+            println("Posting to service #\(service.rawValue+1)")
             AuthManager.enqueue(service, image: image, caption: caption)
         }
         
@@ -106,10 +106,9 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
     
     // MARK: Pending post display handling
     func updatePendingPostsDisplay(){
-        println("Updating pending post count")
         let fetchRequest = NSFetchRequest(entityName: "Sketch")
         if let fetchResults = AuthManager.managedContext().executeFetchRequest(fetchRequest, error: nil) as? [Sketch] {
-            println("Posts to sync: \(fetchResults.count)")
+            println("Updated posts-to-sync count: \(fetchResults.count)")
         }
     }
 }

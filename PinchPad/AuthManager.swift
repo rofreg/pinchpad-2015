@@ -49,6 +49,9 @@ class AuthManager {
                 }
             }
         }
+        
+        // Sync anything that's unsynced
+        AuthManager.sync()
     }
     
     class func loadKeychainData(service: AuthManagerService){
@@ -200,35 +203,24 @@ class AuthManager {
         
         // Then attempt to sync the new item, along with any other older unsynced items
         AuthManager.sync()
-        
-//        // TODO: callback
-//        if (service == .Twitter){
-//            let composer = TWTRComposer()
-//            composer.postStatus("\(caption) #pinchpad", image:image){
-//                (success: Bool) in
-//                println("how'd it go? \(success)")        // print whether we succeeded
-//            }
-//        } else if (service == .Tumblr) {
-//            var imageData = UIImagePNGRepresentation(image)
-//            TMAPIClient.sharedInstance().photo(AuthManager.identifier(.Tumblr), imageNSDataArray: [imageData], contentTypeArray: ["image/png"], fileNameArray: ["test.png"], parameters: ["caption":caption, "tags":"pinchpad", "link":"http://www.pinchpad.com"], callback: { (response: AnyObject!, error: NSError!) -> Void in
-//                if let error = error{
-//                    println(error)
-//                } else {
-//                    println(response)
-//                }
-//            })
-//        }
     }
     
     class func sync(){
+        println("Sync started!")
+        
+        // Try to sync any sketches that aren't already trying to sync
+        // (Make an exception for expenses that ARE "trying to sync", but have been trying for 60+ seconds)
+        // (Those posts should try to sync again, even if it might result in a double-post)
         let fetchRequest = NSFetchRequest(entityName: "Sketch")
+        fetchRequest.predicate = NSPredicate(format: "syncStarted == nil OR syncStarted < %@", NSDate().dateByAddingTimeInterval(-60))
+        
         if let fetchResults = AuthManager.managedContext().executeFetchRequest(fetchRequest, error: nil) as? [Sketch] {
             println("Syncing \(fetchResults.count) sketches")
             for sketch in fetchResults{
+                sketch.syncStarted = NSDate()
+                AuthManager.managedContext().save(nil)
                 AuthManager.post(sketch)
             }
-        } else {
-            println("Nothing to sync!")
         }
     }
     
@@ -244,14 +236,17 @@ class AuthManager {
                 if (success){
                     // Delete successful post from local DB
                     AuthManager.managedContext().deleteObject(sketch)
-                    AuthManager.managedContext().save(nil)
+                } else {
+                    sketch.syncError = true
                 }
+                sketch.syncStarted = nil
+                AuthManager.managedContext().save(nil)
             }
         } else if (service == .Tumblr) {
             TMAPIClient.sharedInstance().photo(AuthManager.identifier(.Tumblr), imageNSDataArray: [sketch.imageData], contentTypeArray: ["image/png"], fileNameArray: ["test.png"], parameters: ["tags":"pinchpad", "link":"http://www.pinchpad.com"], callback: { (response: AnyObject!, error: NSError!) -> Void in
                 // Parse the JSON response to see if we saved correctly
                 var success: Bool
-                if let responseText = response as? String, responseId = JSON(response)["id"].string where error == nil {
+                if let responseDict = response as? NSDictionary, responseId = response["id"] where error == nil {
                     success = true
                 } else {
                     success = false
@@ -261,8 +256,11 @@ class AuthManager {
                 if (success){
                     // Delete successful post from local DB
                     AuthManager.managedContext().deleteObject(sketch)
-                    AuthManager.managedContext().save(nil)
+                } else {
+                    sketch.syncError = true
                 }
+                sketch.syncStarted = nil
+                AuthManager.managedContext().save(nil)
             })
         }
     }
