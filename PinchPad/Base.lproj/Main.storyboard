@@ -201,6 +201,7 @@
                     <connections>
                         <outlet property="previewWindow" destination="DDR-KM-SD0" id="GJr-wS-Oiz"/>
                         <outlet property="slider" destination="OOq-on-alv" id="lbl-sd-1ke"/>
+                        <outlet property="toolPicker" destination="uNm-Mr-x7R" id="B7W-N9-98M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="agP-69-Tts" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -9,8 +9,9 @@
 import UIKit
 
 class PPToolConfigurationViewController: UIViewController{
-    @IBOutlet var slider: UISlider?     // TODO: segmented steps on the slider
-    @IBOutlet var previewWindow: PPCanvas?
+    @IBOutlet var toolPicker: UISegmentedControl!
+    @IBOutlet var slider: UISlider!     // TODO: segmented steps on the slider
+    @IBOutlet var previewWindow: PPCanvas!
     
     override func viewDidLoad() {
         updatePreview()
@@ -48,9 +49,17 @@ class PPToolConfigurationViewController: UIViewController{
     // MARK: Stroke preview logic
     
     func updatePreview(){
-        if let pW = previewWindow{
-            pW.strokes = [previewStroke()]
-            pW.setNeedsDisplay()
+        previewWindow.strokes = [previewStroke()]
+        previewWindow.setNeedsDisplay()
+        
+        // Update the tool picker if the tool choice changed
+        let tool = PPToolConfiguration.sharedInstance.tool
+        if (tool == .Brush && toolPicker.selectedSegmentIndex != 0){
+            toolPicker.selectedSegmentIndex = 0
+        } else if (tool == .Marker && toolPicker.selectedSegmentIndex != 1){
+            toolPicker.selectedSegmentIndex = 1
+        } else if (tool == .Eraser && toolPicker.selectedSegmentIndex != 2){
+            toolPicker.selectedSegmentIndex = 2
         }
     }
     
