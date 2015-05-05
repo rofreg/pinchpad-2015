@@ -18,6 +18,11 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
     @IBOutlet var pendingPostsView: UIView!
     @IBOutlet var pendingPostsLabel: UILabel!
     @IBOutlet var pendingPostsRetryButton: UIButton!
+    
+    @IBOutlet var pencilButton: UIBarButtonItem!
+    @IBOutlet var eraserButton: UIBarButtonItem!
+    
+    var lastTool = PPToolType.Brush
    
     override func viewDidLoad() {
         WacomManager.getManager().registerForNotifications(self)
@@ -28,6 +33,9 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
         // When our data changes, update the display
         self.updatePendingPostsDisplay()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("updatePendingPostsDisplay"), name: NSManagedObjectContextObjectsDidChangeNotification, object: nil)
+        
+        // When our tool changes, update the display
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("updateToolbarDisplay"), name: "PPToolConfigurationChanged", object: nil)
         
         super.viewDidLoad()
     }
@@ -40,7 +48,24 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
     // MARK: tool handling
     
     @IBAction func pencil(){
-        toolConfigurationViewContainer.hidden = !toolConfigurationViewContainer.hidden
+        if (PPToolConfiguration.sharedInstance.tool != .Eraser){
+            // Toggle config menu if the pencil or brush is already selected
+            toolConfigurationViewContainer.hidden = !toolConfigurationViewContainer.hidden
+        } else {
+            // Otherwise, switch to last tool
+            PPToolConfiguration.sharedInstance.tool = lastTool
+        }
+    }
+    
+    @IBAction func eraser(){
+        if (PPToolConfiguration.sharedInstance.tool == .Eraser){
+            // Toggle config menu if the eraser is already selected
+            toolConfigurationViewContainer.hidden = !toolConfigurationViewContainer.hidden
+        } else {
+            // Otherwise, switch to eraser (but remember what tool we were using last)
+            lastTool = PPToolConfiguration.sharedInstance.tool
+            PPToolConfiguration.sharedInstance.tool = .Eraser
+        }
     }
     
     @IBAction func undo(){
@@ -138,6 +163,19 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
     
     @IBAction func retry(){
         AuthManager.sync()
+    }
+    
+    
+    // MARK: Toolbar display handling
+    
+    func updateToolbarDisplay(){
+        if (PPToolConfiguration.sharedInstance.tool == .Eraser){
+            pencilButton.tintColor = UIColor.lightGrayColor()
+            eraserButton.tintColor = self.view.tintColor
+        } else {
+            pencilButton.tintColor = self.view.tintColor
+            eraserButton.tintColor = UIColor.lightGrayColor()
+        }
     }
 }
 

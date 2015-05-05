@@ -34,21 +34,31 @@
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="D5H-99-6fa"/>
                                     <barButtonItem image="Undo" id="10x-ut-eWD">
+                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="undo" destination="BYZ-38-t0r" id="mYh-iL-fYP"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem width="5" style="plain" systemItem="fixedSpace" id="fRs-ce-QjH"/>
                                     <barButtonItem image="Redo" id="ZmW-W3-c7r">
+                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="redo" destination="BYZ-38-t0r" id="iZl-He-Dbm"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem width="5" style="plain" systemItem="fixedSpace" id="Lgi-kf-rAE"/>
                                     <barButtonItem image="Pencil" id="ngJ-Vx-VNj">
                                         <connections>
                                             <action selector="pencil" destination="BYZ-38-t0r" id="B0n-e2-qf1"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem image="Eraser" id="ehw-du-WEn"/>
+                                    <barButtonItem width="5" style="plain" systemItem="fixedSpace" id="S9t-ZT-udj"/>
+                                    <barButtonItem image="Eraser" id="ehw-du-WEn">
+                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="eraser" destination="BYZ-38-t0r" id="Taz-j0-1XL"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="WAJ-eE-RfF"/>
                                     <barButtonItem title="Post" id="8fm-qO-pVW">
                                         <connections>
@@ -119,6 +129,8 @@
                     </view>
                     <connections>
                         <outlet property="canvas" destination="lC9-ky-yMA" id="ovU-9g-uOh"/>
+                        <outlet property="eraserButton" destination="ehw-du-WEn" id="Ysk-ip-r1d"/>
+                        <outlet property="pencilButton" destination="ngJ-Vx-VNj" id="lNQ-hM-Jbh"/>
                         <outlet property="pendingPostsLabel" destination="Tt8-Pc-KAM" id="Otd-Uu-94M"/>
                         <outlet property="pendingPostsRetryButton" destination="hDz-7R-zuM" id="Cfs-Hy-dRs"/>
                         <outlet property="pendingPostsView" destination="2fQ-zV-t2o" id="NfT-Ql-2Ut"/>
