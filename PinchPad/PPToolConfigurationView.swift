@@ -42,7 +42,12 @@ class PPToolConfigurationViewController: UIViewController{
     }
     
     @IBAction func widthChanged(sender: UISlider){
-        PPToolConfiguration.sharedInstance.width = CGFloat(sender.value)
+        var roundedValue = Int(round(sender.value))
+        sender.setValue(Float(roundedValue), animated: false)
+        
+        let realSize = [0.0, 1.0, 3.0, 5.0, 10.0, 30.0, 60.0]
+        let toolSize = realSize[roundedValue]
+        PPToolConfiguration.sharedInstance.width = CGFloat(toolSize)
     }
     
     

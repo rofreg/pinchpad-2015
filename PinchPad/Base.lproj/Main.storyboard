@@ -179,7 +179,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="8" minValue="1" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="OOq-on-alv">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="1" maxValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="OOq-on-alv">
                                 <rect key="frame" x="94" y="63" width="492" height="31"/>
                                 <connections>
                                     <action selector="widthChanged:" destination="Vg3-3g-X3i" eventType="valueChanged" id="8b7-RB-d9s"/>
