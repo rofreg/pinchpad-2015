@@ -42,7 +42,7 @@ class PPStroke{
         var p: CGFloat
         var pointsCount = points.count
         if (pointsCount == 0){
-            p = 0.35
+            p = 0.6
         } else {
             var lastPoint = points[points.count-1]
             var diff = (location - lastPoint.location).length()
@@ -120,7 +120,7 @@ class PPStroke{
     // This returns a SINGLE BEZIER PATH connecting all points
     func asBezierPath(quickly: Bool = false) -> UIBezierPath{
         var path = UIBezierPath()
-        path.lineWidth = 0.2    // This covers tiny overlap gaps between subsequent polygons
+        path.lineWidth = self.width
         path.lineCapStyle = kCGLineCapRound
         path.lineJoinStyle = kCGLineJoinRound
         
@@ -275,6 +275,11 @@ class PPStroke{
             path.addArcWithCenter(finalPoints.last!.location, radius: width * finalPoints.last!.pressure, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
             self.cachedBezierPaths.append(path)
             
+            // Set all polygons to have a thin line stroke (to handle the tiny rendering gaps between polygons)
+            for path in self.cachedBezierPaths{
+                path.lineWidth = 0.2
+            }
+            
             // TODO: also stroke center set of lines with minimum width?
         }
         
@@ -346,187 +351,3 @@ func -(left:CGPoint, right:CGPoint) -> CGPoint{
 func *(left:CGPoint, scalar:Double) -> CGPoint{
     return CGPointMake(left.x * CGFloat(scalar), left.y * CGFloat(scalar))
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-
-
-//// old stuff
-
-extension PPStroke{
-    
-    
-    // This returns a series of POLYGONS that simulate pressure
-    func asBezierPathsOld() -> [UIBezierPath]{
-        if cachedPointsCount == self.points.count {
-            // This stroke hasn't changed since the last time we rendered it
-            return cachedBezierPaths
-        } else if self.isDot(){
-            // This is just a dot
-            var dot = UIBezierPath()
-            dot.addArcWithCenter(points.first!.location, radius: width*0.5, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
-            self.cachedBezierPaths = [dot]
-        } else {
-            // Let's calculate a fancy stroke!
-            if (self.cachedBezierPaths.count > 0){
-                // Remove the last segment of the cached path, as it should be recalculated
-                self.cachedBezierPaths.removeLast()
-            }
-            
-            // Use Catmull-Rom interpolation to draw
-            // Vary thickness based on pressure
-            // With credit to https://github.com/andrelind/swift-catmullrom/
-            // and http://code.tutsplus.com/tutorials/ios-sdk-advanced-freehand-drawing-techniques--mobile-15602
-            
-            // Generate two bounding paths to create stroke thickness
-            // First point needs a bit of special handling
-            var startPoints = pointsOnLineSegmentPerpendicularTo([points[1].location, points[0].location], length: self.width * 0.5)
-            var boundingPoints = [[startPoints[1], startPoints[0]]]
-            
-            // Now calculate all points in the middle of the path
-            for var i = 0; i < points.count - 2; i++ {
-                // Don't calculate data for already-cached segments
-                if i >= max(0, self.cachedPointsCount - 4){
-                    var startPoint = points[i]
-                    var endPoint = points[i+1]
-                    var nextPoint = points[i+2]
-                    var smoothedPressure = (startPoint.pressure + endPoint.pressure + nextPoint.pressure)/3;
-                    var newPoints = pointsOnLineSegmentPerpendicularTo([startPoint.location, endPoint.location], length: smoothedPressure * self.width)
-                    
-                    // If the line segments cross each other, as happens when we reverse direction,
-                    // then we need to swap the two points to maintain a solid line
-                    if let lastPoint = boundingPoints.last{
-                        if lastPoint.count > 0{
-                            if lineSegmentsIntersect(lastPoint[0], L1P2: newPoints[0], L2P1: lastPoint[1], L2P2: newPoints[1]){
-                                var temp = newPoints[0]
-                                newPoints[0] = newPoints[1]
-                                newPoints[1] = temp
-                            }
-                        }
-                    }
-                    
-                    boundingPoints.append(newPoints)
-                } else {
-                    boundingPoints.append([])
-                }
-            }
-            
-            // Now calculate our end points
-            var endPoints = pointsOnLineSegmentPerpendicularTo([points[points.count - 2].location, points[points.count - 1].location], length: self.width * 0.5)
-            boundingPoints.append([endPoints[0], endPoints[1]])
-            
-            // Make an initial path from the opening point, if we haven't already)
-            if (self.cachedBezierPaths.count == 0){
-                // Draw a dot at the starting location, to round the starting point off
-                var path = UIBezierPath()
-                path.addArcWithCenter(points.first!.location, radius: width*0.5, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
-                self.cachedBezierPaths.append(path)
-                
-                // Add our first line segment
-                path = UIBezierPath()
-                path.moveToPoint(boundingPoints[0][0])
-                path.addLineToPoint(boundingPoints[1][0])
-                path.addLineToPoint(boundingPoints[1][1])
-                path.addLineToPoint(boundingPoints[0][1])
-                path.closePath()
-                self.cachedBezierPaths.append(path)
-            }
-            
-            // Generate any new segments with Catmull-Rom interpolation and connect them
-            // (If we have cached segments, also make sure to re-draw the last cached segment
-            for var i = max(1, self.cachedPointsCount - 2); i < boundingPoints.count - 2; i++ {
-                var path = UIBezierPath()
-                
-                var controlPoints = controlPointsForCatmullRomCurve(
-                    boundingPoints[i-1][0],
-                    p1: boundingPoints[i][0],
-                    p2: boundingPoints[i+1][0],
-                    p3: boundingPoints[i+2][0]
-                )
-                
-                path.moveToPoint(controlPoints[0])
-                path.addCurveToPoint(controlPoints[3], controlPoint1: controlPoints[1], controlPoint2: controlPoints[2])
-                
-                controlPoints = controlPointsForCatmullRomCurve(
-                    boundingPoints[i-1][1],
-                    p1: boundingPoints[i][1],
-                    p2: boundingPoints[i+1][1],
-                    p3: boundingPoints[i+2][1]
-                )
-                
-                path.addLineToPoint(controlPoints[3])
-                path.addCurveToPoint(controlPoints[0], controlPoint1: controlPoints[2], controlPoint2: controlPoints[1])
-                path.closePath()
-                self.cachedBezierPaths.append(path)
-            }
-            
-            // Make a final path to the closing point
-            var path = UIBezierPath()
-            path.moveToPoint(boundingPoints[boundingPoints.count - 2][0])
-            path.addLineToPoint(boundingPoints[boundingPoints.count - 1][0])
-            path.addLineToPoint(boundingPoints[boundingPoints.count - 1][1])
-            path.addLineToPoint(boundingPoints[boundingPoints.count - 2][1])
-            path.closePath()
-            self.cachedBezierPaths.append(path)
-            
-            // Draw a dot at the ending location, to round the ending point off
-            path = UIBezierPath()
-            path.addArcWithCenter(points.last!.location, radius: width*0.5, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
-            self.cachedBezierPaths.append(path)
-            
-            // TODO: also stroke center set of lines with minimum width?
-        }
-        
-        self.cachedPointsCount = self.points.count
-        return self.cachedBezierPaths
-    }
-    
-    // http://stackoverflow.com/questions/13394422/bezier-path-see-if-it-crosses
-    func lineSegmentsIntersect(L1P1: CGPoint, L1P2: CGPoint, L2P1: CGPoint, L2P2: CGPoint) -> Bool
-    {
-        var x1 = L1P1.x, x2 = L1P2.x, x3 = L2P1.x, x4 = L2P2.x
-        var y1 = L1P1.y, y2 = L1P2.y, y3 = L2P1.y, y4 = L2P2.y
-        
-        var bx = x2 - x1
-        var by = y2 - y1
-        var dx = x4 - x3
-        var dy = y4 - y3
-        
-        var b_dot_d_perp = bx * dy - by * dx;
-        
-        if (b_dot_d_perp == 0) {
-            return false
-        }
-        
-        var cx = x3 - x1;
-        var cy = y3 - y1;
-        var t = (cx * dy - cy * dx) / b_dot_d_perp;
-        
-        if (t < 0 || t > 1) {
-            return false
-        }
-        
-        var u = (cx * by - cy * bx) / b_dot_d_perp;
-        
-        if (u < 0 || u > 1) {
-            return false
-        }
-        
-        return true
-    }
-}
-
-
-*/
