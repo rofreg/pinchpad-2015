@@ -84,7 +84,7 @@ class PPStroke{
             var paths = self.asBezierPaths(quickly: quickly)
             if (quickly){
                 // Draw all but the very last segment (which is a dot, and might change later)
-                for var i = max(0, self.strokeSegmentsDrawn - 1); i < max(0, paths.count - 1); i++ {
+                for (var i = max(0, self.strokeSegmentsDrawn - 1); i < max(0, paths.count - 1); i++) {
                     paths[i].fill()
                     paths[i].stroke()
                 }
@@ -120,7 +120,7 @@ class PPStroke{
     // This returns a SINGLE BEZIER PATH connecting all points
     func asBezierPath(quickly: Bool = false) -> UIBezierPath{
         var path = UIBezierPath()
-        path.lineWidth = self.width
+        path.lineWidth = 0.2    // This covers tiny overlap gaps between subsequent polygons
         path.lineCapStyle = kCGLineCapRound
         path.lineJoinStyle = kCGLineJoinRound
         
@@ -133,12 +133,12 @@ class PPStroke{
         path.addLineToPoint(self.points[1].location)
         
         // Generate any new segments with Catmull-Rom interpolation and connect them
-        for var i = 1; i < self.points.count - 2; i++ {
+        for (var cpi = 1; cpi < self.points.count - 2; cpi++) {
             var controlPoints = controlPointsForCatmullRomCurve(
-                self.points[i-1].location,
-                p1: self.points[i].location,
-                p2: self.points[i+1].location,
-                p3: self.points[i+2].location
+                self.points[cpi-1].location,
+                p1: self.points[cpi].location,
+                p2: self.points[cpi+1].location,
+                p3: self.points[cpi+2].location
             )
             
             path.addCurveToPoint(controlPoints[3], controlPoint1: controlPoints[1], controlPoint2: controlPoints[2])
@@ -189,10 +189,19 @@ class PPStroke{
                 
                 var t = 0.0
                 var step = 1.0 / numberOfSegments
+                var lastLocation: CGPoint?
                 for (var j = 0; j < Int(numberOfSegments); j++) {
                     var l = (p12Midpoint * pow(1-t, 2))
                     l = l + (p2.location * (2 * (1-t) * t))
                     l = l + (p23Midpoint * (t*t))
+                    
+                    // Don't add this point to the list if it's super-close to the last point
+                    // (This prevents divide-by-zero errors in other places when two points are identical
+                    if let lL = lastLocation where (lL - l).length() < 0.1 {
+                        continue
+                    } else {
+                        lastLocation = l
+                    }
                     
                     var p1p = Double(p1.pressure)
                     var p2p = Double(p2.pressure)
@@ -235,9 +244,9 @@ class PPStroke{
             var boundingPoints = [[startPoints[1], startPoints[0]]]
             
             // Now calculate all points in the middle of the path
-            for var i = 0; i < finalPoints.count - 1; i++ {
-                var startPoint = finalPoints[i]
-                var endPoint = finalPoints[i+1]
+            for (var fpi = 0; fpi < finalPoints.count - 1; fpi++) {
+                var startPoint = finalPoints[fpi]
+                var endPoint = finalPoints[fpi+1]
                 var newPoints = pointsOnLineSegmentPerpendicularTo([startPoint.location, endPoint.location], length: endPoint.pressure * width)
                 boundingPoints.append(newPoints)
             }
@@ -250,13 +259,13 @@ class PPStroke{
                 self.cachedBezierPaths.append(path)
             }
             
-            for var i = 0; i < boundingPoints.count - 1; i++ {
+            for (var bpi = 0; bpi < boundingPoints.count - 1; bpi++) {
                 // Add our first line segment
                 var path = UIBezierPath()
-                path.moveToPoint(boundingPoints[i][0])
-                path.addLineToPoint(boundingPoints[i+1][0])
-                path.addLineToPoint(boundingPoints[i+1][1])
-                path.addLineToPoint(boundingPoints[i][1])
+                path.moveToPoint(boundingPoints[bpi][0])
+                path.addLineToPoint(boundingPoints[bpi+1][0])
+                path.addLineToPoint(boundingPoints[bpi+1][1])
+                path.addLineToPoint(boundingPoints[bpi][1])
                 path.closePath()
                 self.cachedBezierPaths.append(path)
             }
