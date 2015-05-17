@@ -97,9 +97,9 @@
                                 </constraints>
                             </view>
                             <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8TJ-Zg-3CZ">
-                                <rect key="frame" x="0.0" y="44" width="600" height="140"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="235"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="140" id="mla-Dx-d1q"/>
+                                    <constraint firstAttribute="height" constant="235" id="mla-Dx-d1q"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="Vg3-3g-X3i" kind="embed" identifier="ToolConfigurationSegue" id="ncc-L8-Emp"/>
@@ -150,11 +150,14 @@
                         <viewControllerLayoutGuide type="bottom" id="dCF-yy-nmo"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4Dg-93-pmR">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="140"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="235"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="uNm-Mr-x7R" userLabel="Tool selector">
                                 <rect key="frame" x="16" y="15" width="568" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="WiO-ta-6sF"/>
+                                </constraints>
                                 <segments>
                                     <segment title="Brush"/>
                                     <segment title="Marker"/>
@@ -166,11 +169,11 @@
                                 </connections>
                             </segmentedControl>
                             <view contentMode="scaleToFill" restorationIdentifier="ToolPreview" translatesAutoresizingMaskIntoConstraints="NO" id="DDR-KM-SD0" userLabel="Preview" customClass="PPCanvas" customModule="PinchPad" customModuleProvider="target">
-                                <rect key="frame" x="16" y="63" width="60" height="60"/>
+                                <rect key="frame" x="16" y="63" width="50" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="MNa-Ng-yZY"/>
-                                    <constraint firstAttribute="width" constant="60" id="e1H-T7-hgi"/>
+                                    <constraint firstAttribute="height" constant="50" id="MNa-Ng-yZY"/>
+                                    <constraint firstAttribute="width" constant="50" id="e1H-T7-hgi"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -180,25 +183,57 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="1" maxValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="OOq-on-alv">
-                                <rect key="frame" x="94" y="63" width="492" height="31"/>
+                                <rect key="frame" x="84" y="73" width="502" height="31"/>
                                 <connections>
                                     <action selector="widthChanged:" destination="Vg3-3g-X3i" eventType="valueChanged" id="8b7-RB-d9s"/>
                                 </connections>
                             </slider>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zE7-8e-aVF">
+                                <rect key="frame" x="16" y="128" width="568" height="92"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NYp-nB-pxG">
+                                    <size key="itemSize" width="40" height="40"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="colorCell" id="0L1-M2-Rsd">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <size key="customSize" width="40" height="40"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Vg3-3g-X3i" id="XUh-du-qfK"/>
+                                    <outlet property="delegate" destination="Vg3-3g-X3i" id="0H3-ig-vtv"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="0.29999999999999999" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="zE7-8e-aVF" firstAttribute="top" secondItem="DDR-KM-SD0" secondAttribute="bottom" constant="15" id="38S-Rw-yPF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="OOq-on-alv" secondAttribute="trailing" id="68A-M4-s5c"/>
+                            <constraint firstItem="OOq-on-alv" firstAttribute="centerY" secondItem="DDR-KM-SD0" secondAttribute="centerY" id="DrX-5s-bZA"/>
                             <constraint firstItem="DDR-KM-SD0" firstAttribute="top" secondItem="uNm-Mr-x7R" secondAttribute="bottom" constant="20" id="NbI-8j-GEQ"/>
-                            <constraint firstItem="OOq-on-alv" firstAttribute="top" secondItem="uNm-Mr-x7R" secondAttribute="bottom" constant="20" id="OM0-D6-XFD"/>
                             <constraint firstItem="OOq-on-alv" firstAttribute="leading" secondItem="DDR-KM-SD0" secondAttribute="trailing" constant="20" id="OWI-CH-VnG"/>
+                            <constraint firstItem="dCF-yy-nmo" firstAttribute="top" secondItem="zE7-8e-aVF" secondAttribute="bottom" constant="15" id="P02-FR-cis"/>
                             <constraint firstItem="DDR-KM-SD0" firstAttribute="leading" secondItem="4Dg-93-pmR" secondAttribute="leadingMargin" id="P63-2W-mDe"/>
                             <constraint firstItem="uNm-Mr-x7R" firstAttribute="top" secondItem="w9S-lH-LrN" secondAttribute="bottom" constant="15" id="Tte-bY-ikz"/>
                             <constraint firstItem="uNm-Mr-x7R" firstAttribute="leading" secondItem="4Dg-93-pmR" secondAttribute="leadingMargin" id="Utm-Qs-XWl"/>
+                            <constraint firstItem="zE7-8e-aVF" firstAttribute="trailing" secondItem="4Dg-93-pmR" secondAttribute="trailingMargin" id="ep4-PL-It0"/>
                             <constraint firstItem="uNm-Mr-x7R" firstAttribute="trailing" secondItem="4Dg-93-pmR" secondAttribute="trailingMargin" id="jnX-OK-EWs"/>
+                            <constraint firstItem="zE7-8e-aVF" firstAttribute="leading" secondItem="4Dg-93-pmR" secondAttribute="leadingMargin" id="kWY-Fa-edv"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="colorCollectionView" destination="zE7-8e-aVF" id="oqC-ct-eDr"/>
                         <outlet property="previewWindow" destination="DDR-KM-SD0" id="GJr-wS-Oiz"/>
                         <outlet property="slider" destination="OOq-on-alv" id="lbl-sd-1ke"/>
                         <outlet property="toolPicker" destination="uNm-Mr-x7R" id="B7W-N9-98M"/>
