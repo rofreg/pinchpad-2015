@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00062D761A854A9F008CD159 /* PPCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00062D751A854A9F008CD159 /* PPCanvas.swift */; };
+		000B17BF1B10FC0200D46571 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 000B17BC1B10FC0200D46571 /* TwitterCore.framework */; };
 		002FF2EA1AEADBC60070BAA0 /* Sketch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FF2E91AEADBC60070BAA0 /* Sketch.swift */; };
 		003ABDF21A84653200F51534 /* PPInfiniteScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003ABDF11A84653200F51534 /* PPInfiniteScrollView.swift */; };
 		003ABDF41A852CE600F51534 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 003ABDF31A852CE600F51534 /* background.png */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		00062D751A854A9F008CD159 /* PPCanvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPCanvas.swift; sourceTree = "<group>"; };
+		000B17BC1B10FC0200D46571 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
 		002FF2E91AEADBC60070BAA0 /* Sketch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sketch.swift; sourceTree = "<group>"; };
 		003ABDF11A84653200F51534 /* PPInfiniteScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPInfiniteScrollView.swift; sourceTree = "<group>"; };
 		003ABDF31A852CE600F51534 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00A3AB8E1AA7F9BB004CEA19 /* WacomDevice.framework in Frameworks */,
+				000B17BF1B10FC0200D46571 /* TwitterCore.framework in Frameworks */,
 				005DCAAC1A805A9D00E55C0D /* TwitterKit.framework in Frameworks */,
 				005DCAB11A805B5800E55C0D /* Crashlytics.framework in Frameworks */,
 				005DCAAE1A805A9D00E55C0D /* Fabric.framework in Frameworks */,
@@ -187,6 +190,7 @@
 		3BE3E580DFEC8E60254E97A7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				000B17BC1B10FC0200D46571 /* TwitterCore.framework */,
 				DCB8F4C387E296D6F76285AC /* Pods.framework */,
 			);
 			name = Frameworks;

@@ -18,6 +18,17 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string></string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>pinchpad</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>Fabric</key>
@@ -43,6 +54,17 @@
 				<key>KitName</key>
 				<string>Crashlytics</string>
 			</dict>
+			<dict>
+				<key>KitInfo</key>
+				<dict>
+					<key>consumerKey</key>
+					<string>95vCYWFAj4iXrtSUgOnPEPIJ2</string>
+					<key>consumerSecret</key>
+					<string>iQRTIMTctNy9Lg06yMlHb7WmDcTa40O6W8mgQu5ur1jxEbLeoE</string>
+				</dict>
+				<key>KitName</key>
+				<string>Digits</string>
+			</dict>
 		</array>
 	</dict>
 	<key>LSRequiresIPhoneOS</key>
@@ -57,19 +79,6 @@
 	</array>
 	<key>UIStatusBarHidden</key>
 	<true/>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>pinchpad</string>
-			</array>
-			<key>CFBundleURLName</key>
-			<string></string>
-		</dict>
-	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -81,5 +90,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

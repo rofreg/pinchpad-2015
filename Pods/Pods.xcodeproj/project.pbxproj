@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09137940C104CC76E4BA4628 /* JXHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF597067072D42680A1BA880 /* JXHTTP.framework */; };
 		09AE81B553B7A089466E877E /* JXOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C18EBBB8328A919A3674A058 /* JXOperation.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		0BBE395B4528DB5291EF5127 /* AFSecurityPolicy.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FB5C4A33404471BE870057D /* AFSecurityPolicy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0CF348AF8A85CF642F5C6DA6 /* JXHTTPFormEncodedBody.h in Headers */ = {isa = PBXBuildFile; fileRef = 23159B0DEBCD6E6C21E23960 /* JXHTTPFormEncodedBody.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -368,7 +367,6 @@
 			files = (
 				14B51477C9645BF436560D9F /* Foundation.framework in Frameworks */,
 				D34347558CE249F53B6C58CC /* JXHTTP.framework in Frameworks */,
-				09137940C104CC76E4BA4628 /* JXHTTP.framework in Frameworks */,
 				3932BDAFC41A5EC7A0689255 /* Spectacles.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1104,7 +1102,7 @@
 		C074474B37ADF0C394B94652 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0630;
 			};
 			buildConfigurationList = 566F810EE1ADDD58779E7C14 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
