@@ -10,7 +10,7 @@ import UIKit
 
 class PPInfiniteScrollView: UIScrollView, UIScrollViewDelegate{
     var contentView: PPCanvas!
-    var diagnosticsView: UILabel!
+    var diagnosticsView: UILabel?
     
     required init(coder: NSCoder) {
         super.init(coder: coder)
@@ -23,11 +23,14 @@ class PPInfiniteScrollView: UIScrollView, UIScrollViewDelegate{
         addSubview(self.contentView)
         
         // Initialize a view for showing diagnostics
-        self.diagnosticsView = UILabel(frame: CGRectMake(10, 10, 100, 18))
-        self.diagnosticsView.textAlignment = NSTextAlignment.Left
-        self.diagnosticsView.numberOfLines = 0
-        self.diagnosticsView.text = "FPS: 0.0"
-        addSubview(self.diagnosticsView)
+        var showFrameRate = false
+        if (showFrameRate){
+            self.diagnosticsView = UILabel(frame: CGRectMake(10, 10, 100, 18))
+            self.diagnosticsView!.textAlignment = NSTextAlignment.Left
+            self.diagnosticsView!.numberOfLines = 0
+            self.diagnosticsView!.text = "FPS: 0.0"
+            addSubview(self.diagnosticsView!)
+        }
         NSTimer.scheduledTimerWithTimeInterval(0.4, target: self, selector: "updateDiagnostics", userInfo: nil, repeats: true)
         
         // Only scroll with two fingers, plz
@@ -35,7 +38,7 @@ class PPInfiniteScrollView: UIScrollView, UIScrollViewDelegate{
     }
     
     func updateDiagnostics(){
-        self.diagnosticsView.text = "FPS: \(Double(self.contentView.touchEvents) * 2.5)"
+        self.diagnosticsView?.text = "FPS: \(Double(self.contentView.touchEvents) * 2.5)"
         self.contentView.touchEvents = 0
     }
     
