@@ -63,7 +63,7 @@ class PPStroke{
     func addPoint(location: CGPoint, withPressure pressure: CGFloat){
         // Do not add this point if it's too close to the last point
         if let lastPoint = self.points.last{
-            if (lastPoint.location - location).length() < 2 {
+            if (lastPoint.location - location).length() < 3 {
                 // TODO: handle pressure changes (i.e. I stayed still, but pressed down harder)
                 return;
             }
