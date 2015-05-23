@@ -55,7 +55,7 @@ class PPCanvas: UIView{
         TouchManager.GetTouchManager().moveTouches(touches, knownTouches: event.touchesForView(self), view: self)
         
         if let touch = getActiveTouch(touches){
-            addPointToActiveStroke(touch)
+            addPointToActiveStroke(touch, finalTouch: true)
             strokes.append(self.activeStroke!)
             self.activeStroke = nil
             self.setNeedsDisplay()
@@ -91,7 +91,7 @@ class PPCanvas: UIView{
     
     // Initialize the active stroke if needed, then add another point to the stroke
     // Includes handling for stylus pressure
-    func addPointToActiveStroke(touch: UITouch){
+    func addPointToActiveStroke(touch: UITouch, finalTouch: Bool = false){
         // Start a stroke if there's not an ongoing stroke already
         if (self.activeStroke == nil){
             self.activeStroke = PPStroke(tool: PPToolConfiguration.sharedInstance.tool, width: PPToolConfiguration.sharedInstance.width, color: PPToolConfiguration.sharedInstance.color)
@@ -100,6 +100,8 @@ class PPCanvas: UIView{
         // Report pressure if using a stylus
         if let p = PPToolConfiguration.sharedInstance.pressure {
             self.activeStroke!.addPoint(touch, withPressure: p, inView:self)
+        } else if (finalTouch){
+            self.activeStroke!.addPoint(touch, withPressure: 0.01, inView:self)
         } else {
             self.activeStroke!.addPoint(touch, inView:self)
         }
