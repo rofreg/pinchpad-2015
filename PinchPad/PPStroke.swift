@@ -124,8 +124,11 @@ class PPStroke{
         path.lineCapStyle = kCGLineCapRound
         path.lineJoinStyle = kCGLineJoinRound
         
-        // Handle empty case
-        if (self.points.count < 2){
+        // Handle dot case
+        if (self.isDot()){
+            // Draw a dot at the starting point
+            // Line stroke thickness will take care of the actual "radius"
+            path.addArcWithCenter(points.first!.location, radius: 0.01, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
             return path;
         }
         
