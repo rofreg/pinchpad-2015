@@ -42,11 +42,11 @@ class PPStroke{
         var p: CGFloat
         var pointsCount = points.count
         if (pointsCount == 0){
-            p = 0.6
+            p = 0.5
         } else {
             var lastPoint = points[points.count-1]
             var diff = (location - lastPoint.location).length()
-            p = max(0.35, min(1.0, CGFloat(diff) / 8.0))
+            p = max(0.5, min(1.0, CGFloat(diff - 5) / 8.0))
             
             // Smooth out pressure using previous points, to prevent abrupt pressure changes
             var previousPointsToSmoothAgainstCount = min(2, points.count)
@@ -230,7 +230,7 @@ class PPStroke{
         } else if self.isDot(){
             // This is just a dot
             var dot = UIBezierPath()
-            dot.addArcWithCenter(points.first!.location, radius: width * points[0].pressure, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
+            dot.addArcWithCenter(points.first!.location, radius: width * 0.5, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
             self.cachedBezierPaths = [dot]
         } else {
             // Let's calculate a fancy stroke!
