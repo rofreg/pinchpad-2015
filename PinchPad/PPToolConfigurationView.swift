@@ -54,7 +54,13 @@ class PPToolConfigurationViewController: UIViewController{
     
     func updatePreview(){
         previewWindow.clear()
-        previewWindow.strokes = [previewStroke()]
+        
+        if (PPToolConfiguration.sharedInstance.tool == .Eraser){
+            previewWindow.strokes = [previewStroke(tool: .Marker, width: 100, color: UIColor.blackColor()), previewStroke()]
+        } else {
+            previewWindow.strokes = [previewStroke()]
+        }
+        
         previewWindow.setNeedsDisplay()
         
         // Update the tool picker if the tool choice changed
@@ -71,21 +77,26 @@ class PPToolConfigurationViewController: UIViewController{
         colorCollectionView.reloadData()
     }
     
-    func previewStroke() -> PPStroke{
-        let PPTCsI = PPToolConfiguration.sharedInstance
-        var stroke = PPStroke(tool: PPTCsI.tool, width: PPTCsI.width, color: PPTCsI.color)
+    func previewStroke(tool: PPToolType? = nil, width: CGFloat? = nil, color: UIColor? = nil) -> PPStroke{
+        let stroke: PPStroke
+        if let tool = tool, width = width, color = color{
+            stroke = PPStroke(tool: tool, width: width, color: color)
+        } else {
+            let PPTCsI = PPToolConfiguration.sharedInstance
+            stroke = PPStroke(tool: PPTCsI.tool, width: PPTCsI.width, color: PPTCsI.color)
+        }
         
         // Construct a sample squiggle
         var windowSize = previewWindow!.frame.size.height
-        stroke.addPoint(CGPointMake(windowSize * 0.1, windowSize * 0.9))
-        stroke.addPoint(CGPointMake(windowSize * 0.25, windowSize * 0.8))
-        stroke.addPoint(CGPointMake(windowSize * 0.4, windowSize * 0.7))
-        stroke.addPoint(CGPointMake(windowSize * 0.55, windowSize * 0.6))
-        stroke.addPoint(CGPointMake(windowSize * 0.5, windowSize * 0.5))
-        stroke.addPoint(CGPointMake(windowSize * 0.45, windowSize * 0.4))
-        stroke.addPoint(CGPointMake(windowSize * 0.6, windowSize * 0.3))
-        stroke.addPoint(CGPointMake(windowSize * 0.75, windowSize * 0.2))
-        stroke.addPoint(CGPointMake(windowSize * 0.9, windowSize * 0.1))
+        stroke.addPoint(CGPointMake(windowSize * 0.10, windowSize * 0.9), withPressure: 0.5)
+        stroke.addPoint(CGPointMake(windowSize * 0.25, windowSize * 0.8), withPressure: 0.6)
+        stroke.addPoint(CGPointMake(windowSize * 0.40, windowSize * 0.7), withPressure: 0.8)
+        stroke.addPoint(CGPointMake(windowSize * 0.55, windowSize * 0.6), withPressure: 1.0)
+        stroke.addPoint(CGPointMake(windowSize * 0.50, windowSize * 0.5), withPressure: 1.0)
+        stroke.addPoint(CGPointMake(windowSize * 0.45, windowSize * 0.4), withPressure: 1.0)
+        stroke.addPoint(CGPointMake(windowSize * 0.60, windowSize * 0.3), withPressure: 0.8)
+        stroke.addPoint(CGPointMake(windowSize * 0.75, windowSize * 0.2), withPressure: 0.6)
+        stroke.addPoint(CGPointMake(windowSize * 0.90, windowSize * 0.1), withPressure: 0.5)
         
         return stroke
     }

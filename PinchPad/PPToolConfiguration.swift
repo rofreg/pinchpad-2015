@@ -30,7 +30,20 @@ class PPToolConfiguration  {
     var color: UIColor = UIColor.blackColor() {
         didSet { NSNotificationCenter.defaultCenter().postNotificationName("PPToolConfigurationChanged", object: self) }
     }
-    var width: CGFloat = 3.0 {
+    var width: CGFloat {
+        set {
+            self.privateWidth = newValue
+        }
+        get {
+            // Eraser is automatically wider than the corresponding brush/marker
+            if (self.tool == .Eraser){
+                return self.privateWidth * 5
+            } else {
+                return self.privateWidth
+            }
+        }
+    }
+    private var privateWidth: CGFloat = 3.0 {
         didSet { NSNotificationCenter.defaultCenter().postNotificationName("PPToolConfigurationChanged", object: self) }
     }
     var pressure: CGFloat? {
