@@ -67,7 +67,9 @@ class AuthManager {
     class func logIn(service: AuthManagerService){
         if (service == .Twitter){
             // Present Twitter login modal
-            Twitter.sharedInstance().logInWithCompletion(nil)
+            Twitter.sharedInstance().logInWithCompletion({ (_, _) -> Void in
+                NSNotificationCenter.defaultCenter().postNotificationName("PPAuthChanged", object: nil)
+            })
         } else if (service == .Tumblr){
             // Present Tumblr login by switching to Safari
             TMAPIClient.sharedInstance().authenticate("pinchpad", callback: { (error: NSError!) -> Void in
@@ -90,6 +92,7 @@ class AuthManager {
                             // Automatically select the user's first blog
                             tumblrInfoToPersist["Blog"] = blogs[0]["name"].string!
                             Locksmith.updateData(tumblrInfoToPersist, forUserAccount:"Tumblr")
+                            NSNotificationCenter.defaultCenter().postNotificationName("PPAuthChanged", object: nil)
                         } else if (blogs.count > 1){
                             // Have the user pick manually if they have 2+ blogs
                             let blogChoiceMenu = UIAlertController(title: "Which blog do you want to post to?", message: nil, preferredStyle: .ActionSheet)
@@ -100,6 +103,7 @@ class AuthManager {
                                     (alert: UIAlertAction!) -> Void in
                                     tumblrInfoToPersist["Blog"] = blog["name"].string!
                                     Locksmith.updateData(tumblrInfoToPersist, forUserAccount:"Tumblr")
+                                    NSNotificationCenter.defaultCenter().postNotificationName("PPAuthChanged", object: nil)
                                 })
                                 blogChoiceMenu.addAction(button)
                             }
@@ -134,6 +138,8 @@ class AuthManager {
         } else {
             return
         }
+        
+        NSNotificationCenter.defaultCenter().postNotificationName("PPAuthChanged", object: nil)
     }
     
     class func changeAuth(service: AuthManagerService){

@@ -277,8 +277,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="276"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="cJ8-5f-kgi">
+                                <rect key="frame" x="10" y="10" width="285" height="42"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                <state key="normal" title="Not connected" image="Twitter">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="twitter" destination="QSA-68-wN2" eventType="touchUpInside" id="dtd-Be-0JE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="HJw-H6-T0y">
+                                <rect key="frame" x="305" y="10" width="285" height="42"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                <state key="normal" title="Not connected" image="Tumblr">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tumblr" destination="QSA-68-wN2" eventType="touchUpInside" id="Ip0-EA-o2r"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtX-Nt-uSO">
-                                <rect key="frame" x="72" y="93" width="89" height="30"/>
+                                <rect key="frame" x="243" y="179" width="89" height="30"/>
                                 <state key="normal" title="Clear canvas">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -289,8 +315,21 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="HJw-H6-T0y" secondAttribute="trailing" constant="10" id="WAM-fA-DZE"/>
+                            <constraint firstItem="HJw-H6-T0y" firstAttribute="leading" secondItem="cJ8-5f-kgi" secondAttribute="trailing" constant="10" id="YAa-tC-Jz1"/>
+                            <constraint firstItem="cJ8-5f-kgi" firstAttribute="top" secondItem="DM2-C4-Oug" secondAttribute="bottom" constant="10" id="cba-LF-CZC"/>
+                            <constraint firstItem="HJw-H6-T0y" firstAttribute="width" secondItem="cJ8-5f-kgi" secondAttribute="width" id="k8k-bK-bLY"/>
+                            <constraint firstItem="HJw-H6-T0y" firstAttribute="top" secondItem="cJ8-5f-kgi" secondAttribute="top" id="l8E-iN-Ymn"/>
+                            <constraint firstItem="cJ8-5f-kgi" firstAttribute="leading" secondItem="l83-HU-szK" secondAttribute="leading" constant="10" id="oyg-FJ-wff"/>
+                            <constraint firstItem="HJw-H6-T0y" firstAttribute="bottom" secondItem="cJ8-5f-kgi" secondAttribute="bottom" id="vmU-0Z-m8Q"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
+                    <connections>
+                        <outlet property="tumblrButton" destination="HJw-H6-T0y" id="HZr-Aw-7ke"/>
+                        <outlet property="twitterButton" destination="cJ8-5f-kgi" id="3rj-ih-wg1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="67W-jg-bva" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -301,6 +340,8 @@
         <image name="Eraser" width="26" height="22"/>
         <image name="Pencil" width="22" height="22"/>
         <image name="Redo" width="22" height="22"/>
+        <image name="Tumblr" width="42" height="42"/>
+        <image name="Twitter" width="42" height="42"/>
         <image name="Undo" width="22" height="22"/>
     </resources>
 </document>
