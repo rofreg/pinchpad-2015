@@ -81,6 +81,14 @@ class ViewController: UIViewController{
         
         // Don't post if we haven't drawn any strokes
         if (self.canvas.contentView.strokes.count == 0){
+            var alert = UIAlertController(title: "Your sketch is blank", message: "You haven't drawn anything yet, silly!", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+            return
+        } else if (AuthManager.loggedInServices().count == 0){
+            var alert = UIAlertController(title: "No accounts configured", message: "In order to post a sketch, please tap the 'Menu' button and connect your Twitter or Tumblr account.", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
             return
         }
         
