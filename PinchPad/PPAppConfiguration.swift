@@ -22,7 +22,7 @@ class PPAppConfiguration {
             NSUserDefaults.standardUserDefaults().synchronize()
             
             // We changed the canvas size, so clear the canvas
-            NSNotificationCenter.defaultCenter().postNotificationName("PPClearCanvas", object: self)
+            NSNotificationCenter.defaultCenter().postNotificationName("PPResizeCanvas", object: self)
         }
         get {
             var val: Bool? = NSUserDefaults.standardUserDefaults().boolForKey("widerCanvas")

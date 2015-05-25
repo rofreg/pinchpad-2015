@@ -43,10 +43,12 @@ class ViewController: UIViewController{
     // MARK: tool handling
     
     @IBAction func menu(){
+        toolConfigurationViewContainer.hidden = true
         menuViewContainer.hidden = !menuViewContainer.hidden
     }
     
     @IBAction func pencil(){
+        menuViewContainer.hidden = true
         if (PPToolConfiguration.sharedInstance.tool != .Eraser){
             // Toggle config menu if the pencil or brush is already selected
             toolConfigurationViewContainer.hidden = !toolConfigurationViewContainer.hidden
@@ -57,6 +59,7 @@ class ViewController: UIViewController{
     }
     
     @IBAction func eraser(){
+        menuViewContainer.hidden = true
         if (PPToolConfiguration.sharedInstance.tool == .Eraser){
             // Toggle config menu if the eraser is already selected
             toolConfigurationViewContainer.hidden = !toolConfigurationViewContainer.hidden
