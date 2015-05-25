@@ -29,7 +29,7 @@
                                 <items>
                                     <barButtonItem title="Menu" id="uf1-3o-Ju3">
                                         <connections>
-                                            <action selector="menu:" destination="BYZ-38-t0r" id="x8o-mr-Ih7"/>
+                                            <action selector="menu" destination="BYZ-38-t0r" id="LVU-Yv-uhq"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="D5H-99-6fa"/>
@@ -265,10 +265,10 @@
             </objects>
             <point key="canvasLocation" x="989" y="270"/>
         </scene>
-        <!--View Controller-->
+        <!--Menu View Controller-->
         <scene sceneID="TGO-en-8VW">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="QSA-68-wN2" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="QSA-68-wN2" customClass="PPMenuViewController" customModule="PinchPad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DM2-C4-Oug"/>
                         <viewControllerLayoutGuide type="bottom" id="pOZ-4O-Vvd"/>
@@ -276,7 +276,19 @@
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="l83-HU-szK">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="276"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.87430612659999996" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtX-Nt-uSO">
+                                <rect key="frame" x="72" y="93" width="89" height="30"/>
+                                <state key="normal" title="Clear canvas">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearCanvas" destination="QSA-68-wN2" eventType="touchUpInside" id="iRc-G4-gE2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <toolbarItems/>
                 </viewController>

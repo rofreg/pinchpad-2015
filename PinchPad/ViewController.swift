@@ -38,6 +38,9 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
         // When our tool changes, update the display
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("updateToolbarDisplay"), name: "PPToolConfigurationChanged", object: nil)
         
+        // Clear canvas when we are told to
+        NSNotificationCenter.defaultCenter().addObserver(self.canvas, selector: Selector("clear"), name: "PPClearCanvas", object: nil)
+        
         super.viewDidLoad()
     }
     
@@ -47,6 +50,10 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
     
     
     // MARK: tool handling
+    
+    @IBAction func menu(){
+        menuViewContainer.hidden = !menuViewContainer.hidden
+    }
     
     @IBAction func pencil(){
         if (PPToolConfiguration.sharedInstance.tool != .Eraser){
@@ -100,41 +107,6 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
         
         // Clear the canvas
         self.canvas.clear()
-    }
-    
-    
-    // MARK: Settings menu
-    
-    @IBAction func menu(sender: AnyObject){
-        menuViewContainer.hidden = !menuViewContainer.hidden
-    }
-    
-    @IBAction func showActionSheet(sender: AnyObject) {
-        let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
-        
-        // Set up buttons
-        let twitterAction = UIAlertAction(title: (AuthManager.isLoggedIn(.Twitter) ? "Auto-post to Twitter: \(AuthManager.identifier(.Twitter)!)" : "Auto-post to Twitter: OFF"), style: .Default, handler: {
-            (alert: UIAlertAction!) -> Void in
-            AuthManager.changeAuth(.Twitter)
-        })
-        let tumblrAction = UIAlertAction(title: (AuthManager.isLoggedIn(.Tumblr) ? "Auto-post to Tumblr: \(AuthManager.identifier(.Tumblr)!)" : "Auto-post to Tumblr: OFF"), style: .Default, handler: {
-            (alert: UIAlertAction!) -> Void in
-            AuthManager.changeAuth(.Tumblr)
-        })
-        let clearAction = UIAlertAction(title: "Clear canvas", style: .Destructive, handler: {
-            (alert: UIAlertAction!) -> Void in
-            self.canvas.clear()
-        })
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-        
-        // Add buttons
-        optionMenu.addAction(twitterAction)
-        optionMenu.addAction(tumblrAction)
-        optionMenu.addAction(clearAction)
-        optionMenu.addAction(cancelAction)
-        
-        // Show menu
-        self.presentViewController(optionMenu, animated: true, completion: nil)
     }
     
     
