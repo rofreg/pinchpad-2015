@@ -12,6 +12,7 @@ class PPMenuViewController : UIViewController{
     @IBOutlet var twitterButton: UIButton!
     @IBOutlet var tumblrButton: UIButton!
     @IBOutlet var clearButton: UIButton!
+    @IBOutlet var widerCanvasSwitch: UISwitch!
     
     var disabledColor = UIColor(white: 0.2, alpha: 1.0)
     var twitterColor = UIColor(red: 0/255.0, green: 176/255.0, blue: 237/255.0, alpha: 1.0)
@@ -51,6 +52,9 @@ class PPMenuViewController : UIViewController{
             tumblrButton.setTitle("Not connected", forState: .Normal)
             tumblrButton.alpha = 0.3
         }
+        
+        // Wider canvas toggle
+        widerCanvasSwitch.setOn(PPAppConfiguration.sharedInstance.widerCanvas, animated: false)
     }
     
     
@@ -67,5 +71,9 @@ class PPMenuViewController : UIViewController{
     
     @IBAction func clearCanvas(){
         NSNotificationCenter.defaultCenter().postNotificationName("PPClearCanvas", object: self)
+    }
+    
+    @IBAction func widerCanvasToggle(sender: UISwitch){
+        PPAppConfiguration.sharedInstance.widerCanvas = sender.on
     }
 }

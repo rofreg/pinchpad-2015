@@ -43,8 +43,14 @@ class PPInfiniteScrollView: UIScrollView, UIScrollViewDelegate{
     }
     
     override func layoutSubviews() {
-        // Set content size to 2x screen width, 1x screen height
-        self.contentSize = CGSize(width:CGRectGetWidth(frame) * 2, height: CGRectGetHeight(frame))
+        if (PPAppConfiguration.sharedInstance.widerCanvas){
+            // Set content size to 2x screen width, 1x screen height
+            self.contentSize = CGSize(width:CGRectGetWidth(frame) * 2, height: CGRectGetHeight(frame))
+        } else {
+            // Set content size to 1x screen width, 1x screen height
+            self.contentSize = CGSize(width:CGRectGetWidth(frame), height: CGRectGetHeight(frame))
+        }
+        
         self.contentView.frame.size = self.contentSize;
     }
     
