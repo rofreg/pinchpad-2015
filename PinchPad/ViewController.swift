@@ -34,7 +34,7 @@ class ViewController: UIViewController{
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("updateToolbarDisplay"), name: "PPToolConfigurationChanged", object: nil)
         
         // Clear canvas when we are told to
-        NSNotificationCenter.defaultCenter().addObserver(self.canvas, selector: Selector("clear"), name: "PPClearCanvas", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("clear"), name: "PPClearCanvas", object: nil)
         
         super.viewDidLoad()
     }
@@ -98,6 +98,14 @@ class ViewController: UIViewController{
         
         // Clear the canvas
         self.canvas.clear()
+    }
+    
+    
+    // MARK: Other menu-related functions
+    
+    func clear(){
+        self.canvas.clear()
+        self.menuViewContainer.hidden = true
     }
     
     

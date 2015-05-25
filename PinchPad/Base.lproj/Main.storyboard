@@ -303,12 +303,20 @@
                                     <action selector="tumblr" destination="QSA-68-wN2" eventType="touchUpInside" id="Ip0-EA-o2r"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtX-Nt-uSO">
-                                <rect key="frame" x="243" y="179" width="89" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtX-Nt-uSO">
+                                <rect key="frame" x="10" y="224" width="580" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="niM-9Y-liO"/>
+                                </constraints>
                                 <state key="normal" title="Clear canvas">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="clearCanvas" destination="QSA-68-wN2" eventType="touchUpInside" id="iRc-G4-gE2"/>
                                 </connections>
@@ -318,15 +326,19 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="HJw-H6-T0y" secondAttribute="trailing" constant="10" id="WAM-fA-DZE"/>
                             <constraint firstItem="HJw-H6-T0y" firstAttribute="leading" secondItem="cJ8-5f-kgi" secondAttribute="trailing" constant="10" id="YAa-tC-Jz1"/>
+                            <constraint firstAttribute="trailing" secondItem="jtX-Nt-uSO" secondAttribute="trailing" constant="10" id="ZBL-CP-rUv"/>
                             <constraint firstItem="cJ8-5f-kgi" firstAttribute="top" secondItem="DM2-C4-Oug" secondAttribute="bottom" constant="10" id="cba-LF-CZC"/>
+                            <constraint firstItem="jtX-Nt-uSO" firstAttribute="leading" secondItem="l83-HU-szK" secondAttribute="leading" constant="10" id="iNE-iS-7t0"/>
                             <constraint firstItem="HJw-H6-T0y" firstAttribute="width" secondItem="cJ8-5f-kgi" secondAttribute="width" id="k8k-bK-bLY"/>
                             <constraint firstItem="HJw-H6-T0y" firstAttribute="top" secondItem="cJ8-5f-kgi" secondAttribute="top" id="l8E-iN-Ymn"/>
                             <constraint firstItem="cJ8-5f-kgi" firstAttribute="leading" secondItem="l83-HU-szK" secondAttribute="leading" constant="10" id="oyg-FJ-wff"/>
+                            <constraint firstItem="pOZ-4O-Vvd" firstAttribute="top" secondItem="jtX-Nt-uSO" secondAttribute="bottom" constant="10" id="vJP-Qm-Mwn"/>
                             <constraint firstItem="HJw-H6-T0y" firstAttribute="bottom" secondItem="cJ8-5f-kgi" secondAttribute="bottom" id="vmU-0Z-m8Q"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <connections>
+                        <outlet property="clearButton" destination="jtX-Nt-uSO" id="RjS-vT-KWE"/>
                         <outlet property="tumblrButton" destination="HJw-H6-T0y" id="HZr-Aw-7ke"/>
                         <outlet property="twitterButton" destination="cJ8-5f-kgi" id="3rj-ih-wg1"/>
                     </connections>

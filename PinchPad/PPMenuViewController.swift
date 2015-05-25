@@ -11,6 +11,7 @@ import UIKit
 class PPMenuViewController : UIViewController{
     @IBOutlet var twitterButton: UIButton!
     @IBOutlet var tumblrButton: UIButton!
+    @IBOutlet var clearButton: UIButton!
     
     var disabledColor = UIColor(white: 0.2, alpha: 1.0)
     var twitterColor = UIColor(red: 0/255.0, green: 176/255.0, blue: 237/255.0, alpha: 1.0)
@@ -20,6 +21,8 @@ class PPMenuViewController : UIViewController{
         twitterButton.titleLabel?.numberOfLines = 2
         tumblrButton.titleLabel?.numberOfLines = 2
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("refreshInfo"), name: "PPAuthChanged", object: nil)
+        
+        clearButton.layer.borderColor = UIColor.whiteColor().CGColor
     }
     
     override func viewWillAppear(animated: Bool) {
