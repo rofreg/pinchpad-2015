@@ -11,13 +11,43 @@ import UIKit
 class PPToolConfigurationViewController: UIViewController{
     @IBOutlet var toolPicker: UISegmentedControl!
     @IBOutlet var slider: UISlider!     // TODO: show segmented steps on the slider
+    @IBOutlet var sliderBackground: UIView!
     @IBOutlet var previewWindow: PPCanvas!
     @IBOutlet var colorCollectionView: UICollectionView!
+    
     let colors = [UIColor.blackColor(), UIColor(hex:"999999"), UIColor(hex:"dddddd"), UIColor(hex:"F2CA42"), UIColor(hex:"00C3A9"), UIColor(hex:"D45354"), UIColor(hex:"2FCAD8"), UIColor(hex:"663300"), UIColor(hex:"af7a56"), UIColor(hex:"ab7dbe"), UIColor(hex:"ff8960"), UIColor(hex:"6e99d4"), UIColor(hex:"4c996e"), UIColor(hex:"dc9bb1")]
     
     override func viewDidLoad() {
         updatePreview()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updatePreview", name: "PPToolConfigurationChanged", object: nil)
+        slider.maximumTrackTintColor = UIColor(white: 0.6, alpha: 1.0)  // Manually setting color as a workaround for a bug?
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        updateSliderBackground()
+    }
+    
+    func updateSliderBackground() {
+        for view in sliderBackground.subviews{
+            view.removeFromSuperview()
+        }
+        
+        var fullWidth = CGRectGetWidth(sliderBackground.frame)
+        var fullHeight = CGRectGetHeight(sliderBackground.frame)
+        var adjustmentRadius: CGFloat = 28.0
+        fullWidth -= adjustmentRadius
+        
+        for index in 0...5{
+            var tickMark = UIView(frame: CGRectMake(CGFloat(index) * (fullWidth / 5.0) - 1 + adjustmentRadius/2.0, fullHeight * 1.0/4.0 + 0.5, 2, fullHeight * 1.0/2.0))
+            
+            if (index < Int(slider.value)){
+                tickMark.backgroundColor = slider.minimumTrackTintColor
+            } else {
+                tickMark.backgroundColor = UIColor(white: 0.6, alpha: 1.0)
+            }
+            
+            sliderBackground.addSubview(tickMark)
+        }
     }
     
     
@@ -47,6 +77,8 @@ class PPToolConfigurationViewController: UIViewController{
         let realSize = [0.0, 1.0, 3.0, 5.0, 10.0, 30.0, 60.0]
         let toolSize = realSize[roundedValue]
         PPToolConfiguration.sharedInstance.width = CGFloat(toolSize)
+        
+        updateSliderBackground()
     }
     
     

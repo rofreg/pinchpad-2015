@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -182,8 +182,12 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UC3-qK-L8b" userLabel="Slider background">
+                                <rect key="frame" x="86" y="73" width="498" height="30"/>
+                            </view>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="1" maxValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="OOq-on-alv">
                                 <rect key="frame" x="84" y="73" width="502" height="31"/>
+                                <color key="minimumTrackTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <action selector="widthChanged:" destination="Vg3-3g-X3i" eventType="valueChanged" id="8b7-RB-d9s"/>
                                 </connections>
@@ -220,6 +224,8 @@
                         <constraints>
                             <constraint firstItem="zE7-8e-aVF" firstAttribute="top" secondItem="DDR-KM-SD0" secondAttribute="bottom" constant="15" id="38S-Rw-yPF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="OOq-on-alv" secondAttribute="trailing" id="68A-M4-s5c"/>
+                            <constraint firstItem="OOq-on-alv" firstAttribute="leading" secondItem="UC3-qK-L8b" secondAttribute="leading" id="Arr-Uh-WKe"/>
+                            <constraint firstItem="OOq-on-alv" firstAttribute="trailing" secondItem="UC3-qK-L8b" secondAttribute="trailing" id="B8G-rc-DUo"/>
                             <constraint firstItem="OOq-on-alv" firstAttribute="centerY" secondItem="DDR-KM-SD0" secondAttribute="centerY" id="DrX-5s-bZA"/>
                             <constraint firstItem="DDR-KM-SD0" firstAttribute="top" secondItem="uNm-Mr-x7R" secondAttribute="bottom" constant="20" id="NbI-8j-GEQ"/>
                             <constraint firstItem="OOq-on-alv" firstAttribute="leading" secondItem="DDR-KM-SD0" secondAttribute="trailing" constant="20" id="OWI-CH-VnG"/>
@@ -228,6 +234,8 @@
                             <constraint firstItem="uNm-Mr-x7R" firstAttribute="top" secondItem="w9S-lH-LrN" secondAttribute="bottom" constant="15" id="Tte-bY-ikz"/>
                             <constraint firstItem="uNm-Mr-x7R" firstAttribute="leading" secondItem="4Dg-93-pmR" secondAttribute="leadingMargin" id="Utm-Qs-XWl"/>
                             <constraint firstItem="zE7-8e-aVF" firstAttribute="trailing" secondItem="4Dg-93-pmR" secondAttribute="trailingMargin" id="ep4-PL-It0"/>
+                            <constraint firstItem="OOq-on-alv" firstAttribute="top" secondItem="UC3-qK-L8b" secondAttribute="top" id="g6Q-r3-DSj"/>
+                            <constraint firstItem="OOq-on-alv" firstAttribute="bottom" secondItem="UC3-qK-L8b" secondAttribute="bottom" id="iQf-hQ-dCg"/>
                             <constraint firstItem="uNm-Mr-x7R" firstAttribute="trailing" secondItem="4Dg-93-pmR" secondAttribute="trailingMargin" id="jnX-OK-EWs"/>
                             <constraint firstItem="zE7-8e-aVF" firstAttribute="leading" secondItem="4Dg-93-pmR" secondAttribute="leadingMargin" id="kWY-Fa-edv"/>
                         </constraints>
@@ -236,6 +244,7 @@
                         <outlet property="colorCollectionView" destination="zE7-8e-aVF" id="oqC-ct-eDr"/>
                         <outlet property="previewWindow" destination="DDR-KM-SD0" id="GJr-wS-Oiz"/>
                         <outlet property="slider" destination="OOq-on-alv" id="lbl-sd-1ke"/>
+                        <outlet property="sliderBackground" destination="UC3-qK-L8b" id="FeI-fX-HPv"/>
                         <outlet property="toolPicker" destination="uNm-Mr-x7R" id="B7W-N9-98M"/>
                     </connections>
                 </viewController>
