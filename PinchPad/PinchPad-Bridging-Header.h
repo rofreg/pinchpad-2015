@@ -5,4 +5,3 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <TMTumblrSDK/TMAPIClient.h>
-#import <WacomDevice/WacomDeviceFramework.h>

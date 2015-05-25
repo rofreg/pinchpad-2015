@@ -12,7 +12,7 @@ import TMTumblrSDK
 import Locksmith
 import SwiftyJSON
 
-class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEventCallback {
+class ViewController: UIViewController{
     @IBOutlet var canvas: PPInfiniteScrollView!
     @IBOutlet var toolConfigurationViewContainer: UIView!
     @IBOutlet var menuViewContainer: UIView!
@@ -26,11 +26,6 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
     var lastTool = PPToolType.Brush
    
     override func viewDidLoad() {
-        WacomManager.getManager().registerForNotifications(self)
-        WacomManager.getManager().startDeviceDiscovery()
-        TouchManager.GetTouchManager().touchRejectionEnabled = true
-        TouchManager.GetTouchManager().timingOffset = 200000
-        
         // When our data changes, update the display
         self.updatePendingPostsDisplay()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("updatePendingPostsDisplay"), name: NSManagedObjectContextObjectsDidChangeNotification, object: nil)
@@ -42,10 +37,6 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
         NSNotificationCenter.defaultCenter().addObserver(self.canvas, selector: Selector("clear"), name: "PPClearCanvas", object: nil)
         
         super.viewDidLoad()
-    }
-    
-    deinit {
-        WacomManager.getManager().stopDeviceDiscovery()
     }
     
     
@@ -155,48 +146,3 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
         }
     }
 }
-
-
-
-// MARK: Wacom extras
-extension ViewController: WacomDiscoveryCallback, WacomStylusEventCallback {
-    // MARK: Wacom device discovery
-    
-    func deviceDiscovered(device: WacomDevice!) {
-        println("Wacom device discovered!")
-        if (WacomManager.getManager().isDiscoveryInProgress &&
-            !WacomManager.getManager().isADeviceSelected() &&
-            !device.isCurrentlyConnected()){
-                WacomManager.getManager().selectDevice(device)
-        }
-    }
-    
-    func discoveryStatePoweredOff(){
-        println("Welp, looks like Bluetooth is off")
-        
-        // Bluetooth is disabled
-        // TODO: show an alert, or modify the UI
-    }
-    
-    
-    // MARK: Wacom device actions
-    
-    func stylusEvent(stylusEvent: WacomStylusEvent!) {
-        let type = stylusEvent.getType()
-        
-        if (type == WacomStylusEventType.eStylusEventType_PressureChange){
-            PPToolConfiguration.sharedInstance.pressure =
-                stylusEvent.getPressure() / CGFloat(WacomManager.getManager().getSelectedDevice().getMaximumPressure())
-        } else if (type == WacomStylusEventType.eStylusEventType_ButtonPressed) {
-            PPToolConfiguration.sharedInstance.tool = PPToolType.Eraser
-            println("Button down: \(stylusEvent.getButton())")
-        } else if (type == WacomStylusEventType.eStylusEventType_ButtonReleased) {
-            PPToolConfiguration.sharedInstance.tool = PPToolType.Brush
-            println("Button up: \(stylusEvent.getButton())")
-        } else if (type == WacomStylusEventType.eStylusEventType_BatteryLevelChanged) {
-            // TODO: battery warning
-            // println("Battery level: \(stylusEvent.getBatteryLevel())")
-        }
-    }
-}
-

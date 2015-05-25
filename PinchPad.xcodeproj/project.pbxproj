@@ -26,8 +26,6 @@
 		005DCAB41A805C8F00E55C0D /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 005DCAB31A805C8F00E55C0D /* Configuration.plist */; };
 		006BC1551A8839FD003AA87D /* PPStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BC1541A8839FD003AA87D /* PPStroke.swift */; };
 		006BC1571A884177003AA87D /* PPToolConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BC1561A884177003AA87D /* PPToolConfigurationViewController.swift */; };
-		00A3AB8E1AA7F9BB004CEA19 /* WacomDevice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A3AB8C1AA7F9BB004CEA19 /* WacomDevice.framework */; };
-		00A3AB8F1AA7F9BB004CEA19 /* WacomStylusFrameworkResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 00A3AB8D1AA7F9BB004CEA19 /* WacomStylusFrameworkResources.bundle */; };
 		00A3AB971AA93E98004CEA19 /* PPToolConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A3AB961AA93E98004CEA19 /* PPToolConfiguration.swift */; };
 		00C3E37D1AE9B4CB005D8375 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C3E37C1AE9B4CB005D8375 /* AuthManager.swift */; };
 		00E53C781AA3DC4F008E441E /* TWTRComposer+ProgrammaticPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E53C771AA3DC4F008E441E /* TWTRComposer+ProgrammaticPost.swift */; };
@@ -69,8 +67,6 @@
 		005DCAB31A805C8F00E55C0D /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
 		006BC1541A8839FD003AA87D /* PPStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPStroke.swift; sourceTree = "<group>"; };
 		006BC1561A884177003AA87D /* PPToolConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPToolConfigurationViewController.swift; sourceTree = "<group>"; };
-		00A3AB8C1AA7F9BB004CEA19 /* WacomDevice.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WacomDevice.framework; sourceTree = SOURCE_ROOT; };
-		00A3AB8D1AA7F9BB004CEA19 /* WacomStylusFrameworkResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WacomStylusFrameworkResources.bundle; sourceTree = SOURCE_ROOT; };
 		00A3AB961AA93E98004CEA19 /* PPToolConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPToolConfiguration.swift; sourceTree = "<group>"; };
 		00AE91181A84506C00EAA84F /* PinchPad-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PinchPad-Bridging-Header.h"; sourceTree = "<group>"; };
 		00C3E37C1AE9B4CB005D8375 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
@@ -86,7 +82,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00A3AB8E1AA7F9BB004CEA19 /* WacomDevice.framework in Frameworks */,
 				000B17BF1B10FC0200D46571 /* TwitterCore.framework in Frameworks */,
 				005DCAAC1A805A9D00E55C0D /* TwitterKit.framework in Frameworks */,
 				005DCAB11A805B5800E55C0D /* Crashlytics.framework in Frameworks */,
@@ -180,8 +175,6 @@
 		005DCAB21A805B6F00E55C0D /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				00A3AB8C1AA7F9BB004CEA19 /* WacomDevice.framework */,
-				00A3AB8D1AA7F9BB004CEA19 /* WacomStylusFrameworkResources.bundle */,
 				005DCAB01A805B5800E55C0D /* Crashlytics.framework */,
 				005DCAA91A805A9D00E55C0D /* TwitterKit.framework */,
 				005DCAAA1A805A9D00E55C0D /* TwitterKitResources.bundle */,
@@ -294,7 +287,6 @@
 			files = (
 				005DCAAD1A805A9D00E55C0D /* TwitterKitResources.bundle in Resources */,
 				003ABDF41A852CE600F51534 /* background.png in Resources */,
-				00A3AB8F1AA7F9BB004CEA19 /* WacomStylusFrameworkResources.bundle in Resources */,
 				005DCAB41A805C8F00E55C0D /* Configuration.plist in Resources */,
 				005DCA8E1A805A3900E55C0D /* Main.storyboard in Resources */,
 				005DCA931A805A3900E55C0D /* LaunchScreen.xib in Resources */,
