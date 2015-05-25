@@ -15,6 +15,7 @@ import SwiftyJSON
 class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEventCallback {
     @IBOutlet var canvas: PPInfiniteScrollView!
     @IBOutlet var toolConfigurationViewContainer: UIView!
+    @IBOutlet var menuViewContainer: UIView!
     @IBOutlet var pendingPostsView: UIView!
     @IBOutlet var pendingPostsLabel: UILabel!
     @IBOutlet var pendingPostsRetryButton: UIButton!
@@ -103,6 +104,10 @@ class ViewController: UIViewController, WacomDiscoveryCallback, WacomStylusEvent
     
     
     // MARK: Settings menu
+    
+    @IBAction func menu(sender: AnyObject){
+        menuViewContainer.hidden = !menuViewContainer.hidden
+    }
     
     @IBAction func showActionSheet(sender: AnyObject) {
         let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
