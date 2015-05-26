@@ -80,7 +80,15 @@ class ViewController: UIViewController{
     
     @IBAction func post(){
         // Some code based on https://twittercommunity.com/t/upload-images-with-swift/28410/7
-        let image = self.canvas.contentView.asImage()
+        
+        let image: UIImage
+        if (Sketch.animationFrameCount == 0){
+            // This is a normal sketch; just grab the current canvas
+            image = self.canvas.contentView.asImage()
+        } else {
+            // This is an animation! We need to assemble a GIF
+            image = Sketch.assembleAnimatedGif()!
+        }
         
         // Don't post if we haven't drawn any strokes
         if (self.canvas.contentView.strokes.count == 0){
