@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D131" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Sketch" representedClassName="PinchPad.Sketch" syncable="YES">
         <attribute name="caption" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="createdAt" attributeType="Date" syncable="YES"/>
+        <attribute name="duration" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="imageData" attributeType="Binary" syncable="YES"/>
         <attribute name="rawService" attributeType="Integer 16" syncable="YES"/>
         <attribute name="syncError" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="syncStarted" optional="YES" attributeType="Date" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Sketch" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="Sketch" positionX="-63" positionY="-18" width="128" height="150"/>
     </elements>
 </model>

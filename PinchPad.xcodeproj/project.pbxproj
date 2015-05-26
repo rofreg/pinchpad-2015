@@ -24,6 +24,7 @@
 		005DCAAE1A805A9D00E55C0D /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005DCAAB1A805A9D00E55C0D /* Fabric.framework */; };
 		005DCAB11A805B5800E55C0D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005DCAB01A805B5800E55C0D /* Crashlytics.framework */; };
 		005DCAB41A805C8F00E55C0D /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 005DCAB31A805C8F00E55C0D /* Configuration.plist */; };
+		00675D421B14152200EBF7B4 /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = 00675D411B14152200EBF7B4 /* background2.png */; };
 		006BC1551A8839FD003AA87D /* PPStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BC1541A8839FD003AA87D /* PPStroke.swift */; };
 		006BC1571A884177003AA87D /* PPToolConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BC1561A884177003AA87D /* PPToolConfigurationViewController.swift */; };
 		00A3AB971AA93E98004CEA19 /* PPToolConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A3AB961AA93E98004CEA19 /* PPToolConfiguration.swift */; };
@@ -66,6 +67,7 @@
 		005DCAAB1A805A9D00E55C0D /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		005DCAB01A805B5800E55C0D /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		005DCAB31A805C8F00E55C0D /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
+		00675D411B14152200EBF7B4 /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background2.png; sourceTree = "<group>"; };
 		006BC1541A8839FD003AA87D /* PPStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPStroke.swift; sourceTree = "<group>"; };
 		006BC1561A884177003AA87D /* PPToolConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPToolConfigurationViewController.swift; sourceTree = "<group>"; };
 		00A3AB961AA93E98004CEA19 /* PPToolConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPToolConfiguration.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 			children = (
 				005DCAB21A805B6F00E55C0D /* Dependencies */,
 				003ABDF31A852CE600F51534 /* background.png */,
+				00675D411B14152200EBF7B4 /* background2.png */,
 				005DCA851A805A3900E55C0D /* AppDelegate.swift */,
 				00C3E37C1AE9B4CB005D8375 /* AuthManager.swift */,
 				00E978C61B13CB00004EB3F4 /* PPAppConfiguration.swift */,
@@ -290,6 +293,7 @@
 			files = (
 				005DCAAD1A805A9D00E55C0D /* TwitterKitResources.bundle in Resources */,
 				003ABDF41A852CE600F51534 /* background.png in Resources */,
+				00675D421B14152200EBF7B4 /* background2.png in Resources */,
 				005DCAB41A805C8F00E55C0D /* Configuration.plist in Resources */,
 				005DCA8E1A805A3900E55C0D /* Main.storyboard in Resources */,
 				005DCA931A805A3900E55C0D /* LaunchScreen.xib in Resources */,

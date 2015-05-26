@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import CoreData
 
 class PPMenuViewController : UIViewController{
     @IBOutlet var twitterButton: UIButton!
     @IBOutlet var tumblrButton: UIButton!
-    @IBOutlet var clearButton: UIButton!
+    @IBOutlet var frameLengthLabel: UILabel!
+    @IBOutlet var frameLengthStepper: UIStepper!
+    @IBOutlet var addFrameButton: UIButton!
     @IBOutlet var widerCanvasSwitch: UISwitch!
+    @IBOutlet var clearButton: UIButton!
     
     var disabledColor = UIColor(white: 0.2, alpha: 1.0)
     var twitterColor = UIColor(red: 0/255.0, green: 176/255.0, blue: 237/255.0, alpha: 1.0)
@@ -21,9 +25,12 @@ class PPMenuViewController : UIViewController{
     override func viewDidLoad() {
         twitterButton.titleLabel?.numberOfLines = 2
         tumblrButton.titleLabel?.numberOfLines = 2
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("refreshInfo"), name: "PPAuthChanged", object: nil)
-        
+        addFrameButton.layer.borderColor = UIColor.whiteColor().CGColor
         clearButton.layer.borderColor = UIColor.whiteColor().CGColor
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("refreshInfo"), name: "PPAuthChanged", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("refreshInfo"), name: "PPFrameLengthDidChange", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("refreshInfo"), name: NSManagedObjectContextObjectsDidChangeNotification, object: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -40,7 +47,7 @@ class PPMenuViewController : UIViewController{
             twitterButton.alpha = 1.0
         } else {
             twitterButton.backgroundColor = disabledColor
-            twitterButton.setTitle("Not connected", forState: .Normal)
+            twitterButton.setAttributedTitle(NSAttributedString(string: "Not connected"), forState: .Normal)
             twitterButton.alpha = 0.3
         }
         
@@ -53,9 +60,15 @@ class PPMenuViewController : UIViewController{
             tumblrButton.alpha = 1.0
         } else {
             tumblrButton.backgroundColor = disabledColor
-            tumblrButton.setTitle("Not connected", forState: .Normal)
+            tumblrButton.setAttributedTitle(NSAttributedString(string: "Not connected"), forState: .Normal)
             tumblrButton.alpha = 0.3
         }
+        
+        // Animation info
+        frameLengthStepper.value = PPAppConfiguration.sharedInstance.frameLength
+        var frameDuration = String(format: "%.1f", frameLengthStepper.value)
+        frameLengthLabel.text = "Show frame for \(frameDuration)s"
+        addFrameButton.setTitle("Add frame #\(Sketch.animationFrameCount + 1) to animation", forState: .Normal)
         
         // Wider canvas toggle
         widerCanvasSwitch.setOn(PPAppConfiguration.sharedInstance.widerCanvas, animated: false)
@@ -73,11 +86,29 @@ class PPMenuViewController : UIViewController{
         AuthManager.changeAuth(.Tumblr)
     }
     
-    @IBAction func clearCanvas(){
-        NSNotificationCenter.defaultCenter().postNotificationName("PPClearCanvas", object: self)
+    @IBAction func frameLengthChange(){
+        PPAppConfiguration.sharedInstance.frameLength = frameLengthStepper.value
+    }
+    
+    @IBAction func addFrame(){
+        let newItem = NSEntityDescription.insertNewObjectForEntityForName("Sketch", inManagedObjectContext: Sketch.managedContext()) as! Sketch
+        newItem.createdAt = NSDate()
+        
+        if (Sketch.animationFrameCount % 2 == 0){
+            newItem.imageData = UIImagePNGRepresentation(UIImage(named: "background.png"))
+        } else {
+            newItem.imageData = UIImagePNGRepresentation(UIImage(named: "background2.png"))
+        }
+        
+        newItem.duration = PPAppConfiguration.sharedInstance.frameLength
+        Sketch.managedContext().save(nil)
     }
     
     @IBAction func widerCanvasToggle(sender: UISwitch){
         PPAppConfiguration.sharedInstance.widerCanvas = sender.on
+    }
+    
+    @IBAction func clearCanvas(){
+        NSNotificationCenter.defaultCenter().postNotificationName("PPClearCanvas", object: self)
     }
 }

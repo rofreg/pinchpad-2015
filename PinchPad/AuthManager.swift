@@ -202,6 +202,7 @@ class AuthManager {
         newItem.rawService = service.rawValue
         newItem.imageData = UIImagePNGRepresentation(image)
         newItem.caption = caption
+        newItem.duration = 0
         AuthManager.managedContext().save(nil)
         
         // Then attempt to sync the new item, along with any other older unsynced items
@@ -214,8 +215,9 @@ class AuthManager {
         // Try to sync any sketches that aren't already trying to sync
         // (Make an exception for expenses that ARE "trying to sync", but have been trying for 60+ seconds)
         // (Those posts should try to sync again, even if it might result in a double-post)
+        // (Also ignore sketches with an explicit duration; they're part of a pending ANIMATION post)
         let fetchRequest = NSFetchRequest(entityName: "Sketch")
-        fetchRequest.predicate = NSPredicate(format: "syncStarted == nil OR syncStarted < %@", NSDate().dateByAddingTimeInterval(-60))
+        fetchRequest.predicate = NSPredicate(format: "(syncStarted == nil OR syncStarted < %@) AND (duration = 0)", NSDate().dateByAddingTimeInterval(-60))
         
         if let fetchResults = AuthManager.managedContext().executeFetchRequest(fetchRequest, error: nil) as? [Sketch] {
             println("Syncing \(fetchResults.count) sketches")

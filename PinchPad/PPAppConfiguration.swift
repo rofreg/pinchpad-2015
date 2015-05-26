@@ -34,4 +34,10 @@ class PPAppConfiguration {
             }
         }
     }
+    
+    var frameLength: Double = 0.5 {
+        didSet {
+            NSNotificationCenter.defaultCenter().postNotificationName("PPFrameLengthDidChange", object: self)
+        }
+    }
 }
