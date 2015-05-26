@@ -34,7 +34,9 @@ class PPMenuViewController : UIViewController{
         // Twitter
         if (AuthManager.isLoggedIn(.Twitter)){
             twitterButton.backgroundColor = twitterColor
-            twitterButton.setTitle("Connected as\n\(AuthManager.identifier(.Twitter)!)", forState: .Normal)
+            var attrString = NSMutableAttributedString(string: "Connected as\n")
+            attrString.appendAttributedString(NSAttributedString(string: AuthManager.identifier(.Twitter)!, attributes: [NSFontAttributeName: UIFont.boldSystemFontOfSize(14)]))
+            twitterButton.setAttributedTitle(attrString, forState: .Normal)
             twitterButton.alpha = 1.0
         } else {
             twitterButton.backgroundColor = disabledColor
@@ -45,7 +47,9 @@ class PPMenuViewController : UIViewController{
         // Tumblr
         if (AuthManager.isLoggedIn(.Tumblr)){
             tumblrButton.backgroundColor = tumblrColor
-            tumblrButton.setTitle("Connected as\n\(AuthManager.identifier(.Tumblr)!)", forState: .Normal)
+            var attrString = NSMutableAttributedString(string: "Connected as\n")
+            attrString.appendAttributedString(NSAttributedString(string: AuthManager.identifier(.Tumblr)!, attributes: [NSFontAttributeName: UIFont.boldSystemFontOfSize(14)]))
+            tumblrButton.setAttributedTitle(attrString, forState: .Normal)
             tumblrButton.alpha = 1.0
         } else {
             tumblrButton.backgroundColor = disabledColor
