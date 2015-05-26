@@ -73,7 +73,7 @@
 		00C3E37C1AE9B4CB005D8375 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		00E53C771AA3DC4F008E441E /* TWTRComposer+ProgrammaticPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TWTRComposer+ProgrammaticPost.swift"; sourceTree = "<group>"; };
 		00E978C41B13835D004EB3F4 /* PPMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPMenuViewController.swift; sourceTree = "<group>"; };
-		00E978C61B13CB00004EB3F4 /* PPAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PPAppConfiguration.swift; path = PinchPad/PPAppConfiguration.swift; sourceTree = "<group>"; };
+		00E978C61B13CB00004EB3F4 /* PPAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPAppConfiguration.swift; sourceTree = "<group>"; };
 		073EBFF2AEE1F8B7C4577933 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		DCB8F4C387E296D6F76285AC /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE6E373A2F0576890450A69C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -105,7 +105,6 @@
 		005DCA771A805A3900E55C0D = {
 			isa = PBXGroup;
 			children = (
-				00E978C61B13CB00004EB3F4 /* PPAppConfiguration.swift */,
 				005DCA821A805A3900E55C0D /* PinchPad */,
 				005DCA9B1A805A3A00E55C0D /* PinchPadTests */,
 				005DCA811A805A3900E55C0D /* Products */,
@@ -130,6 +129,7 @@
 				003ABDF31A852CE600F51534 /* background.png */,
 				005DCA851A805A3900E55C0D /* AppDelegate.swift */,
 				00C3E37C1AE9B4CB005D8375 /* AuthManager.swift */,
+				00E978C61B13CB00004EB3F4 /* PPAppConfiguration.swift */,
 				00A3AB961AA93E98004CEA19 /* PPToolConfiguration.swift */,
 				006BC1561A884177003AA87D /* PPToolConfigurationViewController.swift */,
 				00E978C41B13835D004EB3F4 /* PPMenuViewController.swift */,
