@@ -163,6 +163,14 @@ class PPCanvas: UIView{
         canvasThusFar!.drawInRect(rect)
     }
     
+    func asNSData() -> NSData{
+        if canvasThusFar == nil{
+            return NSData()
+        } else{
+            return UIImagePNGRepresentation(canvasThusFar!)
+        }
+    }
+    
     func asImage() -> UIImage{
         if canvasThusFar == nil{
             return UIImage()

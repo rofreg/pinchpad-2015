@@ -81,13 +81,13 @@ class ViewController: UIViewController{
     @IBAction func post(){
         // Some code based on https://twittercommunity.com/t/upload-images-with-swift/28410/7
         
-        let image: UIImage
+        let imageData: NSData
         if (Sketch.animationFrameCount == 0){
             // This is a normal sketch; just grab the current canvas
-            image = self.canvas.contentView.asImage()
+            imageData = self.canvas.contentView.asNSData()
         } else {
             // This is an animation! We need to assemble a GIF
-            image = Sketch.assembleAnimatedGif()!
+            imageData = Sketch.assembleAnimatedGif()!
         }
         
         // Don't post if we haven't drawn any strokes
@@ -112,7 +112,7 @@ class ViewController: UIViewController{
         // Actually post
         for service in AuthManager.loggedInServices(){
             println("Posting to service #\(service.rawValue+1)")
-            AuthManager.enqueue(service, image: image, caption: caption)
+            AuthManager.enqueue(service, imageData: imageData, caption: caption)
         }
         
         // Clear the canvas

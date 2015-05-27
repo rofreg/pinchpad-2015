@@ -9,7 +9,7 @@
 import TwitterKit
 
 extension TWTRComposer {
-    func postStatus(statusText: String, image: UIImage?, completion: (success: Bool) -> Void){
+    func postStatus(statusText: String, imageData: NSData, completion: (success: Bool) -> Void){
         // Some code based on https://twittercommunity.com/t/upload-images-with-swift/28410/7
         
         let strUploadUrl = "https://upload.twitter.com/1.1/media/upload.json"
@@ -20,7 +20,6 @@ extension TWTRComposer {
         var parameters: Dictionary = Dictionary<String, String>()
         
         // Load image data
-        var imageData : NSData = UIImagePNGRepresentation(image)
         parameters["media"] = imageData.base64EncodedStringWithOptions(nil)
         
         // TODO: GIF handling

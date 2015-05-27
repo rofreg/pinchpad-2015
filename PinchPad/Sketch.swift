@@ -28,12 +28,12 @@ class Sketch: NSManagedObject {
     
     // MARK: Animation
     
-    class var animationFrames: NSArray{
+    class var animationFrames: [Sketch]{
         get {
             let fetchRequest = NSFetchRequest(entityName: "Sketch")
             fetchRequest.predicate = NSPredicate(format: "duration != 0")
             
-            if let fetchResults = AuthManager.managedContext().executeFetchRequest(fetchRequest, error: nil) as? [Sketch] {
+            if let fetchResults = Sketch.managedContext().executeFetchRequest(fetchRequest, error: nil) as? [Sketch] {
                 return fetchResults
             } else {
                 return []
@@ -47,7 +47,7 @@ class Sketch: NSManagedObject {
         }
     }
 
-    class func assembleAnimatedGif() -> UIImage?{
+    class func assembleAnimatedGif() -> NSData?{
         let fileProperties = [kCGImagePropertyGIFDictionary as String: [kCGImagePropertyGIFLoopCount as String: 100]]
         let frameProperties = [kCGImagePropertyGIFDictionary as String: [kCGImagePropertyGIFDelayTime as String: 2]]
         
@@ -66,12 +66,30 @@ class Sketch: NSManagedObject {
             
             if CGImageDestinationFinalize(destination) {
                 // TODO: delete animation frames from CoreData
-                return UIImage(data: NSData(contentsOfURL: url)!)
+                return NSData(contentsOfURL: url)
             } else {
                 return nil
             }
         } else  {
             return nil
+        }
+    }
+    
+    class func clearAnimationFrames(){
+        for frame in self.animationFrames{
+            Sketch.managedContext().deleteObject(frame)
+        }
+        Sketch.managedContext().save(nil)
+    }
+    
+    func imageType() -> String{
+        var array = [UInt8](count: 1, repeatedValue: 0)
+        self.imageData.getBytes(&array, length: 1)
+        
+        if (array[0] == 0x47){
+            return "image/gif"
+        } else {
+            return "image/png"
         }
     }
 }

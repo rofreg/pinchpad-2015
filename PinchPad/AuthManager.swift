@@ -195,15 +195,15 @@ class AuthManager {
     
     // MARK: Posting new content
     
-    class func enqueue(service: AuthManagerService, image: UIImage, caption: String){
+    class func enqueue(service: AuthManagerService, imageData: NSData, caption: String){
         // Save this new item-to-be-posted to CoreData
-        let newItem = NSEntityDescription.insertNewObjectForEntityForName("Sketch", inManagedObjectContext: AuthManager.managedContext()) as! Sketch
+        let newItem = NSEntityDescription.insertNewObjectForEntityForName("Sketch", inManagedObjectContext: Sketch.managedContext()) as! Sketch
         newItem.createdAt = NSDate()
         newItem.rawService = service.rawValue
-        newItem.imageData = UIImagePNGRepresentation(image)
+        newItem.imageData = imageData
         newItem.caption = caption
         newItem.duration = 0
-        AuthManager.managedContext().save(nil)
+        Sketch.managedContext().save(nil)
         
         // Then attempt to sync the new item, along with any other older unsynced items
         AuthManager.sync()
@@ -219,11 +219,11 @@ class AuthManager {
         let fetchRequest = NSFetchRequest(entityName: "Sketch")
         fetchRequest.predicate = NSPredicate(format: "(syncStarted == nil OR syncStarted < %@) AND (duration = 0)", NSDate().dateByAddingTimeInterval(-60))
         
-        if let fetchResults = AuthManager.managedContext().executeFetchRequest(fetchRequest, error: nil) as? [Sketch] {
+        if let fetchResults = Sketch.managedContext().executeFetchRequest(fetchRequest, error: nil) as? [Sketch] {
             println("Syncing \(fetchResults.count) sketches")
             for sketch in fetchResults{
                 sketch.syncStarted = NSDate()
-                AuthManager.managedContext().save(nil)
+                Sketch.managedContext().save(nil)
                 AuthManager.post(sketch)
             }
         }
@@ -231,24 +231,24 @@ class AuthManager {
     
     class func post(sketch: Sketch){
         let service = AuthManagerService(rawValue: sketch.rawService)
-        let image = UIImage(data: sketch.imageData)
+        let imageType = sketch.imageType()
         
         if (service == .Twitter){
             let composer = TWTRComposer()
-            composer.postStatus("\(sketch.caption) #pinchpad", image:image){
+            composer.postStatus("\(sketch.caption) #pinchpad", imageData: sketch.imageData){
                 (success: Bool) in
                 println("Posted to Twitter: \(success)")        // print whether we succeeded
                 if (success){
                     // Delete successful post from local DB
-                    AuthManager.managedContext().deleteObject(sketch)
+                    Sketch.managedContext().deleteObject(sketch)
                 } else {
                     sketch.syncError = true
                 }
                 sketch.syncStarted = nil
-                AuthManager.managedContext().save(nil)
+                Sketch.managedContext().save(nil)
             }
         } else if (service == .Tumblr) {
-            TMAPIClient.sharedInstance().photo(AuthManager.identifier(.Tumblr), imageNSDataArray: [sketch.imageData], contentTypeArray: ["image/png"], fileNameArray: ["test.png"], parameters: ["tags":"pinchpad,hourly comics", "link":"http://www.pinchpad.com"], callback: { (response: AnyObject!, error: NSError!) -> Void in
+            TMAPIClient.sharedInstance().photo(AuthManager.identifier(.Tumblr), imageNSDataArray: [sketch.imageData], contentTypeArray: [imageType], fileNameArray: [(imageType == "image/gif" ? "sketch.gif" : "sketch.png")], parameters: ["tags":"pinchpad,hourly comics", "link":"http://www.pinchpad.com"], callback: { (response: AnyObject!, error: NSError!) -> Void in
                 // Parse the JSON response to see if we saved correctly
                 var success: Bool
                 if let responseDict = response as? NSDictionary, responseId: AnyObject? = response["id"] where error == nil {
@@ -260,12 +260,12 @@ class AuthManager {
                 println("Posted to Tumblr: \(success)")        // print whether we succeeded
                 if (success){
                     // Delete successful post from local DB
-                    AuthManager.managedContext().deleteObject(sketch)
+                    Sketch.managedContext().deleteObject(sketch)
                 } else {
                     sketch.syncError = true
                 }
                 sketch.syncStarted = nil
-                AuthManager.managedContext().save(nil)
+                Sketch.managedContext().save(nil)
             })
         }
     }
