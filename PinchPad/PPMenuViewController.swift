@@ -93,13 +93,7 @@ class PPMenuViewController : UIViewController{
     @IBAction func addFrame(){
         let newItem = NSEntityDescription.insertNewObjectForEntityForName("Sketch", inManagedObjectContext: Sketch.managedContext()) as! Sketch
         newItem.createdAt = NSDate()
-        
-        if (Sketch.animationFrameCount % 2 == 0){
-            newItem.imageData = UIImagePNGRepresentation(UIImage(named: "background.png"))
-        } else {
-            newItem.imageData = UIImagePNGRepresentation(UIImage(named: "background2.png"))
-        }
-        
+        newItem.imageData = (self.parentViewController as! ViewController).canvas.contentView.asNSData()
         newItem.duration = PPAppConfiguration.sharedInstance.frameLength
         Sketch.managedContext().save(nil)
     }

@@ -32,6 +32,7 @@ class Sketch: NSManagedObject {
         get {
             let fetchRequest = NSFetchRequest(entityName: "Sketch")
             fetchRequest.predicate = NSPredicate(format: "duration != 0")
+            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "createdAt", ascending: true)]
             
             if let fetchResults = Sketch.managedContext().executeFetchRequest(fetchRequest, error: nil) as? [Sketch] {
                 return fetchResults
@@ -48,8 +49,7 @@ class Sketch: NSManagedObject {
     }
 
     class func assembleAnimatedGif() -> NSData?{
-        let fileProperties = [kCGImagePropertyGIFDictionary as String: [kCGImagePropertyGIFLoopCount as String: 100]]
-        let frameProperties = [kCGImagePropertyGIFDictionary as String: [kCGImagePropertyGIFDelayTime as String: 2]]
+        let fileProperties = [kCGImagePropertyGIFDictionary as String: [kCGImagePropertyGIFLoopCount as String: 0]]
         
         let documentsDirectory = NSTemporaryDirectory()
         let url = NSURL(fileURLWithPath: documentsDirectory)?.URLByAppendingPathComponent("animated.gif")
@@ -61,6 +61,7 @@ class Sketch: NSManagedObject {
             
             for frame in frames {
                 var actualImage = UIImage(data: frame.imageData)
+                let frameProperties = [kCGImagePropertyGIFDictionary as String: [kCGImagePropertyGIFDelayTime as String: frame.duration]]
                 CGImageDestinationAddImage(destination, actualImage!.CGImage, frameProperties)
             }
             

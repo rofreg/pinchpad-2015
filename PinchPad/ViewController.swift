@@ -81,17 +81,8 @@ class ViewController: UIViewController{
     @IBAction func post(){
         // Some code based on https://twittercommunity.com/t/upload-images-with-swift/28410/7
         
-        let imageData: NSData
-        if (Sketch.animationFrameCount == 0){
-            // This is a normal sketch; just grab the current canvas
-            imageData = self.canvas.contentView.asNSData()
-        } else {
-            // This is an animation! We need to assemble a GIF
-            imageData = Sketch.assembleAnimatedGif()!
-        }
-        
         // Don't post if we haven't drawn any strokes
-        if (self.canvas.contentView.strokes.count == 0){
+        if (self.canvas.contentView.strokes.count == 0 && Sketch.animationFrameCount == 0){
             var alert = UIAlertController(title: "Your sketch is blank", message: "You haven't drawn anything yet, silly!", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
@@ -101,6 +92,17 @@ class ViewController: UIViewController{
             alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
             return
+        }
+        
+        // Get the image data
+        let imageData: NSData
+        if (Sketch.animationFrameCount == 0){
+            // This is a normal sketch; just grab the current canvas
+            imageData = self.canvas.contentView.asNSData()
+        } else {
+            // This is an animation! We need to assemble a GIF (and clear our stored GIF frames from the DB)
+            imageData = Sketch.assembleAnimatedGif()!
+            Sketch.clearAnimationFrames()
         }
         
         // Format the date
