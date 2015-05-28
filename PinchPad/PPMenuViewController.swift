@@ -15,6 +15,8 @@ class PPMenuViewController : UIViewController{
     @IBOutlet var frameLengthLabel: UILabel!
     @IBOutlet var frameLengthStepper: UIStepper!
     @IBOutlet var addFrameButton: UIButton!
+    @IBOutlet var removeFrameButton: UIButton!
+    @IBOutlet var previewButton: UIButton!
     @IBOutlet var widerCanvasSwitch: UISwitch!
     @IBOutlet var clearButton: UIButton!
     
@@ -25,8 +27,9 @@ class PPMenuViewController : UIViewController{
     override func viewDidLoad() {
         twitterButton.titleLabel?.numberOfLines = 2
         tumblrButton.titleLabel?.numberOfLines = 2
-        addFrameButton.layer.borderColor = UIColor.whiteColor().CGColor
-        clearButton.layer.borderColor = UIColor.whiteColor().CGColor
+        for button in [addFrameButton, removeFrameButton, previewButton]{
+            button.layer.borderColor = UIColor.whiteColor().CGColor
+        }
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("refreshInfo"), name: "PPAuthChanged", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("refreshInfo"), name: "PPFrameLengthDidChange", object: nil)
@@ -67,9 +70,18 @@ class PPMenuViewController : UIViewController{
         // Animation info
         frameLengthStepper.value = PPAppConfiguration.sharedInstance.frameLength
         var frameDuration = String(format: "%.1f", frameLengthStepper.value)
-        frameLengthLabel.text = "Show frame for \(frameDuration)s"
-        addFrameButton.setTitle("Add frame #\(Sketch.animationFrameCount + 1) to animation", forState: .Normal)
-        
+        if (CGRectGetWidth(UIScreen.mainScreen().bounds) <= 320){
+            frameLengthLabel.text = "\(frameDuration)s"
+        } else {
+            frameLengthLabel.text = "Show for \(frameDuration)s"
+        }
+        addFrameButton.setTitle("Add frame #\(Sketch.animationFrameCount + 1)", forState: .Normal)
+        let animationStarted = (Sketch.animationFrames.count > 0)
+        for button in [previewButton, removeFrameButton]{
+            button.enabled = animationStarted
+            button.alpha = (animationStarted ? 1.0 : 0.5)
+        }
+    
         // Wider canvas toggle
         widerCanvasSwitch.setOn(PPAppConfiguration.sharedInstance.widerCanvas, animated: false)
     }
@@ -96,6 +108,17 @@ class PPMenuViewController : UIViewController{
         newItem.imageData = (self.parentViewController as! ViewController).canvas.contentView.asNSData()
         newItem.duration = PPAppConfiguration.sharedInstance.frameLength
         Sketch.managedContext().save(nil)
+    }
+    
+    @IBAction func removeFrame(){
+        if let sketch = Sketch.animationFrames.last{
+            Sketch.managedContext().deleteObject(sketch)
+            Sketch.managedContext().save(nil)
+        }
+    }
+    
+    @IBAction func preview(){
+        println("todo")
     }
     
     @IBAction func widerCanvasToggle(sender: UISwitch){
