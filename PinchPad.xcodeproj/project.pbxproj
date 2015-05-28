@@ -11,7 +11,6 @@
 		000B17BF1B10FC0200D46571 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 000B17BC1B10FC0200D46571 /* TwitterCore.framework */; };
 		002FF2EA1AEADBC60070BAA0 /* Sketch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FF2E91AEADBC60070BAA0 /* Sketch.swift */; };
 		003ABDF21A84653200F51534 /* PPInfiniteScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003ABDF11A84653200F51534 /* PPInfiniteScrollView.swift */; };
-		003ABDF41A852CE600F51534 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 003ABDF31A852CE600F51534 /* background.png */; };
 		005DCA861A805A3900E55C0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DCA851A805A3900E55C0D /* AppDelegate.swift */; };
 		005DCA891A805A3900E55C0D /* PinchPad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 005DCA871A805A3900E55C0D /* PinchPad.xcdatamodeld */; };
 		005DCA8B1A805A3900E55C0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DCA8A1A805A3900E55C0D /* ViewController.swift */; };
@@ -24,7 +23,6 @@
 		005DCAAE1A805A9D00E55C0D /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005DCAAB1A805A9D00E55C0D /* Fabric.framework */; };
 		005DCAB11A805B5800E55C0D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005DCAB01A805B5800E55C0D /* Crashlytics.framework */; };
 		005DCAB41A805C8F00E55C0D /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 005DCAB31A805C8F00E55C0D /* Configuration.plist */; };
-		00675D421B14152200EBF7B4 /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = 00675D411B14152200EBF7B4 /* background2.png */; };
 		006BC1551A8839FD003AA87D /* PPStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BC1541A8839FD003AA87D /* PPStroke.swift */; };
 		006BC1571A884177003AA87D /* PPToolConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BC1561A884177003AA87D /* PPToolConfigurationViewController.swift */; };
 		00A3AB971AA93E98004CEA19 /* PPToolConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A3AB961AA93E98004CEA19 /* PPToolConfiguration.swift */; };
@@ -51,7 +49,6 @@
 		000B17BC1B10FC0200D46571 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
 		002FF2E91AEADBC60070BAA0 /* Sketch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sketch.swift; sourceTree = "<group>"; };
 		003ABDF11A84653200F51534 /* PPInfiniteScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPInfiniteScrollView.swift; sourceTree = "<group>"; };
-		003ABDF31A852CE600F51534 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		005DCA801A805A3900E55C0D /* PinchPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinchPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		005DCA841A805A3900E55C0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		005DCA851A805A3900E55C0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -68,7 +65,6 @@
 		005DCAAB1A805A9D00E55C0D /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		005DCAB01A805B5800E55C0D /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		005DCAB31A805C8F00E55C0D /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
-		00675D411B14152200EBF7B4 /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background2.png; sourceTree = "<group>"; };
 		006BC1541A8839FD003AA87D /* PPStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPStroke.swift; sourceTree = "<group>"; };
 		006BC1561A884177003AA87D /* PPToolConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPToolConfigurationViewController.swift; sourceTree = "<group>"; };
 		00A3AB961AA93E98004CEA19 /* PPToolConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPToolConfiguration.swift; sourceTree = "<group>"; };
@@ -77,7 +73,7 @@
 		00E53C771AA3DC4F008E441E /* TWTRComposer+ProgrammaticPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TWTRComposer+ProgrammaticPost.swift"; sourceTree = "<group>"; };
 		00E978C41B13835D004EB3F4 /* PPMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPMenuViewController.swift; sourceTree = "<group>"; };
 		00E978C61B13CB00004EB3F4 /* PPAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPAppConfiguration.swift; sourceTree = "<group>"; };
-		00F75E121B16948E006279B0 /* ImagePreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImagePreviewViewController.swift; path = ../ImagePreviewViewController.swift; sourceTree = "<group>"; };
+		00F75E121B16948E006279B0 /* ImagePreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePreviewViewController.swift; sourceTree = "<group>"; };
 		073EBFF2AEE1F8B7C4577933 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		DCB8F4C387E296D6F76285AC /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE6E373A2F0576890450A69C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -130,8 +126,6 @@
 			isa = PBXGroup;
 			children = (
 				005DCAB21A805B6F00E55C0D /* Dependencies */,
-				003ABDF31A852CE600F51534 /* background.png */,
-				00675D411B14152200EBF7B4 /* background2.png */,
 				005DCA851A805A3900E55C0D /* AppDelegate.swift */,
 				00C3E37C1AE9B4CB005D8375 /* AuthManager.swift */,
 				00F75E121B16948E006279B0 /* ImagePreviewViewController.swift */,
@@ -295,8 +289,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				005DCAAD1A805A9D00E55C0D /* TwitterKitResources.bundle in Resources */,
-				003ABDF41A852CE600F51534 /* background.png in Resources */,
-				00675D421B14152200EBF7B4 /* background2.png in Resources */,
 				005DCAB41A805C8F00E55C0D /* Configuration.plist in Resources */,
 				005DCA8E1A805A3900E55C0D /* Main.storyboard in Resources */,
 				005DCA931A805A3900E55C0D /* LaunchScreen.xib in Resources */,
