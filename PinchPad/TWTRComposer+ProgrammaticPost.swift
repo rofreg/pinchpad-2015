@@ -33,7 +33,7 @@ extension TWTRComposer {
                 if let e = uploadConnectionError{
                     println("Error uploading image: \(e)")
                 } else {
-                    // Parse result with SwiftyJSON
+                    // Parse result from JSON
                     var parseError: NSError?
                     let parsedObject: AnyObject? = NSJSONSerialization.JSONObjectWithData(uploadResultData!,
                         options: NSJSONReadingOptions.AllowFragments,

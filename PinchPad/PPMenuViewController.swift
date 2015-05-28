@@ -117,10 +117,6 @@ class PPMenuViewController : UIViewController{
         }
     }
     
-    @IBAction func preview(){
-        println("todo")
-    }
-    
     @IBAction func widerCanvasToggle(sender: UISwitch){
         PPAppConfiguration.sharedInstance.widerCanvas = sender.on
     }

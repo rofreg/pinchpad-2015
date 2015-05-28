@@ -10,7 +10,6 @@ import UIKit
 import TwitterKit
 import TMTumblrSDK
 import Locksmith
-import SwiftyJSON
 
 class ViewController: UIViewController{
     @IBOutlet var canvas: PPInfiniteScrollView!
@@ -37,6 +36,18 @@ class ViewController: UIViewController{
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("clear"), name: "PPClearCanvas", object: nil)
         
         super.viewDidLoad()
+    }
+    
+    
+    // MARK: Screen rotation
+    
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> Int {
+        // For the main drawing view, restrict rotation to portrait
+        return UIInterfaceOrientation.Portrait.rawValue
     }
     
     

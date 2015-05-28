@@ -265,6 +265,38 @@
             </objects>
             <point key="canvasLocation" x="989" y="270"/>
         </scene>
+        <!--Image Preview View Controller-->
+        <scene sceneID="7e8-Bf-FHS">
+            <objects>
+                <viewController id="hly-N5-UE6" customClass="ImagePreviewViewController" customModule="PinchPad" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FB2-Sy-6hm"/>
+                        <viewControllerLayoutGuide type="bottom" id="z91-SW-Ms1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yci-ic-jDR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="405"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DmC-eG-sze" customClass="FLAnimatedImageView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="405"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DmC-eG-sze" firstAttribute="top" secondItem="FB2-Sy-6hm" secondAttribute="bottom" id="BKS-xf-P5I"/>
+                            <constraint firstAttribute="trailing" secondItem="DmC-eG-sze" secondAttribute="trailing" id="pFt-ei-plx"/>
+                            <constraint firstItem="DmC-eG-sze" firstAttribute="leading" secondItem="yci-ic-jDR" secondAttribute="leading" id="vqX-g7-CYc"/>
+                            <constraint firstAttribute="bottom" secondItem="DmC-eG-sze" secondAttribute="bottom" id="vyW-gx-pT1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="DmC-eG-sze" id="k0W-Ef-rDA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1wh-Ma-d8e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1867" y="300"/>
+        </scene>
         <!--Menu View Controller-->
         <scene sceneID="TGO-en-8VW">
             <objects>
@@ -392,7 +424,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="preview" destination="QSA-68-wN2" eventType="touchUpInside" id="8ig-EB-vMV"/>
+                                    <segue destination="hly-N5-UE6" kind="show" identifier="AnimationPreview" id="fFb-2Y-F8d"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVR-uF-6hI">

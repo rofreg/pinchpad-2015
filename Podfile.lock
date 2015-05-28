@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.5.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - FLAnimatedImage (1.0.8)
   - JXHTTP (1.0.7)
   - Locksmith (1.2.1)
   - Spectacles (1.0.1)
@@ -43,6 +44,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - FLAnimatedImage (~> 1.0)
   - Locksmith
   - SwiftyJSON (>= 2.2)
   - TMTumblrSDK (from `https://github.com/rofreg/TMTumblrSDK.git`)
@@ -58,10 +60,11 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
+  FLAnimatedImage: f9422f796135aff80d8c00b2afc48015bb746e24
   JXHTTP: 47197d4e807c6c4666a30441065f09f475f24adb
   Locksmith: 770f6c5c6e5c5c712d1f00e709c62b8a7240c716
   Spectacles: 8dc60711140320653724560e2d6bbb8a8f0940e4
   SwiftyJSON: 0b3e6c07af17ff745e77e8e9984097b55c956e5c
   TMTumblrSDK: 761d55de5f0c1802a7beaa860d19876f088bfdd3
 
-COCOAPODS: 0.36.0.rc.1
+COCOAPODS: 0.37.0

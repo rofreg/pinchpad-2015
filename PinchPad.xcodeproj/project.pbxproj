@@ -32,6 +32,7 @@
 		00E53C781AA3DC4F008E441E /* TWTRComposer+ProgrammaticPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E53C771AA3DC4F008E441E /* TWTRComposer+ProgrammaticPost.swift */; };
 		00E978C51B13835D004EB3F4 /* PPMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E978C41B13835D004EB3F4 /* PPMenuViewController.swift */; };
 		00E978C71B13CB00004EB3F4 /* PPAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E978C61B13CB00004EB3F4 /* PPAppConfiguration.swift */; };
+		00F75E131B16948E006279B0 /* ImagePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F75E121B16948E006279B0 /* ImagePreviewViewController.swift */; };
 		18240D6542BDDEAA38E1C3AD /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB8F4C387E296D6F76285AC /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		00E53C771AA3DC4F008E441E /* TWTRComposer+ProgrammaticPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TWTRComposer+ProgrammaticPost.swift"; sourceTree = "<group>"; };
 		00E978C41B13835D004EB3F4 /* PPMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPMenuViewController.swift; sourceTree = "<group>"; };
 		00E978C61B13CB00004EB3F4 /* PPAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPAppConfiguration.swift; sourceTree = "<group>"; };
+		00F75E121B16948E006279B0 /* ImagePreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImagePreviewViewController.swift; path = ../ImagePreviewViewController.swift; sourceTree = "<group>"; };
 		073EBFF2AEE1F8B7C4577933 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		DCB8F4C387E296D6F76285AC /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE6E373A2F0576890450A69C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				00675D411B14152200EBF7B4 /* background2.png */,
 				005DCA851A805A3900E55C0D /* AppDelegate.swift */,
 				00C3E37C1AE9B4CB005D8375 /* AuthManager.swift */,
+				00F75E121B16948E006279B0 /* ImagePreviewViewController.swift */,
 				00E978C61B13CB00004EB3F4 /* PPAppConfiguration.swift */,
 				00A3AB961AA93E98004CEA19 /* PPToolConfiguration.swift */,
 				006BC1561A884177003AA87D /* PPToolConfigurationViewController.swift */,
@@ -378,6 +381,7 @@
 			files = (
 				005DCA8B1A805A3900E55C0D /* ViewController.swift in Sources */,
 				00062D761A854A9F008CD159 /* PPCanvas.swift in Sources */,
+				00F75E131B16948E006279B0 /* ImagePreviewViewController.swift in Sources */,
 				006BC1571A884177003AA87D /* PPToolConfigurationViewController.swift in Sources */,
 				003ABDF21A84653200F51534 /* PPInfiniteScrollView.swift in Sources */,
 				005DCA891A805A3900E55C0D /* PinchPad.xcdatamodeld in Sources */,
