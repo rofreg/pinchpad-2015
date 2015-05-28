@@ -17,7 +17,6 @@
 		005DCA8E1A805A3900E55C0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 005DCA8C1A805A3900E55C0D /* Main.storyboard */; };
 		005DCA901A805A3900E55C0D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 005DCA8F1A805A3900E55C0D /* Images.xcassets */; };
 		005DCA931A805A3900E55C0D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 005DCA911A805A3900E55C0D /* LaunchScreen.xib */; };
-		005DCA9F1A805A3A00E55C0D /* PinchPadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DCA9E1A805A3A00E55C0D /* PinchPadTests.swift */; };
 		005DCAAC1A805A9D00E55C0D /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005DCAA91A805A9D00E55C0D /* TwitterKit.framework */; };
 		005DCAAD1A805A9D00E55C0D /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 005DCAAA1A805A9D00E55C0D /* TwitterKitResources.bundle */; };
 		005DCAAE1A805A9D00E55C0D /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005DCAAB1A805A9D00E55C0D /* Fabric.framework */; };
@@ -34,16 +33,6 @@
 		18240D6542BDDEAA38E1C3AD /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB8F4C387E296D6F76285AC /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		005DCA991A805A3A00E55C0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 005DCA781A805A3900E55C0D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 005DCA7F1A805A3900E55C0D;
-			remoteInfo = PinchPad;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		00062D751A854A9F008CD159 /* PPCanvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPCanvas.swift; sourceTree = "<group>"; };
 		000B17BC1B10FC0200D46571 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
@@ -57,9 +46,6 @@
 		005DCA8D1A805A3900E55C0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		005DCA8F1A805A3900E55C0D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		005DCA921A805A3900E55C0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		005DCA981A805A3A00E55C0D /* PinchPadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinchPadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		005DCA9D1A805A3A00E55C0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		005DCA9E1A805A3A00E55C0D /* PinchPadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinchPadTests.swift; sourceTree = "<group>"; };
 		005DCAA91A805A9D00E55C0D /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = SOURCE_ROOT; };
 		005DCAAA1A805A9D00E55C0D /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = SOURCE_ROOT; };
 		005DCAAB1A805A9D00E55C0D /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
@@ -92,13 +78,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		005DCA951A805A3A00E55C0D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -106,7 +85,6 @@
 			isa = PBXGroup;
 			children = (
 				005DCA821A805A3900E55C0D /* PinchPad */,
-				005DCA9B1A805A3A00E55C0D /* PinchPadTests */,
 				005DCA811A805A3900E55C0D /* Products */,
 				7751E7D957A3925FFFC1A65C /* Pods */,
 				3BE3E580DFEC8E60254E97A7 /* Frameworks */,
@@ -117,7 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				005DCA801A805A3900E55C0D /* PinchPad.app */,
-				005DCA981A805A3A00E55C0D /* PinchPadTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -125,22 +102,21 @@
 		005DCA821A805A3900E55C0D /* PinchPad */ = {
 			isa = PBXGroup;
 			children = (
-				005DCAB21A805B6F00E55C0D /* Dependencies */,
 				005DCA851A805A3900E55C0D /* AppDelegate.swift */,
+				005DCA8A1A805A3900E55C0D /* ViewController.swift */,
 				00C3E37C1AE9B4CB005D8375 /* AuthManager.swift */,
-				00F75E121B16948E006279B0 /* ImagePreviewViewController.swift */,
 				00E978C61B13CB00004EB3F4 /* PPAppConfiguration.swift */,
+				00E978C41B13835D004EB3F4 /* PPMenuViewController.swift */,
+				00F75E121B16948E006279B0 /* ImagePreviewViewController.swift */,
 				00A3AB961AA93E98004CEA19 /* PPToolConfiguration.swift */,
 				006BC1561A884177003AA87D /* PPToolConfigurationViewController.swift */,
-				00E978C41B13835D004EB3F4 /* PPMenuViewController.swift */,
 				003ABDF11A84653200F51534 /* PPInfiniteScrollView.swift */,
 				00062D751A854A9F008CD159 /* PPCanvas.swift */,
 				006BC1541A8839FD003AA87D /* PPStroke.swift */,
 				002FF2E91AEADBC60070BAA0 /* Sketch.swift */,
 				00E53C771AA3DC4F008E441E /* TWTRComposer+ProgrammaticPost.swift */,
-				005DCA8A1A805A3900E55C0D /* ViewController.swift */,
-				005DCA8C1A805A3900E55C0D /* Main.storyboard */,
 				005DCA911A805A3900E55C0D /* LaunchScreen.xib */,
+				005DCA8C1A805A3900E55C0D /* Main.storyboard */,
 				005DCA8F1A805A3900E55C0D /* Images.xcassets */,
 				005DCA871A805A3900E55C0D /* PinchPad.xcdatamodeld */,
 				005DCA831A805A3900E55C0D /* Supporting Files */,
@@ -158,39 +134,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		005DCA9B1A805A3A00E55C0D /* PinchPadTests */ = {
-			isa = PBXGroup;
-			children = (
-				005DCA9E1A805A3A00E55C0D /* PinchPadTests.swift */,
-				005DCA9C1A805A3A00E55C0D /* Supporting Files */,
-			);
-			path = PinchPadTests;
-			sourceTree = "<group>";
-		};
-		005DCA9C1A805A3A00E55C0D /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				005DCA9D1A805A3A00E55C0D /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		005DCAB21A805B6F00E55C0D /* Dependencies */ = {
-			isa = PBXGroup;
-			children = (
-				005DCAB01A805B5800E55C0D /* Crashlytics.framework */,
-				005DCAA91A805A9D00E55C0D /* TwitterKit.framework */,
-				005DCAAA1A805A9D00E55C0D /* TwitterKitResources.bundle */,
-				005DCAAB1A805A9D00E55C0D /* Fabric.framework */,
-			);
-			name = Dependencies;
-			sourceTree = "<group>";
-		};
 		3BE3E580DFEC8E60254E97A7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				000B17BC1B10FC0200D46571 /* TwitterCore.framework */,
+				005DCAB01A805B5800E55C0D /* Crashlytics.framework */,
+				005DCAAB1A805A9D00E55C0D /* Fabric.framework */,
 				DCB8F4C387E296D6F76285AC /* Pods.framework */,
+				000B17BC1B10FC0200D46571 /* TwitterCore.framework */,
+				005DCAA91A805A9D00E55C0D /* TwitterKit.framework */,
+				005DCAAA1A805A9D00E55C0D /* TwitterKitResources.bundle */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -228,24 +180,6 @@
 			productReference = 005DCA801A805A3900E55C0D /* PinchPad.app */;
 			productType = "com.apple.product-type.application";
 		};
-		005DCA971A805A3A00E55C0D /* PinchPadTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 005DCAA51A805A3A00E55C0D /* Build configuration list for PBXNativeTarget "PinchPadTests" */;
-			buildPhases = (
-				005DCA941A805A3A00E55C0D /* Sources */,
-				005DCA951A805A3A00E55C0D /* Frameworks */,
-				005DCA961A805A3A00E55C0D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				005DCA9A1A805A3A00E55C0D /* PBXTargetDependency */,
-			);
-			name = PinchPadTests;
-			productName = PinchPadTests;
-			productReference = 005DCA981A805A3A00E55C0D /* PinchPadTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -257,10 +191,6 @@
 					005DCA7F1A805A3900E55C0D = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = PNVC5FHCQS;
-					};
-					005DCA971A805A3A00E55C0D = {
-						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = 005DCA7F1A805A3900E55C0D;
 					};
 				};
 			};
@@ -278,7 +208,6 @@
 			projectRoot = "";
 			targets = (
 				005DCA7F1A805A3900E55C0D /* PinchPad */,
-				005DCA971A805A3A00E55C0D /* PinchPadTests */,
 			);
 		};
 /* End PBXProject section */
@@ -293,13 +222,6 @@
 				005DCA8E1A805A3900E55C0D /* Main.storyboard in Resources */,
 				005DCA931A805A3900E55C0D /* LaunchScreen.xib in Resources */,
 				005DCA901A805A3900E55C0D /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		005DCA961A805A3A00E55C0D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,23 +310,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		005DCA941A805A3A00E55C0D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				005DCA9F1A805A3A00E55C0D /* PinchPadTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		005DCA9A1A805A3A00E55C0D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 005DCA7F1A805A3900E55C0D /* PinchPad */;
-			targetProxy = 005DCA991A805A3A00E55C0D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		005DCA8C1A805A3900E55C0D /* Main.storyboard */ = {
@@ -460,7 +366,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -497,7 +403,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -548,40 +454,6 @@
 			};
 			name = Release;
 		};
-		005DCAA61A805A3A00E55C0D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = PinchPadTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PinchPad.app/PinchPad";
-			};
-			name = Debug;
-		};
-		005DCAA71A805A3A00E55C0D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = PinchPadTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PinchPad.app/PinchPad";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -599,15 +471,6 @@
 			buildConfigurations = (
 				005DCAA31A805A3A00E55C0D /* Debug */,
 				005DCAA41A805A3A00E55C0D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		005DCAA51A805A3A00E55C0D /* Build configuration list for PBXNativeTarget "PinchPadTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				005DCAA61A805A3A00E55C0D /* Debug */,
-				005DCAA71A805A3A00E55C0D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
