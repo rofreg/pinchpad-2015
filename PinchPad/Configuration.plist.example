@@ -2,12 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>TwitterAPI</key>
-	<dict>
-		<key>ConsumerKey</key>
-		<string>[something]</string>
-		<key>ConsumerSecret</key>
-		<string>[something]</string>
-	</dict>
+  <key>TumblrAPI</key>
+  <dict>
+    <key>ConsumerKey</key>
+    <string>[something]</string>
+    <key>ConsumerSecret</key>
+    <string>[something]</string>
+  </dict>
+  <key>TwitterAPI</key>
+  <dict>
+    <key>ConsumerKey</key>
+    <string>[something]</string>
+    <key>ConsumerSecret</key>
+    <string>[something]</string>
+  </dict>
 </dict>
 </plist>
