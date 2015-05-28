@@ -62,7 +62,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="WAJ-eE-RfF"/>
                                     <barButtonItem title="Post" id="8fm-qO-pVW">
                                         <connections>
-                                            <action selector="post" destination="BYZ-38-t0r" id="0Hl-RA-myI"/>
+                                            <action selector="post:" destination="BYZ-38-t0r" id="guB-NQ-AlJ"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>

@@ -44,10 +44,10 @@ class ViewController: UIViewController{
     override func shouldAutorotate() -> Bool {
         return false
     }
-    
+
     override func supportedInterfaceOrientations() -> Int {
         // For the main drawing view, restrict rotation to portrait
-        return UIInterfaceOrientation.Portrait.rawValue
+        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
     }
     
     
@@ -89,17 +89,12 @@ class ViewController: UIViewController{
         self.canvas.redo()
     }
     
-    @IBAction func post(){
+    @IBAction func post(sender: AnyObject){
         // Some code based on https://twittercommunity.com/t/upload-images-with-swift/28410/7
         
         // Don't post if we haven't drawn any strokes
         if (self.canvas.contentView.strokes.count == 0 && Sketch.animationFrameCount == 0){
             var alert = UIAlertController(title: "Your sketch is blank", message: "You haven't drawn anything yet, silly!", preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
-            return
-        } else if (AuthManager.loggedInServices().count == 0){
-            var alert = UIAlertController(title: "No accounts configured", message: "In order to post a sketch, please tap the 'Menu' button and connect your Twitter or Tumblr account.", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
             return
@@ -114,6 +109,21 @@ class ViewController: UIViewController{
             // This is an animation! We need to assemble a GIF (and clear our stored GIF frames from the DB)
             imageData = Sketch.assembleAnimatedGif()!
             Sketch.clearAnimationFrames()
+        }
+
+        // If we're not logged into any services, let's just share this using the native iOS dialog
+        if (AuthManager.loggedInServices().count == 0){
+            var vc = UIActivityViewController(activityItems: [imageData], applicationActivities: nil)
+            if (sender.isKindOfClass(UIBarButtonItem)){
+                vc.popoverPresentationController?.barButtonItem = sender as? UIBarButtonItem
+            }
+            vc.completionWithItemsHandler = {(activityType, completed:Bool, objects, error) in
+                if (completed) {
+                    self.canvas.clear()
+                }
+            }
+            self.presentViewController(vc, animated: true, completion: nil)
+            return
         }
         
         // Format the date
