@@ -23,6 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AuthManager.start()
         Fabric.with([Twitter(), Crashlytics()])
         
+        // Start Flurry
+        if let config = NSDictionary(contentsOfFile: NSBundle.mainBundle().pathForResource("Configuration", ofType:"plist")!), flurryAPIKey = config["FlurryAPI"] as? String{
+            Flurry.startSession(flurryAPIKey)
+        }
+        
         // Try syncing whenever the network status changes
         AFNetworkReachabilityManager.sharedManager().startMonitoring()
         AFNetworkReachabilityManager.sharedManager().setReachabilityStatusChangeBlock { (status: AFNetworkReachabilityStatus) -> Void in
