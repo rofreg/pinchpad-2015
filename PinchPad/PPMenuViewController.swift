@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import MessageUI
 
 class PPMenuViewController : UIViewController{
     @IBOutlet var twitterButton: UIButton!
@@ -123,5 +124,28 @@ class PPMenuViewController : UIViewController{
     
     @IBAction func clearCanvas(){
         NSNotificationCenter.defaultCenter().postNotificationName("PPClearCanvas", object: self)
+    }
+    
+    @IBAction func madeByRofreg(){
+        UIApplication.sharedApplication().openURL(NSURL(string:"http://www.pinchpad.com")!)
+    }
+    
+    @IBAction func sendFeedback(){
+        let version: AnyObject = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"]!
+        let emailTitle = "Feedback for Pinch Pad (v\(version))"
+        var toRecipents = ["me@rofreg.com"]
+        var mc = MFMailComposeViewController()
+        mc.mailComposeDelegate = self
+        mc.setSubject("Feedback for Pinch Pad (v\(version))")
+        mc.setMessageBody("", isHTML: false)
+        mc.setToRecipients(toRecipents)
+        
+        self.presentViewController(mc, animated: true, completion: nil)
+    }
+}
+
+extension PPMenuViewController : MFMailComposeViewControllerDelegate{
+    func mailComposeController(controller:MFMailComposeViewController, didFinishWithResult result:MFMailComposeResult, error:NSError) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }
