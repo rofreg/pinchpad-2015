@@ -52,6 +52,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
     
+    func applicationDidBecomeActive(application: UIApplication) {
+        // Try syncing whenever we re-open the app
+        AuthManager.sync()
+    }
+    
     
     // MARK: - Core Data stack
     

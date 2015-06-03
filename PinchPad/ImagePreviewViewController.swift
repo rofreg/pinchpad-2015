@@ -19,7 +19,13 @@ class ImagePreviewViewController : UIViewController{
         self.view.addGestureRecognizer(tapRecognizer)
         
         // Load animation preview
-        self.imageView.animatedImage = FLAnimatedImage(animatedGIFData: Sketch.assembleAnimatedGif()!)
+        if (Sketch.animationFrameCount > 0){
+            self.imageView.animatedImage = FLAnimatedImage(animatedGIFData: Sketch.assembleAnimatedGif()!)
+        } else {
+            // Or just load the current image
+            var vc: ViewController = UIApplication.sharedApplication().delegate!.window!!.rootViewController as! ViewController
+            self.imageView.image = vc.canvas.contentView.asImage()
+        }
     }
     
     func dismiss(){

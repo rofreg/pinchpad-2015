@@ -79,9 +79,9 @@ class PPMenuViewController : UIViewController{
         addFrameButton.setTitle("Add frame #\(Sketch.animationFrameCount + 1)", forState: .Normal)
         let animationStarted = (Sketch.animationFrames.count > 0)
         for button in [previewButton, removeFrameButton]{
-            button.enabled = animationStarted
             button.alpha = (animationStarted ? 1.0 : 0.5)
         }
+        removeFrameButton.enabled = animationStarted
     
         // Wider canvas toggle
         widerCanvasSwitch.setOn(PPAppConfiguration.sharedInstance.widerCanvas, animated: false)
