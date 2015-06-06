@@ -117,11 +117,6 @@ class ViewController: UIViewController{
             if (sender.isKindOfClass(UIBarButtonItem)){
                 vc.popoverPresentationController?.barButtonItem = sender as? UIBarButtonItem
             }
-            vc.completionWithItemsHandler = {(activityType, completed:Bool, objects, error) in
-                if (completed) {
-                    self.canvas.clear()
-                }
-            }
             self.presentViewController(vc, animated: true, completion: nil)
             return
         }
@@ -139,7 +134,7 @@ class ViewController: UIViewController{
         }
         
         // Clear the canvas
-        self.canvas.clear()
+        self.clear()
     }
     
     
@@ -148,6 +143,7 @@ class ViewController: UIViewController{
     func clear(){
         self.canvas.clear()
         self.menuViewContainer.hidden = true
+        self.toolConfigurationViewContainer.hidden = true
     }
     
     
