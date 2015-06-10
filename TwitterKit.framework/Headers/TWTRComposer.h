@@ -7,6 +7,8 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  Possible values for the <i>result</i> parameter of the completionHandler property.
  */
@@ -39,7 +41,7 @@ typedef void (^TWTRComposerCompletion)(TWTRComposerResult result);
  *
  *  @return This will return NO if the receiver has already been presented (and therefore cannot be changed).
  */
-- (BOOL)setText:(NSString *)text;
+- (BOOL)setText:(twtr_nullable NSString *)text;
 
 /**
  *  Sets an image attachment.
@@ -48,7 +50,7 @@ typedef void (^TWTRComposerCompletion)(TWTRComposerResult result);
  *
  *  @return This will return NO if the receiver has already been presented (and therefore cannot be changed).
  */
-- (BOOL)setImage:(UIImage *)image;
+- (BOOL)setImage:(twtr_nullable UIImage *)image;
 
 /**
  *  Adds a URL to the contents of the Tweet message.
@@ -57,13 +59,28 @@ typedef void (^TWTRComposerCompletion)(TWTRComposerResult result);
  *
  *  @return This will return NO if the receiver has already been presented (and therefore cannot be changed).
  */
-- (BOOL)setURL:(NSURL *)url;
+- (BOOL)setURL:(twtr_nullable NSURL *)url;
 
 /**
- *  Presents the composer, with an optional completion handler.
+ * Presents the composer, with an optional completion handler from the specified view controller.
+ * @param fromController The controller in which to present the composer from.
+ * @param completion completion The completion handler, which has a single parameter indicating whether the user finished or cancelled the Tweet composition.
+ */
+- (void)showFromViewController:(UIViewController *)fromController completion:(TWTRComposerCompletion)completion;
+
+@end
+
+@interface TWTRComposer (TWTRDeprecated)
+
+/**
+ * Presents the composer, with an optional completion handler.
  *
- *  @param completion The completion handler, which has a single parameter indicating whether the user finished or cancelled the Tweet composition.
+ * @param completion The completion handler, which has a single parameter indicating whether the user finished or cancelled the Tweet composition.
+ *  
+ * @warning This method is deprecated. Use `-showFromViewController:completion:` instead.
  */
 - (void)showWithCompletion:(TWTRComposerCompletion)completion;
 
 @end
+
+NS_ASSUME_NONNULL_END

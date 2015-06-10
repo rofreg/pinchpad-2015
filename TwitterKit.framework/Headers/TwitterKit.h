@@ -16,16 +16,22 @@
 #import <UIKit/UIKit.h>
 #endif
 
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < 70000
+#error "TwitterKit doesn't support iOS 6.x and lower. Please, change your minimum deployment target to iOS 7.0"
+#endif
+
 #import <TwitterCore/TwitterCore.h>
 
+#import "Twitter.h"
 #import "TWTRAPIClient.h"
 #import "TWTRCollectionTimelineDataSource.h"
 #import "TWTRComposer.h"
+#import "TWTRDefines.h"
 #import "TWTRLogInButton.h"
 #import "TWTROAuthSigning.h"
 #import "TWTRSearchTimelineDataSource.h"
-#import "TWTRShareEmailViewController.h"
 #import "TWTRSession.h"
+#import "TWTRShareEmailViewController.h"
 #import "TWTRTimelineDataSource.h"
 #import "TWTRTimelineType.h"
 #import "TWTRTimelineViewController.h"
@@ -35,7 +41,6 @@
 #import "TWTRTweetViewDelegate.h"
 #import "TWTRUser.h"
 #import "TWTRUserTimelineDataSource.h"
-#import "Twitter.h"
 
 #if __has_include(<DigitsKit/DigitsKit.h>)
 #import <DigitsKit/DigitsKit.h>

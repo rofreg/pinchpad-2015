@@ -4,6 +4,10 @@
 //  Copyright (c) 2015 Twitter. All rights reserved.
 //
 
+#import "TWTRDefines.h"
+
+NS_ASSUME_NONNULL_BEGIN
+
 FOUNDATION_EXPORT NSString * const TWTRTweetsNotLoadedKey;
 
 @class TWTRUser;
@@ -22,7 +26,7 @@ FOUNDATION_EXPORT NSString * const TWTRTweetsNotLoadedKey;
  *  @param user  The Twitter User.
  *  @param error Error that will be set if the API request failed.
  */
-typedef void (^TWTRLoadUserCompletion)(TWTRUser *user, NSError *error);
+typedef void (^TWTRLoadUserCompletion)(TWTRUser * __twtr_nullable user, NSError * __twtr_nullable error);
 
 /**
  *  Completion block called when the load Tweet request succeeds or fails.
@@ -30,7 +34,7 @@ typedef void (^TWTRLoadUserCompletion)(TWTRUser *user, NSError *error);
  *  @param tweet The Twitter Tweet.
  *  @param error Error that will be set if the API request failed.
  */
-typedef void (^TWTRLoadTweetCompletion)(TWTRTweet *tweet, NSError *error);
+typedef void (^TWTRLoadTweetCompletion)(TWTRTweet * __twtr_nullable tweet, NSError * __twtr_nullable error);
 
 /**
  *  Completion block called when the load Tweets request succeeds or fails.
@@ -38,7 +42,7 @@ typedef void (^TWTRLoadTweetCompletion)(TWTRTweet *tweet, NSError *error);
  *  @param tweets Tweets that were successfully retrieved.
  *  @param error  Error that will be set if the API request failed.
  */
-typedef void (^TWTRLoadTweetsCompletion)(NSArray *tweets, NSError *error);
+typedef void (^TWTRLoadTweetsCompletion)(NSArray * __twtr_nullable tweets, NSError * __twtr_nullable error);
 
 /**
  *  Completion block called when the network request succeeds or fails.
@@ -47,7 +51,16 @@ typedef void (^TWTRLoadTweetsCompletion)(NSArray *tweets, NSError *error);
  *  @param data            Content data of the response.
  *  @param connectionError Error object describing the network error that occurred.
  */
-typedef void (^TWTRNetworkCompletion)(NSURLResponse *response, NSData *data, NSError *connectionError);
+typedef void (^TWTRNetworkCompletion)(NSURLResponse * __twtr_nullable response, NSData * __twtr_nullable data, NSError * __twtr_nullable connectionError);
+
+/**
+ *  Completion block called when a JSON request to the Twitter API succeeds or fails.
+ *
+ *  @param response       Metadata associated with the response to a URL load request.
+ *  @param responseObject Content data of the response.
+ *  @param error          Error object describing the network error that occurred.
+ */
+typedef void (^TWTRJSONRequestCompletion)(NSURLResponse * __twtr_nullable response, id __twtr_nullable responseObject, NSError * __twtr_nullable error);
 
 /**
  *  Client for consuming the Twitter REST API. Provides methods for common API requests, as well as the ability to create and send custom requests.
@@ -119,3 +132,5 @@ typedef void (^TWTRNetworkCompletion)(NSURLResponse *response, NSData *data, NSE
 - (void)loadTweetsWithIDs:(NSArray *)tweetIDStrings completion:(TWTRLoadTweetsCompletion)completion;
 
 @end
+
+NS_ASSUME_NONNULL_END
