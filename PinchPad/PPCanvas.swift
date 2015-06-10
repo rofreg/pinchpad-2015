@@ -95,6 +95,7 @@ class PPCanvas: UIView{
         self.canvasThusFar = nil
         self.canvasAfterLastStroke = nil
         self.strokes = [PPStroke]()
+        self.redoStrokes = [PPStroke]()
         self.setNeedsDisplay()
     }
     
