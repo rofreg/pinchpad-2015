@@ -22,54 +22,43 @@ extension TWTRComposer {
         // Load image data
         parameters["media"] = imageData.base64EncodedStringWithOptions(nil)
         
-        // TODO: GIF handling
-        // let path = NSBundle.mainBundle().pathForResource("SampleAnim", ofType: "GIF")
-        // var animData : NSData = NSData(contentsOfFile: path!)!
-        // parameters["media"] = animData.base64EncodedStringWithOptions(nil)
-        
-        if let twUploadRequest = twAPIClient.URLRequestWithMethod("POST", URL: strUploadUrl, parameters: parameters, error: &error){
-            twAPIClient.sendTwitterRequest(twUploadRequest) {
-                (uploadResponse, uploadResultData, uploadConnectionError) -> Void in
-                if let e = uploadConnectionError{
-                    println("Error uploading image: \(e)")
-                } else {
-                    // Parse result from JSON
-                    var parseError: NSError?
-                    let parsedObject: AnyObject? = NSJSONSerialization.JSONObjectWithData(uploadResultData!,
-                        options: NSJSONReadingOptions.AllowFragments,
-                        error:&parseError)
+        let twUploadRequest = twAPIClient.URLRequestWithMethod("POST", URL: strUploadUrl, parameters: parameters, error: &error)
+        twAPIClient.sendTwitterRequest(twUploadRequest) {
+            (uploadResponse, uploadResultData, uploadConnectionError) -> Void in
+            if let e = uploadConnectionError{
+                println("Error uploading image: \(e)")
+            } else {
+                // Parse result from JSON
+                var parseError: NSError?
+                let parsedObject: AnyObject? = NSJSONSerialization.JSONObjectWithData(uploadResultData!,
+                    options: NSJSONReadingOptions.AllowFragments,
+                    error:&parseError)
+                
+                if let json = parsedObject as? NSDictionary {
+                    let media_id = json["media_id_string"] as! String
                     
-                    if let json = parsedObject as? NSDictionary {
-                        let media_id = json["media_id_string"] as! String
-                        
-                        // We uploaded our image successfully! Now post a status with a link to the image.
-                        parameters = Dictionary<String, String>()
-                        parameters["status"] = statusText
-                        parameters["media_ids"] = media_id
-                        if let twStatusRequest = twAPIClient.URLRequestWithMethod("POST", URL: strStatusUrl, parameters: parameters, error: &error){
-                            twAPIClient.sendTwitterRequest(twStatusRequest) { (statusResponse, statusData, statusConnectionError) -> Void in
-                                if let e = statusConnectionError{
-                                    println("Error posting status: \(e)")
-                                    completion(success:false)
-                                } else {
-                                    completion(success:true)
-                                }
-                            } // completion
-                        } else {
-                            println("Error creating status request \(error)")
+                    // We uploaded our image successfully! Now post a status with a link to the image.
+                    parameters = Dictionary<String, String>()
+                    parameters["status"] = statusText
+                    parameters["media_ids"] = media_id
+                    let twStatusRequest = twAPIClient.URLRequestWithMethod("POST", URL: strStatusUrl, parameters: parameters, error: &error)
+                
+                    twAPIClient.sendTwitterRequest(twStatusRequest) { (statusResponse, statusData, statusConnectionError) -> Void in
+                        if let e = statusConnectionError{
+                            println("Error posting status: \(e)")
                             completion(success:false)
+                        } else {
+                            completion(success:true)
                         }
-                    } else {
-                        println("Did not get json response")
-                        println(parsedObject)
-                        completion(success:false)
-                    }
+                    } // completion
+                } else {
+                    println("Did not get json response")
+                    println(parsedObject)
+                    completion(success:false)
                 }
-            } // completion
-        } else {
-            println("Error creating upload request \(error)")
-            completion(success:false)
-        }
+            }
+        } // completion
+            
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
     }
 }
