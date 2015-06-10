@@ -91,7 +91,6 @@ class PPMenuViewController : UIViewController{
     // MARK: Menu buttons
     
     @IBAction func twitter(){
-        println(AuthManager.isLoggedIn(.Twitter) ? "Auto-post to Twitter: \(AuthManager.identifier(.Twitter)!)" : "Auto-post to Twitter: OFF")
         AuthManager.changeAuth(.Twitter)
     }
     

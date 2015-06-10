@@ -128,18 +128,27 @@ class AuthManager {
     }
     
     class func logOut(service: AuthManagerService){
-        if (service == .Twitter){
-            Twitter.sharedInstance().logOut()
-        } else if (service == .Tumblr){
-            // Clear Tumblr SDK vars and keychain
-            TMAPIClient.sharedInstance().OAuthToken = ""
-            TMAPIClient.sharedInstance().OAuthTokenSecret = ""
-            Locksmith.deleteDataForUserAccount("Tumblr")
-        } else {
-            return
-        }
-        
-        NSNotificationCenter.defaultCenter().postNotificationName("PPAuthChanged", object: nil)
+        // Show a confirmation dialogue before logging out
+        var alert = UIAlertController(title: nil, message: "Are you sure you want to log out?", preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Log out", style: .Default, handler: { (_) -> Void in
+            if (service == .Twitter){
+                Twitter.sharedInstance().logOut()
+            } else if (service == .Tumblr){
+                // Clear Tumblr SDK vars and keychain
+                TMAPIClient.sharedInstance().OAuthToken = ""
+                TMAPIClient.sharedInstance().OAuthTokenSecret = ""
+                Locksmith.deleteDataForUserAccount("Tumblr")
+            } else {
+                return
+            }
+            
+            NSNotificationCenter.defaultCenter().postNotificationName("PPAuthChanged", object: nil)
+        }))
+            
+        // Display the alert
+        var vc = UIApplication.sharedApplication().delegate!.window!!.rootViewController
+        vc!.presentViewController(alert, animated: true, completion: nil)
     }
     
     class func changeAuth(service: AuthManagerService){
