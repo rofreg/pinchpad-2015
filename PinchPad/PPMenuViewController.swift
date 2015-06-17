@@ -130,16 +130,23 @@ class PPMenuViewController : UIViewController{
     }
     
     @IBAction func sendFeedback(){
-        let version: AnyObject = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"]!
-        let emailTitle = "Feedback for Pinch Pad (v\(version))"
-        var toRecipents = ["me@rofreg.com"]
-        var mc = MFMailComposeViewController()
-        mc.mailComposeDelegate = self
-        mc.setSubject("Feedback for Pinch Pad (v\(version))")
-        mc.setMessageBody("", isHTML: false)
-        mc.setToRecipients(toRecipents)
-        
-        self.presentViewController(mc, animated: true, completion: nil)
+        if (MFMailComposeViewController.canSendMail()){
+            let version: AnyObject = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"]!
+            let emailTitle = "Feedback for Pinch Pad (v\(version))"
+            var toRecipents = ["me@rofreg.com"]
+            var mc = MFMailComposeViewController()
+            mc.mailComposeDelegate = self
+            mc.setSubject("Feedback for Pinch Pad (v\(version))")
+            mc.setMessageBody("", isHTML: false)
+            mc.setToRecipients(toRecipents)
+            
+            self.presentViewController(mc, animated: true, completion: nil)
+        } else {
+            // Show an alert
+            var alert = UIAlertController(title: "No email account found", message: "Whoops, I couldn't find an email account set up on this device! You can send me feedback directly at me@rofreg.com.", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
     }
 }
 
