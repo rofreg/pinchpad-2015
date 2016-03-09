@@ -15,24 +15,31 @@ extension TWTRComposer {
         let strUploadUrl = "https://upload.twitter.com/1.1/media/upload.json"
         let strStatusUrl = "https://api.twitter.com/1.1/statuses/update.json"
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-        var twAPIClient = Twitter.sharedInstance().APIClient
+        let twAPIClient = Twitter.sharedInstance().APIClient
         var error: NSError?
         var parameters: Dictionary = Dictionary<String, String>()
         
         // Load image data
-        parameters["media"] = imageData.base64EncodedStringWithOptions(nil)
+        parameters["media"] = imageData.base64EncodedStringWithOptions([])
         
         let twUploadRequest = twAPIClient.URLRequestWithMethod("POST", URL: strUploadUrl, parameters: parameters, error: &error)
         twAPIClient.sendTwitterRequest(twUploadRequest) {
             (uploadResponse, uploadResultData, uploadConnectionError) -> Void in
             if let e = uploadConnectionError{
-                println("Error uploading image: \(e)")
+                print("Error uploading image: \(e)")
             } else {
                 // Parse result from JSON
                 var parseError: NSError?
-                let parsedObject: AnyObject? = NSJSONSerialization.JSONObjectWithData(uploadResultData!,
-                    options: NSJSONReadingOptions.AllowFragments,
-                    error:&parseError)
+                let parsedObject: AnyObject?
+                do {
+                    parsedObject = try NSJSONSerialization.JSONObjectWithData(uploadResultData!,
+                                        options: NSJSONReadingOptions.AllowFragments)
+                } catch let error as NSError {
+                    parseError = error
+                    parsedObject = nil
+                } catch {
+                    fatalError()
+                }
                 
                 if let json = parsedObject as? NSDictionary {
                     let media_id = json["media_id_string"] as! String
@@ -45,15 +52,15 @@ extension TWTRComposer {
                 
                     twAPIClient.sendTwitterRequest(twStatusRequest) { (statusResponse, statusData, statusConnectionError) -> Void in
                         if let e = statusConnectionError{
-                            println("Error posting status: \(e)")
+                            print("Error posting status: \(e)")
                             completion(success:false)
                         } else {
                             completion(success:true)
                         }
                     } // completion
                 } else {
-                    println("Did not get json response")
-                    println(parsedObject)
+                    print("Did not get json response")
+                    print(parsedObject)
                     completion(success:false)
                 }
             }

@@ -32,7 +32,7 @@ class AuthManager {
                 // Check if we're already logged in to Twitter, and if so, print it to the log
                 // (Restoring persisted login info is handled automatically by the Twitter framework)
                 if (AuthManager.isLoggedIn(.Twitter)){
-                    println("Logged in to Twitter as \(AuthManager.identifier(.Twitter)!)")
+                    print("Logged in to Twitter as \(AuthManager.identifier(.Twitter)!)")
                 }
             }
             
@@ -45,7 +45,7 @@ class AuthManager {
                 // (We have to manually restory the user's OAuth token from the keychain)
                 if (AuthManager.isLoggedIn(.Tumblr)){
                     AuthManager.loadKeychainData(.Tumblr)
-                    println("Logged in to Tumblr as \(AuthManager.identifier(.Tumblr)!)")
+                    print("Logged in to Tumblr as \(AuthManager.identifier(.Tumblr)!)")
                 }
             }
         }
@@ -53,8 +53,8 @@ class AuthManager {
     
     class func loadKeychainData(service: AuthManagerService){
         if (service == .Tumblr){
-            let (dictionary, error) = Locksmith.loadDataForUserAccount("Tumblr")
-            if let dict = dictionary, token = dict["Token"] as? String, secret = dict["Secret"] as? String, blog = dict["Blog"] as? String where error == nil {
+            let dictionary = Locksmith.loadDataForUserAccount("Tumblr")
+            if let dict = dictionary, token = dict["Token"] as? String, secret = dict["Secret"] as? String {
                 TMAPIClient.sharedInstance().OAuthToken = token
                 TMAPIClient.sharedInstance().OAuthTokenSecret = secret
             }
@@ -75,7 +75,7 @@ class AuthManager {
             TMAPIClient.sharedInstance().authenticate("pinchpad", callback: { (error: NSError!) -> Void in
                 // If there was an error, print it and return
                 if let error = error {
-                    println(error)
+                    print(error)
                     return
                 }
                 
@@ -91,7 +91,7 @@ class AuthManager {
                         if (blogs.count == 1){
                             // Automatically select the user's first blog
                             tumblrInfoToPersist["Blog"] = blogs[0]["name"].string!
-                            Locksmith.updateData(tumblrInfoToPersist, forUserAccount:"Tumblr")
+                            try? Locksmith.updateData(tumblrInfoToPersist, forUserAccount:"Tumblr")
                             NSNotificationCenter.defaultCenter().postNotificationName("PPAuthChanged", object: nil)
                         } else if (blogs.count > 1){
                             // Have the user pick manually if they have 2+ blogs
@@ -102,7 +102,7 @@ class AuthManager {
                                 let button = UIAlertAction(title: blog["name"].string!, style: .Default, handler: {
                                     (alert: UIAlertAction!) -> Void in
                                     tumblrInfoToPersist["Blog"] = blog["name"].string!
-                                    Locksmith.updateData(tumblrInfoToPersist, forUserAccount:"Tumblr")
+                                    try? Locksmith.updateData(tumblrInfoToPersist, forUserAccount:"Tumblr")
                                     NSNotificationCenter.defaultCenter().postNotificationName("PPAuthChanged", object: nil)
                                 })
                                 blogChoiceMenu.addAction(button)
@@ -111,12 +111,12 @@ class AuthManager {
                             // Add a cancel button
                             let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
                                 (alert: UIAlertAction!) -> Void in
-                                Locksmith.deleteDataForUserAccount("Tumblr")
+                                try? Locksmith.deleteDataForUserAccount("Tumblr")
                             })
                             blogChoiceMenu.addAction(cancelAction)
                             
                             // Display the action sheet
-                            var vc = UIApplication.sharedApplication().delegate!.window!!.rootViewController
+                            let vc = UIApplication.sharedApplication().delegate!.window!!.rootViewController
                             vc!.presentViewController(blogChoiceMenu, animated: true, completion: nil)
                         }
                     }
@@ -129,7 +129,7 @@ class AuthManager {
     
     class func logOut(service: AuthManagerService){
         // Show a confirmation dialogue before logging out
-        var alert = UIAlertController(title: nil, message: "Are you sure you want to log out?", preferredStyle: .Alert)
+        let alert = UIAlertController(title: nil, message: "Are you sure you want to log out?", preferredStyle: .Alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: nil))
         alert.addAction(UIAlertAction(title: "Log out", style: .Default, handler: { (_) -> Void in
             if (service == .Twitter){
@@ -138,7 +138,7 @@ class AuthManager {
                 // Clear Tumblr SDK vars and keychain
                 TMAPIClient.sharedInstance().OAuthToken = ""
                 TMAPIClient.sharedInstance().OAuthTokenSecret = ""
-                Locksmith.deleteDataForUserAccount("Tumblr")
+                try? Locksmith.deleteDataForUserAccount("Tumblr")
             } else {
                 return
             }
@@ -147,7 +147,7 @@ class AuthManager {
         }))
             
         // Display the alert
-        var vc = UIApplication.sharedApplication().delegate!.window!!.rootViewController
+        let vc = UIApplication.sharedApplication().delegate!.window!!.rootViewController
         vc!.presentViewController(alert, animated: true, completion: nil)
     }
     
@@ -167,8 +167,8 @@ class AuthManager {
         if (service == .Twitter){
             return (Twitter.sharedInstance().session() != nil)
         } else if (service == .Tumblr){
-            let (dictionary, error) = Locksmith.loadDataForUserAccount("Tumblr")
-            if let dict = dictionary, token = dict["Token"] as? String, secret = dict["Secret"] as? String, blog = dict["Blog"] as? String where error == nil {
+            let dictionary = Locksmith.loadDataForUserAccount("Tumblr")
+            if let dict = dictionary, _ = dict["Token"] as? String, _ = dict["Secret"] as? String, _ = dict["Blog"] as? String {
                 return true
             } else {
                 return false
@@ -190,7 +190,7 @@ class AuthManager {
         } else if (service == .Twitter){
             return Twitter.sharedInstance().session().userName
         } else if (service == .Tumblr){
-            let (dictionary, error) = Locksmith.loadDataForUserAccount("Tumblr")
+            let dictionary = Locksmith.loadDataForUserAccount("Tumblr")
             if let dict = dictionary {
                 return dict["Blog"] as? String
             } else {
@@ -212,14 +212,17 @@ class AuthManager {
         newItem.imageData = imageData
         newItem.caption = caption
         newItem.duration = 0
-        Sketch.managedContext().save(nil)
+        do {
+            try Sketch.managedContext().save()
+        } catch _ {
+        }
         
         // Then attempt to sync the new item, along with any other older unsynced items
         AuthManager.sync()
     }
     
     class func sync(){
-        println("Sync started!")
+        print("Sync started!")
         
         // Try to sync any sketches that aren't already trying to sync
         // (Make an exception for expenses that ARE "trying to sync", but have been trying for 60+ seconds)
@@ -228,11 +231,14 @@ class AuthManager {
         let fetchRequest = NSFetchRequest(entityName: "Sketch")
         fetchRequest.predicate = NSPredicate(format: "(syncStarted == nil OR syncStarted < %@) AND (duration = 0)", NSDate().dateByAddingTimeInterval(-60))
         
-        if let fetchResults = Sketch.managedContext().executeFetchRequest(fetchRequest, error: nil) as? [Sketch] {
-            println("Syncing \(fetchResults.count) sketches")
+        if let fetchResults = (try? Sketch.managedContext().executeFetchRequest(fetchRequest)) as? [Sketch] {
+            print("Syncing \(fetchResults.count) sketches")
             for sketch in fetchResults{
                 sketch.syncStarted = NSDate()
-                Sketch.managedContext().save(nil)
+                do {
+                    try Sketch.managedContext().save()
+                } catch _ {
+                }
                 AuthManager.post(sketch)
             }
         }
@@ -246,7 +252,7 @@ class AuthManager {
             let composer = TWTRComposer()
             composer.postStatus("\(sketch.caption) #pinchpad", imageData: sketch.imageData){
                 (success: Bool) in
-                println("Posted to Twitter: \(success)")        // print whether we succeeded
+                print("Posted to Twitter: \(success)")        // print whether we succeeded
                 if (success){
                     // Delete successful post from local DB
                     Sketch.managedContext().deleteObject(sketch)
@@ -254,19 +260,22 @@ class AuthManager {
                     sketch.syncError = true
                 }
                 sketch.syncStarted = nil
-                Sketch.managedContext().save(nil)
+                do {
+                    try Sketch.managedContext().save()
+                } catch _ {
+                }
             }
         } else if (service == .Tumblr) {
             TMAPIClient.sharedInstance().photo(AuthManager.identifier(.Tumblr), imageNSDataArray: [sketch.imageData], contentTypeArray: [imageType], fileNameArray: [(imageType == "image/gif" ? "sketch.gif" : "sketch.png")], parameters: ["tags":"pinchpad,hourly comics", "link":"http://www.pinchpad.com"], callback: { (response: AnyObject!, error: NSError!) -> Void in
                 // Parse the JSON response to see if we saved correctly
                 var success: Bool
-                if let responseDict = response as? NSDictionary, responseId: AnyObject? = response["id"] where error == nil {
+                if let _ = response as? NSDictionary, _: AnyObject? = response["id"] where error == nil {
                     success = true
                 } else {
                     success = false
                 }
                 
-                println("Posted to Tumblr: \(success)")        // print whether we succeeded
+                print("Posted to Tumblr: \(success)")        // print whether we succeeded
                 if (success){
                     // Delete successful post from local DB
                     Sketch.managedContext().deleteObject(sketch)
@@ -274,7 +283,7 @@ class AuthManager {
                     sketch.syncError = true
                 }
                 sketch.syncStarted = nil
-                Sketch.managedContext().save(nil)
+                try? Sketch.managedContext().save()
             })
         }
     }

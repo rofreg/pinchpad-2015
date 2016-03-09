@@ -45,9 +45,9 @@ class ViewController: UIViewController{
         return false
     }
 
-    override func supportedInterfaceOrientations() -> Int {
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         // For the main drawing view, restrict rotation to portrait
-        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
+        return UIInterfaceOrientationMask.Portrait
     }
     
     
@@ -94,7 +94,7 @@ class ViewController: UIViewController{
         
         // Don't post if we haven't drawn any strokes
         if (self.canvas.contentView.strokes.count == 0 && Sketch.animationFrameCount == 0){
-            var alert = UIAlertController(title: "Your sketch is blank", message: "You haven't drawn anything yet, silly!", preferredStyle: .Alert)
+            let alert = UIAlertController(title: "Your sketch is blank", message: "You haven't drawn anything yet, silly!", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
             return
@@ -113,7 +113,7 @@ class ViewController: UIViewController{
 
         // If we're not logged into any services, let's just share this using the native iOS dialog
         if (AuthManager.loggedInServices().count == 0){
-            var vc = UIActivityViewController(activityItems: [imageData], applicationActivities: nil)
+            let vc = UIActivityViewController(activityItems: [imageData], applicationActivities: nil)
             if (sender.isKindOfClass(UIBarButtonItem)){
                 vc.popoverPresentationController?.barButtonItem = sender as? UIBarButtonItem
             }
@@ -129,7 +129,7 @@ class ViewController: UIViewController{
         
         // Actually post
         for service in AuthManager.loggedInServices(){
-            println("Posting to service #\(service.rawValue+1)")
+            print("Posting to service #\(service.rawValue+1)")
             AuthManager.enqueue(service, imageData: imageData, caption: caption)
         }
         
@@ -152,15 +152,15 @@ class ViewController: UIViewController{
     func updatePendingPostsDisplay(){
         let fetchRequest = NSFetchRequest(entityName: "Sketch")
         fetchRequest.predicate = NSPredicate(format: "(syncStarted == nil OR syncStarted > %@) AND (duration = 0)", NSDate().dateByAddingTimeInterval(-60))
-        let unsynced = AuthManager.managedContext().executeFetchRequest(fetchRequest, error: nil)
+        let unsynced = try? AuthManager.managedContext().executeFetchRequest(fetchRequest)
         
         fetchRequest.predicate = NSPredicate(format: "syncError == true AND duration = 0")
-        let syncErrors = AuthManager.managedContext().executeFetchRequest(fetchRequest, error: nil)
+        let syncErrors = try? AuthManager.managedContext().executeFetchRequest(fetchRequest)
         
         if let syncErrors = syncErrors where syncErrors.count > 0{
             pendingPostsView.alpha = 1
             pendingPostsRetryButton.hidden = false
-            var pluralPosts = (syncErrors.count == 1 ? "post" : "posts")
+            let pluralPosts = (syncErrors.count == 1 ? "post" : "posts")
             pendingPostsLabel.text = "\(syncErrors.count) \(pluralPosts) failed to sync"
         } else if let unsynced = unsynced where unsynced.count > 0{
             pendingPostsView.alpha = 1
@@ -169,7 +169,7 @@ class ViewController: UIViewController{
         } else {
             pendingPostsRetryButton.hidden = true
             pendingPostsLabel.text = "Post submitted!"
-            UIView.animateWithDuration(0.5, delay: 2.0, options: nil, animations: { () -> Void in
+            UIView.animateWithDuration(0.5, delay: 2.0, options: [], animations: { () -> Void in
                 self.pendingPostsView.alpha = 0
             }, completion: nil)
         }

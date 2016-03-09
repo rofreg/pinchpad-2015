@@ -12,7 +12,7 @@ class PPInfiniteScrollView: UIScrollView, UIScrollViewDelegate{
     var contentView: PPCanvas!
     var diagnosticsView: UILabel?
     
-    required init(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         super.init(coder: coder)
         
         self.delegate = self

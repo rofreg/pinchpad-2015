@@ -28,28 +28,28 @@ class PPStroke{
     // MARK: Point management logic
     
     func addPoint(touch: UITouch, withPressure pressure: CGFloat, inView: UIView){
-        var location = touch.locationInView(inView)
+        let location = touch.locationInView(inView)
         self.addPoint(location, withPressure: pressure)
     }
     
     func addPoint(touch: UITouch, inView: UIView){
-        var location = touch.locationInView(inView)
+        let location = touch.locationInView(inView)
         self.addPoint(location)
     }
     
     func addPoint(location: CGPoint){
         // Fake pressure, simulated from velocity between points
         var p: CGFloat
-        var pointsCount = points.count
+        let pointsCount = points.count
         if (pointsCount == 0){
             p = 0.5
         } else {
-            var lastPoint = points[points.count-1]
-            var diff = (location - lastPoint.location).length()
+            let lastPoint = points[points.count-1]
+            let diff = (location - lastPoint.location).length()
             p = max(0.5, min(1.0, CGFloat(diff - 5) / 8.0))
             
             // Smooth out pressure using previous points, to prevent abrupt pressure changes
-            var previousPointsToSmoothAgainstCount = min(2, points.count)
+            let previousPointsToSmoothAgainstCount = min(2, points.count)
             for index in 1...previousPointsToSmoothAgainstCount{
                 p += points[pointsCount-index].pressure
             }
@@ -81,7 +81,7 @@ class PPStroke{
         
         if (self.tool == PPToolType.Brush){
             // We need to do special handling for performance for the brush
-            var paths = self.asBezierPaths(quickly: quickly)
+            var paths = self.asBezierPaths(quickly)
             if (quickly){
                 // Draw all but the very last segment (which is a dot, and might change later)
                 for (var i = max(0, self.strokeSegmentsDrawn - 1); i < max(0, paths.count - 1); i++) {
@@ -97,11 +97,11 @@ class PPStroke{
             }
         } else if (self.tool == PPToolType.Marker) {
             // For the marker, just draw the line
-            self.asBezierPath(quickly: quickly).stroke()
+            self.asBezierPath(quickly).stroke()
         } else if (self.tool == PPToolType.Eraser) {
             // For the eraser, just draw the line
             UIColor.whiteColor().setStroke()
-            self.asBezierPath(quickly: quickly).stroke()
+            self.asBezierPath(quickly).stroke()
         }
     }
     
@@ -119,10 +119,10 @@ class PPStroke{
     
     // This returns a SINGLE BEZIER PATH connecting all points
     func asBezierPath(quickly: Bool = false) -> UIBezierPath{
-        var path = UIBezierPath()
+        let path = UIBezierPath()
         path.lineWidth = self.width
-        path.lineCapStyle = kCGLineCapRound
-        path.lineJoinStyle = kCGLineJoinRound
+        path.lineCapStyle = CGLineCap.Round
+        path.lineJoinStyle = CGLineJoin.Round
         
         // Handle dot case
         if (self.isDot()){
@@ -172,26 +172,26 @@ class PPStroke{
             return self.points
         } else {
             var smoothedPoints = [PPPoint]()
-            var minSegmentsBetweenTwoPoints = (quickly ? 2 : 16)
+            let minSegmentsBetweenTwoPoints = (quickly ? 2 : 16)
             smoothedPoints.reserveCapacity(points.count * minSegmentsBetweenTwoPoints)
             
             for (var i = 2; i < points.count; i++) {
-                var p1 = points[i-2]
-                var p2 = points[i-1]
-                var p3 = points[i]
+                let p1 = points[i-2]
+                let p2 = points[i-1]
+                let p3 = points[i]
                 
-                var p12Midpoint = (p1.location + p2.location) * 0.5
-                var p23Midpoint = (p2.location + p3.location) * 0.5
+                let p12Midpoint = (p1.location + p2.location) * 0.5
+                let p23Midpoint = (p2.location + p3.location) * 0.5
                 
-                var distance = (p12Midpoint - p23Midpoint).length()
-                var segmentDistance = (quickly ? 10.0 : 4.0)
-                var numberOfSegments = min(128, max(floor(distance / segmentDistance), Double(minSegmentsBetweenTwoPoints)))
+                let distance = (p12Midpoint - p23Midpoint).length()
+                let segmentDistance = (quickly ? 10.0 : 4.0)
+                let numberOfSegments = min(128, max(floor(distance / segmentDistance), Double(minSegmentsBetweenTwoPoints)))
 //                println("distance: \(distance)")
 //                println("segments: \(numberOfSegments)")
                 
                 
                 var t = 0.0
-                var step = 1.0 / numberOfSegments
+                let step = 1.0 / numberOfSegments
                 var lastLocation: CGPoint?
                 for (var j = 0; j < Int(numberOfSegments); j++) {
                     var l = (p12Midpoint * pow(1-t, 2))
@@ -206,15 +206,15 @@ class PPStroke{
                         lastLocation = l
                     }
                     
-                    var p1p = Double(p1.pressure)
-                    var p2p = Double(p2.pressure)
-                    var p3p = Double(p3.pressure)
+                    let p1p = Double(p1.pressure)
+                    let p2p = Double(p2.pressure)
+                    let p3p = Double(p3.pressure)
                     
                     var p = pow(1-t, 2) * ((p1p + p2p)/2.0)
                     p = p + p2p * (2 * (1-t) * t)
                     p = p + ((p2p + p3p)/2.0) * (t * t)
                     
-                    var x : PPPoint = PPPoint(location: l, pressure: CGFloat(p))
+                    let x : PPPoint = PPPoint(location: l, pressure: CGFloat(p))
                     smoothedPoints.append(x)
                     t += step
                 }
@@ -232,12 +232,12 @@ class PPStroke{
             return cachedBezierPaths
         } else if self.isDot(){
             // This is just a dot
-            var dot = UIBezierPath()
+            let dot = UIBezierPath()
             dot.addArcWithCenter(points.first!.location, radius: width * 0.5, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
             self.cachedBezierPaths = [dot]
         } else {
             // Let's calculate a fancy stroke!
-            var finalPoints = self.finalPoints(quickly: quickly)
+            var finalPoints = self.finalPoints(quickly)
             self.cachedBezierPaths = []
             self.cachedBezierPaths.reserveCapacity(finalPoints.count + 5)
     
@@ -248,23 +248,23 @@ class PPStroke{
             
             // Now calculate all points in the middle of the path
             for (var fpi = 0; fpi < finalPoints.count - 1; fpi++) {
-                var startPoint = finalPoints[fpi]
-                var endPoint = finalPoints[fpi+1]
-                var newPoints = pointsOnLineSegmentPerpendicularTo([startPoint.location, endPoint.location], length: endPoint.pressure * width)
+                let startPoint = finalPoints[fpi]
+                let endPoint = finalPoints[fpi+1]
+                let newPoints = pointsOnLineSegmentPerpendicularTo([startPoint.location, endPoint.location], length: endPoint.pressure * width)
                 boundingPoints.append(newPoints)
             }
             
             // Make an initial path from the opening point, if we haven't already)
             if (self.cachedBezierPaths.count == 0){
                 // Draw a dot at the starting location, to round the starting point off
-                var path = UIBezierPath()
+                let path = UIBezierPath()
                 path.addArcWithCenter(finalPoints.first!.location, radius: width * finalPoints[1].pressure, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
                 self.cachedBezierPaths.append(path)
             }
             
             for (var bpi = 0; bpi < boundingPoints.count - 1; bpi++) {
                 // Add our first line segment
-                var path = UIBezierPath()
+                let path = UIBezierPath()
                 path.moveToPoint(boundingPoints[bpi][0])
                 path.addLineToPoint(boundingPoints[bpi+1][0])
                 path.addLineToPoint(boundingPoints[bpi+1][1])
@@ -274,7 +274,7 @@ class PPStroke{
             }
             
             // Draw a dot at the ending location, to round the ending point off
-            var path = UIBezierPath()
+            let path = UIBezierPath()
             path.addArcWithCenter(finalPoints.last!.location, radius: width * finalPoints.last!.pressure, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
             self.cachedBezierPaths.append(path)
             
@@ -291,7 +291,7 @@ class PPStroke{
     }
     
     func pointsOnLineSegmentPerpendicularTo(lineSegment:[CGPoint], length: CGFloat) -> [CGPoint]{
-        var directionVector = lineSegment.first! - lineSegment.last!
+        let directionVector = lineSegment.first! - lineSegment.last!
         var adjustment = CGPointMake(directionVector.y, -directionVector.x)
         adjustment = adjustment * (Double(length) / adjustment.length())
         

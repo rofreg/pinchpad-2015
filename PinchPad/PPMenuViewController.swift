@@ -45,7 +45,7 @@ class PPMenuViewController : UIViewController{
         // Twitter
         if (AuthManager.isLoggedIn(.Twitter)){
             twitterButton.backgroundColor = twitterColor
-            var attrString = NSMutableAttributedString(string: "Connected as\n")
+            let attrString = NSMutableAttributedString(string: "Connected as\n")
             attrString.appendAttributedString(NSAttributedString(string: AuthManager.identifier(.Twitter)!, attributes: [NSFontAttributeName: UIFont.boldSystemFontOfSize(14)]))
             twitterButton.setAttributedTitle(attrString, forState: .Normal)
             twitterButton.alpha = 1.0
@@ -58,7 +58,7 @@ class PPMenuViewController : UIViewController{
         // Tumblr
         if (AuthManager.isLoggedIn(.Tumblr)){
             tumblrButton.backgroundColor = tumblrColor
-            var attrString = NSMutableAttributedString(string: "Connected as\n")
+            let attrString = NSMutableAttributedString(string: "Connected as\n")
             attrString.appendAttributedString(NSAttributedString(string: AuthManager.identifier(.Tumblr)!, attributes: [NSFontAttributeName: UIFont.boldSystemFontOfSize(14)]))
             tumblrButton.setAttributedTitle(attrString, forState: .Normal)
             tumblrButton.alpha = 1.0
@@ -70,7 +70,7 @@ class PPMenuViewController : UIViewController{
         
         // Animation info
         frameLengthStepper.value = PPAppConfiguration.sharedInstance.frameLength
-        var frameDuration = String(format: "%.1f", frameLengthStepper.value)
+        let frameDuration = String(format: "%.1f", frameLengthStepper.value)
         if (CGRectGetWidth(UIScreen.mainScreen().bounds) <= 320){
             frameLengthLabel.text = "\(frameDuration)s"
         } else {
@@ -107,13 +107,19 @@ class PPMenuViewController : UIViewController{
         newItem.createdAt = NSDate()
         newItem.imageData = (self.parentViewController as! ViewController).canvas.contentView.asNSData()
         newItem.duration = PPAppConfiguration.sharedInstance.frameLength
-        Sketch.managedContext().save(nil)
+        do {
+            try Sketch.managedContext().save()
+        } catch _ {
+        }
     }
     
     @IBAction func removeFrame(){
         if let sketch = Sketch.animationFrames.last{
             Sketch.managedContext().deleteObject(sketch)
-            Sketch.managedContext().save(nil)
+            do {
+                try Sketch.managedContext().save()
+            } catch _ {
+            }
         }
     }
     
@@ -132,18 +138,16 @@ class PPMenuViewController : UIViewController{
     @IBAction func sendFeedback(){
         if (MFMailComposeViewController.canSendMail()){
             let version: AnyObject = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"]!
-            let emailTitle = "Feedback for Pinch Pad (v\(version))"
-            var toRecipents = ["me@rofreg.com"]
-            var mc = MFMailComposeViewController()
+            let mc = MFMailComposeViewController()
             mc.mailComposeDelegate = self
             mc.setSubject("Feedback for Pinch Pad (v\(version))")
             mc.setMessageBody("", isHTML: false)
-            mc.setToRecipients(toRecipents)
+            mc.setToRecipients(["me@rofreg.com"])
             
             self.presentViewController(mc, animated: true, completion: nil)
         } else {
             // Show an alert
-            var alert = UIAlertController(title: "No email account found", message: "Whoops, I couldn't find an email account set up on this device! You can send me feedback directly at me@rofreg.com.", preferredStyle: .Alert)
+            let alert = UIAlertController(title: "No email account found", message: "Whoops, I couldn't find an email account set up on this device! You can send me feedback directly at me@rofreg.com.", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         }
@@ -151,7 +155,7 @@ class PPMenuViewController : UIViewController{
 }
 
 extension PPMenuViewController : MFMailComposeViewControllerDelegate{
-    func mailComposeController(controller:MFMailComposeViewController, didFinishWithResult result:MFMailComposeResult, error:NSError) {
+    func mailComposeController(controller:MFMailComposeViewController, didFinishWithResult result:MFMailComposeResult, error:NSError?) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

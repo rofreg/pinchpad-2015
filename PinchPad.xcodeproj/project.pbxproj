@@ -33,7 +33,7 @@
 		00F171D51B1A22D5008BE560 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00F171D41B1A22D5008BE560 /* Security.framework */; };
 		00F171D71B1A22DA008BE560 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00F171D61B1A22DA008BE560 /* SystemConfiguration.framework */; };
 		00F75E131B16948E006279B0 /* ImagePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F75E121B16948E006279B0 /* ImagePreviewViewController.swift */; };
-		18240D6542BDDEAA38E1C3AD /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB8F4C387E296D6F76285AC /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		18240D6542BDDEAA38E1C3AD /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB8F4C387E296D6F76285AC /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -208,7 +208,9 @@
 		005DCA781A805A3900E55C0D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastSwiftMigration = 0720;
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
 				TargetAttributes = {
 					005DCA7F1A805A3900E55C0D = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -374,6 +376,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -446,12 +449,13 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = PinchPad/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PinchPad/Flurry",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rofreg.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "PinchPad/PinchPad-Bridging-Header.h";
@@ -472,12 +476,13 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = PinchPad/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PinchPad/Flurry",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rofreg.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "PinchPad/PinchPad-Bridging-Header.h";

@@ -21,20 +21,20 @@ class PPCanvas: UIView{
         self.backgroundColor = UIColor.whiteColor()
     }
 
-    required init(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
     
     // MARK: Touch handling
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if let touch = getActiveTouch(touches){
             addPointToActiveStroke(touch)
         }
     }
     
-    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if let touch = getActiveTouch(touches){
             self.touchEvents++
             addPointToActiveStroke(touch)
@@ -46,7 +46,7 @@ class PPCanvas: UIView{
         }
     }
     
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if let touch = getActiveTouch(touches){
             addPointToActiveStroke(touch, finalTouch: true)
             strokes.append(self.activeStroke!)
@@ -55,7 +55,7 @@ class PPCanvas: UIView{
         }
     }
     
-    override func touchesCancelled(touches: Set<NSObject>, withEvent event: UIEvent!) {
+    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
         // This commonly gets called when a two-finger scroll occurs
         self.activeStroke = nil
         self.setNeedsDisplay()
@@ -66,7 +66,7 @@ class PPCanvas: UIView{
 
     // Get the active drawing point, with handling for whether a stylus is connected or not
     func getActiveTouch(touches: NSSet) -> UITouch?{
-        var touch = touches.anyObject() as! UITouch
+        let touch = touches.anyObject() as! UITouch
         return touch
     }
     
@@ -168,7 +168,7 @@ class PPCanvas: UIView{
         if canvasThusFar == nil{
             return NSData()
         } else{
-            return UIImagePNGRepresentation(canvasThusFar!)
+            return UIImagePNGRepresentation(canvasThusFar!)!
         }
     }
     

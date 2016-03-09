@@ -33,12 +33,12 @@ class PPToolConfigurationViewController: UIViewController{
         }
         
         var fullWidth = CGRectGetWidth(sliderBackground.frame)
-        var fullHeight = CGRectGetHeight(sliderBackground.frame)
-        var adjustmentRadius: CGFloat = 28.0
+        let fullHeight = CGRectGetHeight(sliderBackground.frame)
+        let adjustmentRadius: CGFloat = 28.0
         fullWidth -= adjustmentRadius
         
         for index in 0...5{
-            var tickMark = UIView(frame: CGRectMake(CGFloat(index) * (fullWidth / 5.0) - 1 + adjustmentRadius/2.0, fullHeight * 1.0/4.0 + 0.5, 2, fullHeight * 1.0/2.0))
+            let tickMark = UIView(frame: CGRectMake(CGFloat(index) * (fullWidth / 5.0) - 1 + adjustmentRadius/2.0, fullHeight * 1.0/4.0 + 0.5, 2, fullHeight * 1.0/2.0))
             
             if (index < Int(slider.value)){
                 tickMark.backgroundColor = slider.minimumTrackTintColor
@@ -71,7 +71,7 @@ class PPToolConfigurationViewController: UIViewController{
     }
     
     @IBAction func widthChanged(sender: UISlider){
-        var roundedValue = Int(round(sender.value))
+        let roundedValue = Int(round(sender.value))
         sender.setValue(Float(roundedValue), animated: false)
         
         let realSize = [0.0, 1.0, 3.0, 5.0, 10.0, 30.0, 60.0]
@@ -88,7 +88,7 @@ class PPToolConfigurationViewController: UIViewController{
         previewWindow.clear()
         
         if (PPToolConfiguration.sharedInstance.tool == .Eraser){
-            previewWindow.strokes = [previewStroke(tool: .Marker, width: 100, color: UIColor.blackColor()), previewStroke()]
+            previewWindow.strokes = [previewStroke(.Marker, width: 100, color: UIColor.blackColor()), previewStroke()]
         } else {
             previewWindow.strokes = [previewStroke()]
         }
@@ -119,7 +119,7 @@ class PPToolConfigurationViewController: UIViewController{
         }
         
         // Construct a sample squiggle
-        var windowSize = previewWindow!.frame.size.height
+        let windowSize = previewWindow!.frame.size.height
         stroke.addPoint(CGPointMake(windowSize * 0.10, windowSize * 0.9), withPressure: 0.5)
         stroke.addPoint(CGPointMake(windowSize * 0.25, windowSize * 0.8), withPressure: 0.6)
         stroke.addPoint(CGPointMake(windowSize * 0.40, windowSize * 0.7), withPressure: 0.8)
@@ -143,7 +143,7 @@ extension PPToolConfigurationViewController : UICollectionViewDataSource{
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         // Static list of colors to choose from
         
-        var cell = collectionView.dequeueReusableCellWithReuseIdentifier("colorCell", forIndexPath: indexPath) as! UICollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("colorCell", forIndexPath: indexPath)
         cell.backgroundColor = colors[indexPath.row % colors.count]
         
         // Highlight the currently active color
@@ -171,8 +171,8 @@ extension UIColor{
     convenience init(hex: String) {
         let characterSet = NSCharacterSet.whitespaceAndNewlineCharacterSet().mutableCopy() as! NSMutableCharacterSet
         characterSet.formUnionWithCharacterSet(NSCharacterSet(charactersInString: "#"))
-        var cString = hex.stringByTrimmingCharactersInSet(characterSet).uppercaseString
-        if (count(cString) != 6) {
+        let cString = hex.stringByTrimmingCharactersInSet(characterSet).uppercaseString
+        if (cString.characters.count != 6) {
             self.init(white: 1.0, alpha: 1.0)
         } else {
             var rgbValue: UInt32 = 0

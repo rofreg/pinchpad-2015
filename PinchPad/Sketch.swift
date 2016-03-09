@@ -34,7 +34,7 @@ class Sketch: NSManagedObject {
             fetchRequest.predicate = NSPredicate(format: "duration != 0")
             fetchRequest.sortDescriptors = [NSSortDescriptor(key: "createdAt", ascending: true)]
             
-            if let fetchResults = Sketch.managedContext().executeFetchRequest(fetchRequest, error: nil) as? [Sketch] {
+            if let fetchResults = (try? Sketch.managedContext().executeFetchRequest(fetchRequest)) as? [Sketch] {
                 return fetchResults
             } else {
                 return []
@@ -52,26 +52,22 @@ class Sketch: NSManagedObject {
         let fileProperties = [kCGImagePropertyGIFDictionary as String: [kCGImagePropertyGIFLoopCount as String: 0]]
         
         let documentsDirectory = NSTemporaryDirectory()
-        let url = NSURL(fileURLWithPath: documentsDirectory)?.URLByAppendingPathComponent("animated.gif")
+        let url = NSURL(fileURLWithPath: documentsDirectory).URLByAppendingPathComponent("animated.gif")
+
+        let frames = Sketch.animationFrames
+        let destination = CGImageDestinationCreateWithURL(url, kUTTypeGIF, frames.count, nil)
+        CGImageDestinationSetProperties(destination!, fileProperties)
         
-        if let url = url {
-            let frames = Sketch.animationFrames
-            let destination = CGImageDestinationCreateWithURL(url, kUTTypeGIF, frames.count, nil)
-            CGImageDestinationSetProperties(destination, fileProperties)
-            
-            for frame in frames {
-                var actualImage = UIImage(data: frame.imageData)
-                let frameProperties = [kCGImagePropertyGIFDictionary as String: [kCGImagePropertyGIFDelayTime as String: frame.duration]]
-                CGImageDestinationAddImage(destination, actualImage!.CGImage, frameProperties)
-            }
-            
-            if CGImageDestinationFinalize(destination) {
-                // TODO: delete animation frames from CoreData
-                return NSData(contentsOfURL: url)
-            } else {
-                return nil
-            }
-        } else  {
+        for frame in frames {
+            let actualImage = UIImage(data: frame.imageData)
+            let frameProperties = [kCGImagePropertyGIFDictionary as String: [kCGImagePropertyGIFDelayTime as String: frame.duration]]
+            CGImageDestinationAddImage(destination!, actualImage!.CGImage!, frameProperties)
+        }
+        
+        if CGImageDestinationFinalize(destination!) {
+            // TODO: delete animation frames from CoreData
+            return NSData(contentsOfURL: url)
+        } else {
             return nil
         }
     }
@@ -80,7 +76,10 @@ class Sketch: NSManagedObject {
         for frame in self.animationFrames{
             Sketch.managedContext().deleteObject(frame)
         }
-        Sketch.managedContext().save(nil)
+        do {
+            try Sketch.managedContext().save()
+        } catch _ {
+        }
     }
     
     func imageType() -> String{

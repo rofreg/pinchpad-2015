@@ -25,7 +25,7 @@ class PPAppConfiguration {
             NSNotificationCenter.defaultCenter().postNotificationName("PPResizeCanvas", object: self)
         }
         get {
-            var val: Bool? = NSUserDefaults.standardUserDefaults().boolForKey("widerCanvas")
+            let val: Bool? = NSUserDefaults.standardUserDefaults().boolForKey("widerCanvas")
             
             if let actualVal = val{
                 return actualVal
