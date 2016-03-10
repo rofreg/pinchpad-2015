@@ -188,7 +188,7 @@ class AuthManager {
         if (!isLoggedIn(service)){
             return nil
         } else if (service == .Twitter){
-            return Twitter.sharedInstance().session().userName
+            return Twitter.sharedInstance().session()?.userName
         } else if (service == .Tumblr){
             let dictionary = Locksmith.loadDataForUserAccount("Tumblr")
             if let dict = dictionary {
