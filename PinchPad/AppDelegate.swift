@@ -12,7 +12,7 @@ import TwitterKit
 import TMTumblrSDK
 import Crashlytics
 import Locksmith
-import AFNetworking
+import ReachabilitySwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -29,12 +29,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         // Try syncing whenever the network status changes
-        AFNetworkReachabilityManager.sharedManager().startMonitoring()
-        AFNetworkReachabilityManager.sharedManager().setReachabilityStatusChangeBlock { (status: AFNetworkReachabilityStatus) -> Void in
-            print("Network status changed to \(AFStringFromNetworkReachabilityStatus(status))")
-            if (status != AFNetworkReachabilityStatus.NotReachable){
+        if let reachability = try? Reachability.reachabilityForInternetConnection(){
+            reachability.whenReachable = { reachability in
+                print("Reachable via \(reachability.isReachableViaWiFi() ? "WiFi" : "Cellular")")
                 AuthManager.sync()
             }
+            reachability.whenUnreachable = { _ in
+                print("Not reachable")
+            }
+            
+            _ = try? reachability.startNotifier()
         }
         
         return true

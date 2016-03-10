@@ -1,28 +1,8 @@
 PODS:
-  - AFNetworking (2.6.3):
-    - AFNetworking/NSURLConnection (= 2.6.3)
-    - AFNetworking/NSURLSession (= 2.6.3)
-    - AFNetworking/Reachability (= 2.6.3)
-    - AFNetworking/Security (= 2.6.3)
-    - AFNetworking/Serialization (= 2.6.3)
-    - AFNetworking/UIKit (= 2.6.3)
-  - AFNetworking/NSURLConnection (2.6.3):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.6.3):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.6.3)
-  - AFNetworking/Security (2.6.3)
-  - AFNetworking/Serialization (2.6.3)
-  - AFNetworking/UIKit (2.6.3):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
   - FLAnimatedImage (1.0.12)
   - JXHTTP (1.0.7)
   - Locksmith (2.0.8)
+  - ReachabilitySwift (2.3.3)
   - Spectacles (1.0.1)
   - SwiftyJSON (2.3.2)
   - TMTumblrSDK (2.1.1):
@@ -43,26 +23,31 @@ PODS:
     - Spectacles (~> 1.0)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.0)
   - FLAnimatedImage (~> 1.0)
   - Locksmith
+  - ReachabilitySwift (from `https://github.com/ashleymills/Reachability.swift`)
   - SwiftyJSON (>= 2.2)
   - TMTumblrSDK (from `https://github.com/rofreg/TMTumblrSDK.git`)
 
 EXTERNAL SOURCES:
+  ReachabilitySwift:
+    :git: https://github.com/ashleymills/Reachability.swift
   TMTumblrSDK:
     :git: https://github.com/rofreg/TMTumblrSDK.git
 
 CHECKOUT OPTIONS:
+  ReachabilitySwift:
+    :commit: cf126c0584a209143c75bf1d0f23fd904891e26e
+    :git: https://github.com/ashleymills/Reachability.swift
   TMTumblrSDK:
     :commit: da9494401768aefdaa139293d7324d0fdc787795
     :git: https://github.com/rofreg/TMTumblrSDK.git
 
 SPEC CHECKSUMS:
-  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   JXHTTP: 156f18e8cd69161f9223e39a5783a5bcb1ecda7f
   Locksmith: a8ed41ac4c06506ea8cb199d8ec8a8d3d108eb2a
+  ReachabilitySwift: e0f6b6f280effb47731acfaaa2d5ffe223703793
   Spectacles: 8dc60711140320653724560e2d6bbb8a8f0940e4
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   TMTumblrSDK: 761d55de5f0c1802a7beaa860d19876f088bfdd3

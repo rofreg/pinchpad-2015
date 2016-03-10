@@ -84,19 +84,19 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods/AFNetworking.framework"
   install_framework "Pods/FLAnimatedImage.framework"
   install_framework "Pods/JXHTTP.framework"
   install_framework "Pods/Locksmith.framework"
+  install_framework "Pods/ReachabilitySwift.framework"
   install_framework "Pods/Spectacles.framework"
   install_framework "Pods/SwiftyJSON.framework"
   install_framework "Pods/TMTumblrSDK.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods/AFNetworking.framework"
   install_framework "Pods/FLAnimatedImage.framework"
   install_framework "Pods/JXHTTP.framework"
   install_framework "Pods/Locksmith.framework"
+  install_framework "Pods/ReachabilitySwift.framework"
   install_framework "Pods/Spectacles.framework"
   install_framework "Pods/SwiftyJSON.framework"
   install_framework "Pods/TMTumblrSDK.framework"
