@@ -31,7 +31,6 @@ submitting a pull request. Please use the Tumblr API [responsibly](http://www.tu
     * [App client](#app-client)
         * [URL schemes](#url-schemes)
     * [Share extension](#share-extension)
-    * [UIDocumentInteractionController](#uidocumentinteractioncontroller)
     * [UIActivityViewController](#uiactivityviewcontroller)
     * [Example](#example)
 * [Contact](#contact)
@@ -233,7 +232,15 @@ if (![TMTumblrAppClient isTumblrInstalled]) {
 [TMTumblrAppClient viewBlog:@"bryan"];
 
 [TMTumblrAppClient viewPost:@"43724939726" blogName:@"bryan"];
+
+[TMTumblrAppClient showAuthorizeWithToken:@"AnOAuthToken"];
 ```
+
+The `showAuthorizeWithToken:` example allows you to kick off the OAuth 
+authorization step after obtaining a request token 
+(see [Authentication](https://www.tumblr.com/docs/en/api/v2#auth) section in the
+docs). Make sure your redirect URLs are properly set in the API dashboard to
+handle callbacks from this flow.
 
 If you're only interested in the app client,
 the `TMTumblrSDK/AppClient` sub-pod can be installed by itself.
@@ -246,7 +253,11 @@ interface on top of the following URLs:
 
 ```
 tumblr://x-callback-url/dashboard
+tumblr://x-callback-url/explore
+tumblr://x-callback-url/activity
+tumblr://x-callback-url/activity?blogName=bryan
 tumblr://x-callback-url/tag?tag=gif
+tumblr://x-callback-url/blog
 tumblr://x-callback-url/blog?blogName=bryan
 tumblr://x-callback-url/blog?blogName=bryan&postID=43724939726
 
@@ -256,6 +267,9 @@ tumblr://x-callback-url/text?title=Title&body=Body&tags=gif&tags=lol
 tumblr://x-callback-url/quote?quote=Quote&source=Source
 tumblr://x-callback-url/link?title=Bryan&url=bryan.io&description=Website
 tumblr://x-callback-url/chat?title=Title&body=Body&tags=gif&tags=lol
+
+// Will create a post using images from `[UIPasteboard generalPasteboard].images`
+tumblr://x-callback-url/photo?caption=Caption&tags=gif&tags=lol
 ```
 
 If you don't want to use this SDK and would rather hit these URLs directly, please go
@@ -275,21 +289,6 @@ Tumblr post types, but we’d need to figure out a good way to do so that [won�
 extensions that could also potentially be displayed](https://github.com/tumblr/ios-extension-issues/issues/5).
 
 If you're looking to hardcode some Tumblr-specific behavior, our share extension’s bundle identifier is **com.tumblr.tumblr.Share-With-Tumblr**.
-
-### UIDocumentInteractionController
-
-**Note: As of iOS 8, it’s preferable to just allow your users to use our share extension instead. `UIDocumentInteractionController` support is still being maintained as of 9/29/2015, but will likely be discontinued in the future.**
-
-Photos and videos can be passed to Tumblr for iOS using Apple's
-standard [UIDocumentInteractionController](http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIDocumentInteractionController_class/Reference/Reference.html).
-
-To include a caption, set the `annotation` property on the document 
-interaction controller to an `NSDictionary` containing a `TumblrCaption` 
-key, mapped to your caption (an `NSString`). To include tags, add a 
-`TumblrTags` key to the dictionary, mapped an an `NSArray` of `NSStrings`.
-
-If you want *only* the Tumblr app to show up in a document interaction controller,
-you can specify the file extension `tumblrphoto` and custom UTI `com.tumblr.photo`.
 
 ### UIActivityViewController
 
@@ -314,7 +313,7 @@ which shows all of the inter-app hooks in action.
 
 ## Contact
 
-* [Bryan Irace](bryan@tumblr.com)
+* [Tumblr iOS](mailto:ios-engineering@tumblr.com)
 * [Tumblr API discussion group](https://groups.google.com/group/tumblr-api/)
 
 ## License

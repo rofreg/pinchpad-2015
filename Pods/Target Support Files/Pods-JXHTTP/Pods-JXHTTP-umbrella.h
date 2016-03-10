@@ -1,5 +1,6 @@
 #import <UIKit/UIKit.h>
 
+#import "JXBackgroundTaskManager.h"
 #import "JXHTTP.h"
 #import "JXHTTPDataBody.h"
 #import "JXHTTPFileBody.h"
@@ -12,6 +13,7 @@
 #import "JXHTTPOperationQueue.h"
 #import "JXHTTPOperationQueueDelegate.h"
 #import "JXHTTPRequestBody.h"
+#import "JXNetworkActivityIndicatorManager.h"
 #import "JXOperation.h"
 #import "JXURLConnectionOperation.h"
 #import "JXURLEncoding.h"
