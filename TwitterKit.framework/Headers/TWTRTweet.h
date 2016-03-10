@@ -40,12 +40,22 @@
 /**
  *  The number of times this Tweet was favorited.
  */
-@property (nonatomic, assign, readonly) long long favoriteCount;
+@property (nonatomic, assign, readonly) long long favoriteCount __attribute__((deprecated("Use `likeCount`.")));
+
+/**
+ *  The number of times this Tweet was liked.
+ */
+@property (nonatomic, assign, readonly) long long likeCount;
 
 /**
  *  The number of times this Tweet was retweeted.
  */
 @property (nonatomic, assign, readonly) long long retweetCount;
+
+/**
+ *  The language of the Tweet.
+ */
+@property (nonatomic, copy, readonly) NSString *languageCode;
 
 /**
  *  The Tweet this Tweet was a reply to.
@@ -77,7 +87,14 @@
  *
  *  @warning The value of this property depends on the authenticated user.
  */
-@property (nonatomic, assign, readonly) BOOL isFavorited;
+@property (nonatomic, assign, readonly) BOOL isFavorited __attribute__((deprecated("Use `isLiked`.")));
+
+/**
+ *  Whether this Tweet was liked by the authenticated user.
+ *
+ *  @warning The value of this property depends on the authenticated user.
+ */
+@property (nonatomic, assign, readonly) BOOL isLiked;
 
 /**
  *  Whether this Tweet was retweeted by the authenticated user.
@@ -122,5 +139,17 @@
  *  @return An array of TWTRTweet instances.
  */
 + (NSArray *)tweetsWithJSONArray:(NSArray *)array;
+
+/**
+ *  Creates a new Tweet instance with a new value for the `isFavorited` boolean 
+ *  value which is the opposite of the current value.
+ */
+- (TWTRTweet *)tweetWithFavoriteToggled __attribute__((deprecated("Use `tweetWithLikeToggled`.")));
+
+/**
+ *  Creates a new Tweet instance with a new value for the `isLiked` boolean
+ *  value which is the opposite of the current value.
+ */
+- (TWTRTweet *)tweetWithLikeToggled;
 
 @end

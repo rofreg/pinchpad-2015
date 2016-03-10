@@ -6,9 +6,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TWTRTimelineDataSource.h"
+#import <TwitterKit/TWTRTimelineDataSource.h>
 
 @class TWTRAPIClient;
+
+NS_ASSUME_NONNULL_BEGIN
 
 /**
 Data source representing a Search Timeline. Provides TWTRTweet objects to a TWTRTimelineViewController in pages determined by the TWTRTimelineCursor object passed in to the `loadNext:` and `loadPrevious:` methods.
@@ -46,7 +48,7 @@ Data source representing a Search Timeline. Provides TWTRTweet objects to a TWTR
  *
  *  @see http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
  */
-@property (nonatomic, copy, readonly) NSString *languageCode;
+@property (nonatomic, copy, readonly, twtr_nullable) NSString *languageCode;
 
 /**
  *  The number of Tweets to request in each network request for more Tweets. By default requests 30 tweets. If set to `0` the parameter will not be set on the request and the Twitter API will use the default size for the endpoint.
@@ -54,7 +56,7 @@ Data source representing a Search Timeline. Provides TWTRTweet objects to a TWTR
 @property (nonatomic, assign, readonly) NSUInteger maxTweetsPerRequest;
 
 /**
- *  Convenience initializer. Uses default values for `searchQuery`, `languageCode`, and `maxTweetsPerRequest`.
+ *  Convenience initializer. Uses default values for `languageCode` and `maxTweetsPerRequest`.
  *
  *  @param  searchQuery (required) The query string that you would type into https://twitter.com/search
  *  @param  client      (required) An instance of `TWTRAPIClient` with which API calls will be made.
@@ -62,7 +64,7 @@ Data source representing a Search Timeline. Provides TWTRTweet objects to a TWTR
  *  @return A fully initialized search timeline datasource or `nil` if any of the required parameters are missing.
  */
 
-- (instancetype)initWithSearchQuery:(NSString *)searchQuery APIClient:(TWTRAPIClient *)client __attribute__((nonnull));
+- (instancetype)initWithSearchQuery:(NSString *)searchQuery APIClient:(TWTRAPIClient *)client;
 
 /**
  *  Designated initializer for creating search timeline data sources taking all parameters.
@@ -74,8 +76,10 @@ Data source representing a Search Timeline. Provides TWTRTweet objects to a TWTR
  *
  *  @return A fully initialized search timeline datasource or `nil` if any of the required parameters are missing.
  */
-- (instancetype)initWithSearchQuery:(NSString *)searchQuery APIClient:(TWTRAPIClient *)client languageCode:(NSString *)languageCode maxTweetsPerRequest:(NSUInteger)maxTweetsPerRequest __attribute__((nonnull(1,2))) NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithSearchQuery:(NSString *)searchQuery APIClient:(TWTRAPIClient *)client languageCode:(twtr_nullable NSString *)languageCode maxTweetsPerRequest:(NSUInteger)maxTweetsPerRequest NS_DESIGNATED_INITIALIZER;
 
 - (instancetype)init __unavailable;
 
 @end
+
+NS_ASSUME_NONNULL_END

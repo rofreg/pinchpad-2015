@@ -2,7 +2,6 @@
 //  TWTRTimelineType.h
 //  TwitterKit
 //
-//  Created by Steven Hepting on 3/30/15.
 //  Copyright (c) 2015 Twitter. All rights reserved.
 //
 
@@ -22,4 +21,8 @@ typedef NS_ENUM(NSUInteger, TWTRTimelineType) {
      *  Collection Timeline
      */
     TWTRTimelineTypeCollection,
+    /**
+     *  List Timeline
+     */
+    TWTRTimelineTypeList,
 };
