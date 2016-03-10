@@ -26,7 +26,7 @@ DEPENDENCIES:
   - FLAnimatedImage (~> 1.0)
   - Locksmith
   - ReachabilitySwift (from `https://github.com/ashleymills/Reachability.swift`)
-  - SwiftyJSON (>= 2.2)
+  - SwiftyJSON
   - TMTumblrSDK (from `https://github.com/rofreg/TMTumblrSDK.git`)
 
 EXTERNAL SOURCES:
