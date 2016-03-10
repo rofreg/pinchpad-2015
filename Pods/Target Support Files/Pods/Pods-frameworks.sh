@@ -85,6 +85,7 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods/FLAnimatedImage.framework"
+  install_framework "Pods/Flurry_iOS_SDK.framework"
   install_framework "Pods/JXHTTP.framework"
   install_framework "Pods/Locksmith.framework"
   install_framework "Pods/ReachabilitySwift.framework"
@@ -94,6 +95,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/FLAnimatedImage.framework"
+  install_framework "Pods/Flurry_iOS_SDK.framework"
   install_framework "Pods/JXHTTP.framework"
   install_framework "Pods/Locksmith.framework"
   install_framework "Pods/ReachabilitySwift.framework"

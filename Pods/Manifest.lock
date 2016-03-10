@@ -1,5 +1,6 @@
 PODS:
   - FLAnimatedImage (1.0.12)
+  - Flurry-iOS-SDK/FlurrySDK (7.5.2)
   - JXHTTP (3.0.2)
   - Locksmith (2.0.8)
   - ReachabilitySwift (2.3.3)
@@ -24,6 +25,7 @@ PODS:
 
 DEPENDENCIES:
   - FLAnimatedImage (~> 1.0)
+  - Flurry-iOS-SDK/FlurrySDK
   - Locksmith
   - ReachabilitySwift (from `https://github.com/ashleymills/Reachability.swift`)
   - SwiftyJSON
@@ -45,6 +47,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  Flurry-iOS-SDK: 8c87c4eab6008184ad9f63afabd79ec0d109c82e
   JXHTTP: c37120f210cd2dfcb3470d70239f5253335e2f1a
   Locksmith: a8ed41ac4c06506ea8cb199d8ec8a8d3d108eb2a
   ReachabilitySwift: e0f6b6f280effb47731acfaaa2d5ffe223703793

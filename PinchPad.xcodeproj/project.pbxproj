@@ -29,7 +29,6 @@
 		00E53C781AA3DC4F008E441E /* TWTRComposer+ProgrammaticPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E53C771AA3DC4F008E441E /* TWTRComposer+ProgrammaticPost.swift */; };
 		00E978C51B13835D004EB3F4 /* PPMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E978C41B13835D004EB3F4 /* PPMenuViewController.swift */; };
 		00E978C71B13CB00004EB3F4 /* PPAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E978C61B13CB00004EB3F4 /* PPAppConfiguration.swift */; };
-		00F171D31B1A22B7008BE560 /* libFlurry_6.5.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00F171D21B1A22B7008BE560 /* libFlurry_6.5.0.a */; };
 		00F171D51B1A22D5008BE560 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00F171D41B1A22D5008BE560 /* Security.framework */; };
 		00F171D71B1A22DA008BE560 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00F171D61B1A22DA008BE560 /* SystemConfiguration.framework */; };
 		00F75E131B16948E006279B0 /* ImagePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F75E121B16948E006279B0 /* ImagePreviewViewController.swift */; };
@@ -62,8 +61,6 @@
 		00E53C771AA3DC4F008E441E /* TWTRComposer+ProgrammaticPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TWTRComposer+ProgrammaticPost.swift"; sourceTree = "<group>"; };
 		00E978C41B13835D004EB3F4 /* PPMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPMenuViewController.swift; sourceTree = "<group>"; };
 		00E978C61B13CB00004EB3F4 /* PPAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPAppConfiguration.swift; sourceTree = "<group>"; };
-		00F171D01B1A22B7008BE560 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
-		00F171D21B1A22B7008BE560 /* libFlurry_6.5.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_6.5.0.a; sourceTree = "<group>"; };
 		00F171D41B1A22D5008BE560 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		00F171D61B1A22DA008BE560 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		00F75E121B16948E006279B0 /* ImagePreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePreviewViewController.swift; sourceTree = "<group>"; };
@@ -80,7 +77,6 @@
 				00F171D71B1A22DA008BE560 /* SystemConfiguration.framework in Frameworks */,
 				00F171D51B1A22D5008BE560 /* Security.framework in Frameworks */,
 				000B17BF1B10FC0200D46571 /* TwitterCore.framework in Frameworks */,
-				00F171D31B1A22B7008BE560 /* libFlurry_6.5.0.a in Frameworks */,
 				005DCAAC1A805A9D00E55C0D /* TwitterKit.framework in Frameworks */,
 				005DCAB11A805B5800E55C0D /* Crashlytics.framework in Frameworks */,
 				005DCAAE1A805A9D00E55C0D /* Fabric.framework in Frameworks */,
@@ -112,7 +108,6 @@
 		005DCA821A805A3900E55C0D /* PinchPad */ = {
 			isa = PBXGroup;
 			children = (
-				00F171CF1B1A22B7008BE560 /* Flurry */,
 				005DCA851A805A3900E55C0D /* AppDelegate.swift */,
 				005DCA8A1A805A3900E55C0D /* ViewController.swift */,
 				00C3E37C1AE9B4CB005D8375 /* AuthManager.swift */,
@@ -143,15 +138,6 @@
 				005DCAB31A805C8F00E55C0D /* Configuration.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		00F171CF1B1A22B7008BE560 /* Flurry */ = {
-			isa = PBXGroup;
-			children = (
-				00F171D01B1A22B7008BE560 /* Flurry.h */,
-				00F171D21B1A22B7008BE560 /* libFlurry_6.5.0.a */,
-			);
-			path = Flurry;
 			sourceTree = "<group>";
 		};
 		3BE3E580DFEC8E60254E97A7 /* Frameworks */ = {
