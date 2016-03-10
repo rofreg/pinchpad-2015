@@ -29,13 +29,12 @@ extension TWTRComposer {
                 print("Error uploading image: \(e)")
             } else {
                 // Parse result from JSON
-                var parseError: NSError?
                 let parsedObject: AnyObject?
                 do {
                     parsedObject = try NSJSONSerialization.JSONObjectWithData(uploadResultData!,
                                         options: NSJSONReadingOptions.AllowFragments)
                 } catch let error as NSError {
-                    parseError = error
+                    print(error)
                     parsedObject = nil
                 } catch {
                     fatalError()
