@@ -91,7 +91,7 @@ class AuthManager {
                         if (blogs.count == 1){
                             // Automatically select the user's first blog
                             tumblrInfoToPersist["Blog"] = blogs[0]["name"].string!
-                            try? Locksmith.updateData(tumblrInfoToPersist, forUserAccount:"Tumblr")
+                            try! Locksmith.updateData(tumblrInfoToPersist, forUserAccount:"Tumblr")
                             NSNotificationCenter.defaultCenter().postNotificationName("PPAuthChanged", object: nil)
                         } else if (blogs.count > 1){
                             // Have the user pick manually if they have 2+ blogs
@@ -102,7 +102,7 @@ class AuthManager {
                                 let button = UIAlertAction(title: blog["name"].string!, style: .Default, handler: {
                                     (alert: UIAlertAction!) -> Void in
                                     tumblrInfoToPersist["Blog"] = blog["name"].string!
-                                    try? Locksmith.updateData(tumblrInfoToPersist, forUserAccount:"Tumblr")
+                                    try! Locksmith.updateData(tumblrInfoToPersist, forUserAccount:"Tumblr")
                                     NSNotificationCenter.defaultCenter().postNotificationName("PPAuthChanged", object: nil)
                                 })
                                 blogChoiceMenu.addAction(button)
@@ -111,7 +111,7 @@ class AuthManager {
                             // Add a cancel button
                             let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
                                 (alert: UIAlertAction!) -> Void in
-                                try? Locksmith.deleteDataForUserAccount("Tumblr")
+                                try! Locksmith.deleteDataForUserAccount("Tumblr")
                             })
                             blogChoiceMenu.addAction(cancelAction)
                             
@@ -138,7 +138,7 @@ class AuthManager {
                 // Clear Tumblr SDK vars and keychain
                 TMAPIClient.sharedInstance().OAuthToken = ""
                 TMAPIClient.sharedInstance().OAuthTokenSecret = ""
-                try? Locksmith.deleteDataForUserAccount("Tumblr")
+                try! Locksmith.deleteDataForUserAccount("Tumblr")
             } else {
                 return
             }
@@ -260,10 +260,7 @@ class AuthManager {
                     sketch.syncError = true
                 }
                 sketch.syncStarted = nil
-                do {
-                    try Sketch.managedContext().save()
-                } catch _ {
-                }
+                try! Sketch.managedContext().save()
             }
         } else if (service == .Tumblr) {
             TMAPIClient.sharedInstance().photo(AuthManager.identifier(.Tumblr), imageNSDataArray: [sketch.imageData], contentTypeArray: [imageType], fileNameArray: [(imageType == "image/gif" ? "sketch.gif" : "sketch.png")], parameters: ["tags":"pinchpad,hourly comics", "link":"http://www.pinchpad.com"], callback: { (response: AnyObject!, error: NSError!) -> Void in
@@ -283,7 +280,7 @@ class AuthManager {
                     sketch.syncError = true
                 }
                 sketch.syncStarted = nil
-                try? Sketch.managedContext().save()
+                try! Sketch.managedContext().save()
             })
         }
     }
