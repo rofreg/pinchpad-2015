@@ -29,30 +29,30 @@ class PPCanvas: UIView{
     // MARK: Touch handling
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if let touch = getActiveTouch(touches){
+        for touch in getActiveTouches(touches){
             addPointToActiveStroke(touch)
         }
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if let touch = getActiveTouch(touches){
+        for touch in getActiveTouches(touches){
             self.touchEvents++
             addPointToActiveStroke(touch)
-            
-            // Only redraw the active stroke once every .05s or so
-            if (!self.activeStroke!.isDot()){
-                self.setNeedsDisplay()
-            }
+        }
+        
+        // Only redraw the active stroke once every .05s or so
+        if (!self.activeStroke!.isDot()){
+            self.setNeedsDisplay()
         }
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if let touch = getActiveTouch(touches){
+        for touch in getActiveTouches(touches){
             addPointToActiveStroke(touch, finalTouch: true)
-            strokes.append(self.activeStroke!)
-            self.activeStroke = nil
-            self.setNeedsDisplay()
         }
+        strokes.append(self.activeStroke!)
+        self.activeStroke = nil
+        self.setNeedsDisplay()
     }
     
     override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
@@ -65,9 +65,14 @@ class PPCanvas: UIView{
     // MARK: Touch tracking helper functions
 
     // Get the active drawing point, with handling for whether a stylus is connected or not
-    func getActiveTouch(touches: NSSet) -> UITouch?{
+    func getActiveTouches(touches: NSSet, withEvent event: UIEvent? = nil) -> [UITouch]{
         let touch = touches.anyObject() as! UITouch
-        return touch
+        
+        if let coalescedTouches = event?.coalescedTouchesForTouch(touch) {
+            return coalescedTouches
+        } else {
+            return [touch]
+        }
     }
     
     // Initialize the active stroke if needed, then add another point to the stroke
