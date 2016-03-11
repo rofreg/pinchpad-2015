@@ -18,16 +18,19 @@ import Flurry_iOS_SDK
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
+    var initialLaunch = true
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Load Twitter and Tumblr info
-        AuthManager.start()
+        // Log any crashes to Crashlytics
         Fabric.with([Twitter(), Crashlytics()])
         
         // Start Flurry
         if let config = NSDictionary(contentsOfFile: NSBundle.mainBundle().pathForResource("Configuration", ofType:"plist")!), flurryAPIKey = config["FlurryAPI"] as? String{
             Flurry.startSession(flurryAPIKey)
         }
+        
+        // Load Twitter and Tumblr info
+        AuthManager.start()
         
         // Try syncing whenever the network status changes
         if let reachability = try? Reachability.reachabilityForInternetConnection(){
@@ -58,8 +61,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationDidBecomeActive(application: UIApplication) {
-        // Try syncing whenever we re-open the app
-        AuthManager.sync()
+        // Try syncing whenever we re-open the app from the background
+        if (!initialLaunch){
+            AuthManager.sync()
+        }
+        
+        initialLaunch = false
     }
     
     
@@ -90,7 +97,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             error = error1
             coordinator = nil
             // Report any error we got.
-//            let dict = NSMutableDictionary()
             var dict = [NSObject : AnyObject]()
             dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
             dict[NSLocalizedFailureReasonErrorKey] = failureReason
