@@ -76,10 +76,7 @@ class Sketch: NSManagedObject {
         for frame in self.animationFrames{
             Sketch.managedContext().deleteObject(frame)
         }
-        do {
-            try Sketch.managedContext().save()
-        } catch _ {
-        }
+        try! Sketch.managedContext().save()
     }
     
     func imageType() -> String{

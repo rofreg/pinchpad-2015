@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		00062D761A854A9F008CD159 /* PPCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00062D751A854A9F008CD159 /* PPCanvas.swift */; };
-		000B17BF1B10FC0200D46571 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 000B17BC1B10FC0200D46571 /* TwitterCore.framework */; };
 		002FF2EA1AEADBC60070BAA0 /* Sketch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FF2E91AEADBC60070BAA0 /* Sketch.swift */; };
 		003ABDF21A84653200F51534 /* PPInfiniteScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003ABDF11A84653200F51534 /* PPInfiniteScrollView.swift */; };
 		005DCA861A805A3900E55C0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DCA851A805A3900E55C0D /* AppDelegate.swift */; };
@@ -17,10 +16,6 @@
 		005DCA8E1A805A3900E55C0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 005DCA8C1A805A3900E55C0D /* Main.storyboard */; };
 		005DCA901A805A3900E55C0D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 005DCA8F1A805A3900E55C0D /* Images.xcassets */; };
 		005DCA931A805A3900E55C0D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 005DCA911A805A3900E55C0D /* LaunchScreen.xib */; };
-		005DCAAC1A805A9D00E55C0D /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005DCAA91A805A9D00E55C0D /* TwitterKit.framework */; };
-		005DCAAD1A805A9D00E55C0D /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 005DCAAA1A805A9D00E55C0D /* TwitterKitResources.bundle */; };
-		005DCAAE1A805A9D00E55C0D /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005DCAAB1A805A9D00E55C0D /* Fabric.framework */; };
-		005DCAB11A805B5800E55C0D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005DCAB01A805B5800E55C0D /* Crashlytics.framework */; };
 		005DCAB41A805C8F00E55C0D /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 005DCAB31A805C8F00E55C0D /* Configuration.plist */; };
 		006BC1551A8839FD003AA87D /* PPStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BC1541A8839FD003AA87D /* PPStroke.swift */; };
 		006BC1571A884177003AA87D /* PPToolConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BC1561A884177003AA87D /* PPToolConfigurationViewController.swift */; };
@@ -37,7 +32,6 @@
 
 /* Begin PBXFileReference section */
 		00062D751A854A9F008CD159 /* PPCanvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPCanvas.swift; sourceTree = "<group>"; };
-		000B17BC1B10FC0200D46571 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
 		002FF2E91AEADBC60070BAA0 /* Sketch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sketch.swift; sourceTree = "<group>"; };
 		003ABDF11A84653200F51534 /* PPInfiniteScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPInfiniteScrollView.swift; sourceTree = "<group>"; };
 		005DCA801A805A3900E55C0D /* PinchPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinchPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,10 +42,6 @@
 		005DCA8D1A805A3900E55C0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		005DCA8F1A805A3900E55C0D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		005DCA921A805A3900E55C0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		005DCAA91A805A9D00E55C0D /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = SOURCE_ROOT; };
-		005DCAAA1A805A9D00E55C0D /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = SOURCE_ROOT; };
-		005DCAAB1A805A9D00E55C0D /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
-		005DCAB01A805B5800E55C0D /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		005DCAB31A805C8F00E55C0D /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
 		006BC1541A8839FD003AA87D /* PPStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPStroke.swift; sourceTree = "<group>"; };
 		006BC1561A884177003AA87D /* PPToolConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPToolConfigurationViewController.swift; sourceTree = "<group>"; };
@@ -76,10 +66,6 @@
 			files = (
 				00F171D71B1A22DA008BE560 /* SystemConfiguration.framework in Frameworks */,
 				00F171D51B1A22D5008BE560 /* Security.framework in Frameworks */,
-				000B17BF1B10FC0200D46571 /* TwitterCore.framework in Frameworks */,
-				005DCAAC1A805A9D00E55C0D /* TwitterKit.framework in Frameworks */,
-				005DCAB11A805B5800E55C0D /* Crashlytics.framework in Frameworks */,
-				005DCAAE1A805A9D00E55C0D /* Fabric.framework in Frameworks */,
 				18240D6542BDDEAA38E1C3AD /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,12 +131,7 @@
 			children = (
 				00F171D61B1A22DA008BE560 /* SystemConfiguration.framework */,
 				00F171D41B1A22D5008BE560 /* Security.framework */,
-				005DCAB01A805B5800E55C0D /* Crashlytics.framework */,
-				005DCAAB1A805A9D00E55C0D /* Fabric.framework */,
 				DCB8F4C387E296D6F76285AC /* Pods.framework */,
-				000B17BC1B10FC0200D46571 /* TwitterCore.framework */,
-				005DCAA91A805A9D00E55C0D /* TwitterKit.framework */,
-				005DCAAA1A805A9D00E55C0D /* TwitterKitResources.bundle */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -227,7 +208,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				005DCAAD1A805A9D00E55C0D /* TwitterKitResources.bundle in Resources */,
 				005DCAB41A805C8F00E55C0D /* Configuration.plist in Resources */,
 				005DCA8E1A805A3900E55C0D /* Main.storyboard in Resources */,
 				005DCA931A805A3900E55C0D /* LaunchScreen.xib in Resources */,
@@ -249,7 +229,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run 5471874bd816bcc9bb379c6869cfcf9ebf36b54b f073d4b928a743d390fcb5bf5972f113c4fd47fd343eeda567936ecf56bebeda";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 5471874bd816bcc9bb379c6869cfcf9ebf36b54b f073d4b928a743d390fcb5bf5972f113c4fd47fd343eeda567936ecf56bebeda";
 		};
 		1D148290B2B58DD1B0CE33F0 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -437,10 +417,7 @@
 				INFOPLIST_FILE = PinchPad/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/PinchPad/Flurry",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rofreg.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -464,10 +441,7 @@
 				INFOPLIST_FILE = PinchPad/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/PinchPad/Flurry",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rofreg.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

@@ -1,4 +1,7 @@
 PODS:
+  - Crashlytics (3.7.0):
+    - Fabric (~> 1.6.3)
+  - Fabric (1.6.7)
   - FLAnimatedImage (1.0.12)
   - Flurry-iOS-SDK/FlurrySDK (7.5.2)
   - JXHTTP (3.0.2)
@@ -22,14 +25,21 @@ PODS:
     - TMTumblrSDK/Core
   - TMTumblrSDK/Core (4.0.3):
     - Spectacles (~> 1.0)
+  - TwitterCore (1.15.2):
+    - Fabric
+  - TwitterKit (1.15.2):
+    - TwitterCore (= 1.15.2)
 
 DEPENDENCIES:
+  - Crashlytics
+  - Fabric
   - FLAnimatedImage (~> 1.0)
   - Flurry-iOS-SDK/FlurrySDK
   - Locksmith
   - ReachabilitySwift (from `https://github.com/ashleymills/Reachability.swift`)
   - SwiftyJSON
   - TMTumblrSDK (from `https://github.com/rofreg/TMTumblrSDK.git`)
+  - TwitterKit
 
 EXTERNAL SOURCES:
   ReachabilitySwift:
@@ -46,6 +56,8 @@ CHECKOUT OPTIONS:
     :git: https://github.com/rofreg/TMTumblrSDK.git
 
 SPEC CHECKSUMS:
+  Crashlytics: c3a2333dea9e2733d2777f730910321fc9e25c0d
+  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   Flurry-iOS-SDK: 8c87c4eab6008184ad9f63afabd79ec0d109c82e
   JXHTTP: c37120f210cd2dfcb3470d70239f5253335e2f1a
@@ -54,5 +66,7 @@ SPEC CHECKSUMS:
   Spectacles: 8dc60711140320653724560e2d6bbb8a8f0940e4
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   TMTumblrSDK: a9ba0761d098cf6389cfbbe8d915736f01758609
+  TwitterCore: 9ccfbba71543c712f55997ac18ffc85cf7d85e7b
+  TwitterKit: f2f7533482420f3bdcf8da44c775e28e82e09832
 
 COCOAPODS: 0.39.0
