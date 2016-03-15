@@ -15,13 +15,7 @@ enum PPToolType{
 
 class PPToolConfiguration  {
     // Set up a singleton instance
-    // TODO: there's a less verbose format for this in Swift 1.2
-    class var sharedInstance: PPToolConfiguration {
-        struct Static {
-            static let instance: PPToolConfiguration = PPToolConfiguration()
-        }
-        return Static.instance
-    }
+    static let sharedInstance = PPToolConfiguration()
     
     // List our tool properties
     // Changing any of these properties should send out an NSNotification
@@ -34,19 +28,14 @@ class PPToolConfiguration  {
     var width: CGFloat {
         set {
             self.privateWidth = newValue
+            NSNotificationCenter.defaultCenter().postNotificationName("PPToolConfigurationChanged", object: self)
         }
         get {
             // Eraser is automatically wider than the corresponding brush/marker
-            if (self.tool == .Eraser){
-                return self.privateWidth * 5
-            } else {
-                return self.privateWidth
-            }
+            return self.privateWidth * (self.tool == .Eraser ? 5 : 1)
         }
     }
-    private var privateWidth: CGFloat = 3.0 {
-        didSet { NSNotificationCenter.defaultCenter().postNotificationName("PPToolConfigurationChanged", object: self) }
-    }
+    private var privateWidth: CGFloat = 3.0
     var pressure: CGFloat? {
         didSet { NSNotificationCenter.defaultCenter().postNotificationName("PPToolConfigurationChanged", object: self) }
     }

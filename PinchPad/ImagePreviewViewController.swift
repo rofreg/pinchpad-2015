@@ -10,13 +10,10 @@ import UIKit
 import FLAnimatedImage
 
 class ImagePreviewViewController : UIViewController{
-    let tapRecognizer = UITapGestureRecognizer()
     @IBOutlet var imageView: FLAnimatedImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tapRecognizer.addTarget(self, action: Selector("dismiss"))
-        self.view.addGestureRecognizer(tapRecognizer)
         
         // Load animation preview
         if (Sketch.animationFrameCount > 0){
@@ -28,7 +25,7 @@ class ImagePreviewViewController : UIViewController{
         }
     }
     
-    func dismiss(){
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 }
