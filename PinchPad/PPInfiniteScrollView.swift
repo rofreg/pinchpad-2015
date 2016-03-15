@@ -33,7 +33,7 @@ class PPInfiniteScrollView: UIScrollView, UIScrollViewDelegate{
         */
         
         // Only scroll with two fingers, plz
-        self.panGestureRecognizer.minimumNumberOfTouches = 2;
+        self.panGestureRecognizer.minimumNumberOfTouches = 2
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("clear"), name: "PPResizeCanvas", object: nil)
     }
@@ -52,7 +52,7 @@ class PPInfiniteScrollView: UIScrollView, UIScrollViewDelegate{
             self.contentSize = CGSize(width:CGRectGetWidth(frame), height: CGRectGetHeight(frame))
         }
         
-        self.contentView.frame.size = self.contentSize;
+        self.contentView.frame.size = self.contentSize
     }
     
     func clear(){

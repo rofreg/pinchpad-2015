@@ -64,7 +64,7 @@ class PPStroke{
         // Do not add this point if it's too close to the last point
         if let lastPoint = self.points.last where (lastPoint.location - location).length() < 3 {
             // TODO: handle pressure changes (i.e. I stayed still, but pressed down harder)
-            return;
+            return
         }
         
         self.points.append(PPPoint(location: location, pressure: pressure))
@@ -127,7 +127,7 @@ class PPStroke{
             // Draw a dot at the starting point
             // Line stroke thickness will take care of the actual "radius"
             path.addArcWithCenter(points.first!.location, radius: 0.01, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
-            return path;
+            return path
         }
         
         path.moveToPoint(self.points[0].location)
