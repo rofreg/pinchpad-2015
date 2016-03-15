@@ -6,14 +6,14 @@
 //
 //
 
-enum PPToolType{
+enum PPToolType: Int {
     case Brush
     case Marker
     case Pen
     case Eraser
 }
 
-class PPToolConfiguration  {
+class PPToolConfiguration {
     // Set up a singleton instance
     static let sharedInstance = PPToolConfiguration()
     
