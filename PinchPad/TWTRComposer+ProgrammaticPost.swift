@@ -7,6 +7,7 @@
 //
 
 import TwitterKit
+import SwiftyJSON
 
 extension TWTRComposer {
     func postStatus(statusText: String, imageData: NSData, completion: (success: Bool) -> Void){
@@ -14,7 +15,6 @@ extension TWTRComposer {
         
         let strUploadUrl = "https://upload.twitter.com/1.1/media/upload.json"
         let strStatusUrl = "https://api.twitter.com/1.1/statuses/update.json"
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         let twAPIClient = Twitter.sharedInstance().APIClient
         var error: NSError?
         var parameters: Dictionary = Dictionary<String, String>()
@@ -25,46 +25,30 @@ extension TWTRComposer {
         let twUploadRequest = twAPIClient.URLRequestWithMethod("POST", URL: strUploadUrl, parameters: parameters, error: &error)
         twAPIClient.sendTwitterRequest(twUploadRequest) {
             (uploadResponse, uploadResultData, uploadConnectionError) -> Void in
-            if let e = uploadConnectionError{
+            // If we encountered any errors, print and return
+            if let e = uploadConnectionError ?? error {
                 print("Error uploading image: \(e)")
-            } else {
-                // Parse result from JSON
-                let parsedObject: AnyObject?
-                do {
-                    parsedObject = try NSJSONSerialization.JSONObjectWithData(uploadResultData!,
-                                        options: NSJSONReadingOptions.AllowFragments)
-                } catch let error as NSError {
-                    print(error)
-                    parsedObject = nil
-                } catch {
-                    fatalError()
-                }
-                
-                if let json = parsedObject as? NSDictionary {
-                    let media_id = json["media_id_string"] as! String
-                    
-                    // We uploaded our image successfully! Now post a status with a link to the image.
-                    parameters = Dictionary<String, String>()
-                    parameters["status"] = statusText
-                    parameters["media_ids"] = media_id
-                    let twStatusRequest = twAPIClient.URLRequestWithMethod("POST", URL: strStatusUrl, parameters: parameters, error: &error)
-                
-                    twAPIClient.sendTwitterRequest(twStatusRequest) { (statusResponse, statusData, statusConnectionError) -> Void in
-                        if let e = statusConnectionError{
-                            print("Error posting status: \(e)")
-                            completion(success:false)
-                        } else {
-                            completion(success:true)
-                        }
-                    } // completion
-                } else {
-                    print("Did not get json response")
-                    print(parsedObject)
-                    completion(success:false)
-                }
+                return completion(success: false)
             }
-        } // completion
             
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            // Parse result from JSON
+            guard let rawData = uploadResultData, json = JSON(data: rawData).dictionaryObject, media_id = json["media_id_string"] as? String else {
+                print("Did not get valid JSON response")
+                print(uploadResultData)
+                return completion(success:false)
+            }
+            
+            // We uploaded our image successfully! Now post a status with a link to the image.
+            parameters = ["status": statusText, "media_ids": media_id]
+            let twStatusRequest = twAPIClient.URLRequestWithMethod("POST", URL: strStatusUrl, parameters: parameters, error: &error)
+            twAPIClient.sendTwitterRequest(twStatusRequest) { (statusResponse, statusData, statusConnectionError) -> Void in
+                if let e = statusConnectionError ?? error {
+                    print("Error posting status: \(e)")
+                    return completion(success:false)
+                }
+                
+                completion(success:true)
+            }
+        }
     }
 }
