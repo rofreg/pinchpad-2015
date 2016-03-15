@@ -25,10 +25,10 @@ PODS:
     - TMTumblrSDK/Core
   - TMTumblrSDK/Core (4.0.3):
     - Spectacles (~> 1.0)
-  - TwitterCore (1.15.2):
+  - TwitterCore (1.15.3):
     - Fabric
-  - TwitterKit (1.15.2):
-    - TwitterCore (= 1.15.2)
+  - TwitterKit (1.15.3):
+    - TwitterCore (= 1.15.3)
 
 DEPENDENCIES:
   - Crashlytics
@@ -66,7 +66,7 @@ SPEC CHECKSUMS:
   Spectacles: 8dc60711140320653724560e2d6bbb8a8f0940e4
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   TMTumblrSDK: a9ba0761d098cf6389cfbbe8d915736f01758609
-  TwitterCore: 9ccfbba71543c712f55997ac18ffc85cf7d85e7b
-  TwitterKit: f2f7533482420f3bdcf8da44c775e28e82e09832
+  TwitterCore: cce24b3c798993ccde72787ea79ea9a478b284e4
+  TwitterKit: 43600f2d2848c227739efea5b2939585e69339c3
 
 COCOAPODS: 0.39.0
