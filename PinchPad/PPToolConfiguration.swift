@@ -9,6 +9,7 @@
 enum PPToolType{
     case Brush
     case Marker
+    case Pen
     case Eraser
 }
 

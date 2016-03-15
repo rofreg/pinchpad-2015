@@ -62,11 +62,9 @@ class PPStroke{
     // TODO: thin out number of points around slow tight curves?
     func addPoint(location: CGPoint, withPressure pressure: CGFloat){
         // Do not add this point if it's too close to the last point
-        if let lastPoint = self.points.last{
-            if (lastPoint.location - location).length() < 3 {
-                // TODO: handle pressure changes (i.e. I stayed still, but pressed down harder)
-                return;
-            }
+        if let lastPoint = self.points.last where (lastPoint.location - location).length() < 3 {
+            // TODO: handle pressure changes (i.e. I stayed still, but pressed down harder)
+            return;
         }
         
         self.points.append(PPPoint(location: location, pressure: pressure))
@@ -133,18 +131,14 @@ class PPStroke{
         }
         
         path.moveToPoint(self.points[0].location)
-        path.addLineToPoint(self.points[1].location)
+        path.addLineToPoint((self.points[0].location + self.points[1].location) * 0.5)
         
         // Generate any new segments with Catmull-Rom interpolation and connect them
-        for (var cpi = 1; cpi < self.points.count - 2; cpi++) {
-            var controlPoints = controlPointsForCatmullRomCurve(
-                self.points[cpi-1].location,
-                p1: self.points[cpi].location,
-                p2: self.points[cpi+1].location,
-                p3: self.points[cpi+2].location
-            )
-            
-            path.addCurveToPoint(controlPoints[3], controlPoint1: controlPoints[1], controlPoint2: controlPoints[2])
+        for (var cpi = 1; cpi < self.points.count - 1; cpi++) {
+            let currentPoint = self.points[cpi].location
+            let nextPoint = self.points[cpi+1].location
+            let nextMidpoint = (currentPoint + nextPoint) * 0.5
+            path.addQuadCurveToPoint(nextMidpoint, controlPoint: currentPoint)
         }
         
         if (!quickly){
@@ -296,28 +290,6 @@ class PPStroke{
         adjustment = adjustment * (Double(length) / adjustment.length())
         
         return [lineSegment.last! + adjustment, lineSegment.last! + (adjustment*(-1))]
-    }
-    
-
-    
-    func controlPointsForCatmullRomCurve(p0: CGPoint, p1: CGPoint, p2: CGPoint, p3:CGPoint) -> [CGPoint]{
-        let alpha = 0.5
-        
-        let d1 = (p1 - p0).length()
-        let d2 = (p2 - p1).length()
-        let d3 = (p3 - p2).length()
-        
-        var b1 = p2 * pow(d1, 2 * alpha)
-        b1 = b1 - (p0 * pow(d2, 2 * alpha))
-        b1 = b1 + (p1 * (2 * pow(d1, 2 * alpha) + 3 * pow(d1, alpha) * pow(d2, alpha) + pow(d2, 2 * alpha)))
-        b1 = b1 * (1.0 / (3 * pow(d1, alpha) * (pow(d1, alpha) + pow(d2, alpha))))
-        
-        var b2 = p1 * pow(d3, 2 * alpha)
-        b2 = b2 - (p3 * (pow(d2, 2 * alpha)))
-        b2 = b2 + (p2 * (2 * pow(d3, 2 * alpha) + 3 * pow(d3, alpha) * pow(d2, alpha) + pow(d2, 2 * alpha)))
-        b2 = b2 * (1.0 / (3 * pow(d3, alpha) * (pow(d3, alpha) + pow(d2, alpha))))
-        
-        return [p1, b1, b2, p2]
     }
 }
 

@@ -62,6 +62,9 @@ class PPToolConfigurationViewController: UIViewController{
                 PPToolConfiguration.sharedInstance.tool = PPToolType.Marker
                 break;
             case 2:
+                PPToolConfiguration.sharedInstance.tool = PPToolType.Pen
+                break;
+            case 3:
                 PPToolConfiguration.sharedInstance.tool = PPToolType.Eraser
                 break;
             default:
@@ -101,8 +104,10 @@ class PPToolConfigurationViewController: UIViewController{
             toolPicker.selectedSegmentIndex = 0
         } else if (tool == .Marker && toolPicker.selectedSegmentIndex != 1){
             toolPicker.selectedSegmentIndex = 1
-        } else if (tool == .Eraser && toolPicker.selectedSegmentIndex != 2){
+        } else if (tool == .Pen && toolPicker.selectedSegmentIndex != 2){
             toolPicker.selectedSegmentIndex = 2
+        } else if (tool == .Eraser && toolPicker.selectedSegmentIndex != 3){
+            toolPicker.selectedSegmentIndex = 3
         }
         
         // Update the color picker if the color changed
