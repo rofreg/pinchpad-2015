@@ -8,13 +8,7 @@
 
 class PPAppConfiguration {
     // Set up a singleton instance
-    // TODO: there's a less verbose format for this in Swift 1.2
-    class var sharedInstance: PPAppConfiguration {
-        struct Static {
-            static let instance: PPAppConfiguration = PPAppConfiguration()
-        }
-        return Static.instance
-    }
+    static let sharedInstance = PPAppConfiguration()
     
     var widerCanvas: Bool {
         set {
@@ -25,13 +19,7 @@ class PPAppConfiguration {
             NSNotificationCenter.defaultCenter().postNotificationName("PPResizeCanvas", object: self)
         }
         get {
-            let val: Bool? = NSUserDefaults.standardUserDefaults().boolForKey("widerCanvas")
-            
-            if let actualVal = val{
-                return actualVal
-            } else {
-                return false
-            }
+            return NSUserDefaults.standardUserDefaults().boolForKey("widerCanvas") ?? false
         }
     }
     

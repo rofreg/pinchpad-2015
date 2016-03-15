@@ -21,9 +21,9 @@ class PPMenuViewController : UIViewController{
     @IBOutlet var widerCanvasSwitch: UISwitch!
     @IBOutlet var clearButton: UIButton!
     
-    var disabledColor = UIColor(white: 0.2, alpha: 1.0)
-    var twitterColor = UIColor(red: 0/255.0, green: 176/255.0, blue: 237/255.0, alpha: 1.0)
-    var tumblrColor = UIColor(red: 52/255.0, green: 70/255.0, blue: 93/255.0, alpha: 1.0)
+    let disabledColor = UIColor(white: 0.2, alpha: 1.0)
+    let twitterColor = UIColor(red: 0/255.0, green: 176/255.0, blue: 237/255.0, alpha: 1.0)
+    let tumblrColor = UIColor(red: 52/255.0, green: 70/255.0, blue: 93/255.0, alpha: 1.0)
     
     override func viewDidLoad() {
         twitterButton.titleLabel?.numberOfLines = 2
@@ -42,36 +42,26 @@ class PPMenuViewController : UIViewController{
     }
     
     func refreshInfo(){
-        // Twitter
-        if (AuthManager.isLoggedIn(.Twitter)){
-            twitterButton.backgroundColor = twitterColor
-            let attrString = NSMutableAttributedString(string: "Connected as\n")
-            attrString.appendAttributedString(NSAttributedString(string: AuthManager.identifier(.Twitter)!, attributes: [NSFontAttributeName: UIFont.boldSystemFontOfSize(14)]))
-            twitterButton.setAttributedTitle(attrString, forState: .Normal)
-            twitterButton.alpha = 1.0
-        } else {
-            twitterButton.backgroundColor = disabledColor
-            twitterButton.setAttributedTitle(NSAttributedString(string: "Not connected"), forState: .Normal)
-            twitterButton.alpha = 0.3
-        }
-        
-        // Tumblr
-        if (AuthManager.isLoggedIn(.Tumblr)){
-            tumblrButton.backgroundColor = tumblrColor
-            let attrString = NSMutableAttributedString(string: "Connected as\n")
-            attrString.appendAttributedString(NSAttributedString(string: AuthManager.identifier(.Tumblr)!, attributes: [NSFontAttributeName: UIFont.boldSystemFontOfSize(14)]))
-            tumblrButton.setAttributedTitle(attrString, forState: .Normal)
-            tumblrButton.alpha = 1.0
-        } else {
-            tumblrButton.backgroundColor = disabledColor
-            tumblrButton.setAttributedTitle(NSAttributedString(string: "Not connected"), forState: .Normal)
-            tumblrButton.alpha = 0.3
+        // Update Twitter and Tumblr buttons
+        let integrations = [AuthManagerService.Twitter: twitterButton, AuthManagerService.Tumblr: tumblrButton]
+        for (service, button) in integrations{
+            if (AuthManager.isLoggedIn(service)){
+                button.backgroundColor = twitterColor
+                let attrString = NSMutableAttributedString(string: "Connected as\n")
+                attrString.appendAttributedString(NSAttributedString(string: AuthManager.identifier(service)!, attributes: [NSFontAttributeName: UIFont.boldSystemFontOfSize(14)]))
+                button.setAttributedTitle(attrString, forState: .Normal)
+                button.alpha = 1.0
+            } else {
+                button.backgroundColor = disabledColor
+                button.setAttributedTitle(NSAttributedString(string: "Not connected"), forState: .Normal)
+                button.alpha = 0.3
+            }
         }
         
         // Animation info
         frameLengthStepper.value = PPAppConfiguration.sharedInstance.frameLength
         let frameDuration = String(format: "%.1f", frameLengthStepper.value)
-        if (CGRectGetWidth(UIScreen.mainScreen().bounds) <= 320){
+        if (UIScreen.mainScreen().bounds.width <= 320){
             frameLengthLabel.text = "\(frameDuration)s"
         } else {
             frameLengthLabel.text = "Show for \(frameDuration)s"
@@ -107,19 +97,13 @@ class PPMenuViewController : UIViewController{
         newItem.createdAt = NSDate()
         newItem.imageData = (self.parentViewController as! ViewController).canvas.contentView.asNSData()
         newItem.duration = PPAppConfiguration.sharedInstance.frameLength
-        do {
-            try Sketch.managedContext().save()
-        } catch _ {
-        }
+        _ = try? Sketch.managedContext().save()
     }
     
     @IBAction func removeFrame(){
         if let sketch = Sketch.animationFrames.last{
             Sketch.managedContext().deleteObject(sketch)
-            do {
-                try Sketch.managedContext().save()
-            } catch _ {
-            }
+            _ = try? Sketch.managedContext().save()
         }
     }
     
