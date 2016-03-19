@@ -1,14 +1,14 @@
 //
-//  PPAppConfiguration.swift
+//  AppConfiguration.swift
 //  PinchPad
 //
 //  Created by Ryan Laughlin on 5/25/15.
 //
 //
 
-class PPAppConfiguration {
+class AppConfiguration {
     // Set up a singleton instance
-    static let sharedInstance = PPAppConfiguration()
+    static let sharedInstance = AppConfiguration()
     
     var widerCanvas: Bool {
         set {

@@ -11,6 +11,15 @@ enum PPToolType: Int {
     case Marker
     case Pen
     case Eraser
+    
+    func toStrokeType() -> Stroke.Type{
+        switch self{
+        case .Brush: return BrushStroke.self
+        case .Marker: return Stroke.self
+        case .Pen: return PenStroke.self
+        case .Eraser: return EraserStroke.self
+        }
+    }
 }
 
 class PPToolConfiguration {

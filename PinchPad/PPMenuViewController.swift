@@ -59,7 +59,7 @@ class PPMenuViewController : UIViewController{
         }
         
         // Animation info
-        frameLengthStepper.value = PPAppConfiguration.sharedInstance.frameLength
+        frameLengthStepper.value = AppConfiguration.sharedInstance.frameLength
         let frameDuration = String(format: "%.1f", frameLengthStepper.value)
         if (UIScreen.mainScreen().bounds.width <= 320){
             frameLengthLabel.text = "\(frameDuration)s"
@@ -74,7 +74,7 @@ class PPMenuViewController : UIViewController{
         removeFrameButton.enabled = animationStarted
     
         // Wider canvas toggle
-        widerCanvasSwitch.setOn(PPAppConfiguration.sharedInstance.widerCanvas, animated: false)
+        widerCanvasSwitch.setOn(AppConfiguration.sharedInstance.widerCanvas, animated: false)
     }
     
     
@@ -89,14 +89,14 @@ class PPMenuViewController : UIViewController{
     }
     
     @IBAction func frameLengthChange(){
-        PPAppConfiguration.sharedInstance.frameLength = frameLengthStepper.value
+        AppConfiguration.sharedInstance.frameLength = frameLengthStepper.value
     }
     
     @IBAction func addFrame(){
         let newItem = NSEntityDescription.insertNewObjectForEntityForName("Sketch", inManagedObjectContext: Sketch.managedContext()) as! Sketch
         newItem.createdAt = NSDate()
         newItem.imageData = (self.parentViewController as! ViewController).canvas.contentView.asNSData()
-        newItem.duration = PPAppConfiguration.sharedInstance.frameLength
+        newItem.duration = AppConfiguration.sharedInstance.frameLength
         _ = try? Sketch.managedContext().save()
     }
     
@@ -108,7 +108,7 @@ class PPMenuViewController : UIViewController{
     }
     
     @IBAction func widerCanvasToggle(sender: UISwitch){
-        PPAppConfiguration.sharedInstance.widerCanvas = sender.on
+        AppConfiguration.sharedInstance.widerCanvas = sender.on
     }
     
     @IBAction func clearCanvas(){

@@ -9,9 +9,9 @@
 import UIKit
 
 class PPCanvas: UIView{
-    var strokes = [PPStroke]()
-    var redoStrokes = [PPStroke]()
-    var activeStroke: PPStroke?
+    var strokes = [Stroke]()
+    var redoStrokes = [Stroke]()
+    var activeStroke: Stroke?
     var canvasThusFar: UIImage?
     var canvasAfterLastStroke: UIImage?
     var touchEvents = 0
@@ -80,17 +80,15 @@ class PPCanvas: UIView{
     func addPointToActiveStroke(touch: UITouch, finalTouch: Bool = false){
         // Start a stroke if there's not an ongoing stroke already
         if (self.activeStroke == nil){
-            self.activeStroke = PPStroke(tool: PPToolConfiguration.sharedInstance.tool, width: PPToolConfiguration.sharedInstance.width, color: PPToolConfiguration.sharedInstance.color)
+            self.activeStroke = PPToolConfiguration.sharedInstance.tool.toStrokeType()
+                .init(width: PPToolConfiguration.sharedInstance.width,
+                    color: PPToolConfiguration.sharedInstance.color)
         }
         
-        // Report pressure if using a stylus
-        if let p = PPToolConfiguration.sharedInstance.pressure {
-            self.activeStroke!.addPoint(touch, withPressure: p, inView:self)
-        } else if (finalTouch){
-            self.activeStroke!.addPoint(touch, withPressure: 0.01, inView:self)
-        } else {
-            self.activeStroke!.addPoint(touch, inView:self)
-        }
+        // Add point, with pressure data if available
+        self.activeStroke!.addPoint(touch,
+            inView:self,
+            withPressure: PPToolConfiguration.sharedInstance.pressure)
     }
 
     
@@ -99,8 +97,8 @@ class PPCanvas: UIView{
     func clear(){
         self.canvasThusFar = nil
         self.canvasAfterLastStroke = nil
-        self.strokes = [PPStroke]()
-        self.redoStrokes = [PPStroke]()
+        self.strokes = [Stroke]()
+        self.redoStrokes = [Stroke]()
         self.setNeedsDisplay()
     }
     

@@ -82,9 +82,9 @@ class PPToolConfigurationViewController: UIViewController{
     
     func previewStroke(tool: PPToolType? = PPToolConfiguration.sharedInstance.tool,
         width: CGFloat? = PPToolConfiguration.sharedInstance.width,
-        color: UIColor? = PPToolConfiguration.sharedInstance.color) -> PPStroke{
+        color: UIColor? = PPToolConfiguration.sharedInstance.color) -> Stroke{
         
-        let stroke = PPStroke(tool: tool, width: width, color: color)
+        let stroke = Stroke(width: width, color: color)
             
         // Construct a sample squiggle
         let windowSize = previewWindow!.frame.size.height
