@@ -23,7 +23,7 @@
 		00C0BF311C9DA8F100842299 /* EraserStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C0BF301C9DA8F100842299 /* EraserStroke.swift */; };
 		00C0BF331C9DB68300842299 /* BrushStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C0BF321C9DB68300842299 /* BrushStroke.swift */; };
 		00C0BF351C9DB6D700842299 /* PenStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C0BF341C9DB6D700842299 /* PenStroke.swift */; };
-		00C0BF371C9DC13600842299 /* VariableStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C0BF361C9DC13600842299 /* VariableStroke.swift */; };
+		00C0BF3F1C9DCC4D00842299 /* VariableStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C0BF3E1C9DCC4D00842299 /* VariableStroke.swift */; };
 		00C3E37D1AE9B4CB005D8375 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C3E37C1AE9B4CB005D8375 /* AuthManager.swift */; };
 		00E53C781AA3DC4F008E441E /* TWTRComposer+ProgrammaticPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E53C771AA3DC4F008E441E /* TWTRComposer+ProgrammaticPost.swift */; };
 		00E978C51B13835D004EB3F4 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E978C41B13835D004EB3F4 /* MenuViewController.swift */; };
@@ -54,7 +54,7 @@
 		00C0BF301C9DA8F100842299 /* EraserStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EraserStroke.swift; sourceTree = "<group>"; };
 		00C0BF321C9DB68300842299 /* BrushStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrushStroke.swift; sourceTree = "<group>"; };
 		00C0BF341C9DB6D700842299 /* PenStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PenStroke.swift; sourceTree = "<group>"; };
-		00C0BF361C9DC13600842299 /* VariableStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VariableStroke.swift; path = ../VariableStroke.swift; sourceTree = "<group>"; };
+		00C0BF3E1C9DCC4D00842299 /* VariableStroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VariableStroke.swift; sourceTree = "<group>"; };
 		00C3E37C1AE9B4CB005D8375 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		00E53C771AA3DC4F008E441E /* TWTRComposer+ProgrammaticPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TWTRComposer+ProgrammaticPost.swift"; sourceTree = "<group>"; };
 		00E978C41B13835D004EB3F4 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -103,22 +103,13 @@
 			isa = PBXGroup;
 			children = (
 				005DCA851A805A3900E55C0D /* AppDelegate.swift */,
-				005DCA8A1A805A3900E55C0D /* ViewController.swift */,
-				00E978C61B13CB00004EB3F4 /* AppConfig.swift */,
 				00C3E37C1AE9B4CB005D8375 /* AuthManager.swift */,
-				00E978C41B13835D004EB3F4 /* MenuViewController.swift */,
-				00F75E121B16948E006279B0 /* ImagePreviewViewController.swift */,
-				00A3AB961AA93E98004CEA19 /* ToolConfig.swift */,
-				006BC1561A884177003AA87D /* ToolConfigViewController.swift */,
-				003ABDF11A84653200F51534 /* InfiniteScrollView.swift */,
-				00062D751A854A9F008CD159 /* Canvas.swift */,
-				00C0BF2F1C9DA8DF00842299 /* Stroke types */,
-				002FF2E91AEADBC60070BAA0 /* Sketch.swift */,
-				00E53C771AA3DC4F008E441E /* TWTRComposer+ProgrammaticPost.swift */,
-				005DCA911A805A3900E55C0D /* LaunchScreen.xib */,
-				005DCA8C1A805A3900E55C0D /* Main.storyboard */,
-				005DCA8F1A805A3900E55C0D /* Images.xcassets */,
-				005DCA871A805A3900E55C0D /* PinchPad.xcdatamodeld */,
+				00C0BF3C1C9DCBB200842299 /* View controllers */,
+				00C0BF3D1C9DCBC700842299 /* Configuration singletons */,
+				00C0BF381C9DCB1300842299 /* Drawing classes */,
+				00C0BF391C9DCB5700842299 /* Core Data */,
+				00C0BF3B1C9DCB8900842299 /* UI */,
+				00C0BF3A1C9DCB6D00842299 /* Extensions */,
 				005DCA831A805A3900E55C0D /* Supporting Files */,
 				00AE91181A84506C00EAA84F /* PinchPad-Bridging-Header.h */,
 			);
@@ -134,16 +125,73 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		00C0BF2F1C9DA8DF00842299 /* Stroke types */ = {
+		00C0BF2F1C9DA8DF00842299 /* Stroke subclasses */ = {
 			isa = PBXGroup;
 			children = (
-				00C0BF2D1C9DA30700842299 /* Stroke.swift */,
-				00C0BF361C9DC13600842299 /* VariableStroke.swift */,
+				00C0BF3E1C9DCC4D00842299 /* VariableStroke.swift */,
 				00C0BF321C9DB68300842299 /* BrushStroke.swift */,
 				00C0BF341C9DB6D700842299 /* PenStroke.swift */,
 				00C0BF301C9DA8F100842299 /* EraserStroke.swift */,
 			);
-			name = "Stroke types";
+			name = "Stroke subclasses";
+			sourceTree = "<group>";
+		};
+		00C0BF381C9DCB1300842299 /* Drawing classes */ = {
+			isa = PBXGroup;
+			children = (
+				003ABDF11A84653200F51534 /* InfiniteScrollView.swift */,
+				00062D751A854A9F008CD159 /* Canvas.swift */,
+				00C0BF2D1C9DA30700842299 /* Stroke.swift */,
+				00C0BF2F1C9DA8DF00842299 /* Stroke subclasses */,
+			);
+			name = "Drawing classes";
+			sourceTree = "<group>";
+		};
+		00C0BF391C9DCB5700842299 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				002FF2E91AEADBC60070BAA0 /* Sketch.swift */,
+				005DCA871A805A3900E55C0D /* PinchPad.xcdatamodeld */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		00C0BF3A1C9DCB6D00842299 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				00E53C771AA3DC4F008E441E /* TWTRComposer+ProgrammaticPost.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		00C0BF3B1C9DCB8900842299 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				005DCA911A805A3900E55C0D /* LaunchScreen.xib */,
+				005DCA8C1A805A3900E55C0D /* Main.storyboard */,
+				005DCA8F1A805A3900E55C0D /* Images.xcassets */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		00C0BF3C1C9DCBB200842299 /* View controllers */ = {
+			isa = PBXGroup;
+			children = (
+				005DCA8A1A805A3900E55C0D /* ViewController.swift */,
+				00E978C41B13835D004EB3F4 /* MenuViewController.swift */,
+				006BC1561A884177003AA87D /* ToolConfigViewController.swift */,
+				00F75E121B16948E006279B0 /* ImagePreviewViewController.swift */,
+			);
+			name = "View controllers";
+			sourceTree = "<group>";
+		};
+		00C0BF3D1C9DCBC700842299 /* Configuration singletons */ = {
+			isa = PBXGroup;
+			children = (
+				00E978C61B13CB00004EB3F4 /* AppConfig.swift */,
+				00A3AB961AA93E98004CEA19 /* ToolConfig.swift */,
+			);
+			name = "Configuration singletons";
 			sourceTree = "<group>";
 		};
 		3BE3E580DFEC8E60254E97A7 /* Frameworks */ = {
@@ -313,8 +361,8 @@
 				00C0BF311C9DA8F100842299 /* EraserStroke.swift in Sources */,
 				00C0BF2E1C9DA30700842299 /* Stroke.swift in Sources */,
 				00E53C781AA3DC4F008E441E /* TWTRComposer+ProgrammaticPost.swift in Sources */,
+				00C0BF3F1C9DCC4D00842299 /* VariableStroke.swift in Sources */,
 				00A3AB971AA93E98004CEA19 /* ToolConfig.swift in Sources */,
-				00C0BF371C9DC13600842299 /* VariableStroke.swift in Sources */,
 				00E978C51B13835D004EB3F4 /* MenuViewController.swift in Sources */,
 				00C0BF351C9DB6D700842299 /* PenStroke.swift in Sources */,
 				00E978C71B13CB00004EB3F4 /* AppConfig.swift in Sources */,
