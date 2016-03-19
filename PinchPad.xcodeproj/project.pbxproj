@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		00062D761A854A9F008CD159 /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00062D751A854A9F008CD159 /* Canvas.swift */; };
 		002FF2EA1AEADBC60070BAA0 /* Sketch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FF2E91AEADBC60070BAA0 /* Sketch.swift */; };
-		003ABDF21A84653200F51534 /* InfiniteScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003ABDF11A84653200F51534 /* InfiniteScrollView.swift */; };
+		003ABDF21A84653200F51534 /* CanvasScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003ABDF11A84653200F51534 /* CanvasScrollView.swift */; };
 		005DCA861A805A3900E55C0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DCA851A805A3900E55C0D /* AppDelegate.swift */; };
 		005DCA891A805A3900E55C0D /* PinchPad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 005DCA871A805A3900E55C0D /* PinchPad.xcdatamodeld */; };
 		005DCA8B1A805A3900E55C0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DCA8A1A805A3900E55C0D /* ViewController.swift */; };
@@ -37,7 +37,7 @@
 /* Begin PBXFileReference section */
 		00062D751A854A9F008CD159 /* Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
 		002FF2E91AEADBC60070BAA0 /* Sketch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sketch.swift; sourceTree = "<group>"; };
-		003ABDF11A84653200F51534 /* InfiniteScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteScrollView.swift; sourceTree = "<group>"; };
+		003ABDF11A84653200F51534 /* CanvasScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasScrollView.swift; sourceTree = "<group>"; };
 		005DCA801A805A3900E55C0D /* PinchPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinchPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		005DCA841A805A3900E55C0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		005DCA851A805A3900E55C0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 		00C0BF381C9DCB1300842299 /* Drawing classes */ = {
 			isa = PBXGroup;
 			children = (
-				003ABDF11A84653200F51534 /* InfiniteScrollView.swift */,
+				003ABDF11A84653200F51534 /* CanvasScrollView.swift */,
 				00062D751A854A9F008CD159 /* Canvas.swift */,
 				00C0BF2D1C9DA30700842299 /* Stroke.swift */,
 				00C0BF2F1C9DA8DF00842299 /* Stroke subclasses */,
@@ -355,7 +355,7 @@
 				00062D761A854A9F008CD159 /* Canvas.swift in Sources */,
 				00F75E131B16948E006279B0 /* ImagePreviewViewController.swift in Sources */,
 				006BC1571A884177003AA87D /* ToolConfigViewController.swift in Sources */,
-				003ABDF21A84653200F51534 /* InfiniteScrollView.swift in Sources */,
+				003ABDF21A84653200F51534 /* CanvasScrollView.swift in Sources */,
 				005DCA891A805A3900E55C0D /* PinchPad.xcdatamodeld in Sources */,
 				005DCA861A805A3900E55C0D /* AppDelegate.swift in Sources */,
 				00C0BF311C9DA8F100842299 /* EraserStroke.swift in Sources */,

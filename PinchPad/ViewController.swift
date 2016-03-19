@@ -12,7 +12,7 @@ import TMTumblrSDK
 import Locksmith
 
 class ViewController: UIViewController{
-    @IBOutlet var canvas: InfiniteScrollView!
+    @IBOutlet var canvas: CanvasScrollView!
     @IBOutlet var toolConfigViewContainer: UIView!
     @IBOutlet var menuViewContainer: UIView!
     @IBOutlet var pendingPostsView: UIView!

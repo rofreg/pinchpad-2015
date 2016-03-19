@@ -1,5 +1,5 @@
 //
-//  InfiniteScrollView.swift
+//  CanvasScrollView.swift
 //  PinchPad
 //
 //  Created by Ryan Laughlin on 2/5/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InfiniteScrollView: UIScrollView, UIScrollViewDelegate{
+class CanvasScrollView: UIScrollView, UIScrollViewDelegate{
     var contentView: Canvas!
     var diagnosticsView: UILabel?
     
