@@ -59,7 +59,7 @@ class MenuViewController : UIViewController{
         }
         
         // Animation info
-        frameLengthStepper.value = AppConfiguration.sharedInstance.frameLength
+        frameLengthStepper.value = AppConfig.sharedInstance.frameLength
         let frameDuration = String(format: "%.1f", frameLengthStepper.value)
         if (UIScreen.mainScreen().bounds.width <= 320){
             frameLengthLabel.text = "\(frameDuration)s"
@@ -74,7 +74,7 @@ class MenuViewController : UIViewController{
         removeFrameButton.enabled = animationStarted
     
         // Wider canvas toggle
-        widerCanvasSwitch.setOn(AppConfiguration.sharedInstance.widerCanvas, animated: false)
+        widerCanvasSwitch.setOn(AppConfig.sharedInstance.widerCanvas, animated: false)
     }
     
     
@@ -89,14 +89,14 @@ class MenuViewController : UIViewController{
     }
     
     @IBAction func frameLengthChange(){
-        AppConfiguration.sharedInstance.frameLength = frameLengthStepper.value
+        AppConfig.sharedInstance.frameLength = frameLengthStepper.value
     }
     
     @IBAction func addFrame(){
         let newItem = NSEntityDescription.insertNewObjectForEntityForName("Sketch", inManagedObjectContext: Sketch.managedContext()) as! Sketch
         newItem.createdAt = NSDate()
         newItem.imageData = (self.parentViewController as! ViewController).canvas.contentView.asNSData()
-        newItem.duration = AppConfiguration.sharedInstance.frameLength
+        newItem.duration = AppConfig.sharedInstance.frameLength
         _ = try? Sketch.managedContext().save()
     }
     
@@ -108,7 +108,7 @@ class MenuViewController : UIViewController{
     }
     
     @IBAction func widerCanvasToggle(sender: UISwitch){
-        AppConfiguration.sharedInstance.widerCanvas = sender.on
+        AppConfig.sharedInstance.widerCanvas = sender.on
     }
     
     @IBAction func clearCanvas(){

@@ -44,7 +44,7 @@ class InfiniteScrollView: UIScrollView, UIScrollViewDelegate{
     }
     
     override func layoutSubviews() {
-        if (AppConfiguration.sharedInstance.widerCanvas){
+        if (AppConfig.sharedInstance.widerCanvas){
             // Set content size to 2x screen width, 1x screen height
             self.contentSize = CGSize(width:CGRectGetWidth(frame) * 2, height: CGRectGetHeight(frame))
         } else {

@@ -27,7 +27,7 @@
 		00C3E37D1AE9B4CB005D8375 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C3E37C1AE9B4CB005D8375 /* AuthManager.swift */; };
 		00E53C781AA3DC4F008E441E /* TWTRComposer+ProgrammaticPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E53C771AA3DC4F008E441E /* TWTRComposer+ProgrammaticPost.swift */; };
 		00E978C51B13835D004EB3F4 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E978C41B13835D004EB3F4 /* MenuViewController.swift */; };
-		00E978C71B13CB00004EB3F4 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E978C61B13CB00004EB3F4 /* AppConfiguration.swift */; };
+		00E978C71B13CB00004EB3F4 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E978C61B13CB00004EB3F4 /* AppConfig.swift */; };
 		00F171D51B1A22D5008BE560 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00F171D41B1A22D5008BE560 /* Security.framework */; };
 		00F171D71B1A22DA008BE560 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00F171D61B1A22DA008BE560 /* SystemConfiguration.framework */; };
 		00F75E131B16948E006279B0 /* ImagePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F75E121B16948E006279B0 /* ImagePreviewViewController.swift */; };
@@ -58,7 +58,7 @@
 		00C3E37C1AE9B4CB005D8375 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		00E53C771AA3DC4F008E441E /* TWTRComposer+ProgrammaticPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TWTRComposer+ProgrammaticPost.swift"; sourceTree = "<group>"; };
 		00E978C41B13835D004EB3F4 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		00E978C61B13CB00004EB3F4 /* AppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		00E978C61B13CB00004EB3F4 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		00F171D41B1A22D5008BE560 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		00F171D61B1A22DA008BE560 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		00F75E121B16948E006279B0 /* ImagePreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePreviewViewController.swift; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 			children = (
 				005DCA851A805A3900E55C0D /* AppDelegate.swift */,
 				005DCA8A1A805A3900E55C0D /* ViewController.swift */,
-				00E978C61B13CB00004EB3F4 /* AppConfiguration.swift */,
+				00E978C61B13CB00004EB3F4 /* AppConfig.swift */,
 				00C3E37C1AE9B4CB005D8375 /* AuthManager.swift */,
 				00E978C41B13835D004EB3F4 /* MenuViewController.swift */,
 				00F75E121B16948E006279B0 /* ImagePreviewViewController.swift */,
@@ -317,7 +317,7 @@
 				00C0BF371C9DC13600842299 /* VariableStroke.swift in Sources */,
 				00E978C51B13835D004EB3F4 /* MenuViewController.swift in Sources */,
 				00C0BF351C9DB6D700842299 /* PenStroke.swift in Sources */,
-				00E978C71B13CB00004EB3F4 /* AppConfiguration.swift in Sources */,
+				00E978C71B13CB00004EB3F4 /* AppConfig.swift in Sources */,
 				002FF2EA1AEADBC60070BAA0 /* Sketch.swift in Sources */,
 				00C3E37D1AE9B4CB005D8375 /* AuthManager.swift in Sources */,
 				00C0BF331C9DB68300842299 /* BrushStroke.swift in Sources */,

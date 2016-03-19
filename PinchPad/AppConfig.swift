@@ -1,14 +1,14 @@
 //
-//  AppConfiguration.swift
+//  AppConfig.swift
 //  PinchPad
 //
 //  Created by Ryan Laughlin on 5/25/15.
 //
 //
 
-class AppConfiguration {
+class AppConfig {
     // Set up a singleton instance
-    static let sharedInstance = AppConfiguration()
+    static let sharedInstance = AppConfig()
     
     var widerCanvas: Bool {
         set {
