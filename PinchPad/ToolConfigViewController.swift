@@ -80,11 +80,11 @@ class ToolConfigViewController: UIViewController{
         colorCollectionView.reloadData()
     }
     
-    func previewStroke(tool: Tool? = ToolConfig.sharedInstance.tool,
-        width: CGFloat? = ToolConfig.sharedInstance.width,
-        color: UIColor? = ToolConfig.sharedInstance.color) -> Stroke{
+    func previewStroke(tool: Tool = ToolConfig.sharedInstance.tool,
+        width: CGFloat = ToolConfig.sharedInstance.width,
+        color: UIColor = ToolConfig.sharedInstance.color) -> Stroke{
         
-        let stroke = Stroke(width: width, color: color)
+        let stroke = tool.toStrokeType().init(width: width, color: color)
             
         // Construct a sample squiggle
         let windowSize = previewWindow!.frame.size.height
