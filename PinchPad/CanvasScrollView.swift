@@ -11,6 +11,7 @@ import UIKit
 class CanvasScrollView: UIScrollView, UIScrollViewDelegate{
     var contentView: Canvas!
     var diagnosticsView: UILabel?
+    static let FPS_DISPLAY_RATE: Double = 0     // How often should we show the on-screen FPS indicator?
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -23,14 +24,18 @@ class CanvasScrollView: UIScrollView, UIScrollViewDelegate{
         addSubview(self.contentView)
         
         // Initialize a view for showing diagnostics
-        /*
-        self.diagnosticsView = UILabel(frame: CGRectMake(10, 10, 100, 18))
-        self.diagnosticsView!.textAlignment = NSTextAlignment.Left
-        self.diagnosticsView!.numberOfLines = 0
-        self.diagnosticsView!.text = "FPS: 0.0"
-        addSubview(self.diagnosticsView!)
-        NSTimer.scheduledTimerWithTimeInterval(0.4, target: self, selector: "updateDiagnostics", userInfo: nil, repeats: true)
-        */
+        if CanvasScrollView.FPS_DISPLAY_RATE > 0 {
+            self.diagnosticsView = UILabel(frame: CGRectMake(10, 10, 100, 18))
+            self.diagnosticsView!.textAlignment = NSTextAlignment.Left
+            self.diagnosticsView!.numberOfLines = 0
+            self.diagnosticsView!.text = "FPS: 0.0"
+            addSubview(self.diagnosticsView!)
+            NSTimer.scheduledTimerWithTimeInterval(1.0 / CanvasScrollView.FPS_DISPLAY_RATE,
+                target: self,
+                selector: "updateDiagnostics",
+                userInfo: nil,
+                repeats: true)
+        }
         
         // Only scroll with two fingers, plz
         self.panGestureRecognizer.minimumNumberOfTouches = 2
@@ -39,7 +44,7 @@ class CanvasScrollView: UIScrollView, UIScrollViewDelegate{
     }
     
     func updateDiagnostics(){
-        self.diagnosticsView?.text = "FPS: \(Double(self.contentView.touchEvents) * 2.5)"
+        self.diagnosticsView?.text = "FPS: \(Double(self.contentView.touchEvents) * CanvasScrollView.FPS_DISPLAY_RATE)"
         self.contentView.touchEvents = 0
     }
     
