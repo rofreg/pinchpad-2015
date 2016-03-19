@@ -12,8 +12,8 @@ import TMTumblrSDK
 import Locksmith
 
 class ViewController: UIViewController{
-    @IBOutlet var canvas: PPInfiniteScrollView!
-    @IBOutlet var toolConfigurationViewContainer: UIView!
+    @IBOutlet var canvas: InfiniteScrollView!
+    @IBOutlet var toolConfigViewContainer: UIView!
     @IBOutlet var menuViewContainer: UIView!
     @IBOutlet var pendingPostsView: UIView!
     @IBOutlet var pendingPostsLabel: UILabel!
@@ -22,7 +22,7 @@ class ViewController: UIViewController{
     @IBOutlet var pencilButton: UIBarButtonItem!
     @IBOutlet var eraserButton: UIBarButtonItem!
     
-    var lastTool = PPToolType.Brush
+    var lastTool = Tool.Brush
    
     override func viewDidLoad() {
         // When our data changes, update the display
@@ -30,10 +30,10 @@ class ViewController: UIViewController{
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("updatePendingPostsDisplay"), name: NSManagedObjectContextObjectsDidChangeNotification, object: nil)
         
         // When our tool changes, update the display
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("updateToolbarDisplay"), name: "PPToolConfigurationChanged", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("updateToolbarDisplay"), name: "ToolConfigChanged", object: nil)
         
         // Clear canvas when we are told to
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("clear"), name: "PPClearCanvas", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("clear"), name: "ClearCanvas", object: nil)
         
         super.viewDidLoad()
     }
@@ -54,30 +54,30 @@ class ViewController: UIViewController{
     // MARK: tool handling
     
     @IBAction func menu(){
-        toolConfigurationViewContainer.hidden = true
+        toolConfigViewContainer.hidden = true
         menuViewContainer.hidden = !menuViewContainer.hidden
     }
     
     @IBAction func pencil(){
         menuViewContainer.hidden = true
-        if (PPToolConfiguration.sharedInstance.tool != .Eraser){
+        if (ToolConfig.sharedInstance.tool != .Eraser){
             // Toggle config menu if the pencil or brush is already selected
-            toolConfigurationViewContainer.hidden = !toolConfigurationViewContainer.hidden
+            toolConfigViewContainer.hidden = !toolConfigViewContainer.hidden
         } else {
             // Otherwise, switch to last tool
-            PPToolConfiguration.sharedInstance.tool = lastTool
+            ToolConfig.sharedInstance.tool = lastTool
         }
     }
     
     @IBAction func eraser(){
         menuViewContainer.hidden = true
-        if (PPToolConfiguration.sharedInstance.tool == .Eraser){
+        if (ToolConfig.sharedInstance.tool == .Eraser){
             // Toggle config menu if the eraser is already selected
-            toolConfigurationViewContainer.hidden = !toolConfigurationViewContainer.hidden
+            toolConfigViewContainer.hidden = !toolConfigViewContainer.hidden
         } else {
             // Otherwise, switch to eraser (but remember what tool we were using last)
-            lastTool = PPToolConfiguration.sharedInstance.tool
-            PPToolConfiguration.sharedInstance.tool = .Eraser
+            lastTool = ToolConfig.sharedInstance.tool
+            ToolConfig.sharedInstance.tool = .Eraser
         }
     }
     
@@ -143,7 +143,7 @@ class ViewController: UIViewController{
     func clear(){
         self.canvas.clear()
         self.menuViewContainer.hidden = true
-        self.toolConfigurationViewContainer.hidden = true
+        self.toolConfigViewContainer.hidden = true
     }
     
     
@@ -183,7 +183,7 @@ class ViewController: UIViewController{
     // MARK: Toolbar display handling
     
     func updateToolbarDisplay(){
-        if (PPToolConfiguration.sharedInstance.tool == .Eraser){
+        if (ToolConfig.sharedInstance.tool == .Eraser){
             pencilButton.tintColor = UIColor.lightGrayColor()
             eraserButton.tintColor = self.view.tintColor
         } else {

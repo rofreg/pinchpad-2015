@@ -16,7 +16,7 @@ class AppConfiguration {
             NSUserDefaults.standardUserDefaults().synchronize()
             
             // We changed the canvas size, so clear the canvas
-            NSNotificationCenter.defaultCenter().postNotificationName("PPResizeCanvas", object: self)
+            NSNotificationCenter.defaultCenter().postNotificationName("ResizeCanvas", object: self)
         }
         get {
             return NSUserDefaults.standardUserDefaults().boolForKey("widerCanvas") ?? false
@@ -25,7 +25,7 @@ class AppConfiguration {
     
     var frameLength: Double = 0.5 {
         didSet {
-            NSNotificationCenter.defaultCenter().postNotificationName("PPFrameLengthDidChange", object: self)
+            NSNotificationCenter.defaultCenter().postNotificationName("FrameLengthDidChange", object: self)
         }
     }
 }

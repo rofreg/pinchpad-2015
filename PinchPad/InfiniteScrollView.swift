@@ -1,5 +1,5 @@
 //
-//  PPInfiniteScrollView.swift
+//  InfiniteScrollView.swift
 //  PinchPad
 //
 //  Created by Ryan Laughlin on 2/5/15.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-class PPInfiniteScrollView: UIScrollView, UIScrollViewDelegate{
-    var contentView: PPCanvas!
+class InfiniteScrollView: UIScrollView, UIScrollViewDelegate{
+    var contentView: Canvas!
     var diagnosticsView: UILabel?
     
     required init?(coder: NSCoder) {
@@ -19,7 +19,7 @@ class PPInfiniteScrollView: UIScrollView, UIScrollViewDelegate{
         self.backgroundColor = UIColor.whiteColor()
         
         // Initialize our content view, which will handle actual drawing
-        self.contentView = PPCanvas(frame: self.bounds)
+        self.contentView = Canvas(frame: self.bounds)
         addSubview(self.contentView)
         
         // Initialize a view for showing diagnostics
@@ -35,7 +35,7 @@ class PPInfiniteScrollView: UIScrollView, UIScrollViewDelegate{
         // Only scroll with two fingers, plz
         self.panGestureRecognizer.minimumNumberOfTouches = 2
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("clear"), name: "PPResizeCanvas", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("clear"), name: "ResizeCanvas", object: nil)
     }
     
     func updateDiagnostics(){

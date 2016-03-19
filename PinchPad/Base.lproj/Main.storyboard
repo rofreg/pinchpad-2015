@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="45"/>
                                 <color key="backgroundColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" delaysContentTouches="NO" bouncesZoom="NO" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="lC9-ky-yMA" customClass="PPInfiniteScrollView" customModule="PinchPad" customModuleProvider="target">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" delaysContentTouches="NO" bouncesZoom="NO" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="lC9-ky-yMA" customClass="InfiniteScrollView" customModule="PinchPad" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="45" width="600" height="555"/>
                             </scrollView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S3K-nm-vNd">
@@ -147,17 +147,17 @@
                         <outlet property="pendingPostsLabel" destination="Tt8-Pc-KAM" id="Otd-Uu-94M"/>
                         <outlet property="pendingPostsRetryButton" destination="hDz-7R-zuM" id="Cfs-Hy-dRs"/>
                         <outlet property="pendingPostsView" destination="2fQ-zV-t2o" id="NfT-Ql-2Ut"/>
-                        <outlet property="toolConfigurationViewContainer" destination="8TJ-Zg-3CZ" id="zSm-91-qhR"/>
+                        <outlet property="toolConfigViewContainer" destination="8TJ-Zg-3CZ" id="zSm-91-qhR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="278" y="219"/>
         </scene>
-        <!--Tool Configuration View Controller-->
+        <!--Tool Config View Controller-->
         <scene sceneID="jdr-ca-aEC">
             <objects>
-                <viewController id="Vg3-3g-X3i" customClass="PPToolConfigurationViewController" customModule="PinchPad" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Vg3-3g-X3i" customClass="ToolConfigViewController" customModule="PinchPad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="w9S-lH-LrN"/>
                         <viewControllerLayoutGuide type="bottom" id="dCF-yy-nmo"/>
@@ -182,7 +182,7 @@
                                     <action selector="toolChanged:" destination="Vg3-3g-X3i" eventType="valueChanged" id="amU-et-dsc"/>
                                 </connections>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" misplaced="YES" restorationIdentifier="ToolPreview" translatesAutoresizingMaskIntoConstraints="NO" id="DDR-KM-SD0" userLabel="Preview" customClass="PPCanvas" customModule="PinchPad" customModuleProvider="target">
+                            <view contentMode="scaleToFill" misplaced="YES" restorationIdentifier="ToolPreview" translatesAutoresizingMaskIntoConstraints="NO" id="DDR-KM-SD0" userLabel="Preview" customClass="Canvas" customModule="PinchPad" customModuleProvider="target">
                                 <rect key="frame" x="16" y="63" width="50" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -301,7 +301,7 @@
         <!--Menu View Controller-->
         <scene sceneID="TGO-en-8VW">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="QSA-68-wN2" customClass="PPMenuViewController" customModule="PinchPad" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="QSA-68-wN2" customClass="MenuViewController" customModule="PinchPad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DM2-C4-Oug"/>
                         <viewControllerLayoutGuide type="bottom" id="pOZ-4O-Vvd"/>

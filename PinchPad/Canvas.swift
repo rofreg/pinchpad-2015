@@ -1,5 +1,5 @@
 //
-//  PPCanvas.swift
+//  Canvas.swift
 //  PinchPad
 //
 //  Created by Ryan Laughlin on 2/6/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PPCanvas: UIView{
+class Canvas: UIView{
     var strokes = [Stroke]()
     var redoStrokes = [Stroke]()
     var activeStroke: Stroke?
@@ -80,15 +80,15 @@ class PPCanvas: UIView{
     func addPointToActiveStroke(touch: UITouch, finalTouch: Bool = false){
         // Start a stroke if there's not an ongoing stroke already
         if (self.activeStroke == nil){
-            self.activeStroke = PPToolConfiguration.sharedInstance.tool.toStrokeType()
-                .init(width: PPToolConfiguration.sharedInstance.width,
-                    color: PPToolConfiguration.sharedInstance.color)
+            self.activeStroke = ToolConfig.sharedInstance.tool.toStrokeType()
+                .init(width: ToolConfig.sharedInstance.width,
+                    color: ToolConfig.sharedInstance.color)
         }
         
         // Add point, with pressure data if available
         self.activeStroke!.addPoint(touch,
             inView:self,
-            withPressure: PPToolConfiguration.sharedInstance.pressure)
+            withPressure: ToolConfig.sharedInstance.pressure)
     }
 
     

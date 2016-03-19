@@ -1,5 +1,5 @@
 //
-//  PPMenuViewController.swift
+//  MenuViewController.swift
 //  PinchPad
 //
 //  Created by Ryan Laughlin on 5/25/15.
@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import MessageUI
 
-class PPMenuViewController : UIViewController{
+class MenuViewController : UIViewController{
     @IBOutlet var twitterButton: UIButton!
     @IBOutlet var tumblrButton: UIButton!
     @IBOutlet var frameLengthLabel: UILabel!
@@ -32,8 +32,8 @@ class PPMenuViewController : UIViewController{
             button.layer.borderColor = UIColor.whiteColor().CGColor
         }
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("refreshInfo"), name: "PPAuthChanged", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("refreshInfo"), name: "PPFrameLengthDidChange", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("refreshInfo"), name: "AuthChanged", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("refreshInfo"), name: "FrameLengthDidChange", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("refreshInfo"), name: NSManagedObjectContextObjectsDidChangeNotification, object: nil)
     }
     
@@ -112,7 +112,7 @@ class PPMenuViewController : UIViewController{
     }
     
     @IBAction func clearCanvas(){
-        NSNotificationCenter.defaultCenter().postNotificationName("PPClearCanvas", object: self)
+        NSNotificationCenter.defaultCenter().postNotificationName("ClearCanvas", object: self)
     }
     
     @IBAction func madeByRofreg(){
@@ -138,7 +138,7 @@ class PPMenuViewController : UIViewController{
     }
 }
 
-extension PPMenuViewController : MFMailComposeViewControllerDelegate{
+extension MenuViewController : MFMailComposeViewControllerDelegate{
     func mailComposeController(controller:MFMailComposeViewController, didFinishWithResult result:MFMailComposeResult, error:NSError?) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }

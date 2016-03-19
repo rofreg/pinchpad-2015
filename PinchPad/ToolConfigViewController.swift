@@ -1,5 +1,5 @@
 //
-//  PPToolConfigurationView.swift
+//  ToolConfigViewController.swift
 //  PinchPad
 //
 //  Created by Ryan Laughlin on 2/8/15.
@@ -8,16 +8,16 @@
 
 import UIKit
 
-class PPToolConfigurationViewController: UIViewController{
+class ToolConfigViewController: UIViewController{
     @IBOutlet var toolPicker: UISegmentedControl!
     @IBOutlet var slider: UISlider!
     @IBOutlet var sliderBackground: UIView!
-    @IBOutlet var previewWindow: PPCanvas!
+    @IBOutlet var previewWindow: Canvas!
     @IBOutlet var colorCollectionView: UICollectionView!
     let colors = [UIColor.blackColor(), UIColor(hex:"999999"), UIColor(hex:"dddddd"), UIColor(hex:"F2CA42"), UIColor(hex:"00C3A9"), UIColor(hex:"D45354"), UIColor(hex:"2FCAD8"), UIColor(hex:"663300"), UIColor(hex:"af7a56"), UIColor(hex:"ab7dbe"), UIColor(hex:"ff8960"), UIColor(hex:"6e99d4"), UIColor(hex:"4c996e"), UIColor(hex:"dc9bb1")]
     
     override func viewDidLoad() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updatePreview", name: "PPToolConfigurationChanged", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updatePreview", name: "ToolConfigChanged", object: nil)
         updatePreview()
     }
     
@@ -46,7 +46,7 @@ class PPToolConfigurationViewController: UIViewController{
     // MARK: Tool configuration IBActions
     
     @IBAction func toolChanged(sender: UISegmentedControl){
-        PPToolConfiguration.sharedInstance.tool = PPToolType(rawValue: sender.selectedSegmentIndex) ?? .Eraser
+        ToolConfig.sharedInstance.tool = Tool(rawValue: sender.selectedSegmentIndex) ?? .Eraser
     }
     
     @IBAction func widthChanged(sender: UISlider){
@@ -55,7 +55,7 @@ class PPToolConfigurationViewController: UIViewController{
         
         let realSize = [0.0, 1.0, 3.0, 5.0, 10.0, 30.0, 60.0]
         let toolSize = realSize[roundedValue]
-        PPToolConfiguration.sharedInstance.width = CGFloat(toolSize)
+        ToolConfig.sharedInstance.width = CGFloat(toolSize)
         
         updateSliderBackground()
     }
@@ -67,22 +67,22 @@ class PPToolConfigurationViewController: UIViewController{
         // Update the preview canvas
         previewWindow.clear()
         previewWindow.strokes = [previewStroke()]
-        if (PPToolConfiguration.sharedInstance.tool == .Eraser){
+        if (ToolConfig.sharedInstance.tool == .Eraser){
             // Insert a stroke for the eraser sample to erase
             previewWindow.strokes.insert(previewStroke(.Marker, width: 100), atIndex: 0)
         }
         previewWindow.setNeedsDisplay()
         
         // Update the tool picker if the tool choice changed
-        toolPicker.selectedSegmentIndex = PPToolConfiguration.sharedInstance.tool.rawValue
+        toolPicker.selectedSegmentIndex = ToolConfig.sharedInstance.tool.rawValue
         
         // Update the color picker if the color changed
         colorCollectionView.reloadData()
     }
     
-    func previewStroke(tool: PPToolType? = PPToolConfiguration.sharedInstance.tool,
-        width: CGFloat? = PPToolConfiguration.sharedInstance.width,
-        color: UIColor? = PPToolConfiguration.sharedInstance.color) -> Stroke{
+    func previewStroke(tool: Tool? = ToolConfig.sharedInstance.tool,
+        width: CGFloat? = ToolConfig.sharedInstance.width,
+        color: UIColor? = ToolConfig.sharedInstance.color) -> Stroke{
         
         let stroke = Stroke(width: width, color: color)
             
@@ -103,7 +103,7 @@ class PPToolConfigurationViewController: UIViewController{
 }
 
 
-extension PPToolConfigurationViewController : UICollectionViewDataSource{
+extension ToolConfigViewController : UICollectionViewDataSource{
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return colors.count
     }
@@ -114,16 +114,16 @@ extension PPToolConfigurationViewController : UICollectionViewDataSource{
         cell.layer.borderColor = UIColor.whiteColor().CGColor
         
         // Highlight the currently active color
-        cell.layer.borderWidth = (cell.backgroundColor == PPToolConfiguration.sharedInstance.color ? 3 : 0)
+        cell.layer.borderWidth = (cell.backgroundColor == ToolConfig.sharedInstance.color ? 3 : 0)
 
         return cell
     }
 }
 
 
-extension PPToolConfigurationViewController : UICollectionViewDelegate{
+extension ToolConfigViewController : UICollectionViewDelegate{
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        PPToolConfiguration.sharedInstance.color = colors[indexPath.row % colors.count]
+        ToolConfig.sharedInstance.color = colors[indexPath.row % colors.count]
     }
 }
 
