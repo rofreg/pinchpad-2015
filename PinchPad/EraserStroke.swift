@@ -8,6 +8,7 @@
 
 class EraserStroke: Stroke {
     required init(width: CGFloat!, color: UIColor!) {
-        super.init(width: width, color: UIColor.whiteColor())
+        // Eraser strokes are wider and white
+        super.init(width: width * 5.0, color: UIColor.whiteColor())
     }
 }

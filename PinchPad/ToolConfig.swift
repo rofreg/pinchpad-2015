@@ -34,17 +34,9 @@ class ToolConfig {
     var color: UIColor = UIColor.blackColor() {
         didSet { NSNotificationCenter.defaultCenter().postNotificationName("ToolConfigChanged", object: self) }
     }
-    var width: CGFloat {
-        set {
-            self.privateWidth = newValue
-            NSNotificationCenter.defaultCenter().postNotificationName("ToolConfigChanged", object: self)
-        }
-        get {
-            // Eraser is automatically wider than the corresponding brush/marker
-            return self.privateWidth * (self.tool == .Eraser ? 5 : 1)
-        }
+    var width: CGFloat = 3.0 {
+        didSet { NSNotificationCenter.defaultCenter().postNotificationName("ToolConfigChanged", object: self) }
     }
-    private var privateWidth: CGFloat = 3.0
     var pressure: CGFloat? {
         didSet { NSNotificationCenter.defaultCenter().postNotificationName("ToolConfigChanged", object: self) }
     }
