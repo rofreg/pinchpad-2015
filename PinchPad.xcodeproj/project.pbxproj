@@ -10,6 +10,10 @@
 		00062D761A854A9F008CD159 /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00062D751A854A9F008CD159 /* Canvas.swift */; };
 		002FF2EA1AEADBC60070BAA0 /* Sketch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FF2E91AEADBC60070BAA0 /* Sketch.swift */; };
 		003ABDF21A84653200F51534 /* CanvasScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003ABDF11A84653200F51534 /* CanvasScrollView.swift */; };
+		0056CD0B1D04A7E40005F133 /* AdonitSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0056CD0A1D04A7E40005F133 /* AdonitSDK.framework */; };
+		0056CD0D1D04A8160005F133 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0056CD0C1D04A8160005F133 /* CoreMotion.framework */; };
+		0056CD0F1D04A81C0005F133 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0056CD0E1D04A81C0005F133 /* CoreBluetooth.framework */; };
+		0056CD111D04A89A0005F133 /* AdonitSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0056CD101D04A89A0005F133 /* AdonitSDK.bundle */; };
 		005DCA861A805A3900E55C0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DCA851A805A3900E55C0D /* AppDelegate.swift */; };
 		005DCA891A805A3900E55C0D /* PinchPad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 005DCA871A805A3900E55C0D /* PinchPad.xcdatamodeld */; };
 		005DCA8B1A805A3900E55C0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DCA8A1A805A3900E55C0D /* ViewController.swift */; };
@@ -38,6 +42,10 @@
 		00062D751A854A9F008CD159 /* Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
 		002FF2E91AEADBC60070BAA0 /* Sketch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sketch.swift; sourceTree = "<group>"; };
 		003ABDF11A84653200F51534 /* CanvasScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasScrollView.swift; sourceTree = "<group>"; };
+		0056CD0A1D04A7E40005F133 /* AdonitSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdonitSDK.framework; path = "Adonit-iOS-SDK/AdonitSDK.framework"; sourceTree = "<group>"; };
+		0056CD0C1D04A8160005F133 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		0056CD0E1D04A81C0005F133 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		0056CD101D04A89A0005F133 /* AdonitSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AdonitSDK.bundle; path = "Adonit-iOS-SDK/AdonitSDK.bundle"; sourceTree = "<group>"; };
 		005DCA801A805A3900E55C0D /* PinchPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinchPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		005DCA841A805A3900E55C0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		005DCA851A805A3900E55C0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +80,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0056CD0F1D04A81C0005F133 /* CoreBluetooth.framework in Frameworks */,
+				0056CD0D1D04A8160005F133 /* CoreMotion.framework in Frameworks */,
+				0056CD0B1D04A7E40005F133 /* AdonitSDK.framework in Frameworks */,
 				00F171D71B1A22DA008BE560 /* SystemConfiguration.framework in Frameworks */,
 				00F171D51B1A22D5008BE560 /* Security.framework in Frameworks */,
 				18240D6542BDDEAA38E1C3AD /* Pods.framework in Frameworks */,
@@ -84,6 +95,7 @@
 		005DCA771A805A3900E55C0D = {
 			isa = PBXGroup;
 			children = (
+				0056CD101D04A89A0005F133 /* AdonitSDK.bundle */,
 				005DCA821A805A3900E55C0D /* PinchPad */,
 				005DCA811A805A3900E55C0D /* Products */,
 				7751E7D957A3925FFFC1A65C /* Pods */,
@@ -197,6 +209,9 @@
 		3BE3E580DFEC8E60254E97A7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0056CD0E1D04A81C0005F133 /* CoreBluetooth.framework */,
+				0056CD0C1D04A8160005F133 /* CoreMotion.framework */,
+				0056CD0A1D04A7E40005F133 /* AdonitSDK.framework */,
 				00F171D61B1A22DA008BE560 /* SystemConfiguration.framework */,
 				00F171D41B1A22D5008BE560 /* Security.framework */,
 				DCB8F4C387E296D6F76285AC /* Pods.framework */,
@@ -276,6 +291,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0056CD111D04A89A0005F133 /* AdonitSDK.bundle in Resources */,
 				005DCAB41A805C8F00E55C0D /* Configuration.plist in Resources */,
 				005DCA8E1A805A3900E55C0D /* Main.storyboard in Resources */,
 				005DCA931A805A3900E55C0D /* LaunchScreen.xib in Resources */,
@@ -485,11 +501,69 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Adonit-iOS-SDK",
 				);
 				INFOPLIST_FILE = PinchPad/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"Accounts\"",
+					"-framework",
+					"\"CoreData\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"Crashlytics\"",
+					"-framework",
+					"\"FLAnimatedImage\"",
+					"-framework",
+					"\"Fabric\"",
+					"-framework",
+					"\"Flurry_iOS_SDK\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"JXHTTP\"",
+					"-framework",
+					"\"Locksmith\"",
+					"-framework",
+					"\"MediaPlayer\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"ReachabilitySwift\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"Social\"",
+					"-framework",
+					"\"Spectacles\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"TMTumblrSDK\"",
+					"-framework",
+					"\"TwitterCore\"",
+					"-framework",
+					"\"TwitterKit\"",
+					"-framework",
+					"\"UIKit\"",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rofreg.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -505,15 +579,73 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Adonit-iOS-SDK",
 				);
 				INFOPLIST_FILE = PinchPad/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"Accounts\"",
+					"-framework",
+					"\"CoreData\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"Crashlytics\"",
+					"-framework",
+					"\"FLAnimatedImage\"",
+					"-framework",
+					"\"Fabric\"",
+					"-framework",
+					"\"Flurry_iOS_SDK\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"JXHTTP\"",
+					"-framework",
+					"\"Locksmith\"",
+					"-framework",
+					"\"MediaPlayer\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"ReachabilitySwift\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"Social\"",
+					"-framework",
+					"\"Spectacles\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"TMTumblrSDK\"",
+					"-framework",
+					"\"TwitterCore\"",
+					"-framework",
+					"\"TwitterKit\"",
+					"-framework",
+					"\"UIKit\"",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rofreg.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "FB8A94C1F1197CAC1F79AC90C7AD8D68F6C37EB9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "28E9204B86AFC0DBA92C65B6730EB6D37A220B6C" : 0,
+    "FB8A94C1F1197CAC1F79AC90C7AD8D68F6C37EB9" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "1BC7E4C7-DA53-4B9F-B2ED-9B91870E6A0A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "28E9204B86AFC0DBA92C65B6730EB6D37A220B6C" : "pinchpad-ios\/Adonit-iOS-SDK\/",
+    "FB8A94C1F1197CAC1F79AC90C7AD8D68F6C37EB9" : "pinchpad-ios"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "PinchPad",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "PinchPad.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Adonit\/Adonit-iOS-SDK.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "28E9204B86AFC0DBA92C65B6730EB6D37A220B6C"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:rofreg\/pinchpad.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "FB8A94C1F1197CAC1F79AC90C7AD8D68F6C37EB9"
+    }
+  ]
+}

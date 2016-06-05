@@ -1,0 +1,3 @@
+[submodule "Adonit-iOS-SDK"]
+	path = Adonit-iOS-SDK
+	url = https://github.com/Adonit/Adonit-iOS-SDK.git
