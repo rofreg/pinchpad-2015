@@ -35,7 +35,21 @@ class ViewController: UIViewController{
         // Clear canvas when we are told to
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.clear), name: "ClearCanvas", object: nil)
         
+        // Enable Adonit support
+        enableAdonitShortcutButtons()
+        
         super.viewDidLoad()
+    }
+    
+    
+    // MARK: Adonit handling
+    
+    func enableAdonitShortcutButtons() {
+        let undoShortcut = JotShortcut.init(descriptiveText: "Undo", key: "undo", target: self, selector: #selector(ViewController.undo))
+        let redoShortcut = JotShortcut.init(descriptiveText: "Redo", key: "redo", target: self, selector: #selector(ViewController.redo))
+        
+        JotStylusManager.sharedInstance().addShortcutOptionButton1Default(undoShortcut)
+        JotStylusManager.sharedInstance().addShortcutOptionButton2Default(redoShortcut)
     }
     
     
