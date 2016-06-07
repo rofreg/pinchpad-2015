@@ -19,7 +19,7 @@ class VariableStroke: Stroke {
         var paths = self.asBezierPaths(quickly)
         if (quickly){
             // Draw all but the very last segment (which is a dot, and might change later)
-            for (var i = max(0, self.strokeSegmentsDrawn - 1); i < max(0, paths.count - 1); i++) {
+            for i in (max(0, self.strokeSegmentsDrawn - 1)..<max(0, paths.count - 1)){
                 paths[i].fill()
                 paths[i].stroke()
             }
@@ -54,7 +54,7 @@ class VariableStroke: Stroke {
             var boundingPoints = [[startPoints[1], startPoints[0]]]
             
             // Now calculate all points in the middle of the path
-            for (var fpi = 0; fpi < finalPoints.count - 1; fpi++) {
+            for fpi in 0 ..< finalPoints.count - 1 {
                 let startPoint = finalPoints[fpi]
                 let endPoint = finalPoints[fpi+1]
                 let newPoints = pointsOnLineSegmentPerpendicularTo([startPoint.location, endPoint.location], length: endPoint.pressure * width)
@@ -69,7 +69,7 @@ class VariableStroke: Stroke {
                 self.cachedBezierPaths.append(path)
             }
             
-            for (var bpi = 0; bpi < boundingPoints.count - 1; bpi++) {
+            for bpi in 0 ..< boundingPoints.count - 1 {
                 // Add our first line segment
                 let path = UIBezierPath()
                 path.moveToPoint(boundingPoints[bpi][0])
@@ -109,7 +109,7 @@ class VariableStroke: Stroke {
             let maxSegmentsBetweenTwoPoints = 128
             smoothedPoints.reserveCapacity(points.count * minSegmentsBetweenTwoPoints)
             
-            for (var i = 2; i < points.count; i++) {
+            for i in 2 ..< points.count {
                 let p1 = points[i-2]
                 let p2 = points[i-1]
                 let p3 = points[i]
@@ -128,7 +128,7 @@ class VariableStroke: Stroke {
                 var t = 0.0
                 let step = 1.0 / numberOfSegments
                 var lastLocation: CGPoint?
-                for (var j = 0; j < Int(numberOfSegments); j++) {
+                for _ in 0 ..< Int(numberOfSegments) {
                     var l = (p12Midpoint * pow(1-t, 2))
                     l = l + (p2.location * (2 * (1-t) * t))
                     l = l + (p23Midpoint * (t*t))

@@ -17,7 +17,7 @@ class ToolConfigViewController: UIViewController{
     let colors = [UIColor.blackColor(), UIColor(hex:"999999"), UIColor(hex:"dddddd"), UIColor(hex:"F2CA42"), UIColor(hex:"00C3A9"), UIColor(hex:"D45354"), UIColor(hex:"2FCAD8"), UIColor(hex:"663300"), UIColor(hex:"af7a56"), UIColor(hex:"ab7dbe"), UIColor(hex:"ff8960"), UIColor(hex:"6e99d4"), UIColor(hex:"4c996e"), UIColor(hex:"dc9bb1")]
     
     override func viewDidLoad() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updatePreview", name: "ToolConfigChanged", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ToolConfigViewController.updatePreview), name: "ToolConfigChanged", object: nil)
         updatePreview()
     }
     

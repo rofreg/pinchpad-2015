@@ -87,7 +87,7 @@ class Stroke{
         path.addLineToPoint((self.points[0].location + self.points[1].location) * 0.5)
         
         // Draw quadratic curves between each midpoint
-        for (var cpi = 1; cpi < self.points.count - 1; cpi++) {
+        for cpi in 1 ..< self.points.count - 1 {
             let currentPoint = self.points[cpi].location
             let nextPoint = self.points[cpi+1].location
             let nextMidpoint = (currentPoint + nextPoint) * 0.5

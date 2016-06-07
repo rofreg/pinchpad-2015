@@ -32,9 +32,9 @@ class MenuViewController : UIViewController{
             button.layer.borderColor = UIColor.whiteColor().CGColor
         }
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("refreshInfo"), name: "AuthChanged", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("refreshInfo"), name: "FrameLengthDidChange", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("refreshInfo"), name: NSManagedObjectContextObjectsDidChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MenuViewController.refreshInfo), name: "AuthChanged", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MenuViewController.refreshInfo), name: "FrameLengthDidChange", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MenuViewController.refreshInfo), name: NSManagedObjectContextObjectsDidChangeNotification, object: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -116,7 +116,17 @@ class MenuViewController : UIViewController{
     }
     
     @IBAction func madeByRofreg(){
-        UIApplication.sharedApplication().openURL(NSURL(string:"http://www.pinchpad.com")!)
+        // Adonit testing
+        let jotVC = UIStoryboard.instantiateJotViewControllerWithIdentifier(JotViewControllerUnifiedStylusConnectionAndSettingsIdentifier)
+        let navController = UINavigationController(rootViewController: jotVC)
+        jotVC.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(MenuViewController.dismiss))
+        self.presentViewController(navController, animated: true, completion: nil)
+        
+        //UIApplication.sharedApplication().openURL(NSURL(string:"http://www.pinchpad.com")!)
+    }
+    
+    func dismiss(){
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func sendFeedback(){

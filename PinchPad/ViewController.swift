@@ -27,13 +27,13 @@ class ViewController: UIViewController{
     override func viewDidLoad() {
         // When our data changes, update the display
         self.updatePendingPostsDisplay()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("updatePendingPostsDisplay"), name: NSManagedObjectContextObjectsDidChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.updatePendingPostsDisplay), name: NSManagedObjectContextObjectsDidChangeNotification, object: nil)
         
         // When our tool changes, update the display
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("updateToolbarDisplay"), name: "ToolConfigChanged", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.updateToolbarDisplay), name: "ToolConfigChanged", object: nil)
         
         // Clear canvas when we are told to
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("clear"), name: "ClearCanvas", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.clear), name: "ClearCanvas", object: nil)
         
         super.viewDidLoad()
     }

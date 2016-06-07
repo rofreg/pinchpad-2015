@@ -36,7 +36,7 @@ class Canvas: UIView{
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         for touch in getActiveTouches(touches){
-            self.touchEvents++
+            self.touchEvents += 1
             addPointToActiveStroke(touch)
         }
         

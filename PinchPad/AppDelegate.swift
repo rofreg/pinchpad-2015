@@ -45,6 +45,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             _ = try? reachability.startNotifier()
         }
         
+        // Enable Adonit integration
+        JotStylusManager.sharedInstance().enable()
+        
         return true
     }
     

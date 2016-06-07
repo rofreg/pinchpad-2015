@@ -32,7 +32,7 @@ class CanvasScrollView: UIScrollView, UIScrollViewDelegate{
             addSubview(self.diagnosticsView!)
             NSTimer.scheduledTimerWithTimeInterval(1.0 / CanvasScrollView.FPS_DISPLAY_RATE,
                 target: self,
-                selector: "updateDiagnostics",
+                selector: #selector(CanvasScrollView.updateDiagnostics),
                 userInfo: nil,
                 repeats: true)
         }
@@ -40,7 +40,7 @@ class CanvasScrollView: UIScrollView, UIScrollViewDelegate{
         // Only scroll with two fingers, plz
         self.panGestureRecognizer.minimumNumberOfTouches = 2
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("clear"), name: "ResizeCanvas", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CanvasScrollView.clear), name: "ResizeCanvas", object: nil)
     }
     
     func updateDiagnostics(){
