@@ -21,6 +21,7 @@
 		005DCA901A805A3900E55C0D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 005DCA8F1A805A3900E55C0D /* Images.xcassets */; };
 		005DCA931A805A3900E55C0D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 005DCA911A805A3900E55C0D /* LaunchScreen.xib */; };
 		005DCAB41A805C8F00E55C0D /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 005DCAB31A805C8F00E55C0D /* Configuration.plist */; };
+		0069C10A1D10BB06002D4940 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0069C1091D10BB06002D4940 /* main.swift */; };
 		006BC1571A884177003AA87D /* ToolConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BC1561A884177003AA87D /* ToolConfigViewController.swift */; };
 		00A3AB971AA93E98004CEA19 /* ToolConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A3AB961AA93E98004CEA19 /* ToolConfig.swift */; };
 		00C0BF2E1C9DA30700842299 /* Stroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C0BF2D1C9DA30700842299 /* Stroke.swift */; };
@@ -55,6 +56,7 @@
 		005DCA8F1A805A3900E55C0D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		005DCA921A805A3900E55C0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		005DCAB31A805C8F00E55C0D /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
+		0069C1091D10BB06002D4940 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		006BC1561A884177003AA87D /* ToolConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolConfigViewController.swift; sourceTree = "<group>"; };
 		00A3AB961AA93E98004CEA19 /* ToolConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolConfig.swift; sourceTree = "<group>"; };
 		00AE91181A84506C00EAA84F /* PinchPad-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PinchPad-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 		005DCA821A805A3900E55C0D /* PinchPad */ = {
 			isa = PBXGroup;
 			children = (
+				0069C1091D10BB06002D4940 /* main.swift */,
 				005DCA851A805A3900E55C0D /* AppDelegate.swift */,
 				00C3E37C1AE9B4CB005D8375 /* AuthManager.swift */,
 				00C0BF3C1C9DCBB200842299 /* View controllers */,
@@ -382,6 +385,7 @@
 				00E978C51B13835D004EB3F4 /* MenuViewController.swift in Sources */,
 				00C0BF351C9DB6D700842299 /* PenStroke.swift in Sources */,
 				00E978C71B13CB00004EB3F4 /* AppConfig.swift in Sources */,
+				0069C10A1D10BB06002D4940 /* main.swift in Sources */,
 				002FF2EA1AEADBC60070BAA0 /* Sketch.swift in Sources */,
 				00C3E37D1AE9B4CB005D8375 /* AuthManager.swift in Sources */,
 				00C0BF331C9DB68300842299 /* BrushStroke.swift in Sources */,
