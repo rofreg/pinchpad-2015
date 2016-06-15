@@ -32,11 +32,18 @@ class ViewController: UIViewController{
         // When our tool changes, update the display
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.updateToolbarDisplay), name: "ToolConfigChanged", object: nil)
         
+        // When stylus connection status changes, update the display
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.updateToolbarDisplay), name: JotStylusManagerDidChangeConnectionStatus, object: nil)
+        
         // Clear canvas when we are told to
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.clear), name: "ClearCanvas", object: nil)
         
         // Enable Adonit support
         enableAdonitShortcutButtons()
+        
+        // TODO: Enable long-touch to get to stylus settings
+        // let longPressForStylusSettings = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.showStylusSettings))
+        // pencilButton.addGestureRecognizer(longPressForStylusSettings)
         
         super.viewDidLoad()
     }
@@ -50,6 +57,13 @@ class ViewController: UIViewController{
         
         JotStylusManager.sharedInstance().addShortcutOptionButton1Default(undoShortcut)
         JotStylusManager.sharedInstance().addShortcutOptionButton2Default(redoShortcut)
+    }
+    
+    func showStylusSettings() {
+        let jotVC = UIStoryboard.instantiateJotViewControllerWithIdentifier(JotViewControllerUnifiedStylusConnectionAndSettingsIdentifier)
+        let navController = UINavigationController(rootViewController: jotVC)
+        jotVC.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(MenuViewController.dismiss))
+        self.presentViewController(navController, animated: true, completion: nil)
     }
     
     
@@ -197,11 +211,14 @@ class ViewController: UIViewController{
     // MARK: Toolbar display handling
     
     func updateToolbarDisplay(){
+        let stylusActiveColor = UIColor(red: 0.0, green: 0.8, blue: 0.1, alpha: 1.0)
+        let activeColor = ToolConfig.sharedInstance.isStylusConnected ? stylusActiveColor : self.view.tintColor
+        
         if (ToolConfig.sharedInstance.tool == .Eraser){
             pencilButton.tintColor = UIColor.lightGrayColor()
-            eraserButton.tintColor = self.view.tintColor
+            eraserButton.tintColor = activeColor
         } else {
-            pencilButton.tintColor = self.view.tintColor
+            pencilButton.tintColor = activeColor
             eraserButton.tintColor = UIColor.lightGrayColor()
         }
     }

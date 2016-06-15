@@ -20,6 +20,7 @@ class Canvas: UIView {
         super.init(frame: frame)
         self.backgroundColor = UIColor.whiteColor()
         JotStylusManager.sharedInstance().jotStrokeDelegate = self
+        JotStylusManager.sharedInstance().registerView(self)
     }
 
     required init?(coder: NSCoder) {
