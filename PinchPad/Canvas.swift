@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Canvas: UIView{
+class Canvas: UIView {
     var strokes = [Stroke]()
     var redoStrokes = [Stroke]()
     var activeStroke: Stroke?
@@ -19,6 +19,7 @@ class Canvas: UIView{
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.whiteColor()
+        JotStylusManager.sharedInstance().jotStrokeDelegate = self
     }
 
     required init?(coder: NSCoder) {
@@ -26,19 +27,15 @@ class Canvas: UIView{
     }
     
     
-    // MARK: Touch handling
+    // MARK: Stroke handling
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        for touch in getActiveTouches(touches){
-            addPointToActiveStroke(touch)
-        }
+    func strokeBegan(atPoint point: CGPoint, withPressure pressure: CGFloat? = nil){
+        addPointToActiveStroke(point, pressure: pressure)
     }
     
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        for touch in getActiveTouches(touches){
-            self.touchEvents += 1
-            addPointToActiveStroke(touch)
-        }
+    func strokeMoved(toPoint point: CGPoint, withPressure pressure: CGFloat? = nil) {
+        self.touchEvents += 1
+        addPointToActiveStroke(point, pressure: pressure)
         
         // Only redraw the active stroke once every .05s or so
         if (!self.activeStroke!.isDot()){
@@ -46,19 +43,50 @@ class Canvas: UIView{
         }
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        for touch in getActiveTouches(touches){
-            addPointToActiveStroke(touch, finalTouch: true)
-        }
+    func strokeEnded(atPoint point: CGPoint, withPressure pressure: CGFloat? = nil){
+        addPointToActiveStroke(point, pressure: pressure)
         strokes.append(self.activeStroke!)
         self.activeStroke = nil
         self.setNeedsDisplay()
     }
     
-    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
-        // This commonly gets called when a two-finger scroll occurs
+    func strokeCancelled(){
         self.activeStroke = nil
         self.setNeedsDisplay()
+    }
+    
+    
+    // MARK: Raw touch event handling
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if (ToolConfig.sharedInstance.isStylusConnected) { return }
+        
+        if let touch = getActiveTouches(touches).first {
+            strokeBegan(atPoint: touch.locationInView(self))
+        }
+    }
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if (ToolConfig.sharedInstance.isStylusConnected) { return }
+        
+        if let touch = getActiveTouches(touches).first {
+            strokeMoved(toPoint: touch.locationInView(self))
+        }
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if (ToolConfig.sharedInstance.isStylusConnected) { return }
+        
+        if let touch = getActiveTouches(touches).first {
+            strokeEnded(atPoint: touch.locationInView(self))
+        }
+    }
+    
+    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+        if (ToolConfig.sharedInstance.isStylusConnected) { return }
+        
+        // This commonly gets called when a multi-finger scroll occurs
+        strokeCancelled()
     }
 
     
@@ -77,7 +105,7 @@ class Canvas: UIView{
     
     // Initialize the active stroke if needed, then add another point to the stroke
     // Includes handling for stylus pressure
-    func addPointToActiveStroke(touch: UITouch, finalTouch: Bool = false){
+    func addPointToActiveStroke(point: CGPoint, pressure: CGFloat? = nil){
         // Start a stroke if there's not an ongoing stroke already
         if (self.activeStroke == nil){
             self.activeStroke = ToolConfig.sharedInstance.tool.toStrokeType()
@@ -86,9 +114,7 @@ class Canvas: UIView{
         }
         
         // Add point, with pressure data if available
-        self.activeStroke!.addPoint(touch,
-            inView:self,
-            withPressure: ToolConfig.sharedInstance.pressure)
+        self.activeStroke!.addPoint(point, withPressure: pressure)
     }
 
     
@@ -182,4 +208,32 @@ class Canvas: UIView{
             return canvasThusFar!
         }
     }
+}
+
+extension Canvas : JotStrokeDelegate {
+    // MARK: Adonit event handling handling
+    func jotStylusStrokeBegan(stylusStroke: JotStroke) {
+        let location = stylusStroke.locationInView(self)
+        strokeBegan(atPoint: location, withPressure: stylusStroke.pressure)
+    }
+    
+    func jotStylusStrokeMoved(stylusStroke: JotStroke) {
+        let location = stylusStroke.locationInView(self)
+        strokeMoved(toPoint: location, withPressure: stylusStroke.pressure)
+    }
+    
+    func jotStylusStrokeEnded(stylusStroke: JotStroke) {
+        let location = stylusStroke.locationInView(self)
+        strokeEnded(atPoint: location, withPressure: stylusStroke.pressure)
+    }
+    
+    func jotStylusStrokeCancelled(stylusStroke: JotStroke) {
+        strokeCancelled()
+    }
+    
+    
+    // MARK: Gesture handling
+    
+    func jotSuggestsToEnableGestures(){}
+    func jotSuggestsToDisableGestures(){}
 }

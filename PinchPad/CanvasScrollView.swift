@@ -37,8 +37,8 @@ class CanvasScrollView: UIScrollView, UIScrollViewDelegate{
                 repeats: true)
         }
         
-        // Only scroll with two fingers, plz
-        self.panGestureRecognizer.minimumNumberOfTouches = 2
+        // Only scroll with three fingers, plz
+        self.panGestureRecognizer.minimumNumberOfTouches = 3
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CanvasScrollView.clear), name: "ResizeCanvas", object: nil)
     }

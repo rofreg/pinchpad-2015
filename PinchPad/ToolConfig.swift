@@ -28,16 +28,16 @@ class ToolConfig {
     
     // List our tool properties
     // Changing any of these properties should send out an NSNotification
-    var tool: Tool = Tool.Brush {
+    var tool = Tool.Brush {
         didSet { NSNotificationCenter.defaultCenter().postNotificationName("ToolConfigChanged", object: self) }
     }
-    var color: UIColor = UIColor.blackColor() {
+    var color = UIColor.blackColor() {
         didSet { NSNotificationCenter.defaultCenter().postNotificationName("ToolConfigChanged", object: self) }
     }
     var width: CGFloat = 3.0 {
         didSet { NSNotificationCenter.defaultCenter().postNotificationName("ToolConfigChanged", object: self) }
     }
-    var pressure: CGFloat? {
-        didSet { NSNotificationCenter.defaultCenter().postNotificationName("ToolConfigChanged", object: self) }
+    var isStylusConnected: Bool {
+        get { return JotStylusManager.sharedInstance().isStylusConnected }
     }
 }
