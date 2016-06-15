@@ -8,6 +8,8 @@
 
 extension JotStroke {
     var adjustedPressure: CGFloat {
-        get { return clamp(pressure * 1.5, lower: 0.2, upper: 1.0) }
+        get {
+            return clamp(pressure*0.9 + 0.1, lower: 0.15, upper: 1.0)
+        }
     }
 }

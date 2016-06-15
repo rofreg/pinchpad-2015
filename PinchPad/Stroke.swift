@@ -12,8 +12,12 @@ class Stroke{
     let color: UIColor
     let width: CGFloat
     var points = [StrokePoint]()
-    
-    static let MINIMUM_POINT_DISTANCE: Double = 3
+    var minimumPointDistance: Double {
+        get {
+            // May be overridden by subclasses (untested)
+            return ToolConfig.sharedInstance.isStylusConnected ? 0.1 : 3
+        }
+    }
     
     required init(width: CGFloat!, color: UIColor!){
         self.width = width
@@ -30,7 +34,7 @@ class Stroke{
     
     func addPoint(location: CGPoint, withPressure pressure: CGFloat? = nil){
         // Do not add this point if it's too close to the last point
-        if let lastPoint = self.points.last where (lastPoint.location - location).length() < Stroke.MINIMUM_POINT_DISTANCE {
+        if let lastPoint = self.points.last where (lastPoint.location - location).length() < minimumPointDistance {
             // Handle pressure changes (i.e. I stayed still, but pressed down harder)
             if let currentPressure = pressure where currentPressure > lastPoint.pressure {
                 self.points.removeLast()
@@ -107,7 +111,7 @@ class Stroke{
 
 class StrokePoint: NSObject{
     let location: CGPoint
-    let pressure: CGFloat       // TODO: allow code to adjust pressure on the fly
+    let pressure: CGFloat
     let time: NSTimeInterval
     
     init(location: CGPoint!, pressure: CGFloat!){

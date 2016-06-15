@@ -32,6 +32,10 @@ class VariableStroke: Stroke {
         }
     }
     
+    func widthForPressure(pressure: CGFloat) -> CGFloat{
+        return clamp(width * pressure, lower: width*0.15, upper: width)
+    }
+    
     // This returns a series of POLYGONS that simulate pressure
     func asBezierPaths(quickly: Bool = false) -> [UIBezierPath]{
         if (quickly && cachedPointsCount == points.count) {
@@ -50,7 +54,7 @@ class VariableStroke: Stroke {
             
             // Generate two bounding paths to create stroke thickness
             // First point needs a bit of special handling
-            var startPoints = pointsOnLineSegmentPerpendicularTo([finalPoints[1].location, finalPoints[0].location], length: width * finalPoints[1].pressure)
+            var startPoints = pointsOnLineSegmentPerpendicularTo([finalPoints[1].location, finalPoints[0].location], length: widthForPressure(finalPoints[1].pressure))
             var boundingPoints = [[startPoints[1], startPoints[0]]]
             
             // Now calculate all points in the middle of the path
@@ -65,7 +69,7 @@ class VariableStroke: Stroke {
             if (self.cachedBezierPaths.count == 0){
                 // Draw a dot at the starting location, to round the starting point off
                 let path = UIBezierPath()
-                path.addArcWithCenter(finalPoints.first!.location, radius: width * finalPoints[1].pressure, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
+                path.addArcWithCenter(finalPoints.first!.location, radius: widthForPressure(finalPoints[1].pressure), startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
                 self.cachedBezierPaths.append(path)
             }
             
@@ -82,7 +86,7 @@ class VariableStroke: Stroke {
             
             // Draw a dot at the ending location, to round the ending point off
             let path = UIBezierPath()
-            path.addArcWithCenter(finalPoints.last!.location, radius: width * finalPoints.last!.pressure, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
+            path.addArcWithCenter(finalPoints.last!.location, radius: widthForPressure(finalPoints.last!.pressure), startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
             self.cachedBezierPaths.append(path)
             
             // Set all polygons to have a thin line stroke (to handle the tiny rendering gaps between polygons)
