@@ -64,6 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidBecomeActive(application: UIApplication) {
         // Try syncing whenever we re-open the app from the background
+        // (If we're launching, .sync() will already get called when we set up Reachability)
         if (!initialLaunch){
             AuthManager.sync()
         }

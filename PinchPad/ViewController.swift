@@ -166,10 +166,10 @@ class ViewController: UIViewController{
     func updatePendingPostsDisplay(){
         let fetchRequest = NSFetchRequest(entityName: "Sketch")
         fetchRequest.predicate = NSPredicate(format: "(syncStarted == nil OR syncStarted > %@) AND (duration = 0)", NSDate().dateByAddingTimeInterval(-60))
-        let unsynced = try? AuthManager.managedContext().executeFetchRequest(fetchRequest)
+        let unsynced = try? Sketch.managedContext.executeFetchRequest(fetchRequest)
         
         fetchRequest.predicate = NSPredicate(format: "syncError == true AND duration = 0")
-        let syncErrors = try? AuthManager.managedContext().executeFetchRequest(fetchRequest)
+        let syncErrors = try? Sketch.managedContext.executeFetchRequest(fetchRequest)
         
         if let syncErrors = syncErrors where syncErrors.count > 0{
             pendingPostsView.alpha = 1

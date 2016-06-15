@@ -20,9 +20,11 @@ class Sketch: NSManagedObject {
     @NSManaged var syncError: Bool
     @NSManaged var syncStarted: NSDate?
     
-    class func managedContext() -> NSManagedObjectContext{
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        return appDelegate.managedObjectContext!
+    class var managedContext: NSManagedObjectContext {
+        get {
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            return appDelegate.managedObjectContext!
+        }
     }
     
     
@@ -34,7 +36,7 @@ class Sketch: NSManagedObject {
             fetchRequest.predicate = NSPredicate(format: "duration != 0")
             fetchRequest.sortDescriptors = [NSSortDescriptor(key: "createdAt", ascending: true)]
             
-            if let fetchResults = (try? Sketch.managedContext().executeFetchRequest(fetchRequest)) as? [Sketch] {
+            if let fetchResults = (try? Sketch.managedContext.executeFetchRequest(fetchRequest)) as? [Sketch] {
                 return fetchResults
             } else {
                 return []
@@ -74,9 +76,9 @@ class Sketch: NSManagedObject {
     
     class func clearAnimationFrames(){
         for frame in self.animationFrames{
-            Sketch.managedContext().deleteObject(frame)
+            Sketch.managedContext.deleteObject(frame)
         }
-        try! Sketch.managedContext().save()
+        try! Sketch.managedContext.save()
     }
     
     func imageType() -> String{

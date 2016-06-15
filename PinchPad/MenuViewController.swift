@@ -93,17 +93,17 @@ class MenuViewController : UIViewController{
     }
     
     @IBAction func addFrame(){
-        let newItem = NSEntityDescription.insertNewObjectForEntityForName("Sketch", inManagedObjectContext: Sketch.managedContext()) as! Sketch
+        let newItem = NSEntityDescription.insertNewObjectForEntityForName("Sketch", inManagedObjectContext: Sketch.managedContext) as! Sketch
         newItem.createdAt = NSDate()
         newItem.imageData = (self.parentViewController as! ViewController).canvas.contentView.asNSData()
         newItem.duration = AppConfig.sharedInstance.frameLength
-        _ = try? Sketch.managedContext().save()
+        _ = try? Sketch.managedContext.save()
     }
     
     @IBAction func removeFrame(){
         if let sketch = Sketch.animationFrames.last{
-            Sketch.managedContext().deleteObject(sketch)
-            _ = try? Sketch.managedContext().save()
+            Sketch.managedContext.deleteObject(sketch)
+            _ = try? Sketch.managedContext.save()
         }
     }
     

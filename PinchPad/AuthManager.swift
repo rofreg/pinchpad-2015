@@ -13,12 +13,6 @@ import Locksmith
 import SwiftyJSON
 
 class AuthManager {
-    class func managedContext() -> NSManagedObjectContext{
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        return appDelegate.managedObjectContext!
-    }
-    
-    
     // MARK: Initialization
     
     class func start(){
@@ -206,14 +200,14 @@ class AuthManager {
     
     class func enqueue(service: AuthManagerService, imageData: NSData, caption: String){
         // Save this new item-to-be-posted to CoreData
-        let newItem = NSEntityDescription.insertNewObjectForEntityForName("Sketch", inManagedObjectContext: Sketch.managedContext()) as! Sketch
+        let newItem = NSEntityDescription.insertNewObjectForEntityForName("Sketch", inManagedObjectContext: Sketch.managedContext) as! Sketch
         newItem.createdAt = NSDate()
         newItem.rawService = service.rawValue
         newItem.imageData = imageData
         newItem.caption = caption
         newItem.duration = 0
         do {
-            try Sketch.managedContext().save()
+            try Sketch.managedContext.save()
         } catch _ {
         }
         
@@ -231,12 +225,12 @@ class AuthManager {
         let fetchRequest = NSFetchRequest(entityName: "Sketch")
         fetchRequest.predicate = NSPredicate(format: "(syncStarted == nil OR syncStarted < %@) AND (duration = 0)", NSDate().dateByAddingTimeInterval(-60))
         
-        if let fetchResults = (try? Sketch.managedContext().executeFetchRequest(fetchRequest)) as? [Sketch] {
+        if let fetchResults = (try? Sketch.managedContext.executeFetchRequest(fetchRequest)) as? [Sketch] {
             print("Syncing \(fetchResults.count) sketches")
             for sketch in fetchResults{
                 sketch.syncStarted = NSDate()
                 do {
-                    try Sketch.managedContext().save()
+                    try Sketch.managedContext.save()
                 } catch _ {
                 }
                 AuthManager.post(sketch)
@@ -255,12 +249,12 @@ class AuthManager {
                 print("Posted to Twitter: \(success)")        // print whether we succeeded
                 if (success){
                     // Delete successful post from local DB
-                    Sketch.managedContext().deleteObject(sketch)
+                    Sketch.managedContext.deleteObject(sketch)
                 } else {
                     sketch.syncError = true
                 }
                 sketch.syncStarted = nil
-                try! Sketch.managedContext().save()
+                try! Sketch.managedContext.save()
             }
         } else if (service == .Tumblr) {
             TMAPIClient.sharedInstance().photo(AuthManager.identifier(.Tumblr), imageNSDataArray: [sketch.imageData], contentTypeArray: [imageType], fileNameArray: [(imageType == "image/gif" ? "sketch.gif" : "sketch.png")], parameters: ["tags":"pinchpad,hourly comics", "link":"http://www.pinchpad.com"], callback: { (response: AnyObject!, error: NSError!) -> Void in
@@ -275,12 +269,12 @@ class AuthManager {
                 print("Posted to Tumblr: \(success)")        // print whether we succeeded
                 if (success){
                     // Delete successful post from local DB
-                    Sketch.managedContext().deleteObject(sketch)
+                    Sketch.managedContext.deleteObject(sketch)
                 } else {
                     sketch.syncError = true
                 }
                 sketch.syncStarted = nil
-                try! Sketch.managedContext().save()
+                try! Sketch.managedContext.save()
             })
         }
     }
