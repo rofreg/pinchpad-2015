@@ -214,17 +214,17 @@ extension Canvas : JotStrokeDelegate {
     // MARK: Adonit event handling handling
     func jotStylusStrokeBegan(stylusStroke: JotStroke) {
         let location = stylusStroke.locationInView(self)
-        strokeBegan(atPoint: location, withPressure: stylusStroke.pressure)
+        strokeBegan(atPoint: location, withPressure: stylusStroke.adjustedPressure)
     }
     
     func jotStylusStrokeMoved(stylusStroke: JotStroke) {
         let location = stylusStroke.locationInView(self)
-        strokeMoved(toPoint: location, withPressure: stylusStroke.pressure)
+        strokeMoved(toPoint: location, withPressure: stylusStroke.adjustedPressure)
     }
     
     func jotStylusStrokeEnded(stylusStroke: JotStroke) {
         let location = stylusStroke.locationInView(self)
-        strokeEnded(atPoint: location, withPressure: stylusStroke.pressure)
+        strokeEnded(atPoint: location, withPressure: stylusStroke.adjustedPressure)
     }
     
     func jotStylusStrokeCancelled(stylusStroke: JotStroke) {
