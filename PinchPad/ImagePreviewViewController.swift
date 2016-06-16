@@ -21,7 +21,7 @@ class ImagePreviewViewController : UIViewController{
         } else {
             // Or just load the current image
             let vc: ViewController = UIApplication.sharedApplication().delegate!.window!!.rootViewController as! ViewController
-            self.imageView.image = vc.canvas.contentView.asImage()
+            self.imageView.image = vc.canvas.asImage()
         }
     }
     

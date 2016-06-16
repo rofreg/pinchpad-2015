@@ -9,7 +9,12 @@
 import UIKit
 
 class CanvasScrollView: UIScrollView, UIScrollViewDelegate{
-    var contentView: Canvas!
+    var layers = [Canvas]()
+    var currentLayer: Canvas! {
+        didSet {
+            JotStylusManager.sharedInstance().jotStrokeDelegate = currentLayer
+        }
+    }
     var diagnosticsView: UILabel?
     static let FPS_DISPLAY_RATE: Double = 0     // How often should we show the on-screen FPS indicator?
     
@@ -19,9 +24,17 @@ class CanvasScrollView: UIScrollView, UIScrollViewDelegate{
         self.delegate = self
         self.backgroundColor = UIColor.whiteColor()
         
-        // Initialize our content view, which will handle actual drawing
-        self.contentView = Canvas(frame: self.bounds)
-        addSubview(self.contentView)
+        // Initialize our content view layers, which will handle actual drawing
+        self.layers = [Canvas(frame: self.bounds), Canvas(frame: self.bounds)]
+        self.layers.last!.alpha = 0.2
+        for layer in layers {
+            addSubview(layer)
+        }
+        
+        // Set current active layer
+        // Note that Swift does not call didSet when settings attrs in init()
+        self.currentLayer = self.layers.first
+        JotStylusManager.sharedInstance().jotStrokeDelegate = currentLayer
         
         // Initialize a view for showing diagnostics
         if CanvasScrollView.FPS_DISPLAY_RATE > 0 {
@@ -44,8 +57,8 @@ class CanvasScrollView: UIScrollView, UIScrollViewDelegate{
     }
     
     func updateDiagnostics(){
-        self.diagnosticsView?.text = "FPS: \(Double(self.contentView.touchEvents) * CanvasScrollView.FPS_DISPLAY_RATE)"
-        self.contentView.touchEvents = 0
+        self.diagnosticsView?.text = "FPS: \(Double(currentLayer.touchEvents) * CanvasScrollView.FPS_DISPLAY_RATE)"
+        currentLayer.touchEvents = 0
     }
     
     override func layoutSubviews() {
@@ -57,19 +70,45 @@ class CanvasScrollView: UIScrollView, UIScrollViewDelegate{
             self.contentSize = CGSize(width:CGRectGetWidth(frame), height: CGRectGetHeight(frame))
         }
         
-        self.contentView.frame.size = self.contentSize
+        for layer in layers {
+            layer.frame.size = self.contentSize
+        }
     }
     
     func clear(){
-        self.contentView.clear()
+        currentLayer.clear()
         self.layoutSubviews()
     }
     
     func undo(){
-        self.contentView.undo()
+        currentLayer.undo()
     }
     
     func redo(){
-        self.contentView.redo()
+        currentLayer.redo()
+    }
+    
+    func switchLayers(){
+        if currentLayer == layers.first {
+            currentLayer = layers.last
+        } else {
+            currentLayer = layers.first
+        }
+    }
+    
+    
+    // MARK: Image export functions
+    
+    func asImage() -> UIImage{
+        UIGraphicsBeginImageContextWithOptions(self.bounds.size, true, 0.0)
+        drawViewHierarchyInRect(self.bounds, afterScreenUpdates:true)
+        let viewAsImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return viewAsImage
+    }
+    
+    func asNSData() -> NSData{
+        return UIImagePNGRepresentation(self.asImage())!
     }
 }

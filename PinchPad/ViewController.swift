@@ -52,11 +52,10 @@ class ViewController: UIViewController{
     // MARK: Adonit handling
     
     func enableAdonitShortcutButtons() {
-        let undoShortcut = JotShortcut.init(descriptiveText: "Undo", key: "undo", target: self, selector: #selector(ViewController.undo))
-        let redoShortcut = JotShortcut.init(descriptiveText: "Redo", key: "redo", target: self, selector: #selector(ViewController.redo))
+        let switchLayersShortcut = JotShortcut.init(descriptiveText: "Switch layers", key: "switchLayers", target: self, selector: #selector(ViewController.switchLayers))
         
-        JotStylusManager.sharedInstance().addShortcutOptionButton1Default(undoShortcut)
-        JotStylusManager.sharedInstance().addShortcutOptionButton2Default(redoShortcut)
+        JotStylusManager.sharedInstance().addShortcutOptionButton1Default(switchLayersShortcut)
+        JotStylusManager.sharedInstance().addShortcutOptionButton2Default(switchLayersShortcut)
     }
     
     func showStylusSettings() {
@@ -117,11 +116,15 @@ class ViewController: UIViewController{
         self.canvas.redo()
     }
     
+    func switchLayers(){
+        self.canvas.switchLayers()
+    }
+    
     @IBAction func post(sender: AnyObject){
         // Some code based on https://twittercommunity.com/t/upload-images-with-swift/28410/7
         
         // Don't post if we haven't drawn any strokes
-        if (self.canvas.contentView.strokes.count == 0 && Sketch.animationFrameCount == 0){
+        if (self.canvas.currentLayer.strokes.count == 0 && Sketch.animationFrameCount == 0){
             let alert = UIAlertController(title: "Your sketch is blank", message: "You haven't drawn anything yet, silly!", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
@@ -132,7 +135,7 @@ class ViewController: UIViewController{
         let imageData: NSData
         if (Sketch.animationFrameCount == 0){
             // This is a normal sketch; just grab the current canvas
-            imageData = self.canvas.contentView.asNSData()
+            imageData = self.canvas.asNSData()
         } else {
             // This is an animation! We need to assemble a GIF (and clear our stored GIF frames from the DB)
             imageData = Sketch.assembleAnimatedGif()!

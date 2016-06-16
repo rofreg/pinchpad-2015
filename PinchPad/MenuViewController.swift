@@ -95,7 +95,7 @@ class MenuViewController : UIViewController{
     @IBAction func addFrame(){
         let newItem = NSEntityDescription.insertNewObjectForEntityForName("Sketch", inManagedObjectContext: Sketch.managedContext) as! Sketch
         newItem.createdAt = NSDate()
-        newItem.imageData = (self.parentViewController as! ViewController).canvas.contentView.asNSData()
+        newItem.imageData = (self.parentViewController as! ViewController).canvas.asNSData()
         newItem.duration = AppConfig.sharedInstance.frameLength
         _ = try? Sketch.managedContext.save()
     }

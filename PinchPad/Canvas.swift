@@ -18,8 +18,8 @@ class Canvas: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.whiteColor()
-        JotStylusManager.sharedInstance().jotStrokeDelegate = self
+        
+        // Accept input from Adonit styluses
         JotStylusManager.sharedInstance().registerView(self)
     }
 
@@ -192,22 +192,6 @@ class Canvas: UIView {
         // Draw result to screen
         // TODO: this is slow. use a second view as an on-screen buffer?
         canvasThusFar!.drawInRect(rect)
-    }
-    
-    func asNSData() -> NSData{
-        if canvasThusFar == nil{
-            return NSData()
-        } else{
-            return UIImagePNGRepresentation(canvasThusFar!)!
-        }
-    }
-    
-    func asImage() -> UIImage{
-        if canvasThusFar == nil{
-            return UIImage()
-        } else {
-            return canvasThusFar!
-        }
     }
 }
 
