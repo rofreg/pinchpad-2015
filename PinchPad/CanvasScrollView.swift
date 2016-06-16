@@ -89,6 +89,8 @@ class CanvasScrollView: UIScrollView, UIScrollViewDelegate{
     }
     
     func switchLayers(){
+        // TODO: show toast message
+        // TODO: expose this feature to non-stylus users
         if currentLayer == layers.first {
             currentLayer = layers.last
         } else {

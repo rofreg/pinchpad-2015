@@ -41,9 +41,7 @@ class ViewController: UIViewController{
         // Enable Adonit support
         enableAdonitShortcutButtons()
         
-        // TODO: Enable long-touch to get to stylus settings
-        // let longPressForStylusSettings = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.showStylusSettings))
-        // pencilButton.addGestureRecognizer(longPressForStylusSettings)
+        // TODO: Add stylus settings in advanced section of menu
         
         super.viewDidLoad()
     }
