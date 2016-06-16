@@ -214,18 +214,24 @@ class Canvas: UIView {
 extension Canvas : JotStrokeDelegate {
     // MARK: Adonit event handling handling
     func jotStylusStrokeBegan(stylusStroke: JotStroke) {
-        let location = stylusStroke.locationInView(self)
-        strokeBegan(atPoint: location, withPressure: stylusStroke.adjustedPressure)
+        for jotStroke in stylusStroke.coalescedJotStrokes as! [JotStroke]! {
+            let location = jotStroke.locationInView(self)
+            strokeBegan(atPoint: location, withPressure: jotStroke.adjustedPressure)
+        }
     }
     
     func jotStylusStrokeMoved(stylusStroke: JotStroke) {
-        let location = stylusStroke.locationInView(self)
-        strokeMoved(toPoint: location, withPressure: stylusStroke.adjustedPressure)
+        for jotStroke in stylusStroke.coalescedJotStrokes as! [JotStroke]! {
+            let location = jotStroke.locationInView(self)
+            strokeMoved(toPoint: location, withPressure: jotStroke.adjustedPressure)
+        }
     }
     
     func jotStylusStrokeEnded(stylusStroke: JotStroke) {
-        let location = stylusStroke.locationInView(self)
-        strokeEnded(atPoint: location, withPressure: stylusStroke.adjustedPressure)
+        for jotStroke in stylusStroke.coalescedJotStrokes as! [JotStroke]! {
+            let location = jotStroke.locationInView(self)
+            strokeEnded(atPoint: location, withPressure: jotStroke.adjustedPressure)
+        }
     }
     
     func jotStylusStrokeCancelled(stylusStroke: JotStroke) {
