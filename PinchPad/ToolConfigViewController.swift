@@ -14,6 +14,8 @@ class ToolConfigViewController: UIViewController{
     @IBOutlet var sliderBackground: UIView!
     @IBOutlet var previewWindow: Canvas!
     @IBOutlet var colorCollectionView: UICollectionView!
+    @IBOutlet var alphaSlider: UISlider!
+    
     let colors = [UIColor.blackColor(), UIColor(hex:"999999"), UIColor(hex:"dddddd"), UIColor(hex:"F2CA42"), UIColor(hex:"00C3A9"), UIColor(hex:"D45354"), UIColor(hex:"2FCAD8"), UIColor(hex:"663300"), UIColor(hex:"af7a56"), UIColor(hex:"ab7dbe"), UIColor(hex:"ff8960"), UIColor(hex:"6e99d4"), UIColor(hex:"4c996e"), UIColor(hex:"dc9bb1")]
     
     override func viewDidLoad() {
@@ -58,6 +60,10 @@ class ToolConfigViewController: UIViewController{
         ToolConfig.sharedInstance.width = CGFloat(toolSize)
         
         updateSliderBackground()
+    }
+    
+    @IBAction func alphaChanged(sender: UISlider){
+        ToolConfig.sharedInstance.alpha = sender.value
     }
     
     

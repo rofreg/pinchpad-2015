@@ -34,6 +34,9 @@ class ToolConfig {
     var color = UIColor.blackColor() {
         didSet { NSNotificationCenter.defaultCenter().postNotificationName("ToolConfigChanged", object: self) }
     }
+    var alpha: Float = 1.0 {
+        didSet { color = color.colorWithAlphaComponent(CGFloat(alpha)) }
+    }
     var width: CGFloat = 3.0 {
         didSet { NSNotificationCenter.defaultCenter().postNotificationName("ToolConfigChanged", object: self) }
     }
