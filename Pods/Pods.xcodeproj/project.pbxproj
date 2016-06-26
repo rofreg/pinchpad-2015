@@ -9,112 +9,112 @@
 /* Begin PBXBuildFile section */
 		02D0DEEC94B2EB21A8DFA14CF652ACB3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E43835C3985CE3A3983CF5FEC29FD5 /* Foundation.framework */; };
 		072D460D0D6D1B4F6A082F6D48A2B7FC /* Pods-PinchPad-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CD6655592B6909D1373BC628DD3B5E /* Pods-PinchPad-dummy.m */; };
-		10113E207516DDCAC19E3B2FED7E12C4 /* LocksmithError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E2E82AFE2B25D624188A752BDB9281 /* LocksmithError.swift */; };
-		1016AAC5386A741DE7CCB18E77E99426 /* JXHTTPFormEncodedBody.h in Headers */ = {isa = PBXBuildFile; fileRef = 96A084D10C71529CB9E5EBC5848A4ED1 /* JXHTTPFormEncodedBody.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		10F6700D7DE0F166F52B9F553A28CD9C /* JXURLConnectionOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EBCD14CEC6BEF6333AEB8BCAB7DACBE /* JXURLConnectionOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1374EEC7E67FB73F9240545AC0D66ACA /* FLAnimatedImage-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 146C176AE1E3B25D0758F268312C04C4 /* FLAnimatedImage-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		13EB929F72B356FC41F08CCF85D5D0C1 /* Locksmith-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 47D3FFF7E861C032142241B0E4917C3A /* Locksmith-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1411893DBCB4D821E98F53BACDEC7612 /* ReachabilitySwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 68D700E86DF279E2F3BF0C0D233BA903 /* ReachabilitySwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1495BCB330D338CEF2E39D10082B941C /* LocksmithAccessibleOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB48C858292830420CB4A599CFCE4910 /* LocksmithAccessibleOption.swift */; };
-		18B25FA00E73282FF2F1796A2217557E /* TMTumblrActivity.h in Headers */ = {isa = PBXBuildFile; fileRef = DCF61A2E524FD0C786C5E7363BDC6680 /* TMTumblrActivity.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		19900BBDFA1F76FFF137C593B1BF244C /* Toast-Swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E76C0C08285C5CFAAF7EEA2756C0A46F /* Toast-Swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1AEDD4380969F878290BBFBED5DDE4E1 /* TMTumblrActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = D209B1247DA1E7B8C58F1495B5154B50 /* TMTumblrActivity.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		1B6DBB7D4EDF238AA2D89608A3F51C03 /* FLAnimatedImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = DBE45FC9457F0EEB5D40E069355D9C7D /* FLAnimatedImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10113E207516DDCAC19E3B2FED7E12C4 /* LocksmithError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E5071E19B483B730338926BD72D2C2 /* LocksmithError.swift */; };
+		1016AAC5386A741DE7CCB18E77E99426 /* JXHTTPFormEncodedBody.h in Headers */ = {isa = PBXBuildFile; fileRef = 004367E2758FA3E7A40025A2792B0183 /* JXHTTPFormEncodedBody.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10F6700D7DE0F166F52B9F553A28CD9C /* JXURLConnectionOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = C5A61C2E09931349A99C2593AB37D792 /* JXURLConnectionOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1374EEC7E67FB73F9240545AC0D66ACA /* FLAnimatedImage-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9FE7FFC659758D1684D05C76267205B5 /* FLAnimatedImage-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		13EB929F72B356FC41F08CCF85D5D0C1 /* Locksmith-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B4D86E2BCB9D67C7C122D4E3774391C /* Locksmith-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1411893DBCB4D821E98F53BACDEC7612 /* ReachabilitySwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FFDCEFD01BF5BA146D67A29007D5613B /* ReachabilitySwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1495BCB330D338CEF2E39D10082B941C /* LocksmithAccessibleOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5431EB604195964492161435F55ED23 /* LocksmithAccessibleOption.swift */; };
+		18B25FA00E73282FF2F1796A2217557E /* TMTumblrActivity.h in Headers */ = {isa = PBXBuildFile; fileRef = 568A6DE342E6A39027E1FC9325D489A9 /* TMTumblrActivity.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19900BBDFA1F76FFF137C593B1BF244C /* Toast-Swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 16FD1E74B9DD8338F9BFC6A519BCD452 /* Toast-Swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1AEDD4380969F878290BBFBED5DDE4E1 /* TMTumblrActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5255BFF781C43FC0C0F7F80645B9B403 /* TMTumblrActivity.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		1B6DBB7D4EDF238AA2D89608A3F51C03 /* FLAnimatedImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = B450CAA40967E6855F0F959867C2316A /* FLAnimatedImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1D289D03369E7C05652B06DBA8CC3860 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E43835C3985CE3A3983CF5FEC29FD5 /* Foundation.framework */; };
-		287541481DDF7F1819210E8AFC3448CB /* UIActivityTumblr~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B820A643C5043F49C7FFECA91C99926 /* UIActivityTumblr~ipad.png */; };
-		2DD51A6069B8B7739A910E8CF8940F98 /* JXHTTPOperation+Convenience.h in Headers */ = {isa = PBXBuildFile; fileRef = 42B35454B6A77A72B79EE80CF6FDD5FF /* JXHTTPOperation+Convenience.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		287541481DDF7F1819210E8AFC3448CB /* UIActivityTumblr~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 00AB0DD745011EBE50CCE1563FDF7A2F /* UIActivityTumblr~ipad.png */; };
+		2DD51A6069B8B7739A910E8CF8940F98 /* JXHTTPOperation+Convenience.h in Headers */ = {isa = PBXBuildFile; fileRef = 57DE91C0E5D2156F3BAB566E1D774667 /* JXHTTPOperation+Convenience.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2FE70DC6FBD7A013DB18E5B5371F231F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E43835C3985CE3A3983CF5FEC29FD5 /* Foundation.framework */; };
-		30EE23188812403D564EA35746CC24FA /* JXHTTPFileBody.h in Headers */ = {isa = PBXBuildFile; fileRef = 636B5511422E72002E25DCCA73C4AC8E /* JXHTTPFileBody.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		33EE7A3D9CB508311E854666750D681D /* Flurry-iOS-SDK-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0ECC5C387BD66CB48571A439B110433D /* Flurry-iOS-SDK-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		37AB7E6FE0B19B5152D9C82AD8ED0FA2 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B7E3B97EDE07ECCCD2E69666B8B596 /* Reachability.swift */; };
-		3B629068F4BE1D7821957056F25E33C1 /* Locksmith-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 340E79E6207292D5A240E3C5720A891F /* Locksmith-dummy.m */; };
-		3CB9445DAF7FAB4FA0F432800CA7EAA5 /* JXHTTPOperationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 256E3FAC44AC58DE3382B958ED0A0E5D /* JXHTTPOperationDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		30EE23188812403D564EA35746CC24FA /* JXHTTPFileBody.h in Headers */ = {isa = PBXBuildFile; fileRef = 98A7C7F538D8A151645B906B36C5EFDF /* JXHTTPFileBody.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		33EE7A3D9CB508311E854666750D681D /* Flurry-iOS-SDK-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F34564E6AF9F3EA092A91F3AC6454EAD /* Flurry-iOS-SDK-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37AB7E6FE0B19B5152D9C82AD8ED0FA2 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E697A48F843C0CDBAD0D9D517545306 /* Reachability.swift */; };
+		3B629068F4BE1D7821957056F25E33C1 /* Locksmith-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8316EC24004CAE5815618FCCCC063158 /* Locksmith-dummy.m */; };
+		3CB9445DAF7FAB4FA0F432800CA7EAA5 /* JXHTTPOperationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 57157E03BA81188E780DD2DF935C56B2 /* JXHTTPOperationDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		42890EFA1A9960C220BFA8647831E467 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64B7283A79B898EAE54C8221B5A49645 /* Security.framework */; };
-		46485D36E37F397B7F56EE76B3382C85 /* Dictionary_Initializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701CBE2EB81DCCCE4275F99A44068C17 /* Dictionary_Initializers.swift */; };
-		49F27708F18C6EFBABE80EA0E78188CD /* TMTumblrAuthenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A9CB908509B59728983A31700A841D /* TMTumblrAuthenticator.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		4BF82FCAF1791FAFE25F10006853A633 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C484C1F130B17ED8D571E63EF2B4832 /* SwiftyJSON.swift */; };
-		4DF9F9225DC7A19D6292FA98999D1C62 /* Toast-Swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EAEC58262E79B6BFC4C1D27B274D8282 /* Toast-Swift-dummy.m */; };
-		4E1B4FD9FF4D231B38D093FCF6A3EA08 /* JXHTTPMultipartBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 48532052DD1FBB3E4CD9FA89058A8B01 /* JXHTTPMultipartBody.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		560570193A3A10D8D737D94654C75F6A /* JXHTTPDataBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B9637316D2908B387EF174C872DC4E /* JXHTTPDataBody.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		59AEFB1078C163B75DC5FBA5CEADCAF6 /* TMPodspec.m in Sources */ = {isa = PBXBuildFile; fileRef = FF27C89BF5CADB2A23FDFB20215A777B /* TMPodspec.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		5C9BDDBB790ACE3711E8AD09A13E0FB2 /* LocksmithSecurityClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CFD684775D2FFE9762064E7ACB1F0A /* LocksmithSecurityClass.swift */; };
-		5D0014F08D2ED6998FAC8515C1A70A73 /* JXHTTPJSONBody.m in Sources */ = {isa = PBXBuildFile; fileRef = A04B44793C24F7F3B3E58775C86DE0CD /* JXHTTPJSONBody.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		612A5931CEEFDFA056FE645BDD784469 /* Locksmith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882B028777F43E4B8004E7DCB7136866 /* Locksmith.swift */; };
-		64F8E78756C04F35D074A89BA1C2E07E /* SwiftyJSON-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 69639449CC27AE879E408CFE84D40C77 /* SwiftyJSON-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		46485D36E37F397B7F56EE76B3382C85 /* Dictionary_Initializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E5DEF14D806DA5F8FF1D9260F362D6 /* Dictionary_Initializers.swift */; };
+		49F27708F18C6EFBABE80EA0E78188CD /* TMTumblrAuthenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A66C18382505544CC480412397EBCD1 /* TMTumblrAuthenticator.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		4BF82FCAF1791FAFE25F10006853A633 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA972CBC9C373BF56668E06CC7D9007 /* SwiftyJSON.swift */; };
+		4DF9F9225DC7A19D6292FA98999D1C62 /* Toast-Swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CF491B43A2E332808A3C298EB1994D0C /* Toast-Swift-dummy.m */; };
+		4E1B4FD9FF4D231B38D093FCF6A3EA08 /* JXHTTPMultipartBody.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC018ADB61578A249C86BBEBE1A5AAE /* JXHTTPMultipartBody.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		560570193A3A10D8D737D94654C75F6A /* JXHTTPDataBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F78170CD4D6720948AEA451AB5F641 /* JXHTTPDataBody.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		59AEFB1078C163B75DC5FBA5CEADCAF6 /* TMPodspec.m in Sources */ = {isa = PBXBuildFile; fileRef = 698D37B3FD89C54424C537A51FCBC54D /* TMPodspec.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		5C9BDDBB790ACE3711E8AD09A13E0FB2 /* LocksmithSecurityClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7B8B42FF6FE6774A33A547D4C4ADB4 /* LocksmithSecurityClass.swift */; };
+		5D0014F08D2ED6998FAC8515C1A70A73 /* JXHTTPJSONBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 7486F38303D459F426F3E45670F1BA5B /* JXHTTPJSONBody.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		612A5931CEEFDFA056FE645BDD784469 /* Locksmith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82019DF42BB82FBBCB0FA31812946DD1 /* Locksmith.swift */; };
+		64F8E78756C04F35D074A89BA1C2E07E /* SwiftyJSON-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CECDAB58B0FC037483247243F81E76D7 /* SwiftyJSON-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		667E65170AA854EB66213EA79675807B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E43835C3985CE3A3983CF5FEC29FD5 /* Foundation.framework */; };
-		6697A07A229740E64CD7BEDF3D8C9B12 /* JXHTTPOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E7D201A70E1828F96BD5CBA5C1C8BCF0 /* JXHTTPOperation.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		6733A10A87CF657A264BF22278A5CDA2 /* JXURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 287595F7D485A76EEE7C5F2199C04749 /* JXURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		67D7FD253FEF30E490EC36ED80DFACE5 /* JXURLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C740B9CFADDD0DC227ABDC18C00D76 /* JXURLEncoding.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		6697A07A229740E64CD7BEDF3D8C9B12 /* JXHTTPOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DB2AD0141BD723EAA91DBD7F351B6D /* JXHTTPOperation.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		6733A10A87CF657A264BF22278A5CDA2 /* JXURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5177BDDCBCA71A73C812BDB24D8A7FF2 /* JXURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		67D7FD253FEF30E490EC36ED80DFACE5 /* JXURLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 256DFF3C04A0474C288FB7F97891DB34 /* JXURLEncoding.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		688123264A2372A997A8E932A1E36A76 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDCD5F19BF6561F351A1B2D1ED0651A0 /* SystemConfiguration.framework */; };
-		6ADD3AF7A95AEE98CFFBD3837DD08EFD /* JXHTTP-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EF8154EE18DF9829893B81F90B939081 /* JXHTTP-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6ADD3AF7A95AEE98CFFBD3837DD08EFD /* JXHTTP-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CBB231D69812AE9E174B89954B7FA35 /* JXHTTP-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		713704D62EFEFD32CAC62FAB16A6BC12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E43835C3985CE3A3983CF5FEC29FD5 /* Foundation.framework */; };
-		73734B8FF76205487D7A7F4232D1D2BC /* JXHTTPJSONBody.h in Headers */ = {isa = PBXBuildFile; fileRef = B49F85B9B045B1EB9D12229EF4540896 /* JXHTTPJSONBody.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		793B3BC18A6BD80D99ACFBE8917F9F89 /* FLAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A83FA612C6896FEF48B0870E47287DC2 /* FLAnimatedImageView.m */; };
-		7C4A888BC741A1DB74E799748ED571D4 /* JXHTTPOperationQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = CFCCD157649EE2E0B3E7781832787EA3 /* JXHTTPOperationQueue.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		73734B8FF76205487D7A7F4232D1D2BC /* JXHTTPJSONBody.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F03045A746C84C1D9DF760A90AE5A49 /* JXHTTPJSONBody.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		793B3BC18A6BD80D99ACFBE8917F9F89 /* FLAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B22809593C60FF96CFC822029DEF7622 /* FLAnimatedImageView.m */; };
+		7C4A888BC741A1DB74E799748ED571D4 /* JXHTTPOperationQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FB940EC860D25BC8223EEC545B588E /* JXHTTPOperationQueue.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		7DB570BC7E2E38EB9087E7C9D7E41823 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E43835C3985CE3A3983CF5FEC29FD5 /* Foundation.framework */; };
-		8004FE7A195AC19F189C85634274B7B2 /* Spectacles-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F8228BF7741BEF6A91016DC8FECF6214 /* Spectacles-dummy.m */; };
-		812C4E5C30340816259D3A74CE9DB4EA /* JXHTTP.h in Headers */ = {isa = PBXBuildFile; fileRef = BB8FB625E443C55CF4957CF05F50E439 /* JXHTTP.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8004FE7A195AC19F189C85634274B7B2 /* Spectacles-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DB0E10EA79D20F842AFA8F48D2061F0 /* Spectacles-dummy.m */; };
+		812C4E5C30340816259D3A74CE9DB4EA /* JXHTTP.h in Headers */ = {isa = PBXBuildFile; fileRef = F9B852089FA37A5B9C331005F8956AC1 /* JXHTTP.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		81C2F5F5E198091BA26B167C14637951 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F005E0C1B5BFC746CB1AACC96B06E306 /* CoreGraphics.framework */; };
-		82A25999B351BEA6E366E2687A246C8A /* UIActivityTumblr.png in Resources */ = {isa = PBXBuildFile; fileRef = 30158A59CBF2D40D66E4AA95D7181391 /* UIActivityTumblr.png */; };
-		85E2F25D720BDD5E989A44920F9C3C05 /* UIActivityTumblr@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 871AD4132CC05639513C89A3F372CCD7 /* UIActivityTumblr@2x.png */; };
-		86D033575F8B1DD787DC2ABA7166DC86 /* JXURLEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BD5BDFD8EE9918D27F57C5E872DD6EB /* JXURLEncoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8A606E6DC432FB1430510686A9309496 /* JXHTTPMultipartBody.h in Headers */ = {isa = PBXBuildFile; fileRef = A93938A331C27293C967769C1AC29CDA /* JXHTTPMultipartBody.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8AA9541169EFB247C2D8443006945E42 /* FLAnimatedImage-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 340BA6EEE0C092398427742A8C6D9FC8 /* FLAnimatedImage-dummy.m */; };
-		8F6EC93FB126D5E670F182BFEDC1F6E1 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47D5C1879FEE10EFEC3735EA2F35A4E /* Toast.swift */; };
-		8FF16C264A00A3F83A63651F214C8BC4 /* TMTumblrSDK-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E028C8B9990B95D09BFBC664ADA9050 /* TMTumblrSDK-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		82A25999B351BEA6E366E2687A246C8A /* UIActivityTumblr.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C5F6E5CDA45D0E407CCA6339F71C39D /* UIActivityTumblr.png */; };
+		85E2F25D720BDD5E989A44920F9C3C05 /* UIActivityTumblr@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 76593BF66566ED9454B7402BB692CA3D /* UIActivityTumblr@2x.png */; };
+		86D033575F8B1DD787DC2ABA7166DC86 /* JXURLEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 55DF7EC0A8DC3D6C7F79A018D4FDF2DB /* JXURLEncoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8A606E6DC432FB1430510686A9309496 /* JXHTTPMultipartBody.h in Headers */ = {isa = PBXBuildFile; fileRef = 46CA0371E4FB2FE0E7C7AD53A84843E5 /* JXHTTPMultipartBody.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8AA9541169EFB247C2D8443006945E42 /* FLAnimatedImage-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F81CA49294343B2EE5CE465F0896EE /* FLAnimatedImage-dummy.m */; };
+		8F6EC93FB126D5E670F182BFEDC1F6E1 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC804AC774B30814AF21D51A52BEC1B3 /* Toast.swift */; };
+		8FF16C264A00A3F83A63651F214C8BC4 /* TMTumblrSDK-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 238D24798A66714DF26DBA0B1AEBCEF7 /* TMTumblrSDK-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		94142ED32A3194A3CAA63B33E4385E77 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4456E7912D50F6E93138079333F7E85 /* MobileCoreServices.framework */; };
-		982FF41F4B2171DB263000D03D493819 /* TMAPIClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 646F564FA55CF2F9A6C228DCCF002D3B /* TMAPIClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9C6EA302B8AFB2009B3257093C89560A /* JXHTTPOperationQueueDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = AFD638FCF2F4E0FB15CFCD89068398FA /* JXHTTPOperationQueueDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9E94F673D08FF1183695055E17F2D582 /* UIActivityTumblr@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = BF516BA870B8A2B5A52B33275849D62E /* UIActivityTumblr@2x~ipad.png */; };
+		982FF41F4B2171DB263000D03D493819 /* TMAPIClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BAC4F4FE98EB80BCF95081A045EBE11 /* TMAPIClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9C6EA302B8AFB2009B3257093C89560A /* JXHTTPOperationQueueDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 45BF1A356F366BC711CBE7924C36180B /* JXHTTPOperationQueueDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9E94F673D08FF1183695055E17F2D582 /* UIActivityTumblr@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 113D772E93BAA0DB032041DA0250663D /* UIActivityTumblr@2x~ipad.png */; };
 		A0787562AD3801561E84DA948994FA15 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64B7283A79B898EAE54C8221B5A49645 /* Security.framework */; };
-		A21E445B4733D7B8C071DD47DF796E52 /* JXHTTPFormEncodedBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 23347EDAB022DB285DD95394ACE65CBA /* JXHTTPFormEncodedBody.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		A21E445B4733D7B8C071DD47DF796E52 /* JXHTTPFormEncodedBody.m in Sources */ = {isa = PBXBuildFile; fileRef = DC2990A84BB14EEE339FFE378013161E /* JXHTTPFormEncodedBody.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		A75425DF3F2A2D49008208EB9CB8F2A0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E43835C3985CE3A3983CF5FEC29FD5 /* Foundation.framework */; };
-		AA0B9C265F96CA310C674C330D4C5592 /* Locksmith.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AE7CFAE2AC663F08DCF95D3C71A11C2 /* Locksmith.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA0B9C265F96CA310C674C330D4C5592 /* Locksmith.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3CA5F52691B98104CA2B3FF6DED9EC /* Locksmith.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABABF17EC6C37B48E757A896684E2F56 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDCD5F19BF6561F351A1B2D1ED0651A0 /* SystemConfiguration.framework */; };
-		B2B1BB8F1144144FD8BF976730308895 /* JXHTTPDataBody.h in Headers */ = {isa = PBXBuildFile; fileRef = 4499A589B0CC1C488D24AD2FC8AC22A7 /* JXHTTPDataBody.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B2B1BB8F1144144FD8BF976730308895 /* JXHTTPDataBody.h in Headers */ = {isa = PBXBuildFile; fileRef = 36C2B01B6AE19B4634B4EB067FDE3220 /* JXHTTPDataBody.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B3AC3B2A758C9054AA1D03D9060C5AEF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40692359C9ABCF4EAB3B3CB45EF5FE9 /* QuartzCore.framework */; };
-		B65552E1EF89C145FCCE1A62212244BD /* TMTumblrSDK.podspec.json in Resources */ = {isa = PBXBuildFile; fileRef = 3BBB2930912B84A2875FDAEE5E541299 /* TMTumblrSDK.podspec.json */; };
-		B9238977DCF3ED4109DFCACD471AF8F9 /* FLAnimatedImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 491BAA516BA413D286EF435CDD11F088 /* FLAnimatedImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B65552E1EF89C145FCCE1A62212244BD /* TMTumblrSDK.podspec.json in Resources */ = {isa = PBXBuildFile; fileRef = BF5965685306F4B00B2760FDCCFF3EDB /* TMTumblrSDK.podspec.json */; };
+		B9238977DCF3ED4109DFCACD471AF8F9 /* FLAnimatedImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 9035ED4B197D5CA21AAC4BAA46BAD48A /* FLAnimatedImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B9BC529B7836686D067D8FE90CD05E2B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40692359C9ABCF4EAB3B3CB45EF5FE9 /* QuartzCore.framework */; };
 		BA075FF1A8B9CC412C5C7D635D663686 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EC8E9C31C1B8F5CFCFEAA5BD072C32D /* UIKit.framework */; };
-		BBAE0ED86DE67C26E1008AC0CD89FF1D /* JXHTTPOperationQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = EC106F40A318740F43BBD7A64C0EA96F /* JXHTTPOperationQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BC3CF8A99229A71D78E218A57AF55901 /* TMSDKUserAgent.h in Headers */ = {isa = PBXBuildFile; fileRef = CF67EF68B99B2441EE1F63EBA48DDC43 /* TMSDKUserAgent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BBAE0ED86DE67C26E1008AC0CD89FF1D /* JXHTTPOperationQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 353AEA191838939AE3FBFD40DD6E6DEB /* JXHTTPOperationQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BC3CF8A99229A71D78E218A57AF55901 /* TMSDKUserAgent.h in Headers */ = {isa = PBXBuildFile; fileRef = 5412E024D5C7E7A8920A5ED272A9B1AA /* TMSDKUserAgent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BD7AE7B859D42AE9E02DDFA47D823784 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E43835C3985CE3A3983CF5FEC29FD5 /* Foundation.framework */; };
-		BF116A5D7AA4C2AC15C147D04E90D379 /* JXNetworkActivityIndicatorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 06CE9B55A085E09D14DF27E11CC2DDB9 /* JXNetworkActivityIndicatorManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BF116A5D7AA4C2AC15C147D04E90D379 /* JXNetworkActivityIndicatorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ED3F41E2403568A65BB1A2BDE25262F /* JXNetworkActivityIndicatorManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BF32BE732AE2276C7F32802FA2789E27 /* Pods-PinchPad-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 683B18E68A277AF56EA19C3D0658A51D /* Pods-PinchPad-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C430613F0E3A31AD9B52F725D2BBD683 /* JXHTTPOperation+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = D7680DC75C8F95F489EAF814F1BEABA2 /* JXHTTPOperation+Convenience.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		C472A5BFAA77254DF0460B87F24FFD9B /* TMPodspec.h in Headers */ = {isa = PBXBuildFile; fileRef = 251D2218AEB16A932311C8DDE52D2368 /* TMPodspec.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C430613F0E3A31AD9B52F725D2BBD683 /* JXHTTPOperation+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5DC77CDCB4F3F297C697983BB0625C /* JXHTTPOperation+Convenience.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		C472A5BFAA77254DF0460B87F24FFD9B /* TMPodspec.h in Headers */ = {isa = PBXBuildFile; fileRef = CC5841D8E6FD733E0D569E7CF92C53D8 /* TMPodspec.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C4CF415B074D20C8C0D10C0AC3E263F3 /* JXHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43966E4C37117104988DDC66F4C274B1 /* JXHTTP.framework */; };
-		C5B9CA1D7F1517B31E4C6970C8EC3DCF /* FLAnimatedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 684E0F1D0BDBC02AAB1A524E437E6A35 /* FLAnimatedImage.m */; };
-		CC2443BEF39BB4254C340BAA445BCBD5 /* LocksmithInternetAuthenticationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D54679078F3190000C4B1623E08FD7 /* LocksmithInternetAuthenticationType.swift */; };
-		CDD1BEA6AEAA597800CD79FA22072725 /* JXOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 301EFF6249DEEF0BC8F35CE7D18B1E13 /* JXOperation.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		D234B23ACC5F69B9BE581EC70C15F8DE /* LocksmithInternetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CC2D2AB2E2DB4E33152D41071071A1 /* LocksmithInternetProtocol.swift */; };
-		D35E7A58039484A8803921A3DE279468 /* JXBackgroundTaskManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 76F0E4001E819F0D7B6C432D8A2C53B6 /* JXBackgroundTaskManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4707681508630ACEF04A331D8D94243 /* TMAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC22182FFABF056F84C120B865AB6CD /* TMAPIClient.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		D8951581CADBF0D8EB2A676BBEFFF47E /* JXOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 50C950E7A673DA3F7364CBBF6A032117 /* JXOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D8E3D297D9AFC41EEEE18D18816B3AA7 /* TMSDKUserAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F103851B097DF6B0576F19CA78616D /* TMSDKUserAgent.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		D8F6DE3E02959783EB7AEC5B82E16423 /* JXHTTP-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AF5C42CEE59F223D0C704EA777C83BB0 /* JXHTTP-dummy.m */; };
-		DA00C77303310FAF46CD8CF816712E6B /* Flurry.h in Headers */ = {isa = PBXBuildFile; fileRef = 63E7B40C2DD2AA275F53383190EE3298 /* Flurry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C5B9CA1D7F1517B31E4C6970C8EC3DCF /* FLAnimatedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E58AE5199F374DC07A6CB4155C8205 /* FLAnimatedImage.m */; };
+		CC2443BEF39BB4254C340BAA445BCBD5 /* LocksmithInternetAuthenticationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3A902B5C4D47D0A5E03AB1D471F67C /* LocksmithInternetAuthenticationType.swift */; };
+		CDD1BEA6AEAA597800CD79FA22072725 /* JXOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C960CE9DC04E2FEED47F5FF8E65BB2 /* JXOperation.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		D234B23ACC5F69B9BE581EC70C15F8DE /* LocksmithInternetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BC7E70C102C8C36092CEB3D6B4F333 /* LocksmithInternetProtocol.swift */; };
+		D35E7A58039484A8803921A3DE279468 /* JXBackgroundTaskManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 950CE71C4B1BDF17788D6A804A4DEDFE /* JXBackgroundTaskManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D4707681508630ACEF04A331D8D94243 /* TMAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6326F0AC989718A6FFE10900BDF998A1 /* TMAPIClient.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		D8951581CADBF0D8EB2A676BBEFFF47E /* JXOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 36062F98FF33BDA0D93CA6AF252F0DB6 /* JXOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8E3D297D9AFC41EEEE18D18816B3AA7 /* TMSDKUserAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = CC93A118B438F0F3EA641288F3471E84 /* TMSDKUserAgent.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		D8F6DE3E02959783EB7AEC5B82E16423 /* JXHTTP-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A89AB0D71576AE1A64E3E54D246E31 /* JXHTTP-dummy.m */; };
+		DA00C77303310FAF46CD8CF816712E6B /* Flurry.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B1A452C41E6B99FDA1E78EFD255D4B5 /* Flurry.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC9D6BF4F46899829F02742E778E8D1A /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6CA8B7D156196BB02EE5EB56CF35440 /* ImageIO.framework */; };
-		DFC122C7ED5FBD5618F287019521CCBB /* TMTumblrAuthenticator.h in Headers */ = {isa = PBXBuildFile; fileRef = C9500CF8FB152861B36AE5AB8E560370 /* TMTumblrAuthenticator.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E053C819E11D80615F98689AF7AEA4E7 /* Flurry-iOS-SDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3F12531828535F2D98CAA7908E7385 /* Flurry-iOS-SDK-dummy.m */; };
-		E19E28BA1F680B3A0B77BAE98637E904 /* TMTumblrAppClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 47CB7E258EB245FB07E151B633ADE891 /* TMTumblrAppClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E1EAEE259FE06B7A4FD788573766A817 /* TMTumblrSDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 589D5E7EB3EA8D053BFB6D34F7E275C9 /* TMTumblrSDK-dummy.m */; };
-		E520B542687B012D042747BC453E8D3F /* JXHTTPOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AA69F655CCF7EA85DBADADC3222D6BA /* JXHTTPOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E5951AB90523B2C4F9D17363518FE6DD /* TMSDKFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 344ED93D66F40786243405CC9F01D8C1 /* TMSDKFunctions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		E5F179852D6BBB8658BB9C664CE44C70 /* TMOAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C6A7681D66163644D38DE9935C5C78D /* TMOAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DFC122C7ED5FBD5618F287019521CCBB /* TMTumblrAuthenticator.h in Headers */ = {isa = PBXBuildFile; fileRef = F7F644F1E8DC6903DA5300738259739B /* TMTumblrAuthenticator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E053C819E11D80615F98689AF7AEA4E7 /* Flurry-iOS-SDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7992DCA50D49CE22750A6BE7AF89279B /* Flurry-iOS-SDK-dummy.m */; };
+		E19E28BA1F680B3A0B77BAE98637E904 /* TMTumblrAppClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BE1D79F34E18FCAFA527B49CEC1EB04 /* TMTumblrAppClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E1EAEE259FE06B7A4FD788573766A817 /* TMTumblrSDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C647FF0329E2E69D6D4DE5B16E09E08 /* TMTumblrSDK-dummy.m */; };
+		E520B542687B012D042747BC453E8D3F /* JXHTTPOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 740D70460BEEEEBC0CE2F3019CA38A12 /* JXHTTPOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5951AB90523B2C4F9D17363518FE6DD /* TMSDKFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9464195572F5795CFD0A57132A44D76F /* TMSDKFunctions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		E5F179852D6BBB8658BB9C664CE44C70 /* TMOAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 62B0D5D9F64F3C713AD31BDFA68FB199 /* TMOAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E61C34847DF39E14C203517B54520B5C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E43835C3985CE3A3983CF5FEC29FD5 /* Foundation.framework */; };
-		E63CC96D59C659BDE170BA6842EA46C1 /* JXHTTPFileBody.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B7D0774FEEC4F02DB41A96DC9968CE /* JXHTTPFileBody.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		E7206701CE4AEC7097B8674BF70B39F3 /* JXHTTPRequestBody.h in Headers */ = {isa = PBXBuildFile; fileRef = 4994445B444583442194C9CCD43BFEE6 /* JXHTTPRequestBody.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EB06035B1A2B1AED9B3531F89BC2999E /* FlurryEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5C793F733E420BEADEC63BE9A59673 /* FlurryEmpty.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E63CC96D59C659BDE170BA6842EA46C1 /* JXHTTPFileBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 7683C71836A133CDC1180789284C7DA3 /* JXHTTPFileBody.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		E7206701CE4AEC7097B8674BF70B39F3 /* JXHTTPRequestBody.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E53B0965FB40646B6B3B92A3CC984F6 /* JXHTTPRequestBody.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EB06035B1A2B1AED9B3531F89BC2999E /* FlurryEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = 7902CBAE3B7363856BEE9DA8E2A008E4 /* FlurryEmpty.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		EB0F0C04BB524EA9B613063166A170F9 /* Spectacles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97F091656111AE36DC75BB405191BE0 /* Spectacles.framework */; };
-		F2619BA97A2B86080EFDC247EBBAD234 /* TMSDKFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = 67FE9F3C5EC018551BBBDA837B444ECE /* TMSDKFunctions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F2DC31C864E73A6B077DFE4B3F424AC6 /* SwiftyJSON-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F2D49AA6E33D2F41B2FEA76EB7610067 /* SwiftyJSON-dummy.m */; };
-		F61B109788379AFDD132A1779E6A4B81 /* TMTumblrAppClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 490DBB7A74D9B8898310C85F2A5D4D6D /* TMTumblrAppClient.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		F689703A1597A1741967D23FE92C93DA /* UIActivityTumblr~ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5C4FE5985183257DF8ADF54D061DAEB /* UIActivityTumblr~ipad@2x.png */; };
-		F77C16C8FBD75CCDE6E912660BCEF8B6 /* Spectacles-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F8B3CB5FE7322DCADE3DBE7531C81955 /* Spectacles-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FB0BA3A45DDB3113307D858D705F40FB /* ReachabilitySwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B0EE57BD9D79FD130B86C3AB7BEFA782 /* ReachabilitySwift-dummy.m */; };
-		FF4920ADA0EF62E69434CEB9F1F055B5 /* TMOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = E49D80EB22814D0B91689E88522318B0 /* TMOAuth.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		F2619BA97A2B86080EFDC247EBBAD234 /* TMSDKFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = 56CA2A628728C53A85568C81FBBCA5F6 /* TMSDKFunctions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2DC31C864E73A6B077DFE4B3F424AC6 /* SwiftyJSON-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD003853D7DAB25B9ABD44928D28467 /* SwiftyJSON-dummy.m */; };
+		F61B109788379AFDD132A1779E6A4B81 /* TMTumblrAppClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BE32F2927B83281D5A457E7C2CBF4945 /* TMTumblrAppClient.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		F689703A1597A1741967D23FE92C93DA /* UIActivityTumblr~ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01310E023645AABDECAC429CF116256F /* UIActivityTumblr~ipad@2x.png */; };
+		F77C16C8FBD75CCDE6E912660BCEF8B6 /* Spectacles-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D5354C2003A1E3BBD6FE8903FCA0695 /* Spectacles-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FB0BA3A45DDB3113307D858D705F40FB /* ReachabilitySwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 173224FD00ABB032D0FCFF7F8CB783F3 /* ReachabilitySwift-dummy.m */; };
+		FF4920ADA0EF62E69434CEB9F1F055B5 /* TMOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 4043FA1C703AA36FD178A5BC37CE8F55 /* TMOAuth.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		FF8061C2C0AF5C811B2A906A2A0BC684 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E43835C3985CE3A3983CF5FEC29FD5 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -199,164 +199,171 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		004367E2758FA3E7A40025A2792B0183 /* JXHTTPFormEncodedBody.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXHTTPFormEncodedBody.h; path = JXHTTP/JXHTTPFormEncodedBody.h; sourceTree = "<group>"; };
+		00AB0DD745011EBE50CCE1563FDF7A2F /* UIActivityTumblr~ipad.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "UIActivityTumblr~ipad.png"; path = "TMTumblrSDK/Activity/UIActivityTumblr~ipad.png"; sourceTree = "<group>"; };
 		00FC407210663BA416988EA015A85C94 /* Pods-PinchPad-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PinchPad-resources.sh"; sourceTree = "<group>"; };
-		054832BA51AFBF3D1BFAC8DE3967994A /* TMTumblrSDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TMTumblrSDK.xcconfig; sourceTree = "<group>"; };
+		01310E023645AABDECAC429CF116256F /* UIActivityTumblr~ipad@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "UIActivityTumblr~ipad@2x.png"; path = "TMTumblrSDK/Activity/UIActivityTumblr~ipad@2x.png"; sourceTree = "<group>"; };
+		0168EFF8F31CA3D2534B69A5FE268BBC /* ReachabilitySwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ReachabilitySwift-prefix.pch"; sourceTree = "<group>"; };
+		01CF633946D85079C3A0E4AFC1371EE7 /* Spectacles-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Spectacles-prefix.pch"; sourceTree = "<group>"; };
 		06CD6655592B6909D1373BC628DD3B5E /* Pods-PinchPad-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PinchPad-dummy.m"; sourceTree = "<group>"; };
-		06CE9B55A085E09D14DF27E11CC2DDB9 /* JXNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXNetworkActivityIndicatorManager.h; path = JXHTTP/JXNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
-		06D54679078F3190000C4B1623E08FD7 /* LocksmithInternetAuthenticationType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocksmithInternetAuthenticationType.swift; path = Source/LocksmithInternetAuthenticationType.swift; sourceTree = "<group>"; };
-		0927537A812564B6434A642B11686453 /* FLAnimatedImage-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FLAnimatedImage-prefix.pch"; sourceTree = "<group>"; };
-		0DD1D520252E74B138E982F9AD8F8647 /* SwiftyJSON-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-prefix.pch"; sourceTree = "<group>"; };
-		0ECC5C387BD66CB48571A439B110433D /* Flurry-iOS-SDK-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Flurry-iOS-SDK-umbrella.h"; sourceTree = "<group>"; };
+		0CA972CBC9C373BF56668E06CC7D9007 /* SwiftyJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Source/SwiftyJSON.swift; sourceTree = "<group>"; };
 		1056C7460DA7A3E2B6CA6228F6A63F82 /* JXHTTP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JXHTTP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1097A11F2AB0C2E0401BFA0EF3DA9A78 /* Locksmith.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Locksmith.modulemap; sourceTree = "<group>"; };
-		146C176AE1E3B25D0758F268312C04C4 /* FLAnimatedImage-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FLAnimatedImage-umbrella.h"; sourceTree = "<group>"; };
+		113D772E93BAA0DB032041DA0250663D /* UIActivityTumblr@2x~ipad.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "UIActivityTumblr@2x~ipad.png"; path = "TMTumblrSDK/Activity/UIActivityTumblr@2x~ipad.png"; sourceTree = "<group>"; };
 		14C39F39D534E2ED636F8ACD7C42FDF8 /* TMTumblrSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TMTumblrSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		175DC96B12F09D98CBA9B2BEDB80B5C3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1AA69F655CCF7EA85DBADADC3222D6BA /* JXHTTPOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXHTTPOperation.h; path = JXHTTP/JXHTTPOperation.h; sourceTree = "<group>"; };
-		1E250B3739BFF7EB94429CFD773FCDDC /* SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SwiftyJSON.modulemap; sourceTree = "<group>"; };
-		1E3F12531828535F2D98CAA7908E7385 /* Flurry-iOS-SDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Flurry-iOS-SDK-dummy.m"; sourceTree = "<group>"; };
+		16F78170CD4D6720948AEA451AB5F641 /* JXHTTPDataBody.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXHTTPDataBody.m; path = JXHTTP/JXHTTPDataBody.m; sourceTree = "<group>"; };
+		16FD1E74B9DD8338F9BFC6A519BCD452 /* Toast-Swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Toast-Swift-umbrella.h"; sourceTree = "<group>"; };
+		173224FD00ABB032D0FCFF7F8CB783F3 /* ReachabilitySwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ReachabilitySwift-dummy.m"; sourceTree = "<group>"; };
+		18E58AE5199F374DC07A6CB4155C8205 /* FLAnimatedImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FLAnimatedImage.m; path = FLAnimatedImage/FLAnimatedImage.m; sourceTree = "<group>"; };
+		1A3A902B5C4D47D0A5E03AB1D471F67C /* LocksmithInternetAuthenticationType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocksmithInternetAuthenticationType.swift; path = Source/LocksmithInternetAuthenticationType.swift; sourceTree = "<group>"; };
+		1E8327A3FFDED0F70AB455ECFEB2416D /* Flurry-iOS-SDK.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Flurry-iOS-SDK.modulemap"; sourceTree = "<group>"; };
+		1F7A00E43B70A5EC77F5BCB7CECA4B60 /* CLSReport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSReport.h; path = iOS/Crashlytics.framework/Headers/CLSReport.h; sourceTree = "<group>"; };
 		200C79776C7646147777777DD1C902EF /* Pods-PinchPad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PinchPad.release.xcconfig"; sourceTree = "<group>"; };
-		2303CE77D9AB56FE02AB2D50BE890BC6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		23347EDAB022DB285DD95394ACE65CBA /* JXHTTPFormEncodedBody.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXHTTPFormEncodedBody.m; path = JXHTTP/JXHTTPFormEncodedBody.m; sourceTree = "<group>"; };
-		23F23CCF0053BFCCEC38B1BCE1C8A5D8 /* Spectacles-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Spectacles-prefix.pch"; sourceTree = "<group>"; };
-		251D2218AEB16A932311C8DDE52D2368 /* TMPodspec.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TMPodspec.h; path = Pod/Classes/TMPodspec.h; sourceTree = "<group>"; };
-		252ABB29854CD0111668745914AB4B26 /* JXHTTP-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JXHTTP-prefix.pch"; sourceTree = "<group>"; };
-		252BB64A0209D2B7ADB4774D39DE18E3 /* Flurry-iOS-SDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Flurry-iOS-SDK.xcconfig"; sourceTree = "<group>"; };
-		256E3FAC44AC58DE3382B958ED0A0E5D /* JXHTTPOperationDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXHTTPOperationDelegate.h; path = JXHTTP/JXHTTPOperationDelegate.h; sourceTree = "<group>"; };
-		287595F7D485A76EEE7C5F2199C04749 /* JXURLConnectionOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXURLConnectionOperation.m; path = JXHTTP/JXURLConnectionOperation.m; sourceTree = "<group>"; };
-		2A95BB043512973381D3EBFFDE460DA9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2AB635CA7182782BDB2658EB617585BC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2E622C9700AE0A9EAF554C3DD33ED374 /* Toast-Swift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Toast-Swift.xcconfig"; sourceTree = "<group>"; };
-		2F88E0E64652CB195DCA3894BF476828 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		30158A59CBF2D40D66E4AA95D7181391 /* UIActivityTumblr.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = UIActivityTumblr.png; path = TMTumblrSDK/Activity/UIActivityTumblr.png; sourceTree = "<group>"; };
-		301EFF6249DEEF0BC8F35CE7D18B1E13 /* JXOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXOperation.m; path = JXHTTP/JXOperation.m; sourceTree = "<group>"; };
-		340BA6EEE0C092398427742A8C6D9FC8 /* FLAnimatedImage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FLAnimatedImage-dummy.m"; sourceTree = "<group>"; };
-		340E79E6207292D5A240E3C5720A891F /* Locksmith-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Locksmith-dummy.m"; sourceTree = "<group>"; };
-		344ED93D66F40786243405CC9F01D8C1 /* TMSDKFunctions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TMSDKFunctions.m; path = TMTumblrSDK/Core/TMSDKFunctions.m; sourceTree = "<group>"; };
+		207A8E2BD798ADABE510CA25963B2A9E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		238D24798A66714DF26DBA0B1AEBCEF7 /* TMTumblrSDK-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TMTumblrSDK-umbrella.h"; sourceTree = "<group>"; };
+		256DFF3C04A0474C288FB7F97891DB34 /* JXURLEncoding.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXURLEncoding.m; path = JXHTTP/JXURLEncoding.m; sourceTree = "<group>"; };
+		28BC1E69F6DD5A09E3EFD78D65C5D62E /* FLAnimatedImage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FLAnimatedImage.xcconfig; sourceTree = "<group>"; };
+		2962DC6B3AE238B13F3DAE30DD97E918 /* SwiftyJSON.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyJSON.xcconfig; sourceTree = "<group>"; };
+		2AD003853D7DAB25B9ABD44928D28467 /* SwiftyJSON-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyJSON-dummy.m"; sourceTree = "<group>"; };
+		2B1A452C41E6B99FDA1E78EFD255D4B5 /* Flurry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Flurry.h; path = Flurry/Flurry.h; sourceTree = "<group>"; };
+		33E5071E19B483B730338926BD72D2C2 /* LocksmithError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocksmithError.swift; path = Source/LocksmithError.swift; sourceTree = "<group>"; };
 		34CDCAA7CEDA53684EA15917ED1B644E /* Pods-PinchPad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PinchPad.debug.xcconfig"; sourceTree = "<group>"; };
-		3889FF9DF078EA1C7A2A40CDF9BAD052 /* Flurry-iOS-SDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Flurry-iOS-SDK-prefix.pch"; sourceTree = "<group>"; };
-		3AC22182FFABF056F84C120B865AB6CD /* TMAPIClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TMAPIClient.m; path = TMTumblrSDK/APIClient/TMAPIClient.m; sourceTree = "<group>"; };
+		34F81CA49294343B2EE5CE465F0896EE /* FLAnimatedImage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FLAnimatedImage-dummy.m"; sourceTree = "<group>"; };
+		353AEA191838939AE3FBFD40DD6E6DEB /* JXHTTPOperationQueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXHTTPOperationQueue.h; path = JXHTTP/JXHTTPOperationQueue.h; sourceTree = "<group>"; };
+		36062F98FF33BDA0D93CA6AF252F0DB6 /* JXOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXOperation.h; path = JXHTTP/JXOperation.h; sourceTree = "<group>"; };
+		36C2B01B6AE19B4634B4EB067FDE3220 /* JXHTTPDataBody.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXHTTPDataBody.h; path = JXHTTP/JXHTTPDataBody.h; sourceTree = "<group>"; };
 		3B0B249883B133536CC4D1B6D862352A /* Toast_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Toast_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3BBB2930912B84A2875FDAEE5E541299 /* TMTumblrSDK.podspec.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; path = TMTumblrSDK.podspec.json; sourceTree = "<group>"; };
-		3EBCD14CEC6BEF6333AEB8BCAB7DACBE /* JXURLConnectionOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXURLConnectionOperation.h; path = JXHTTP/JXURLConnectionOperation.h; sourceTree = "<group>"; };
-		42B35454B6A77A72B79EE80CF6FDD5FF /* JXHTTPOperation+Convenience.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "JXHTTPOperation+Convenience.h"; path = "JXHTTP/JXHTTPOperation+Convenience.h"; sourceTree = "<group>"; };
+		3E697A48F843C0CDBAD0D9D517545306 /* Reachability.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = Reachability/Reachability.swift; sourceTree = "<group>"; };
+		4043FA1C703AA36FD178A5BC37CE8F55 /* TMOAuth.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TMOAuth.m; path = TMTumblrSDK/Authentication/TMOAuth.m; sourceTree = "<group>"; };
+		4065383995AE96FD5AB1AD31913B10A5 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4269EB71B06A45ACD6C2709B27E39E9E /* Crashlytics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Crashlytics.h; path = iOS/Crashlytics.framework/Headers/Crashlytics.h; sourceTree = "<group>"; };
 		43966E4C37117104988DDC66F4C274B1 /* JXHTTP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JXHTTP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4499A589B0CC1C488D24AD2FC8AC22A7 /* JXHTTPDataBody.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXHTTPDataBody.h; path = JXHTTP/JXHTTPDataBody.h; sourceTree = "<group>"; };
-		45834ACC6AEB79A56F8C6F7E474090AB /* Locksmith-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Locksmith-prefix.pch"; sourceTree = "<group>"; };
-		47CB7E258EB245FB07E151B633ADE891 /* TMTumblrAppClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TMTumblrAppClient.h; path = TMTumblrSDK/AppClient/TMTumblrAppClient.h; sourceTree = "<group>"; };
-		47D3FFF7E861C032142241B0E4917C3A /* Locksmith-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Locksmith-umbrella.h"; sourceTree = "<group>"; };
-		48532052DD1FBB3E4CD9FA89058A8B01 /* JXHTTPMultipartBody.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXHTTPMultipartBody.m; path = JXHTTP/JXHTTPMultipartBody.m; sourceTree = "<group>"; };
-		490DBB7A74D9B8898310C85F2A5D4D6D /* TMTumblrAppClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TMTumblrAppClient.m; path = TMTumblrSDK/AppClient/TMTumblrAppClient.m; sourceTree = "<group>"; };
-		491BAA516BA413D286EF435CDD11F088 /* FLAnimatedImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FLAnimatedImage.h; path = FLAnimatedImage/FLAnimatedImage.h; sourceTree = "<group>"; };
-		4994445B444583442194C9CCD43BFEE6 /* JXHTTPRequestBody.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXHTTPRequestBody.h; path = JXHTTP/JXHTTPRequestBody.h; sourceTree = "<group>"; };
-		4A01BB15C1BCC10A7D993C803398253E /* Locksmith.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Locksmith.xcconfig; sourceTree = "<group>"; };
-		4C6A7681D66163644D38DE9935C5C78D /* TMOAuth.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TMOAuth.h; path = TMTumblrSDK/Authentication/TMOAuth.h; sourceTree = "<group>"; };
-		4E028C8B9990B95D09BFBC664ADA9050 /* TMTumblrSDK-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TMTumblrSDK-umbrella.h"; sourceTree = "<group>"; };
-		50C950E7A673DA3F7364CBBF6A032117 /* JXOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXOperation.h; path = JXHTTP/JXOperation.h; sourceTree = "<group>"; };
-		50CFD684775D2FFE9762064E7ACB1F0A /* LocksmithSecurityClass.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocksmithSecurityClass.swift; path = Source/LocksmithSecurityClass.swift; sourceTree = "<group>"; };
-		52CC2D2AB2E2DB4E33152D41071071A1 /* LocksmithInternetProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocksmithInternetProtocol.swift; path = Source/LocksmithInternetProtocol.swift; sourceTree = "<group>"; };
-		53C5DC14FA13670D3BC526C9A71D5CE4 /* ReachabilitySwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ReachabilitySwift-prefix.pch"; sourceTree = "<group>"; };
+		45BF1A356F366BC711CBE7924C36180B /* JXHTTPOperationQueueDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXHTTPOperationQueueDelegate.h; path = JXHTTP/JXHTTPOperationQueueDelegate.h; sourceTree = "<group>"; };
+		45DB405E0725DAF2FEA6A96F477DC622 /* CLSAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSAttributes.h; path = iOS/Crashlytics.framework/Headers/CLSAttributes.h; sourceTree = "<group>"; };
+		46CA0371E4FB2FE0E7C7AD53A84843E5 /* JXHTTPMultipartBody.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXHTTPMultipartBody.h; path = JXHTTP/JXHTTPMultipartBody.h; sourceTree = "<group>"; };
+		4A66C18382505544CC480412397EBCD1 /* TMTumblrAuthenticator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TMTumblrAuthenticator.m; path = TMTumblrSDK/Authentication/TMTumblrAuthenticator.m; sourceTree = "<group>"; };
+		4B4D86E2BCB9D67C7C122D4E3774391C /* Locksmith-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Locksmith-umbrella.h"; sourceTree = "<group>"; };
+		4BE1D79F34E18FCAFA527B49CEC1EB04 /* TMTumblrAppClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TMTumblrAppClient.h; path = TMTumblrSDK/AppClient/TMTumblrAppClient.h; sourceTree = "<group>"; };
+		4CBB231D69812AE9E174B89954B7FA35 /* JXHTTP-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JXHTTP-umbrella.h"; sourceTree = "<group>"; };
+		5177BDDCBCA71A73C812BDB24D8A7FF2 /* JXURLConnectionOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXURLConnectionOperation.m; path = JXHTTP/JXURLConnectionOperation.m; sourceTree = "<group>"; };
+		5255BFF781C43FC0C0F7F80645B9B403 /* TMTumblrActivity.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TMTumblrActivity.m; path = TMTumblrSDK/Activity/TMTumblrActivity.m; sourceTree = "<group>"; };
+		5412E024D5C7E7A8920A5ED272A9B1AA /* TMSDKUserAgent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TMSDKUserAgent.h; path = TMTumblrSDK/Core/TMSDKUserAgent.h; sourceTree = "<group>"; };
+		5461B51EB6432CE4C58CAD509D8E6E02 /* Toast-Swift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Toast-Swift.xcconfig"; sourceTree = "<group>"; };
+		54BC7E70C102C8C36092CEB3D6B4F333 /* LocksmithInternetProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocksmithInternetProtocol.swift; path = Source/LocksmithInternetProtocol.swift; sourceTree = "<group>"; };
 		553CF74A9C52D3903B7E840935D66641 /* Pods-PinchPad-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PinchPad-acknowledgements.markdown"; sourceTree = "<group>"; };
+		55DF7EC0A8DC3D6C7F79A018D4FDF2DB /* JXURLEncoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXURLEncoding.h; path = JXHTTP/JXURLEncoding.h; sourceTree = "<group>"; };
+		568A6DE342E6A39027E1FC9325D489A9 /* TMTumblrActivity.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TMTumblrActivity.h; path = TMTumblrSDK/Activity/TMTumblrActivity.h; sourceTree = "<group>"; };
 		56AA4F905C4C0FAFB5D1C95DFFBA8908 /* Pods_PinchPad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinchPad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		589D5E7EB3EA8D053BFB6D34F7E275C9 /* TMTumblrSDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TMTumblrSDK-dummy.m"; sourceTree = "<group>"; };
-		5AE7CFAE2AC663F08DCF95D3C71A11C2 /* Locksmith.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Locksmith.h; path = Source/Locksmith.h; sourceTree = "<group>"; };
-		5B057F85222E0CD2E74D8D4624E90A19 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
-		5C484C1F130B17ED8D571E63EF2B4832 /* SwiftyJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Source/SwiftyJSON.swift; sourceTree = "<group>"; };
+		56CA2A628728C53A85568C81FBBCA5F6 /* TMSDKFunctions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TMSDKFunctions.h; path = TMTumblrSDK/Core/TMSDKFunctions.h; sourceTree = "<group>"; };
+		57157E03BA81188E780DD2DF935C56B2 /* JXHTTPOperationDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXHTTPOperationDelegate.h; path = JXHTTP/JXHTTPOperationDelegate.h; sourceTree = "<group>"; };
+		57DE91C0E5D2156F3BAB566E1D774667 /* JXHTTPOperation+Convenience.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "JXHTTPOperation+Convenience.h"; path = "JXHTTP/JXHTTPOperation+Convenience.h"; sourceTree = "<group>"; };
+		581B251DE87C2F06CE8F158710FE4155 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
+		5BAC4F4FE98EB80BCF95081A045EBE11 /* TMAPIClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TMAPIClient.h; path = TMTumblrSDK/APIClient/TMAPIClient.h; sourceTree = "<group>"; };
+		5C5F6E5CDA45D0E407CCA6339F71C39D /* UIActivityTumblr.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = UIActivityTumblr.png; path = TMTumblrSDK/Activity/UIActivityTumblr.png; sourceTree = "<group>"; };
 		5EC8E9C31C1B8F5CFCFEAA5BD072C32D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		61E43835C3985CE3A3983CF5FEC29FD5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		636B5511422E72002E25DCCA73C4AC8E /* JXHTTPFileBody.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXHTTPFileBody.h; path = JXHTTP/JXHTTPFileBody.h; sourceTree = "<group>"; };
-		63E7B40C2DD2AA275F53383190EE3298 /* Flurry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Flurry.h; path = Flurry/Flurry.h; sourceTree = "<group>"; };
-		646F564FA55CF2F9A6C228DCCF002D3B /* TMAPIClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TMAPIClient.h; path = TMTumblrSDK/APIClient/TMAPIClient.h; sourceTree = "<group>"; };
+		6228FE8FF3F7F0940CCA2DA197A5A36C /* SwiftyJSON-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-prefix.pch"; sourceTree = "<group>"; };
+		62B0D5D9F64F3C713AD31BDFA68FB199 /* TMOAuth.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TMOAuth.h; path = TMTumblrSDK/Authentication/TMOAuth.h; sourceTree = "<group>"; };
+		6326F0AC989718A6FFE10900BDF998A1 /* TMAPIClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TMAPIClient.m; path = TMTumblrSDK/APIClient/TMAPIClient.m; sourceTree = "<group>"; };
 		64B7283A79B898EAE54C8221B5A49645 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
-		67FE9F3C5EC018551BBBDA837B444ECE /* TMSDKFunctions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TMSDKFunctions.h; path = TMTumblrSDK/Core/TMSDKFunctions.h; sourceTree = "<group>"; };
-		681475E947021C53C1AE3FE1F7F6B48D /* Toast-Swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Toast-Swift.modulemap"; sourceTree = "<group>"; };
+		65E40DD0B2C03AE5A0EA14AA08A6B900 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		683B18E68A277AF56EA19C3D0658A51D /* Pods-PinchPad-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PinchPad-umbrella.h"; sourceTree = "<group>"; };
-		68449E911EA50CE51B46DDE17285ABF4 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
-		684E0F1D0BDBC02AAB1A524E437E6A35 /* FLAnimatedImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FLAnimatedImage.m; path = FLAnimatedImage/FLAnimatedImage.m; sourceTree = "<group>"; };
-		68D700E86DF279E2F3BF0C0D233BA903 /* ReachabilitySwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ReachabilitySwift-umbrella.h"; sourceTree = "<group>"; };
-		69639449CC27AE879E408CFE84D40C77 /* SwiftyJSON-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-umbrella.h"; sourceTree = "<group>"; };
-		6B8C22DFF4749E218E555BAC339B0107 /* Spectacles.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Spectacles.xcconfig; sourceTree = "<group>"; };
-		701CBE2EB81DCCCE4275F99A44068C17 /* Dictionary_Initializers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Dictionary_Initializers.swift; path = Source/Dictionary_Initializers.swift; sourceTree = "<group>"; };
+		698D37B3FD89C54424C537A51FCBC54D /* TMPodspec.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TMPodspec.m; path = Pod/Classes/TMPodspec.m; sourceTree = "<group>"; };
+		6B1FE5125729B14744DE45D3572661D9 /* Flurry-iOS-SDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Flurry-iOS-SDK.xcconfig"; sourceTree = "<group>"; };
+		6E53B0965FB40646B6B3B92A3CC984F6 /* JXHTTPRequestBody.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXHTTPRequestBody.h; path = JXHTTP/JXHTTPRequestBody.h; sourceTree = "<group>"; };
+		6E774521F5FB7B83E8863D529BE9946F /* TMTumblrSDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TMTumblrSDK.xcconfig; sourceTree = "<group>"; };
+		6F3D2C292F32905B1861E6BE9C889330 /* TMTumblrSDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TMTumblrSDK-prefix.pch"; sourceTree = "<group>"; };
 		70A28D9EDE126A45EBDF8DCCA0C56182 /* Spectacles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Spectacles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		74B9637316D2908B387EF174C872DC4E /* JXHTTPDataBody.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXHTTPDataBody.m; path = JXHTTP/JXHTTPDataBody.m; sourceTree = "<group>"; };
-		76F0E4001E819F0D7B6C432D8A2C53B6 /* JXBackgroundTaskManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXBackgroundTaskManager.h; path = JXHTTP/JXBackgroundTaskManager.h; sourceTree = "<group>"; };
-		7E17F6C5065ED4E2D1DAB333813301DF /* FLAnimatedImage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FLAnimatedImage.xcconfig; sourceTree = "<group>"; };
-		83B7E3B97EDE07ECCCD2E69666B8B596 /* Reachability.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = Reachability/Reachability.swift; sourceTree = "<group>"; };
+		740D70460BEEEEBC0CE2F3019CA38A12 /* JXHTTPOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXHTTPOperation.h; path = JXHTTP/JXHTTPOperation.h; sourceTree = "<group>"; };
+		7486F38303D459F426F3E45670F1BA5B /* JXHTTPJSONBody.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXHTTPJSONBody.m; path = JXHTTP/JXHTTPJSONBody.m; sourceTree = "<group>"; };
+		74C731CC6B4018BAB9B5F40DF0D1EFC7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7653DBBE7BC42A860D63A3B5DC379354 /* Answers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Answers.h; path = iOS/Crashlytics.framework/Headers/Answers.h; sourceTree = "<group>"; };
+		76593BF66566ED9454B7402BB692CA3D /* UIActivityTumblr@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "UIActivityTumblr@2x.png"; path = "TMTumblrSDK/Activity/UIActivityTumblr@2x.png"; sourceTree = "<group>"; };
+		7683C71836A133CDC1180789284C7DA3 /* JXHTTPFileBody.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXHTTPFileBody.m; path = JXHTTP/JXHTTPFileBody.m; sourceTree = "<group>"; };
+		76BBF4B756C1AC449F3802F1E314A9AA /* FLAnimatedImage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = FLAnimatedImage.modulemap; sourceTree = "<group>"; };
+		76C960CE9DC04E2FEED47F5FF8E65BB2 /* JXOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXOperation.m; path = JXHTTP/JXOperation.m; sourceTree = "<group>"; };
+		7864FC8EBE14ED92D1181A07F9F4BCFF /* Toast-Swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Toast-Swift-prefix.pch"; sourceTree = "<group>"; };
+		7902CBAE3B7363856BEE9DA8E2A008E4 /* FlurryEmpty.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FlurryEmpty.m; path = Flurry/FlurryEmpty.m; sourceTree = "<group>"; };
+		7992DCA50D49CE22750A6BE7AF89279B /* Flurry-iOS-SDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Flurry-iOS-SDK-dummy.m"; sourceTree = "<group>"; };
+		7B79E5ED031AB2B9DE8DBB148792C08C /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterCore.framework; path = iOS/TwitterCore.framework; sourceTree = "<group>"; };
+		7CB28C7A0590E2E7FEBF2AFF82802818 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7DB0EFF57DA02C971A12C7371185B997 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7ED3F41E2403568A65BB1A2BDE25262F /* JXNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXNetworkActivityIndicatorManager.h; path = JXHTTP/JXNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
+		82019DF42BB82FBBCB0FA31812946DD1 /* Locksmith.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Locksmith.swift; path = Source/Locksmith.swift; sourceTree = "<group>"; };
+		8316EC24004CAE5815618FCCCC063158 /* Locksmith-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Locksmith-dummy.m"; sourceTree = "<group>"; };
 		83F6B5CC96180C82221E83CB61DC3286 /* Locksmith.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Locksmith.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		855BC9FB293B19B8C77FA355210B67B8 /* TMTumblrSDK.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = TMTumblrSDK.modulemap; sourceTree = "<group>"; };
-		871AD4132CC05639513C89A3F372CCD7 /* UIActivityTumblr@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "UIActivityTumblr@2x.png"; path = "TMTumblrSDK/Activity/UIActivityTumblr@2x.png"; sourceTree = "<group>"; };
-		882B028777F43E4B8004E7DCB7136866 /* Locksmith.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Locksmith.swift; path = Source/Locksmith.swift; sourceTree = "<group>"; };
+		83FB940EC860D25BC8223EEC545B588E /* JXHTTPOperationQueue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXHTTPOperationQueue.m; path = JXHTTP/JXHTTPOperationQueue.m; sourceTree = "<group>"; };
+		85C2F35D9EDD8B99BD6E58987814FDD4 /* Locksmith.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Locksmith.xcconfig; sourceTree = "<group>"; };
+		86035620151874EBAA9906ACE563BB02 /* ANSCompatibility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ANSCompatibility.h; path = iOS/Crashlytics.framework/Headers/ANSCompatibility.h; sourceTree = "<group>"; };
+		860D3A2170E5186EB29CAB5C95497DDA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		87858339169A5F3141B56E500988330C /* JXHTTP-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JXHTTP-prefix.pch"; sourceTree = "<group>"; };
+		882132831706A8CADCFF376E25E61F02 /* CLSLogging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSLogging.h; path = iOS/Crashlytics.framework/Headers/CLSLogging.h; sourceTree = "<group>"; };
 		8B85F93B089CD0ABF9D01BEB02A8BC5D /* ReachabilitySwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReachabilitySwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8BD5BDFD8EE9918D27F57C5E872DD6EB /* JXURLEncoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXURLEncoding.h; path = JXHTTP/JXURLEncoding.h; sourceTree = "<group>"; };
-		8E9ACB32C511539F6B8D5EFD3CE35933 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C647FF0329E2E69D6D4DE5B16E09E08 /* TMTumblrSDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TMTumblrSDK-dummy.m"; sourceTree = "<group>"; };
+		8F03045A746C84C1D9DF760A90AE5A49 /* JXHTTPJSONBody.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXHTTPJSONBody.h; path = JXHTTP/JXHTTPJSONBody.h; sourceTree = "<group>"; };
+		8F7B8B42FF6FE6774A33A547D4C4ADB4 /* LocksmithSecurityClass.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocksmithSecurityClass.swift; path = Source/LocksmithSecurityClass.swift; sourceTree = "<group>"; };
+		9035ED4B197D5CA21AAC4BAA46BAD48A /* FLAnimatedImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FLAnimatedImage.h; path = FLAnimatedImage/FLAnimatedImage.h; sourceTree = "<group>"; };
+		938569C9BBFCCD5D342CDFF5E66DD039 /* SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SwiftyJSON.modulemap; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		96A084D10C71529CB9E5EBC5848A4ED1 /* JXHTTPFormEncodedBody.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXHTTPFormEncodedBody.h; path = JXHTTP/JXHTTPFormEncodedBody.h; sourceTree = "<group>"; };
-		9721D8B88136A9F19E080CF17E792BBD /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9B820A643C5043F49C7FFECA91C99926 /* UIActivityTumblr~ipad.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "UIActivityTumblr~ipad.png"; path = "TMTumblrSDK/Activity/UIActivityTumblr~ipad.png"; sourceTree = "<group>"; };
+		9464195572F5795CFD0A57132A44D76F /* TMSDKFunctions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TMSDKFunctions.m; path = TMTumblrSDK/Core/TMSDKFunctions.m; sourceTree = "<group>"; };
+		950CE71C4B1BDF17788D6A804A4DEDFE /* JXBackgroundTaskManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXBackgroundTaskManager.h; path = JXHTTP/JXBackgroundTaskManager.h; sourceTree = "<group>"; };
+		98A7C7F538D8A151645B906B36C5EFDF /* JXHTTPFileBody.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXHTTPFileBody.h; path = JXHTTP/JXHTTPFileBody.h; sourceTree = "<group>"; };
+		9BA4CB9876E9438A85EF33068D2EFFFA /* FLAnimatedImage-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FLAnimatedImage-prefix.pch"; sourceTree = "<group>"; };
 		9C09B574316CC06D1203C2E2F52D8642 /* Pods-PinchPad.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-PinchPad.modulemap"; sourceTree = "<group>"; };
-		9D5C793F733E420BEADEC63BE9A59673 /* FlurryEmpty.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FlurryEmpty.m; path = Flurry/FlurryEmpty.m; sourceTree = "<group>"; };
-		A04B44793C24F7F3B3E58775C86DE0CD /* JXHTTPJSONBody.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXHTTPJSONBody.m; path = JXHTTP/JXHTTPJSONBody.m; sourceTree = "<group>"; };
-		A74D64E847BB6D2BA534A036B6EA54A8 /* libFlurry_7.5.2.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libFlurry_7.5.2.a; path = Flurry/libFlurry_7.5.2.a; sourceTree = "<group>"; };
-		A83FA612C6896FEF48B0870E47287DC2 /* FLAnimatedImageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FLAnimatedImageView.m; path = FLAnimatedImage/FLAnimatedImageView.m; sourceTree = "<group>"; };
-		A93938A331C27293C967769C1AC29CDA /* JXHTTPMultipartBody.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXHTTPMultipartBody.h; path = JXHTTP/JXHTTPMultipartBody.h; sourceTree = "<group>"; };
+		9D5354C2003A1E3BBD6FE8903FCA0695 /* Spectacles-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Spectacles-umbrella.h"; sourceTree = "<group>"; };
+		9DB0E10EA79D20F842AFA8F48D2061F0 /* Spectacles-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Spectacles-dummy.m"; sourceTree = "<group>"; };
+		9FE7FFC659758D1684D05C76267205B5 /* FLAnimatedImage-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FLAnimatedImage-umbrella.h"; sourceTree = "<group>"; };
+		A0E5DEF14D806DA5F8FF1D9260F362D6 /* Dictionary_Initializers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Dictionary_Initializers.swift; path = Source/Dictionary_Initializers.swift; sourceTree = "<group>"; };
+		A43D21107136A7ABBAF3A06DD7BEFCE4 /* JXHTTP.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = JXHTTP.modulemap; sourceTree = "<group>"; };
+		A44EC817DA0B3962AFD5F113037701FD /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = iOS/Crashlytics.framework; sourceTree = "<group>"; };
+		A95B099066D24599FB466286695850B8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A97F091656111AE36DC75BB405191BE0 /* Spectacles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Spectacles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9C6EB872DF1F6C873B1CFFCB87EDAC5 /* ReachabilitySwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ReachabilitySwift.modulemap; sourceTree = "<group>"; };
-		A9C740B9CFADDD0DC227ABDC18C00D76 /* JXURLEncoding.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXURLEncoding.m; path = JXHTTP/JXURLEncoding.m; sourceTree = "<group>"; };
-		AD827A4DDFE24B09F6654CC3B05BF727 /* JXHTTP.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = JXHTTP.modulemap; sourceTree = "<group>"; };
-		AF5C42CEE59F223D0C704EA777C83BB0 /* JXHTTP-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JXHTTP-dummy.m"; sourceTree = "<group>"; };
-		AFD638FCF2F4E0FB15CFCD89068398FA /* JXHTTPOperationQueueDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXHTTPOperationQueueDelegate.h; path = JXHTTP/JXHTTPOperationQueueDelegate.h; sourceTree = "<group>"; };
-		B0EE57BD9D79FD130B86C3AB7BEFA782 /* ReachabilitySwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ReachabilitySwift-dummy.m"; sourceTree = "<group>"; };
-		B29C44D1C11DCAE5C569241F9293C5A8 /* Spectacles.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Spectacles.modulemap; sourceTree = "<group>"; };
-		B2B7D0774FEEC4F02DB41A96DC9968CE /* JXHTTPFileBody.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXHTTPFileBody.m; path = JXHTTP/JXHTTPFileBody.m; sourceTree = "<group>"; };
+		AC804AC774B30814AF21D51A52BEC1B3 /* Toast.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Toast.swift; path = Toast/Toast.swift; sourceTree = "<group>"; };
+		AFA5EB027E9D3C30889D9FE704956B04 /* ReachabilitySwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ReachabilitySwift.modulemap; sourceTree = "<group>"; };
+		B00E732F52C9FD2BCFFC7FAFCE9AA1B5 /* ReachabilitySwift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ReachabilitySwift.xcconfig; sourceTree = "<group>"; };
+		B22809593C60FF96CFC822029DEF7622 /* FLAnimatedImageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FLAnimatedImageView.m; path = FLAnimatedImage/FLAnimatedImageView.m; sourceTree = "<group>"; };
 		B30101DFF186EF61CD68CF0C79994DBA /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B30A5A3BE7744D94C5E143D23579BCC2 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
 		B4456E7912D50F6E93138079333F7E85 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
-		B49F85B9B045B1EB9D12229EF4540896 /* JXHTTPJSONBody.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXHTTPJSONBody.h; path = JXHTTP/JXHTTPJSONBody.h; sourceTree = "<group>"; };
+		B450CAA40967E6855F0F959867C2316A /* FLAnimatedImageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FLAnimatedImageView.h; path = FLAnimatedImage/FLAnimatedImageView.h; sourceTree = "<group>"; };
 		B6CA8B7D156196BB02EE5EB56CF35440 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/ImageIO.framework; sourceTree = DEVELOPER_DIR; };
-		B8A9CB908509B59728983A31700A841D /* TMTumblrAuthenticator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TMTumblrAuthenticator.m; path = TMTumblrSDK/Authentication/TMTumblrAuthenticator.m; sourceTree = "<group>"; };
-		B8F103851B097DF6B0576F19CA78616D /* TMSDKUserAgent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TMSDKUserAgent.m; path = TMTumblrSDK/Core/TMSDKUserAgent.m; sourceTree = "<group>"; };
-		BB8FB625E443C55CF4957CF05F50E439 /* JXHTTP.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXHTTP.h; path = JXHTTP/JXHTTP.h; sourceTree = "<group>"; };
+		B6DB2AD0141BD723EAA91DBD7F351B6D /* JXHTTPOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXHTTPOperation.m; path = JXHTTP/JXHTTPOperation.m; sourceTree = "<group>"; };
+		B7BC33E7E46B16AD113636B5F2782CA1 /* TMTumblrSDK.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = TMTumblrSDK.modulemap; sourceTree = "<group>"; };
 		BCF518952BD16F89036DB4464C818BFC /* Pods-PinchPad-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PinchPad-frameworks.sh"; sourceTree = "<group>"; };
-		BF516BA870B8A2B5A52B33275849D62E /* UIActivityTumblr@2x~ipad.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "UIActivityTumblr@2x~ipad.png"; path = "TMTumblrSDK/Activity/UIActivityTumblr@2x~ipad.png"; sourceTree = "<group>"; };
-		C2E2E82AFE2B25D624188A752BDB9281 /* LocksmithError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocksmithError.swift; path = Source/LocksmithError.swift; sourceTree = "<group>"; };
-		C463A8F1B7187A842068C2BE91149080 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterCore.framework; path = iOS/TwitterCore.framework; sourceTree = "<group>"; };
-		C47D5C1879FEE10EFEC3735EA2F35A4E /* Toast.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Toast.swift; path = Toast/Toast.swift; sourceTree = "<group>"; };
+		BE32F2927B83281D5A457E7C2CBF4945 /* TMTumblrAppClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TMTumblrAppClient.m; path = TMTumblrSDK/AppClient/TMTumblrAppClient.m; sourceTree = "<group>"; };
+		BF5965685306F4B00B2760FDCCFF3EDB /* TMTumblrSDK.podspec.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; path = TMTumblrSDK.podspec.json; sourceTree = "<group>"; };
+		C5431EB604195964492161435F55ED23 /* LocksmithAccessibleOption.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocksmithAccessibleOption.swift; path = Source/LocksmithAccessibleOption.swift; sourceTree = "<group>"; };
+		C5A61C2E09931349A99C2593AB37D792 /* JXURLConnectionOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXURLConnectionOperation.h; path = JXHTTP/JXURLConnectionOperation.h; sourceTree = "<group>"; };
 		C5F870DBDE60601C37A81E8182948C6B /* FLAnimatedImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FLAnimatedImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7ADE4679E7E634716C95C9E5A7ADC1D /* Flurry-iOS-SDK.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Flurry-iOS-SDK.modulemap"; sourceTree = "<group>"; };
-		C7B825787AF354BB7DBB1948682D3F23 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = iOS/Crashlytics.framework; sourceTree = "<group>"; };
+		C67BCC4462E9C571BD98EE2C3E85EE9F /* JXHTTP.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JXHTTP.xcconfig; sourceTree = "<group>"; };
+		C85046A5A4898A0C71E7F6CC48FB431A /* CLSStackFrame.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSStackFrame.h; path = iOS/Crashlytics.framework/Headers/CLSStackFrame.h; sourceTree = "<group>"; };
 		C8CBD94EA94BF3E148136D03FB5E2C51 /* Pods-PinchPad-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PinchPad-acknowledgements.plist"; sourceTree = "<group>"; };
-		C9500CF8FB152861B36AE5AB8E560370 /* TMTumblrAuthenticator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TMTumblrAuthenticator.h; path = TMTumblrSDK/Authentication/TMTumblrAuthenticator.h; sourceTree = "<group>"; };
-		CABE52C82A572D3D8805DAD193D4C07C /* TMTumblrSDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TMTumblrSDK-prefix.pch"; sourceTree = "<group>"; };
-		CB48C858292830420CB4A599CFCE4910 /* LocksmithAccessibleOption.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocksmithAccessibleOption.swift; path = Source/LocksmithAccessibleOption.swift; sourceTree = "<group>"; };
-		CF67EF68B99B2441EE1F63EBA48DDC43 /* TMSDKUserAgent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TMSDKUserAgent.h; path = TMTumblrSDK/Core/TMSDKUserAgent.h; sourceTree = "<group>"; };
-		CFCCD157649EE2E0B3E7781832787EA3 /* JXHTTPOperationQueue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXHTTPOperationQueue.m; path = JXHTTP/JXHTTPOperationQueue.m; sourceTree = "<group>"; };
-		D209B1247DA1E7B8C58F1495B5154B50 /* TMTumblrActivity.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TMTumblrActivity.m; path = TMTumblrSDK/Activity/TMTumblrActivity.m; sourceTree = "<group>"; };
-		D7680DC75C8F95F489EAF814F1BEABA2 /* JXHTTPOperation+Convenience.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "JXHTTPOperation+Convenience.m"; path = "JXHTTP/JXHTTPOperation+Convenience.m"; sourceTree = "<group>"; };
-		DBE45FC9457F0EEB5D40E069355D9C7D /* FLAnimatedImageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FLAnimatedImageView.h; path = FLAnimatedImage/FLAnimatedImageView.h; sourceTree = "<group>"; };
-		DCF61A2E524FD0C786C5E7363BDC6680 /* TMTumblrActivity.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TMTumblrActivity.h; path = TMTumblrSDK/Activity/TMTumblrActivity.h; sourceTree = "<group>"; };
+		CC5841D8E6FD733E0D569E7CF92C53D8 /* TMPodspec.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TMPodspec.h; path = Pod/Classes/TMPodspec.h; sourceTree = "<group>"; };
+		CC93A118B438F0F3EA641288F3471E84 /* TMSDKUserAgent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TMSDKUserAgent.m; path = TMTumblrSDK/Core/TMSDKUserAgent.m; sourceTree = "<group>"; };
+		CECDAB58B0FC037483247243F81E76D7 /* SwiftyJSON-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-umbrella.h"; sourceTree = "<group>"; };
+		CF491B43A2E332808A3C298EB1994D0C /* Toast-Swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Toast-Swift-dummy.m"; sourceTree = "<group>"; };
+		CF5DC77CDCB4F3F297C697983BB0625C /* JXHTTPOperation+Convenience.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "JXHTTPOperation+Convenience.m"; path = "JXHTTP/JXHTTPOperation+Convenience.m"; sourceTree = "<group>"; };
+		D3A7A72887A9D6B5285EB19E269D1060 /* Flurry-iOS-SDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Flurry-iOS-SDK-prefix.pch"; sourceTree = "<group>"; };
+		D3A89AB0D71576AE1A64E3E54D246E31 /* JXHTTP-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JXHTTP-dummy.m"; sourceTree = "<group>"; };
+		D49C02F047B04A91E2E04469906266EB /* Locksmith-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Locksmith-prefix.pch"; sourceTree = "<group>"; };
+		DAC018ADB61578A249C86BBEBE1A5AAE /* JXHTTPMultipartBody.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXHTTPMultipartBody.m; path = JXHTTP/JXHTTPMultipartBody.m; sourceTree = "<group>"; };
+		DC2990A84BB14EEE339FFE378013161E /* JXHTTPFormEncodedBody.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXHTTPFormEncodedBody.m; path = JXHTTP/JXHTTPFormEncodedBody.m; sourceTree = "<group>"; };
+		DF8079D06E92AB8EEAC665B07B5A713B /* Spectacles.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Spectacles.modulemap; sourceTree = "<group>"; };
 		DFD181B8A8A0A9F03CE8DE18F59D3CD2 /* Flurry_iOS_SDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Flurry_iOS_SDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E49D80EB22814D0B91689E88522318B0 /* TMOAuth.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TMOAuth.m; path = TMTumblrSDK/Authentication/TMOAuth.m; sourceTree = "<group>"; };
-		E5C4FE5985183257DF8ADF54D061DAEB /* UIActivityTumblr~ipad@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "UIActivityTumblr~ipad@2x.png"; path = "TMTumblrSDK/Activity/UIActivityTumblr~ipad@2x.png"; sourceTree = "<group>"; };
+		E24AB88D855D6895B9887A1729BE2D47 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2F24AD4721F7EB778AA1A0FF2DF0D7F /* Locksmith.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Locksmith.modulemap; sourceTree = "<group>"; };
 		E6DBADD02077749DB855F202E72E89F1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E76C0C08285C5CFAAF7EEA2756C0A46F /* Toast-Swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Toast-Swift-umbrella.h"; sourceTree = "<group>"; };
-		E7D201A70E1828F96BD5CBA5C1C8BCF0 /* JXHTTPOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JXHTTPOperation.m; path = JXHTTP/JXHTTPOperation.m; sourceTree = "<group>"; };
-		EAEC58262E79B6BFC4C1D27B274D8282 /* Toast-Swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Toast-Swift-dummy.m"; sourceTree = "<group>"; };
-		EC106F40A318740F43BBD7A64C0EA96F /* JXHTTPOperationQueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXHTTPOperationQueue.h; path = JXHTTP/JXHTTPOperationQueue.h; sourceTree = "<group>"; };
-		EF8154EE18DF9829893B81F90B939081 /* JXHTTP-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JXHTTP-umbrella.h"; sourceTree = "<group>"; };
+		EC3CA5F52691B98104CA2B3FF6DED9EC /* Locksmith.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Locksmith.h; path = Source/Locksmith.h; sourceTree = "<group>"; };
 		F005E0C1B5BFC746CB1AACC96B06E306 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
-		F2D49AA6E33D2F41B2FEA76EB7610067 /* SwiftyJSON-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyJSON-dummy.m"; sourceTree = "<group>"; };
-		F33182A3FAD0025192D1AD4DEB73E95F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F34564E6AF9F3EA092A91F3AC6454EAD /* Flurry-iOS-SDK-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Flurry-iOS-SDK-umbrella.h"; sourceTree = "<group>"; };
+		F39C943C0CFB3BA9F9A38A8A04A3DD81 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = iOS/Fabric.framework; sourceTree = "<group>"; };
 		F40692359C9ABCF4EAB3B3CB45EF5FE9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		F45AA24AB58D8798F0AE175327F698FA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F6672F33DDF1AABA4A97443BE20CC0C9 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = iOS/Fabric.framework; sourceTree = "<group>"; };
-		F8228BF7741BEF6A91016DC8FECF6214 /* Spectacles-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Spectacles-dummy.m"; sourceTree = "<group>"; };
-		F8B3CB5FE7322DCADE3DBE7531C81955 /* Spectacles-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Spectacles-umbrella.h"; sourceTree = "<group>"; };
-		FB40BB26898C6E97D39F262631C42187 /* FLAnimatedImage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = FLAnimatedImage.modulemap; sourceTree = "<group>"; };
-		FC248EA3863D0882803A02583C5D3A77 /* ReachabilitySwift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ReachabilitySwift.xcconfig; sourceTree = "<group>"; };
-		FD9934BB8227CD9793E8637B0263F629 /* JXHTTP.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JXHTTP.xcconfig; sourceTree = "<group>"; };
+		F4703077EECA758D95B741EBC564156A /* Spectacles.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Spectacles.xcconfig; sourceTree = "<group>"; };
+		F7B11736EBE598ACEB1252C27CD43C47 /* Toast-Swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Toast-Swift.modulemap"; sourceTree = "<group>"; };
+		F7F644F1E8DC6903DA5300738259739B /* TMTumblrAuthenticator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TMTumblrAuthenticator.h; path = TMTumblrSDK/Authentication/TMTumblrAuthenticator.h; sourceTree = "<group>"; };
+		F9B852089FA37A5B9C331005F8956AC1 /* JXHTTP.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JXHTTP.h; path = JXHTTP/JXHTTP.h; sourceTree = "<group>"; };
 		FDCD5F19BF6561F351A1B2D1ED0651A0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
-		FE07F6506878154F430A1E5D97C3CBD0 /* SwiftyJSON.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyJSON.xcconfig; sourceTree = "<group>"; };
-		FF27C89BF5CADB2A23FDFB20215A777B /* TMPodspec.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TMPodspec.m; path = Pod/Classes/TMPodspec.m; sourceTree = "<group>"; };
-		FF3B5DFA67FBDB3774CBA1CEDD12AF42 /* Toast-Swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Toast-Swift-prefix.pch"; sourceTree = "<group>"; };
+		FF963B05A3AC06B85D75868FC1CA0C75 /* libFlurry_7.5.2.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libFlurry_7.5.2.a; path = Flurry/libFlurry_7.5.2.a; sourceTree = "<group>"; };
+		FFDCEFD01BF5BA146D67A29007D5613B /* ReachabilitySwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ReachabilitySwift-umbrella.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -455,6 +462,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		059D2C4488337EFFF21D0B89FFD40AFE /* Fabric */ = {
+			isa = PBXGroup;
+			children = (
+				7BDE4D85E251B1AE0C3AC91FF8E111AF /* Frameworks */,
+			);
+			path = Fabric;
+			sourceTree = "<group>";
+		};
+		0AF1A80A4B2C9099E75FE8FBD545F7BA /* JXHTTP */ = {
+			isa = PBXGroup;
+			children = (
+				950CE71C4B1BDF17788D6A804A4DEDFE /* JXBackgroundTaskManager.h */,
+				F9B852089FA37A5B9C331005F8956AC1 /* JXHTTP.h */,
+				36C2B01B6AE19B4634B4EB067FDE3220 /* JXHTTPDataBody.h */,
+				16F78170CD4D6720948AEA451AB5F641 /* JXHTTPDataBody.m */,
+				98A7C7F538D8A151645B906B36C5EFDF /* JXHTTPFileBody.h */,
+				7683C71836A133CDC1180789284C7DA3 /* JXHTTPFileBody.m */,
+				004367E2758FA3E7A40025A2792B0183 /* JXHTTPFormEncodedBody.h */,
+				DC2990A84BB14EEE339FFE378013161E /* JXHTTPFormEncodedBody.m */,
+				8F03045A746C84C1D9DF760A90AE5A49 /* JXHTTPJSONBody.h */,
+				7486F38303D459F426F3E45670F1BA5B /* JXHTTPJSONBody.m */,
+				46CA0371E4FB2FE0E7C7AD53A84843E5 /* JXHTTPMultipartBody.h */,
+				DAC018ADB61578A249C86BBEBE1A5AAE /* JXHTTPMultipartBody.m */,
+				740D70460BEEEEBC0CE2F3019CA38A12 /* JXHTTPOperation.h */,
+				B6DB2AD0141BD723EAA91DBD7F351B6D /* JXHTTPOperation.m */,
+				57DE91C0E5D2156F3BAB566E1D774667 /* JXHTTPOperation+Convenience.h */,
+				CF5DC77CDCB4F3F297C697983BB0625C /* JXHTTPOperation+Convenience.m */,
+				57157E03BA81188E780DD2DF935C56B2 /* JXHTTPOperationDelegate.h */,
+				353AEA191838939AE3FBFD40DD6E6DEB /* JXHTTPOperationQueue.h */,
+				83FB940EC860D25BC8223EEC545B588E /* JXHTTPOperationQueue.m */,
+				45BF1A356F366BC711CBE7924C36180B /* JXHTTPOperationQueueDelegate.h */,
+				6E53B0965FB40646B6B3B92A3CC984F6 /* JXHTTPRequestBody.h */,
+				7ED3F41E2403568A65BB1A2BDE25262F /* JXNetworkActivityIndicatorManager.h */,
+				36062F98FF33BDA0D93CA6AF252F0DB6 /* JXOperation.h */,
+				76C960CE9DC04E2FEED47F5FF8E65BB2 /* JXOperation.m */,
+				C5A61C2E09931349A99C2593AB37D792 /* JXURLConnectionOperation.h */,
+				5177BDDCBCA71A73C812BDB24D8A7FF2 /* JXURLConnectionOperation.m */,
+				55DF7EC0A8DC3D6C7F79A018D4FDF2DB /* JXURLEncoding.h */,
+				256DFF3C04A0474C288FB7F97891DB34 /* JXURLEncoding.m */,
+				118D8B61129889C04F537A5639EA3A3C /* Support Files */,
+			);
+			path = JXHTTP;
+			sourceTree = "<group>";
+		};
+		0F0EB190D395D9142F5AB8A97EBB437F /* AppClient */ = {
+			isa = PBXGroup;
+			children = (
+				4BE1D79F34E18FCAFA527B49CEC1EB04 /* TMTumblrAppClient.h */,
+				BE32F2927B83281D5A457E7C2CBF4945 /* TMTumblrAppClient.m */,
+			);
+			name = AppClient;
+			sourceTree = "<group>";
+		};
 		0FB2A45C5FB0CE8BE41F279C9FDA0013 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -480,37 +540,42 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		14C9276E17D51E4400439E65615C29E8 /* Authentication */ = {
+		118D8B61129889C04F537A5639EA3A3C /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				4C6A7681D66163644D38DE9935C5C78D /* TMOAuth.h */,
-				E49D80EB22814D0B91689E88522318B0 /* TMOAuth.m */,
-				C9500CF8FB152861B36AE5AB8E560370 /* TMTumblrAuthenticator.h */,
-				B8A9CB908509B59728983A31700A841D /* TMTumblrAuthenticator.m */,
-			);
-			name = Authentication;
-			sourceTree = "<group>";
-		};
-		1C5250D1A3920EDB5B53EBD840DA9B16 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F6672F33DDF1AABA4A97443BE20CC0C9 /* Fabric.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		1F983690CE53DDF3ECAA77ABDD36B95F /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				2A95BB043512973381D3EBFFDE460DA9 /* Info.plist */,
-				1E250B3739BFF7EB94429CFD773FCDDC /* SwiftyJSON.modulemap */,
-				FE07F6506878154F430A1E5D97C3CBD0 /* SwiftyJSON.xcconfig */,
-				F2D49AA6E33D2F41B2FEA76EB7610067 /* SwiftyJSON-dummy.m */,
-				0DD1D520252E74B138E982F9AD8F8647 /* SwiftyJSON-prefix.pch */,
-				69639449CC27AE879E408CFE84D40C77 /* SwiftyJSON-umbrella.h */,
+				A95B099066D24599FB466286695850B8 /* Info.plist */,
+				A43D21107136A7ABBAF3A06DD7BEFCE4 /* JXHTTP.modulemap */,
+				C67BCC4462E9C571BD98EE2C3E85EE9F /* JXHTTP.xcconfig */,
+				D3A89AB0D71576AE1A64E3E54D246E31 /* JXHTTP-dummy.m */,
+				87858339169A5F3141B56E500988330C /* JXHTTP-prefix.pch */,
+				4CBB231D69812AE9E174B89954B7FA35 /* JXHTTP-umbrella.h */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/SwiftyJSON";
+			path = "../Target Support Files/JXHTTP";
+			sourceTree = "<group>";
+		};
+		1D3BF5A4C8FCC1417FBEA48029712E1B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				207A8E2BD798ADABE510CA25963B2A9E /* Info.plist */,
+				F7B11736EBE598ACEB1252C27CD43C47 /* Toast-Swift.modulemap */,
+				5461B51EB6432CE4C58CAD509D8E6E02 /* Toast-Swift.xcconfig */,
+				CF491B43A2E332808A3C298EB1994D0C /* Toast-Swift-dummy.m */,
+				7864FC8EBE14ED92D1181A07F9F4BCFF /* Toast-Swift-prefix.pch */,
+				16FD1E74B9DD8338F9BFC6A519BCD452 /* Toast-Swift-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Toast-Swift";
+			sourceTree = "<group>";
+		};
+		284AAE540F83BBD6B77AE2E31225C9E4 /* Spectacles */ = {
+			isa = PBXGroup;
+			children = (
+				CC5841D8E6FD733E0D569E7CF92C53D8 /* TMPodspec.h */,
+				698D37B3FD89C54424C537A51FCBC54D /* TMPodspec.m */,
+				5D3B043759B3F59EA5DE6E23BD46034F /* Support Files */,
+			);
+			path = Spectacles;
 			sourceTree = "<group>";
 		};
 		2AB2E748DED11E2120628D7E24AD5600 /* Targets Support Files */ = {
@@ -521,171 +586,166 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		31689C51E8E761E5C8C990F6FF7A0E8F /* Locksmith */ = {
+		2B65881455173EAA83F69EB95AC636DE /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				701CBE2EB81DCCCE4275F99A44068C17 /* Dictionary_Initializers.swift */,
-				5AE7CFAE2AC663F08DCF95D3C71A11C2 /* Locksmith.h */,
-				882B028777F43E4B8004E7DCB7136866 /* Locksmith.swift */,
-				CB48C858292830420CB4A599CFCE4910 /* LocksmithAccessibleOption.swift */,
-				C2E2E82AFE2B25D624188A752BDB9281 /* LocksmithError.swift */,
-				06D54679078F3190000C4B1623E08FD7 /* LocksmithInternetAuthenticationType.swift */,
-				52CC2D2AB2E2DB4E33152D41071071A1 /* LocksmithInternetProtocol.swift */,
-				50CFD684775D2FFE9762064E7ACB1F0A /* LocksmithSecurityClass.swift */,
-				55BC2D2ED6E1065C6489596FB22A6500 /* Support Files */,
-			);
-			path = Locksmith;
-			sourceTree = "<group>";
-		};
-		31960839E4E14D4E191EBBC7AC506B13 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				C463A8F1B7187A842068C2BE91149080 /* TwitterCore.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		3446AA61EB1EE5190EE20F3DA8F51C05 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				5B057F85222E0CD2E74D8D4624E90A19 /* TwitterKitResources.bundle */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		36D284C909EAE01F0813AB19BF566963 /* Activity */ = {
-			isa = PBXGroup;
-			children = (
-				DCF61A2E524FD0C786C5E7363BDC6680 /* TMTumblrActivity.h */,
-				D209B1247DA1E7B8C58F1495B5154B50 /* TMTumblrActivity.m */,
-				8189446993B582388BDE1745EC17BDB9 /* Resources */,
-			);
-			name = Activity;
-			sourceTree = "<group>";
-		};
-		3EBCF785152F98CDF9618809A4543CB6 /* Spectacles */ = {
-			isa = PBXGroup;
-			children = (
-				251D2218AEB16A932311C8DDE52D2368 /* TMPodspec.h */,
-				FF27C89BF5CADB2A23FDFB20215A777B /* TMPodspec.m */,
-				6ABDD1FFBFE2FE9C0A7122280EC510BE /* Support Files */,
-			);
-			path = Spectacles;
-			sourceTree = "<group>";
-		};
-		3F9028B019B0098B5E5E83D66DEC80CA /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F3E858627D4103CBD3E5BF0CACC6D290 /* Crashlytics */,
-				925DC316E7E56F1C0B3B81CCAE28A271 /* Fabric */,
-				A46CB4794EE9A116CDC8AEC53226BB20 /* FLAnimatedImage */,
-				FAB37C7C5C42432B04E14ACBB83CE382 /* Flurry-iOS-SDK */,
-				82F136D4F99DE9882C05A2F7D82C60A0 /* JXHTTP */,
-				31689C51E8E761E5C8C990F6FF7A0E8F /* Locksmith */,
-				7D78EB1AEE964489D53F384EE8DCA9E1 /* ReachabilitySwift */,
-				3EBCF785152F98CDF9618809A4543CB6 /* Spectacles */,
-				BB852065CE27391C5F23C8F73298F83B /* SwiftyJSON */,
-				FA72767F52BAA93F1822AB0D683C9F5A /* TMTumblrSDK */,
-				F93D5872AA0E61AFA868D64C3B6377BC /* Toast-Swift */,
-				E1ECC3A0C7E7783003B6F4BB3C6A6D33 /* TwitterCore */,
-				CCFEF2632072D200558EF2483CD28686 /* TwitterKit */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		44250183A76D2D4D54FF1D73E946C337 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				F33182A3FAD0025192D1AD4DEB73E95F /* Info.plist */,
-				681475E947021C53C1AE3FE1F7F6B48D /* Toast-Swift.modulemap */,
-				2E622C9700AE0A9EAF554C3DD33ED374 /* Toast-Swift.xcconfig */,
-				EAEC58262E79B6BFC4C1D27B274D8282 /* Toast-Swift-dummy.m */,
-				FF3B5DFA67FBDB3774CBA1CEDD12AF42 /* Toast-Swift-prefix.pch */,
-				E76C0C08285C5CFAAF7EEA2756C0A46F /* Toast-Swift-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Toast-Swift";
-			sourceTree = "<group>";
-		};
-		4AF53C7E51F49514C072BABAF76E7409 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				67FE9F3C5EC018551BBBDA837B444ECE /* TMSDKFunctions.h */,
-				344ED93D66F40786243405CC9F01D8C1 /* TMSDKFunctions.m */,
-				CF67EF68B99B2441EE1F63EBA48DDC43 /* TMSDKUserAgent.h */,
-				B8F103851B097DF6B0576F19CA78616D /* TMSDKUserAgent.m */,
-				71EDBA20BE435283F51BD017FEFA2AED /* Resources */,
+				56CA2A628728C53A85568C81FBBCA5F6 /* TMSDKFunctions.h */,
+				9464195572F5795CFD0A57132A44D76F /* TMSDKFunctions.m */,
+				5412E024D5C7E7A8920A5ED272A9B1AA /* TMSDKUserAgent.h */,
+				CC93A118B438F0F3EA641288F3471E84 /* TMSDKUserAgent.m */,
+				E6F5E0DA872D2FC354139EED1F1FE39A /* Resources */,
 			);
 			name = Core;
 			sourceTree = "<group>";
 		};
-		55BC2D2ED6E1065C6489596FB22A6500 /* Support Files */ = {
+		3781EBE7F3782F2A3C365370D5697833 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2F88E0E64652CB195DCA3894BF476828 /* Info.plist */,
-				1097A11F2AB0C2E0401BFA0EF3DA9A78 /* Locksmith.modulemap */,
-				4A01BB15C1BCC10A7D993C803398253E /* Locksmith.xcconfig */,
-				340E79E6207292D5A240E3C5720A891F /* Locksmith-dummy.m */,
-				45834ACC6AEB79A56F8C6F7E474090AB /* Locksmith-prefix.pch */,
-				47D3FFF7E861C032142241B0E4917C3A /* Locksmith-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Locksmith";
-			sourceTree = "<group>";
-		};
-		6ABDD1FFBFE2FE9C0A7122280EC510BE /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				175DC96B12F09D98CBA9B2BEDB80B5C3 /* Info.plist */,
-				B29C44D1C11DCAE5C569241F9293C5A8 /* Spectacles.modulemap */,
-				6B8C22DFF4749E218E555BAC339B0107 /* Spectacles.xcconfig */,
-				F8228BF7741BEF6A91016DC8FECF6214 /* Spectacles-dummy.m */,
-				23F23CCF0053BFCCEC38B1BCE1C8A5D8 /* Spectacles-prefix.pch */,
-				F8B3CB5FE7322DCADE3DBE7531C81955 /* Spectacles-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Spectacles";
-			sourceTree = "<group>";
-		};
-		6F16DF85E74FC7C8E8B22931203EC6FD /* APIClient */ = {
-			isa = PBXGroup;
-			children = (
-				646F564FA55CF2F9A6C228DCCF002D3B /* TMAPIClient.h */,
-				3AC22182FFABF056F84C120B865AB6CD /* TMAPIClient.m */,
-				14C9276E17D51E4400439E65615C29E8 /* Authentication */,
-			);
-			name = APIClient;
-			sourceTree = "<group>";
-		};
-		71EDBA20BE435283F51BD017FEFA2AED /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				3BBB2930912B84A2875FDAEE5E541299 /* TMTumblrSDK.podspec.json */,
+				5C5F6E5CDA45D0E407CCA6339F71C39D /* UIActivityTumblr.png */,
+				76593BF66566ED9454B7402BB692CA3D /* UIActivityTumblr@2x.png */,
+				113D772E93BAA0DB032041DA0250663D /* UIActivityTumblr@2x~ipad.png */,
+				00AB0DD745011EBE50CCE1563FDF7A2F /* UIActivityTumblr~ipad.png */,
+				01310E023645AABDECAC429CF116256F /* UIActivityTumblr~ipad@2x.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		7710C4D2680F51784F426657CC77B07D /* Support Files */ = {
+		38763AA9122F2BBE6A9128DE113F7F84 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8E9ACB32C511539F6B8D5EFD3CE35933 /* Info.plist */,
-				A9C6EB872DF1F6C873B1CFFCB87EDAC5 /* ReachabilitySwift.modulemap */,
-				FC248EA3863D0882803A02583C5D3A77 /* ReachabilitySwift.xcconfig */,
-				B0EE57BD9D79FD130B86C3AB7BEFA782 /* ReachabilitySwift-dummy.m */,
-				53C5DC14FA13670D3BC526C9A71D5CE4 /* ReachabilitySwift-prefix.pch */,
-				68D700E86DF279E2F3BF0C0D233BA903 /* ReachabilitySwift-umbrella.h */,
+				581B251DE87C2F06CE8F158710FE4155 /* TwitterKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3995B0F3A79B23BCAA62F95E4EAFFEBB /* APIClient */ = {
+			isa = PBXGroup;
+			children = (
+				5BAC4F4FE98EB80BCF95081A045EBE11 /* TMAPIClient.h */,
+				6326F0AC989718A6FFE10900BDF998A1 /* TMAPIClient.m */,
+				75C4021C7AA2C1A5B5F400DABAD76DC5 /* Authentication */,
+			);
+			name = APIClient;
+			sourceTree = "<group>";
+		};
+		3B5EB500B22BE83E6046AE2563B3CF01 /* Toast-Swift */ = {
+			isa = PBXGroup;
+			children = (
+				AC804AC774B30814AF21D51A52BEC1B3 /* Toast.swift */,
+				1D3BF5A4C8FCC1417FBEA48029712E1B /* Support Files */,
+			);
+			path = "Toast-Swift";
+			sourceTree = "<group>";
+		};
+		41FA2D2E8079084D8623676B00E798FB /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				568A6DE342E6A39027E1FC9325D489A9 /* TMTumblrActivity.h */,
+				5255BFF781C43FC0C0F7F80645B9B403 /* TMTumblrActivity.m */,
+				3781EBE7F3782F2A3C365370D5697833 /* Resources */,
+			);
+			name = Activity;
+			sourceTree = "<group>";
+		};
+		442346AE09AA34F78A16C2DE3828A7C7 /* Crashlytics */ = {
+			isa = PBXGroup;
+			children = (
+				86035620151874EBAA9906ACE563BB02 /* ANSCompatibility.h */,
+				7653DBBE7BC42A860D63A3B5DC379354 /* Answers.h */,
+				45DB405E0725DAF2FEA6A96F477DC622 /* CLSAttributes.h */,
+				882132831706A8CADCFF376E25E61F02 /* CLSLogging.h */,
+				1F7A00E43B70A5EC77F5BCB7CECA4B60 /* CLSReport.h */,
+				C85046A5A4898A0C71E7F6CC48FB431A /* CLSStackFrame.h */,
+				4269EB71B06A45ACD6C2709B27E39E9E /* Crashlytics.h */,
+				E3ADE8AA374AA2AC30382F1068BAD371 /* Frameworks */,
+			);
+			path = Crashlytics;
+			sourceTree = "<group>";
+		};
+		443862ED06F4D788F176346A28672C3B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				860D3A2170E5186EB29CAB5C95497DDA /* Info.plist */,
+				AFA5EB027E9D3C30889D9FE704956B04 /* ReachabilitySwift.modulemap */,
+				B00E732F52C9FD2BCFFC7FAFCE9AA1B5 /* ReachabilitySwift.xcconfig */,
+				173224FD00ABB032D0FCFF7F8CB783F3 /* ReachabilitySwift-dummy.m */,
+				0168EFF8F31CA3D2534B69A5FE268BBC /* ReachabilitySwift-prefix.pch */,
+				FFDCEFD01BF5BA146D67A29007D5613B /* ReachabilitySwift-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/ReachabilitySwift";
 			sourceTree = "<group>";
 		};
-		7D78EB1AEE964489D53F384EE8DCA9E1 /* ReachabilitySwift */ = {
+		474FDB35623AA35E21279D51D7EFB7B0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				83B7E3B97EDE07ECCCD2E69666B8B596 /* Reachability.swift */,
-				7710C4D2680F51784F426657CC77B07D /* Support Files */,
+				7B79E5ED031AB2B9DE8DBB148792C08C /* TwitterCore.framework */,
 			);
-			path = ReachabilitySwift;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4781F68E4DB7B35544911DD3DF2D96C0 /* FLAnimatedImage */ = {
+			isa = PBXGroup;
+			children = (
+				9035ED4B197D5CA21AAC4BAA46BAD48A /* FLAnimatedImage.h */,
+				18E58AE5199F374DC07A6CB4155C8205 /* FLAnimatedImage.m */,
+				B450CAA40967E6855F0F959867C2316A /* FLAnimatedImageView.h */,
+				B22809593C60FF96CFC822029DEF7622 /* FLAnimatedImageView.m */,
+				89B1F5FA5CD959F4793D7023B0FE5619 /* Support Files */,
+			);
+			path = FLAnimatedImage;
+			sourceTree = "<group>";
+		};
+		584D294FB22EA341C1699E4BF29124B2 /* SwiftyJSON */ = {
+			isa = PBXGroup;
+			children = (
+				0CA972CBC9C373BF56668E06CC7D9007 /* SwiftyJSON.swift */,
+				85E0D09FEB037EFE43E20E7D2B06DFC3 /* Support Files */,
+			);
+			path = SwiftyJSON;
+			sourceTree = "<group>";
+		};
+		5D3B043759B3F59EA5DE6E23BD46034F /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E24AB88D855D6895B9887A1729BE2D47 /* Info.plist */,
+				DF8079D06E92AB8EEAC665B07B5A713B /* Spectacles.modulemap */,
+				F4703077EECA758D95B741EBC564156A /* Spectacles.xcconfig */,
+				9DB0E10EA79D20F842AFA8F48D2061F0 /* Spectacles-dummy.m */,
+				01CF633946D85079C3A0E4AFC1371EE7 /* Spectacles-prefix.pch */,
+				9D5354C2003A1E3BBD6FE8903FCA0695 /* Spectacles-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Spectacles";
+			sourceTree = "<group>";
+		};
+		706475FBECA057A7D2B2C43D1B4CC6E1 /* FlurrySDK */ = {
+			isa = PBXGroup;
+			children = (
+				2B1A452C41E6B99FDA1E78EFD255D4B5 /* Flurry.h */,
+				7902CBAE3B7363856BEE9DA8E2A008E4 /* FlurryEmpty.m */,
+				C383F8F34856B3D9F277B2BB1E0A04D3 /* Frameworks */,
+			);
+			name = FlurrySDK;
+			sourceTree = "<group>";
+		};
+		75C4021C7AA2C1A5B5F400DABAD76DC5 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				62B0D5D9F64F3C713AD31BDFA68FB199 /* TMOAuth.h */,
+				4043FA1C703AA36FD178A5BC37CE8F55 /* TMOAuth.m */,
+				F7F644F1E8DC6903DA5300738259739B /* TMTumblrAuthenticator.h */,
+				4A66C18382505544CC480412397EBCD1 /* TMTumblrAuthenticator.m */,
+			);
+			name = Authentication;
+			sourceTree = "<group>";
+		};
+		7BDE4D85E251B1AE0C3AC91FF8E111AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F39C943C0CFB3BA9F9A38A8A04A3DD81 /* Fabric.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -693,132 +753,99 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				0FB2A45C5FB0CE8BE41F279C9FDA0013 /* Frameworks */,
-				3F9028B019B0098B5E5E83D66DEC80CA /* Pods */,
+				DC07830A60D774349FAAB6C3F96B3223 /* Pods */,
 				B6537B38C3C0BA612351865FB2B80E68 /* Products */,
 				2AB2E748DED11E2120628D7E24AD5600 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		8189446993B582388BDE1745EC17BDB9 /* Resources */ = {
+		7E01081BF73284A3582934EF56FE2095 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				30158A59CBF2D40D66E4AA95D7181391 /* UIActivityTumblr.png */,
-				871AD4132CC05639513C89A3F372CCD7 /* UIActivityTumblr@2x.png */,
-				BF516BA870B8A2B5A52B33275849D62E /* UIActivityTumblr@2x~ipad.png */,
-				9B820A643C5043F49C7FFECA91C99926 /* UIActivityTumblr~ipad.png */,
-				E5C4FE5985183257DF8ADF54D061DAEB /* UIActivityTumblr~ipad@2x.png */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		82F136D4F99DE9882C05A2F7D82C60A0 /* JXHTTP */ = {
-			isa = PBXGroup;
-			children = (
-				76F0E4001E819F0D7B6C432D8A2C53B6 /* JXBackgroundTaskManager.h */,
-				BB8FB625E443C55CF4957CF05F50E439 /* JXHTTP.h */,
-				4499A589B0CC1C488D24AD2FC8AC22A7 /* JXHTTPDataBody.h */,
-				74B9637316D2908B387EF174C872DC4E /* JXHTTPDataBody.m */,
-				636B5511422E72002E25DCCA73C4AC8E /* JXHTTPFileBody.h */,
-				B2B7D0774FEEC4F02DB41A96DC9968CE /* JXHTTPFileBody.m */,
-				96A084D10C71529CB9E5EBC5848A4ED1 /* JXHTTPFormEncodedBody.h */,
-				23347EDAB022DB285DD95394ACE65CBA /* JXHTTPFormEncodedBody.m */,
-				B49F85B9B045B1EB9D12229EF4540896 /* JXHTTPJSONBody.h */,
-				A04B44793C24F7F3B3E58775C86DE0CD /* JXHTTPJSONBody.m */,
-				A93938A331C27293C967769C1AC29CDA /* JXHTTPMultipartBody.h */,
-				48532052DD1FBB3E4CD9FA89058A8B01 /* JXHTTPMultipartBody.m */,
-				1AA69F655CCF7EA85DBADADC3222D6BA /* JXHTTPOperation.h */,
-				E7D201A70E1828F96BD5CBA5C1C8BCF0 /* JXHTTPOperation.m */,
-				42B35454B6A77A72B79EE80CF6FDD5FF /* JXHTTPOperation+Convenience.h */,
-				D7680DC75C8F95F489EAF814F1BEABA2 /* JXHTTPOperation+Convenience.m */,
-				256E3FAC44AC58DE3382B958ED0A0E5D /* JXHTTPOperationDelegate.h */,
-				EC106F40A318740F43BBD7A64C0EA96F /* JXHTTPOperationQueue.h */,
-				CFCCD157649EE2E0B3E7781832787EA3 /* JXHTTPOperationQueue.m */,
-				AFD638FCF2F4E0FB15CFCD89068398FA /* JXHTTPOperationQueueDelegate.h */,
-				4994445B444583442194C9CCD43BFEE6 /* JXHTTPRequestBody.h */,
-				06CE9B55A085E09D14DF27E11CC2DDB9 /* JXNetworkActivityIndicatorManager.h */,
-				50C950E7A673DA3F7364CBBF6A032117 /* JXOperation.h */,
-				301EFF6249DEEF0BC8F35CE7D18B1E13 /* JXOperation.m */,
-				3EBCD14CEC6BEF6333AEB8BCAB7DACBE /* JXURLConnectionOperation.h */,
-				287595F7D485A76EEE7C5F2199C04749 /* JXURLConnectionOperation.m */,
-				8BD5BDFD8EE9918D27F57C5E872DD6EB /* JXURLEncoding.h */,
-				A9C740B9CFADDD0DC227ABDC18C00D76 /* JXURLEncoding.m */,
-				B2C2B38EA0F194F2E1CB1A4232EB0A91 /* Support Files */,
-			);
-			path = JXHTTP;
-			sourceTree = "<group>";
-		};
-		912BC139D280E1B1D66546FBDDBD3052 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				F45AA24AB58D8798F0AE175327F698FA /* Info.plist */,
-				855BC9FB293B19B8C77FA355210B67B8 /* TMTumblrSDK.modulemap */,
-				054832BA51AFBF3D1BFAC8DE3967994A /* TMTumblrSDK.xcconfig */,
-				589D5E7EB3EA8D053BFB6D34F7E275C9 /* TMTumblrSDK-dummy.m */,
-				CABE52C82A572D3D8805DAD193D4C07C /* TMTumblrSDK-prefix.pch */,
-				4E028C8B9990B95D09BFBC664ADA9050 /* TMTumblrSDK-umbrella.h */,
+				4065383995AE96FD5AB1AD31913B10A5 /* Info.plist */,
+				B7BC33E7E46B16AD113636B5F2782CA1 /* TMTumblrSDK.modulemap */,
+				6E774521F5FB7B83E8863D529BE9946F /* TMTumblrSDK.xcconfig */,
+				8C647FF0329E2E69D6D4DE5B16E09E08 /* TMTumblrSDK-dummy.m */,
+				6F3D2C292F32905B1861E6BE9C889330 /* TMTumblrSDK-prefix.pch */,
+				238D24798A66714DF26DBA0B1AEBCEF7 /* TMTumblrSDK-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/TMTumblrSDK";
 			sourceTree = "<group>";
 		};
-		925DC316E7E56F1C0B3B81CCAE28A271 /* Fabric */ = {
+		7E0C35C0E365A3BA4C30BE2DAE1C3DB6 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				1C5250D1A3920EDB5B53EBD840DA9B16 /* Frameworks */,
-			);
-			path = Fabric;
-			sourceTree = "<group>";
-		};
-		9F3FC2E405BCA499B8755E1FBA8E021B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				68449E911EA50CE51B46DDE17285ABF4 /* TwitterKit.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A46CB4794EE9A116CDC8AEC53226BB20 /* FLAnimatedImage */ = {
-			isa = PBXGroup;
-			children = (
-				491BAA516BA413D286EF435CDD11F088 /* FLAnimatedImage.h */,
-				684E0F1D0BDBC02AAB1A524E437E6A35 /* FLAnimatedImage.m */,
-				DBE45FC9457F0EEB5D40E069355D9C7D /* FLAnimatedImageView.h */,
-				A83FA612C6896FEF48B0870E47287DC2 /* FLAnimatedImageView.m */,
-				C3637A51D3C9E586813841FFEBF7562F /* Support Files */,
-			);
-			path = FLAnimatedImage;
-			sourceTree = "<group>";
-		};
-		A982DEA029A7BCB5B9A94368E4FAD5F1 /* FlurrySDK */ = {
-			isa = PBXGroup;
-			children = (
-				63E7B40C2DD2AA275F53383190EE3298 /* Flurry.h */,
-				9D5C793F733E420BEADEC63BE9A59673 /* FlurryEmpty.m */,
-				B572B6B68175D0B3AF6B77EF72B06FD9 /* Frameworks */,
-			);
-			name = FlurrySDK;
-			sourceTree = "<group>";
-		};
-		B2C2B38EA0F194F2E1CB1A4232EB0A91 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				9721D8B88136A9F19E080CF17E792BBD /* Info.plist */,
-				AD827A4DDFE24B09F6654CC3B05BF727 /* JXHTTP.modulemap */,
-				FD9934BB8227CD9793E8637B0263F629 /* JXHTTP.xcconfig */,
-				AF5C42CEE59F223D0C704EA777C83BB0 /* JXHTTP-dummy.m */,
-				252ABB29854CD0111668745914AB4B26 /* JXHTTP-prefix.pch */,
-				EF8154EE18DF9829893B81F90B939081 /* JXHTTP-umbrella.h */,
+				7DB0EFF57DA02C971A12C7371185B997 /* Info.plist */,
+				E2F24AD4721F7EB778AA1A0FF2DF0D7F /* Locksmith.modulemap */,
+				85C2F35D9EDD8B99BD6E58987814FDD4 /* Locksmith.xcconfig */,
+				8316EC24004CAE5815618FCCCC063158 /* Locksmith-dummy.m */,
+				D49C02F047B04A91E2E04469906266EB /* Locksmith-prefix.pch */,
+				4B4D86E2BCB9D67C7C122D4E3774391C /* Locksmith-umbrella.h */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/JXHTTP";
+			path = "../Target Support Files/Locksmith";
 			sourceTree = "<group>";
 		};
-		B572B6B68175D0B3AF6B77EF72B06FD9 /* Frameworks */ = {
+		85E0D09FEB037EFE43E20E7D2B06DFC3 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				A74D64E847BB6D2BA534A036B6EA54A8 /* libFlurry_7.5.2.a */,
+				65E40DD0B2C03AE5A0EA14AA08A6B900 /* Info.plist */,
+				938569C9BBFCCD5D342CDFF5E66DD039 /* SwiftyJSON.modulemap */,
+				2962DC6B3AE238B13F3DAE30DD97E918 /* SwiftyJSON.xcconfig */,
+				2AD003853D7DAB25B9ABD44928D28467 /* SwiftyJSON-dummy.m */,
+				6228FE8FF3F7F0940CCA2DA197A5A36C /* SwiftyJSON-prefix.pch */,
+				CECDAB58B0FC037483247243F81E76D7 /* SwiftyJSON-umbrella.h */,
 			);
-			name = Frameworks;
+			name = "Support Files";
+			path = "../Target Support Files/SwiftyJSON";
+			sourceTree = "<group>";
+		};
+		88485E46233C1B609A4C6004E77C167B /* Locksmith */ = {
+			isa = PBXGroup;
+			children = (
+				A0E5DEF14D806DA5F8FF1D9260F362D6 /* Dictionary_Initializers.swift */,
+				EC3CA5F52691B98104CA2B3FF6DED9EC /* Locksmith.h */,
+				82019DF42BB82FBBCB0FA31812946DD1 /* Locksmith.swift */,
+				C5431EB604195964492161435F55ED23 /* LocksmithAccessibleOption.swift */,
+				33E5071E19B483B730338926BD72D2C2 /* LocksmithError.swift */,
+				1A3A902B5C4D47D0A5E03AB1D471F67C /* LocksmithInternetAuthenticationType.swift */,
+				54BC7E70C102C8C36092CEB3D6B4F333 /* LocksmithInternetProtocol.swift */,
+				8F7B8B42FF6FE6774A33A547D4C4ADB4 /* LocksmithSecurityClass.swift */,
+				7E0C35C0E365A3BA4C30BE2DAE1C3DB6 /* Support Files */,
+			);
+			path = Locksmith;
+			sourceTree = "<group>";
+		};
+		89B1F5FA5CD959F4793D7023B0FE5619 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				76BBF4B756C1AC449F3802F1E314A9AA /* FLAnimatedImage.modulemap */,
+				28BC1E69F6DD5A09E3EFD78D65C5D62E /* FLAnimatedImage.xcconfig */,
+				34F81CA49294343B2EE5CE465F0896EE /* FLAnimatedImage-dummy.m */,
+				9BA4CB9876E9438A85EF33068D2EFFFA /* FLAnimatedImage-prefix.pch */,
+				9FE7FFC659758D1684D05C76267205B5 /* FLAnimatedImage-umbrella.h */,
+				7CB28C7A0590E2E7FEBF2AFF82802818 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/FLAnimatedImage";
+			sourceTree = "<group>";
+		};
+		8FFB87AEC72E694917364B16E10E142F /* TwitterCore */ = {
+			isa = PBXGroup;
+			children = (
+				474FDB35623AA35E21279D51D7EFB7B0 /* Frameworks */,
+			);
+			path = TwitterCore;
+			sourceTree = "<group>";
+		};
+		A54DF5EB4A2C15F52420B0C0B3FC1E2B /* TwitterKit */ = {
+			isa = PBXGroup;
+			children = (
+				38763AA9122F2BBE6A9128DE113F7F84 /* Frameworks */,
+				FB951EA6A43CAB6672F2F80FEBA904EC /* Resources */,
+			);
+			path = TwitterKit;
 			sourceTree = "<group>";
 		};
 		B6537B38C3C0BA612351865FB2B80E68 /* Products */ = {
@@ -838,13 +865,30 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BB852065CE27391C5F23C8F73298F83B /* SwiftyJSON */ = {
+		B847CC48A1459445062417CFA445E759 /* TMTumblrSDK */ = {
 			isa = PBXGroup;
 			children = (
-				5C484C1F130B17ED8D571E63EF2B4832 /* SwiftyJSON.swift */,
-				1F983690CE53DDF3ECAA77ABDD36B95F /* Support Files */,
+				41FA2D2E8079084D8623676B00E798FB /* Activity */,
+				3995B0F3A79B23BCAA62F95E4EAFFEBB /* APIClient */,
+				0F0EB190D395D9142F5AB8A97EBB437F /* AppClient */,
+				2B65881455173EAA83F69EB95AC636DE /* Core */,
+				7E01081BF73284A3582934EF56FE2095 /* Support Files */,
 			);
-			path = SwiftyJSON;
+			path = TMTumblrSDK;
+			sourceTree = "<group>";
+		};
+		BAC013F248287CE17BEA4ED66DB4CF57 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1E8327A3FFDED0F70AB455ECFEB2416D /* Flurry-iOS-SDK.modulemap */,
+				6B1FE5125729B14744DE45D3572661D9 /* Flurry-iOS-SDK.xcconfig */,
+				7992DCA50D49CE22750A6BE7AF89279B /* Flurry-iOS-SDK-dummy.m */,
+				D3A7A72887A9D6B5285EB19E269D1060 /* Flurry-iOS-SDK-prefix.pch */,
+				F34564E6AF9F3EA092A91F3AC6454EAD /* Flurry-iOS-SDK-umbrella.h */,
+				74C731CC6B4018BAB9B5F40DF0D1EFC7 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Flurry-iOS-SDK";
 			sourceTree = "<group>";
 		};
 		BD76976D77AE495BC0D12690E2B1DC7A /* Pods-PinchPad */ = {
@@ -865,102 +909,72 @@
 			path = "Target Support Files/Pods-PinchPad";
 			sourceTree = "<group>";
 		};
-		C357528BAF0BC3425FD72DC5A1E6AF71 /* Frameworks */ = {
+		C383F8F34856B3D9F277B2BB1E0A04D3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C7B825787AF354BB7DBB1948682D3F23 /* Crashlytics.framework */,
+				FF963B05A3AC06B85D75868FC1CA0C75 /* libFlurry_7.5.2.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C3637A51D3C9E586813841FFEBF7562F /* Support Files */ = {
+		CEED6611686C632F67BC26F1DFB169CD /* ReachabilitySwift */ = {
 			isa = PBXGroup;
 			children = (
-				FB40BB26898C6E97D39F262631C42187 /* FLAnimatedImage.modulemap */,
-				7E17F6C5065ED4E2D1DAB333813301DF /* FLAnimatedImage.xcconfig */,
-				340BA6EEE0C092398427742A8C6D9FC8 /* FLAnimatedImage-dummy.m */,
-				0927537A812564B6434A642B11686453 /* FLAnimatedImage-prefix.pch */,
-				146C176AE1E3B25D0758F268312C04C4 /* FLAnimatedImage-umbrella.h */,
-				2AB635CA7182782BDB2658EB617585BC /* Info.plist */,
+				3E697A48F843C0CDBAD0D9D517545306 /* Reachability.swift */,
+				443862ED06F4D788F176346A28672C3B /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/FLAnimatedImage";
+			path = ReachabilitySwift;
 			sourceTree = "<group>";
 		};
-		CCFEF2632072D200558EF2483CD28686 /* TwitterKit */ = {
+		DC07830A60D774349FAAB6C3F96B3223 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9F3FC2E405BCA499B8755E1FBA8E021B /* Frameworks */,
-				3446AA61EB1EE5190EE20F3DA8F51C05 /* Resources */,
+				442346AE09AA34F78A16C2DE3828A7C7 /* Crashlytics */,
+				059D2C4488337EFFF21D0B89FFD40AFE /* Fabric */,
+				4781F68E4DB7B35544911DD3DF2D96C0 /* FLAnimatedImage */,
+				FE847E39DD7AE9CF0206E133B27D1A63 /* Flurry-iOS-SDK */,
+				0AF1A80A4B2C9099E75FE8FBD545F7BA /* JXHTTP */,
+				88485E46233C1B609A4C6004E77C167B /* Locksmith */,
+				CEED6611686C632F67BC26F1DFB169CD /* ReachabilitySwift */,
+				284AAE540F83BBD6B77AE2E31225C9E4 /* Spectacles */,
+				584D294FB22EA341C1699E4BF29124B2 /* SwiftyJSON */,
+				B847CC48A1459445062417CFA445E759 /* TMTumblrSDK */,
+				3B5EB500B22BE83E6046AE2563B3CF01 /* Toast-Swift */,
+				8FFB87AEC72E694917364B16E10E142F /* TwitterCore */,
+				A54DF5EB4A2C15F52420B0C0B3FC1E2B /* TwitterKit */,
 			);
-			path = TwitterKit;
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		CEB47D9063770D11DE07D55CEA26F931 /* Support Files */ = {
+		E3ADE8AA374AA2AC30382F1068BAD371 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C7ADE4679E7E634716C95C9E5A7ADC1D /* Flurry-iOS-SDK.modulemap */,
-				252BB64A0209D2B7ADB4774D39DE18E3 /* Flurry-iOS-SDK.xcconfig */,
-				1E3F12531828535F2D98CAA7908E7385 /* Flurry-iOS-SDK-dummy.m */,
-				3889FF9DF078EA1C7A2A40CDF9BAD052 /* Flurry-iOS-SDK-prefix.pch */,
-				0ECC5C387BD66CB48571A439B110433D /* Flurry-iOS-SDK-umbrella.h */,
-				2303CE77D9AB56FE02AB2D50BE890BC6 /* Info.plist */,
+				A44EC817DA0B3962AFD5F113037701FD /* Crashlytics.framework */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/Flurry-iOS-SDK";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CFAF26C7999A254A6F13B659EB03DBDC /* AppClient */ = {
+		E6F5E0DA872D2FC354139EED1F1FE39A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				47CB7E258EB245FB07E151B633ADE891 /* TMTumblrAppClient.h */,
-				490DBB7A74D9B8898310C85F2A5D4D6D /* TMTumblrAppClient.m */,
+				BF5965685306F4B00B2760FDCCFF3EDB /* TMTumblrSDK.podspec.json */,
 			);
-			name = AppClient;
+			name = Resources;
 			sourceTree = "<group>";
 		};
-		E1ECC3A0C7E7783003B6F4BB3C6A6D33 /* TwitterCore */ = {
+		FB951EA6A43CAB6672F2F80FEBA904EC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				31960839E4E14D4E191EBBC7AC506B13 /* Frameworks */,
+				B30A5A3BE7744D94C5E143D23579BCC2 /* TwitterKitResources.bundle */,
 			);
-			path = TwitterCore;
+			name = Resources;
 			sourceTree = "<group>";
 		};
-		F3E858627D4103CBD3E5BF0CACC6D290 /* Crashlytics */ = {
+		FE847E39DD7AE9CF0206E133B27D1A63 /* Flurry-iOS-SDK */ = {
 			isa = PBXGroup;
 			children = (
-				C357528BAF0BC3425FD72DC5A1E6AF71 /* Frameworks */,
-			);
-			path = Crashlytics;
-			sourceTree = "<group>";
-		};
-		F93D5872AA0E61AFA868D64C3B6377BC /* Toast-Swift */ = {
-			isa = PBXGroup;
-			children = (
-				C47D5C1879FEE10EFEC3735EA2F35A4E /* Toast.swift */,
-				44250183A76D2D4D54FF1D73E946C337 /* Support Files */,
-			);
-			path = "Toast-Swift";
-			sourceTree = "<group>";
-		};
-		FA72767F52BAA93F1822AB0D683C9F5A /* TMTumblrSDK */ = {
-			isa = PBXGroup;
-			children = (
-				36D284C909EAE01F0813AB19BF566963 /* Activity */,
-				6F16DF85E74FC7C8E8B22931203EC6FD /* APIClient */,
-				CFAF26C7999A254A6F13B659EB03DBDC /* AppClient */,
-				4AF53C7E51F49514C072BABAF76E7409 /* Core */,
-				912BC139D280E1B1D66546FBDDBD3052 /* Support Files */,
-			);
-			path = TMTumblrSDK;
-			sourceTree = "<group>";
-		};
-		FAB37C7C5C42432B04E14ACBB83CE382 /* Flurry-iOS-SDK */ = {
-			isa = PBXGroup;
-			children = (
-				A982DEA029A7BCB5B9A94368E4FAD5F1 /* FlurrySDK */,
-				CEB47D9063770D11DE07D55CEA26F931 /* Support Files */,
+				706475FBECA057A7D2B2C43D1B4CC6E1 /* FlurrySDK */,
+				BAC013F248287CE17BEA4ED66DB4CF57 /* Support Files */,
 			);
 			path = "Flurry-iOS-SDK";
 			sourceTree = "<group>";
@@ -1542,7 +1556,7 @@
 		};
 		0DDC4CE4B37557CA29E66A847681B032 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FE07F6506878154F430A1E5D97C3CBD0 /* SwiftyJSON.xcconfig */;
+			baseConfigurationReference = 2962DC6B3AE238B13F3DAE30DD97E918 /* SwiftyJSON.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1572,7 +1586,7 @@
 		};
 		15E0759BD4263019D8C71A006D9C24EB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD9934BB8227CD9793E8637B0263F629 /* JXHTTP.xcconfig */;
+			baseConfigurationReference = C67BCC4462E9C571BD98EE2C3E85EE9F /* JXHTTP.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1634,7 +1648,7 @@
 		};
 		3D542B51AA6181C904D1425D7497BE75 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 252BB64A0209D2B7ADB4774D39DE18E3 /* Flurry-iOS-SDK.xcconfig */;
+			baseConfigurationReference = 6B1FE5125729B14744DE45D3572661D9 /* Flurry-iOS-SDK.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1663,7 +1677,7 @@
 		};
 		4799CFBC99D2EDFFDAFD3DEF3186789C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A01BB15C1BCC10A7D993C803398253E /* Locksmith.xcconfig */;
+			baseConfigurationReference = 85C2F35D9EDD8B99BD6E58987814FDD4 /* Locksmith.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1726,7 +1740,7 @@
 		};
 		73F273CD92643180BC8D1BB9F7FF36F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 252BB64A0209D2B7ADB4774D39DE18E3 /* Flurry-iOS-SDK.xcconfig */;
+			baseConfigurationReference = 6B1FE5125729B14744DE45D3572661D9 /* Flurry-iOS-SDK.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1755,7 +1769,7 @@
 		};
 		890F0EA078467E92E7E29ECDBC095211 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 054832BA51AFBF3D1BFAC8DE3967994A /* TMTumblrSDK.xcconfig */;
+			baseConfigurationReference = 6E774521F5FB7B83E8863D529BE9946F /* TMTumblrSDK.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1784,7 +1798,7 @@
 		};
 		9A4EE64BEC5A6A8364C565E6BC02C8B6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6B8C22DFF4749E218E555BAC339B0107 /* Spectacles.xcconfig */;
+			baseConfigurationReference = F4703077EECA758D95B741EBC564156A /* Spectacles.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1813,7 +1827,7 @@
 		};
 		9C1A0920B9E10994ECE2586E9D08C2EE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD9934BB8227CD9793E8637B0263F629 /* JXHTTP.xcconfig */;
+			baseConfigurationReference = C67BCC4462E9C571BD98EE2C3E85EE9F /* JXHTTP.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1842,7 +1856,7 @@
 		};
 		9C27C4D45862AD4714D5688B99C64632 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2E622C9700AE0A9EAF554C3DD33ED374 /* Toast-Swift.xcconfig */;
+			baseConfigurationReference = 5461B51EB6432CE4C58CAD509D8E6E02 /* Toast-Swift.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1871,7 +1885,7 @@
 		};
 		9C8E0BC8277C2A8C6351930BD69655F2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FC248EA3863D0882803A02583C5D3A77 /* ReachabilitySwift.xcconfig */;
+			baseConfigurationReference = B00E732F52C9FD2BCFFC7FAFCE9AA1B5 /* ReachabilitySwift.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1900,7 +1914,7 @@
 		};
 		AE03545064826C1B6A5FEC1E25263CCA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2E622C9700AE0A9EAF554C3DD33ED374 /* Toast-Swift.xcconfig */;
+			baseConfigurationReference = 5461B51EB6432CE4C58CAD509D8E6E02 /* Toast-Swift.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1930,7 +1944,7 @@
 		};
 		B99CBC5B992473AF10D2F19675AF4428 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7E17F6C5065ED4E2D1DAB333813301DF /* FLAnimatedImage.xcconfig */;
+			baseConfigurationReference = 28BC1E69F6DD5A09E3EFD78D65C5D62E /* FLAnimatedImage.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1959,7 +1973,7 @@
 		};
 		C570389A00496EAFA46BD1AAE0D797EA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FC248EA3863D0882803A02583C5D3A77 /* ReachabilitySwift.xcconfig */;
+			baseConfigurationReference = B00E732F52C9FD2BCFFC7FAFCE9AA1B5 /* ReachabilitySwift.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -2027,7 +2041,7 @@
 		};
 		C9DB0097F5C8A64B80E76D98E0D7A373 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FE07F6506878154F430A1E5D97C3CBD0 /* SwiftyJSON.xcconfig */;
+			baseConfigurationReference = 2962DC6B3AE238B13F3DAE30DD97E918 /* SwiftyJSON.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -2056,7 +2070,7 @@
 		};
 		D85AFEEB0621DB9260FA276B9A4C3D77 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 054832BA51AFBF3D1BFAC8DE3967994A /* TMTumblrSDK.xcconfig */;
+			baseConfigurationReference = 6E774521F5FB7B83E8863D529BE9946F /* TMTumblrSDK.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -2085,7 +2099,7 @@
 		};
 		DBA888CC199D653E1E5E69F6F16EE207 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A01BB15C1BCC10A7D993C803398253E /* Locksmith.xcconfig */;
+			baseConfigurationReference = 85C2F35D9EDD8B99BD6E58987814FDD4 /* Locksmith.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -2115,7 +2129,7 @@
 		};
 		F3B9A5DC4D8BB6B7670AEFD7D85CAEF5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6B8C22DFF4749E218E555BAC339B0107 /* Spectacles.xcconfig */;
+			baseConfigurationReference = F4703077EECA758D95B741EBC564156A /* Spectacles.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -2144,7 +2158,7 @@
 		};
 		FE4E0EE8E26A822E347C0A32FE2C82A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7E17F6C5065ED4E2D1DAB333813301DF /* FLAnimatedImage.xcconfig */;
+			baseConfigurationReference = 28BC1E69F6DD5A09E3EFD78D65C5D62E /* FLAnimatedImage.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
