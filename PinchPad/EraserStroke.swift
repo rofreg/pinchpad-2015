@@ -8,7 +8,13 @@
 
 class EraserStroke: Stroke {
     required init(width: CGFloat!, color: UIColor!) {
-        // Eraser strokes are wider and white
+        // Eraser strokes are wider and "white"
         super.init(width: width * 5.0, color: UIColor.whiteColor())
+    }
+    
+    override func drawInView(view: UIView, quickly: Bool) {
+        CGContextSetBlendMode(UIGraphicsGetCurrentContext(), CGBlendMode.Clear)
+        super.drawInView(view, quickly: quickly)
+        CGContextSetBlendMode(UIGraphicsGetCurrentContext(), CGBlendMode.Normal)
     }
 }

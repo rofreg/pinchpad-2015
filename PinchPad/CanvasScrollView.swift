@@ -27,8 +27,8 @@ class CanvasScrollView: UIScrollView, UIScrollViewDelegate{
         
         // Initialize our content view layers, which will handle actual drawing
         self.layers = [Canvas(frame: self.bounds), Canvas(frame: self.bounds)]
-        self.layers.last!.alpha = 0.2
-        for layer in layers {
+        self.layers.last!.alpha = 0.5
+        for layer in layers.reverse() { // Reversed so that the "first" layer ends up on top
             addSubview(layer)
         }
         
@@ -60,8 +60,12 @@ class CanvasScrollView: UIScrollView, UIScrollViewDelegate{
     func didSetCurrentLayer(){
         // Note that Swift does not call didSet when setting attrs in init()
         // Thus we need to manually call this method after initializing our layers
+        for layer in layers {
+            layer.userInteractionEnabled = false
+        }
+        currentLayer.userInteractionEnabled = true
+        
         JotStylusManager.sharedInstance().jotStrokeDelegate = currentLayer
-        bringSubviewToFront(currentLayer)
     }
     
     func updateDiagnostics(){
