@@ -116,13 +116,7 @@ class MenuViewController : UIViewController{
     }
     
     @IBAction func madeByRofreg(){
-        // Adonit testing
-        let jotVC = UIStoryboard.instantiateJotViewControllerWithIdentifier(JotViewControllerUnifiedStylusConnectionAndSettingsIdentifier)
-        let navController = UINavigationController(rootViewController: jotVC)
-        jotVC.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(MenuViewController.dismiss))
-        self.presentViewController(navController, animated: true, completion: nil)
-        
-        //UIApplication.sharedApplication().openURL(NSURL(string:"http://www.pinchpad.com")!)
+        UIApplication.sharedApplication().openURL(NSURL(string:"http://www.pinchpad.com")!)
     }
     
     func dismiss(){

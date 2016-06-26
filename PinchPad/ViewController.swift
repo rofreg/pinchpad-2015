@@ -42,8 +42,14 @@ class ViewController: UIViewController{
         enableAdonitShortcutButtons()
         
         // TODO: Add stylus settings in advanced section of menu
+        // Try to enable extra features for long-pressing menu buttons
+        enableLongPressMenus()
         
         super.viewDidLoad()
+    }
+    
+    func enableLongPressMenus(){
+        pencilButton.valueForKey("view")?.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(ViewController.showStylusSettings)))
     }
     
     
@@ -59,8 +65,12 @@ class ViewController: UIViewController{
     func showStylusSettings() {
         let jotVC = UIStoryboard.instantiateJotViewControllerWithIdentifier(JotViewControllerUnifiedStylusConnectionAndSettingsIdentifier)
         let navController = UINavigationController(rootViewController: jotVC)
-        jotVC.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(MenuViewController.dismiss))
+        jotVC.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(ViewController.dismissStylusSettings))
         self.presentViewController(navController, animated: true, completion: nil)
+    }
+    
+    func dismissStylusSettings(){
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     
