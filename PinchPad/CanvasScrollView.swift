@@ -27,7 +27,6 @@ class CanvasScrollView: UIScrollView, UIScrollViewDelegate{
         
         // Initialize our content view layers, which will handle actual drawing
         self.layers = [Canvas(frame: self.bounds), Canvas(frame: self.bounds)]
-        self.layers.last!.alpha = 0.5
         for layer in layers.reverse() { // Reversed so that the "first" layer ends up on top
             addSubview(layer)
         }
