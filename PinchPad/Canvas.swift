@@ -19,8 +19,12 @@ class Canvas: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        // Support multiple layers on top of each other
+        self.opaque = false
+        
         // Accept input from Adonit styluses
         JotStylusManager.sharedInstance().registerView(self)
+        JotStylusManager.sharedInstance().jotStrokeDelegate = self
     }
 
     required init?(coder: NSCoder) {
@@ -111,7 +115,7 @@ class Canvas: UIView {
         if (self.activeStroke == nil){
             self.activeStroke = ToolConfig.sharedInstance.tool.toStrokeType()
                 .init(width: ToolConfig.sharedInstance.width,
-                    color: ToolConfig.sharedInstance.color)
+                      color: ToolConfig.sharedInstance.color)
         }
         
         // Add point, with pressure data if available
@@ -149,22 +153,20 @@ class Canvas: UIView {
     
     override func drawRect(rect: CGRect) {
         // We're gonna save everything to a cached UIImage
-        UIGraphicsBeginImageContextWithOptions(self.bounds.size, true, 0.0)
+        UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, 0.0)
         
         if let stroke = activeStroke{
             // Draw just the latest line segment
             if let cachedImage = canvasThusFar {
                 cachedImage.drawInRect(rect)
             } else {
-                UIColor.whiteColor().setFill()
-                UIBezierPath(rect: self.bounds).fill()
+                CGContextClearRect(UIGraphicsGetCurrentContext(), self.bounds)
             }
             
             stroke.drawInView(self, quickly: true)
         } else {
             // Redraw everything up to the last step
-            UIColor.whiteColor().setFill()
-            UIBezierPath(rect: self.bounds).fill()
+            CGContextClearRect(UIGraphicsGetCurrentContext(), self.bounds)
             if let cachedImage = canvasAfterLastStroke {
                 cachedImage.drawInRect(rect)
                 

@@ -12,7 +12,7 @@ class CanvasScrollView: UIScrollView, UIScrollViewDelegate{
     var layers = [Canvas]()
     var currentLayer: Canvas! {
         didSet {
-            JotStylusManager.sharedInstance().jotStrokeDelegate = currentLayer
+            didSetCurrentLayer()
         }
     }
     var diagnosticsView: UILabel?
@@ -32,9 +32,9 @@ class CanvasScrollView: UIScrollView, UIScrollViewDelegate{
         }
         
         // Set current active layer
-        // Note that Swift does not call didSet when settings attrs in init()
+        // Note that Swift does not call didSet when setting attrs in init() :|
         self.currentLayer = self.layers.first
-        JotStylusManager.sharedInstance().jotStrokeDelegate = currentLayer
+        didSetCurrentLayer()
         
         // Initialize a view for showing diagnostics
         if CanvasScrollView.FPS_DISPLAY_RATE > 0 {
@@ -54,6 +54,13 @@ class CanvasScrollView: UIScrollView, UIScrollViewDelegate{
         self.panGestureRecognizer.minimumNumberOfTouches = 4
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CanvasScrollView.clear), name: "ResizeCanvas", object: nil)
+    }
+    
+    func didSetCurrentLayer(){
+        // Note that Swift does not call didSet when setting attrs in init()
+        // Thus we need to manually call this method after initializing our layers
+        JotStylusManager.sharedInstance().jotStrokeDelegate = currentLayer
+        bringSubviewToFront(currentLayer)
     }
     
     func updateDiagnostics(){
