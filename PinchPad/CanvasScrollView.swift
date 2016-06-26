@@ -100,13 +100,16 @@ class CanvasScrollView: UIScrollView, UIScrollViewDelegate{
     }
     
     func switchLayers(){
+        let newLayerDescription: String
         if currentLayer == layers.first {
             currentLayer = layers.last
+            newLayerDescription = "back"
         } else {
             currentLayer = layers.first
+            newLayerDescription = "front"
         }
         
-        self.makeToast("Switched layers", duration: 1.0, position: .Bottom)
+        self.makeToast("Switched to \(newLayerDescription) layer", duration: 1.0, position: .Bottom)
     }
     
     
