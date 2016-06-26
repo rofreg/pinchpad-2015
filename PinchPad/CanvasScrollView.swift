@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toast_Swift
 
 class CanvasScrollView: UIScrollView, UIScrollViewDelegate{
     var layers = [Canvas]()
@@ -96,13 +97,13 @@ class CanvasScrollView: UIScrollView, UIScrollViewDelegate{
     }
     
     func switchLayers(){
-        // TODO: show toast message
-        // TODO: expose this feature to non-stylus users
         if currentLayer == layers.first {
             currentLayer = layers.last
         } else {
             currentLayer = layers.first
         }
+        
+        self.makeToast("Switched layers", duration: 1.0, position: .Bottom)
     }
     
     

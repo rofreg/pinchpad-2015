@@ -1,6 +1,0 @@
-framework module Spectacles {
-  umbrella header "Pods-Spectacles-umbrella.h"
-
-  export *
-  module * { export * }
-}

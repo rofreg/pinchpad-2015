@@ -19,6 +19,8 @@ class ViewController: UIViewController{
     @IBOutlet var pendingPostsLabel: UILabel!
     @IBOutlet var pendingPostsRetryButton: UIButton!
     
+    @IBOutlet var undoButton: UIBarButtonItem!
+    @IBOutlet var redoButton: UIBarButtonItem!
     @IBOutlet var pencilButton: UIBarButtonItem!
     @IBOutlet var eraserButton: UIBarButtonItem!
     
@@ -49,6 +51,11 @@ class ViewController: UIViewController{
     }
     
     func enableLongPressMenus(){
+        // Long press to switch layers
+        undoButton.valueForKey("view")?.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(ViewController.switchLayers)))
+        redoButton.valueForKey("view")?.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(ViewController.switchLayers)))
+        
+        // Long press to show stylus settings
         pencilButton.valueForKey("view")?.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(ViewController.showStylusSettings)))
     }
     
@@ -62,7 +69,12 @@ class ViewController: UIViewController{
         JotStylusManager.sharedInstance().addShortcutOptionButton2Default(switchLayersShortcut)
     }
     
-    func showStylusSettings() {
+    func showStylusSettings(gesture: UILongPressGestureRecognizer? = nil){
+        if let state = gesture?.state where state != .Began {
+            // If we're handling a gesture, prevent duplicate events
+            return
+        }
+        
         let jotVC = UIStoryboard.instantiateJotViewControllerWithIdentifier(JotViewControllerUnifiedStylusConnectionAndSettingsIdentifier)
         let navController = UINavigationController(rootViewController: jotVC)
         jotVC.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(ViewController.dismissStylusSettings))
@@ -124,7 +136,11 @@ class ViewController: UIViewController{
         self.canvas.redo()
     }
     
-    func switchLayers(){
+    func switchLayers(gesture: UILongPressGestureRecognizer? = nil){
+        if let state = gesture?.state where state != .Began {
+            // If we're handling a gesture, prevent duplicate events
+            return
+        }
         self.canvas.switchLayers()
     }
     
