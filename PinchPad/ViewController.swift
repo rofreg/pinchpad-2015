@@ -25,6 +25,7 @@ class ViewController: UIViewController{
     @IBOutlet var eraserButton: UIBarButtonItem!
     
     var lastTool = Tool.Brush
+    var stylusConfigRecognizer: UILongPressGestureRecognizer?
    
     override func viewDidLoad() {
         // When our data changes, update the display
@@ -51,12 +52,18 @@ class ViewController: UIViewController{
     }
     
     func enableLongPressMenus(){
+        if let _ = stylusConfigRecognizer {
+        } else {
+            stylusConfigRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.showStylusSettings))
+        }
+        
         // Long press to switch layers
         undoButton.valueForKey("view")?.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(ViewController.switchLayers)))
         redoButton.valueForKey("view")?.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(ViewController.switchLayers)))
         
         // Long press to show stylus settings
-        pencilButton.valueForKey("view")?.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(ViewController.showStylusSettings)))
+        pencilButton.valueForKey("view")?.removeGestureRecognizer(stylusConfigRecognizer!)
+        pencilButton.valueForKey("view")?.addGestureRecognizer(stylusConfigRecognizer!)
     }
     
     
@@ -248,5 +255,7 @@ class ViewController: UIViewController{
             pencilButton.tintColor = activeColor
             eraserButton.tintColor = UIColor.lightGrayColor()
         }
+        
+        enableLongPressMenus()
     }
 }
