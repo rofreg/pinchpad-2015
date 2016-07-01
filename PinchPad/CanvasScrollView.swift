@@ -116,8 +116,18 @@ class CanvasScrollView: UIScrollView, UIScrollViewDelegate{
     // MARK: Image export functions
     
     func asImage() -> UIImage{
-        UIGraphicsBeginImageContextWithOptions(self.bounds.size, true, 0.0)
-        drawViewHierarchyInRect(self.bounds, afterScreenUpdates:true)
+        UIGraphicsBeginImageContextWithOptions(self.contentSize, true, 0.0)
+        
+        // Create a white background
+        UIColor.whiteColor().set()
+        UIRectFill(CGRectMake(0.0, 0.0, self.contentSize.width, self.contentSize.height))
+        
+        // Draw each layer into the bitmap
+        for layer in layers.reverse() {
+            layer.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        }
+        
+        // Capture the composited result
         let viewAsImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
