@@ -70,7 +70,7 @@ class ViewController: UIViewController{
     // MARK: Adonit handling
     
     func enableAdonitShortcutButtons() {
-        let switchLayersShortcut = JotShortcut.init(descriptiveText: "Switch layers", key: "switchLayers", target: self, selector: #selector(ViewController.switchLayers))
+        let switchLayersShortcut = JotShortcut.init(descriptiveText: "Switch layer", key: "layer_switch", target: self.canvas, selector: #selector(CanvasScrollView.switchLayers))
         
         JotStylusManager.sharedInstance().addShortcutOptionButton1Default(switchLayersShortcut)
         JotStylusManager.sharedInstance().addShortcutOptionButton2Default(switchLayersShortcut)
