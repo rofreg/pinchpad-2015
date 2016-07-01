@@ -46,7 +46,7 @@ class MenuViewController : UIViewController{
         let integrations = [AuthManagerService.Twitter: twitterButton, AuthManagerService.Tumblr: tumblrButton]
         for (service, button) in integrations{
             if (AuthManager.isLoggedIn(service)){
-                button.backgroundColor = twitterColor
+                button.backgroundColor = (service == .Twitter ? twitterColor : tumblrColor)
                 let attrString = NSMutableAttributedString(string: "Connected as\n")
                 attrString.appendAttributedString(NSAttributedString(string: AuthManager.identifier(service)!, attributes: [NSFontAttributeName: UIFont.boldSystemFontOfSize(14)]))
                 button.setAttributedTitle(attrString, forState: .Normal)
