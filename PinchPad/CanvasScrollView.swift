@@ -87,7 +87,11 @@ class CanvasScrollView: UIScrollView, UIScrollViewDelegate{
     }
     
     func clear(){
-        currentLayer.clear()
+        // Clear errything and reset to the front layer
+        for layer in layers{
+            layer.clear()
+        }
+        currentLayer = layers.first
         self.layoutSubviews()
     }
     
