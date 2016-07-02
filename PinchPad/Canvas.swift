@@ -162,6 +162,13 @@ class Canvas: UIView {
         if let stroke = activeStroke{
             // Draw just the latest line segment
             if let cachedImage = canvasThusFar {
+                if let cachedCanvasAfterLastStroke = canvasAfterLastStroke{
+                    // Draw the image, not including the current stroke
+                    let imageRef = CGImageCreateWithImageInRect(cachedCanvasAfterLastStroke.CGImage, scaledRect)
+                    let croppedImageThusFar = UIImage(CGImage:imageRef!)
+                    croppedImageThusFar.drawInRect(rect)
+                }
+                
                 // When possible, draw a cropped segment for better performance
                 // This doesn't fully work yet – it fails to draw bg stuff during an active stroke
                 let imageRef = CGImageCreateWithImageInRect(cachedImage.CGImage, scaledRect)
