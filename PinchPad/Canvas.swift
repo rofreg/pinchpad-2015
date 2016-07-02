@@ -174,16 +174,15 @@ class Canvas: UIView {
                 let imageRef = CGImageCreateWithImageInRect(cachedImage.CGImage, scaledRect)
                 let croppedImageThusFar = UIImage(CGImage:imageRef!)
                 croppedImageThusFar.drawInRect(rect)
-                
 //                cachedImage.drawInRect(self.bounds)
             } else {
-                CGContextClearRect(UIGraphicsGetCurrentContext(), self.bounds)
+                CGContextClearRect(UIGraphicsGetCurrentContext(), rect)
             }
             
             stroke.drawInView(self, quickly: true)
         } else {
             // Redraw everything up to the last step
-            CGContextClearRect(UIGraphicsGetCurrentContext(), self.bounds)
+            CGContextClearRect(UIGraphicsGetCurrentContext(), rect)
             if let cachedImage = canvasAfterLastStroke {
                 cachedImage.drawInRect(self.bounds)
                 
