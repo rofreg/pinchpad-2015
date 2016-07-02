@@ -16,7 +16,7 @@ class VariableStroke: Stroke {
     override func drawInView(view: UIView, quickly: Bool){
         self.color.setFill()
         self.color.setStroke()
-        var paths = self.asBezierPaths(quickly)
+        let paths = self.asBezierPaths(quickly)
         if (quickly){
             // Draw all but the very last segment (which is a dot, and might change later)
             for i in (max(0, self.strokeSegmentsDrawn - 1)..<max(0, paths.count - 1)){
@@ -73,13 +73,36 @@ class VariableStroke: Stroke {
                 self.cachedBezierPaths.append(path)
             }
             
-            for bpi in 0 ..< boundingPoints.count - 1 {
-                // Add our first line segment
+            if (quickly){
+                // If drawing quickly, break this stroke into many small UIBezierPaths,
+                // so we can choose to draw only the latest segment
+                
+                for bpi in 0 ..< boundingPoints.count - 1 {
+                    // Add our first line segment
+                    let path = UIBezierPath()
+                    path.moveToPoint(boundingPoints[bpi][0])
+                    path.addLineToPoint(boundingPoints[bpi+1][0])
+                    path.addLineToPoint(boundingPoints[bpi+1][1])
+                    path.addLineToPoint(boundingPoints[bpi][1])
+                    path.closePath()
+                    self.cachedBezierPaths.append(path)
+                }
+            } else {
+                // If drawing slowly, we're drawing the whole stroke
+                // That means using one connected UIBezierPath will be more efficient
+                // TODO: clean up the way this interferes with cachedBezierPaths?
+                // If we tried to draw this stroke again with quickly=true, I suspect
+                // we might get erroneous behavior in some cases
+                
                 let path = UIBezierPath()
-                path.moveToPoint(boundingPoints[bpi][0])
-                path.addLineToPoint(boundingPoints[bpi+1][0])
-                path.addLineToPoint(boundingPoints[bpi+1][1])
-                path.addLineToPoint(boundingPoints[bpi][1])
+                path.moveToPoint(boundingPoints[0][0])
+                for bpi in 0 ..< boundingPoints.count - 1 {
+                    path.addLineToPoint(boundingPoints[bpi+1][0])
+                }
+                path.addLineToPoint(boundingPoints[boundingPoints.count-1][1])
+                for bpi in (0 ..< boundingPoints.count - 1).reverse() {
+                    path.addLineToPoint(boundingPoints[bpi][1])
+                }
                 path.closePath()
                 self.cachedBezierPaths.append(path)
             }
