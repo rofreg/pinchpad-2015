@@ -18,6 +18,21 @@ class Stroke{
             return ToolConfig.sharedInstance.isStylusConnected ? 0.1 : 3
         }
     }
+    var rect: CGRect {
+        get {
+            guard points.count > 0 else {
+                return CGRectZero
+            }
+            
+            // Return a rect that encompasses all points
+            let left = points.map{ $0.location.x }.reduce(CGFloat.max){ min($0,$1) } - width
+            let right = points.map{ $0.location.x }.reduce(CGFloat.min){ max($0,$1) } + width
+            let top = points.map{ $0.location.y }.reduce(CGFloat.max){ min($0,$1) } - width
+            let bottom = points.map{ $0.location.y }.reduce(CGFloat.min){ max($0,$1) } + width
+            
+            return CGRect(x: left, y: top, width: right-left, height: bottom-top)
+        }
+    }
     
     required init(width: CGFloat!, color: UIColor!){
         self.width = width

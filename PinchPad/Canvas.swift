@@ -44,15 +44,16 @@ class Canvas: UIView {
         
         // Only redraw the active stroke once every .05s or so
         if (!self.activeStroke!.isDot()){
-            self.setNeedsDisplay()
+            self.setNeedsDisplayInRect(activeStroke!.rect)
         }
     }
     
     func strokeEnded(atPoint point: CGPoint, withPressure pressure: CGFloat? = nil){
         addPointToActiveStroke(point, pressure: pressure)
         strokes.append(self.activeStroke!)
+        let oldActiveStroke = self.activeStroke
         self.activeStroke = nil
-        self.setNeedsDisplay()
+        self.setNeedsDisplayInRect(oldActiveStroke!.rect)
     }
     
     func strokeCancelled(){
@@ -152,13 +153,22 @@ class Canvas: UIView {
     // MARK: Rendering
     
     override func drawRect(rect: CGRect) {
+        let screenScale = UIScreen.mainScreen().scale
+        let scaledRect = CGRectMake(rect.minX*screenScale, rect.minY*screenScale, rect.size.width*screenScale, rect.size.height*screenScale)
+        
         // We're gonna save everything to a cached UIImage
         UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, 0.0)
         
         if let stroke = activeStroke{
             // Draw just the latest line segment
             if let cachedImage = canvasThusFar {
-                cachedImage.drawInRect(rect)
+                // When possible, draw a cropped segment for better performance
+                // This doesn't fully work yet – it fails to draw bg stuff during an active stroke
+                let imageRef = CGImageCreateWithImageInRect(cachedImage.CGImage, scaledRect)
+                let croppedImageThusFar = UIImage(CGImage:imageRef!)
+                croppedImageThusFar.drawInRect(rect)
+                
+//                cachedImage.drawInRect(self.bounds)
             } else {
                 CGContextClearRect(UIGraphicsGetCurrentContext(), self.bounds)
             }
@@ -168,7 +178,7 @@ class Canvas: UIView {
             // Redraw everything up to the last step
             CGContextClearRect(UIGraphicsGetCurrentContext(), self.bounds)
             if let cachedImage = canvasAfterLastStroke {
-                cachedImage.drawInRect(rect)
+                cachedImage.drawInRect(self.bounds)
                 
                 // Draw the most recent stroke in full
                 if let stroke = strokes.last {
@@ -192,8 +202,11 @@ class Canvas: UIView {
         }
         
         // Draw result to screen
-        // TODO: this is slow. use a second view as an on-screen buffer?
-        canvasThusFar!.drawInRect(rect)
+        // While drawing an active stroke, we crop this to a smaller area for better performance
+        // This is one of the biggest performance bottlenecks in the app
+        let imageRef = CGImageCreateWithImageInRect(canvasThusFar!.CGImage, scaledRect)
+        let croppedImageThusFar = UIImage(CGImage:imageRef!)
+        croppedImageThusFar.drawInRect(rect)
     }
 }
 
